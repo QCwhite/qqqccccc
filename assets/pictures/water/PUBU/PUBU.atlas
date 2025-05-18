@@ -1,0 +1,62 @@
+
+PUBU.png
+size: 1954,1115
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+PUBU1
+  rotate: true
+  xy: 578, 2
+  size: 518, 438
+  orig: 518, 438
+  offset: 0, 0
+  index: -1
+PUBU2
+  rotate: true
+  xy: 1018, 11
+  size: 523, 453
+  orig: 523, 453
+  offset: 0, 0
+  index: -1
+PUBU3
+  rotate: true
+  xy: 1473, 571
+  size: 542, 479
+  orig: 542, 479
+  offset: 0, 0
+  index: -1
+PUBU4
+  rotate: true
+  xy: 478, 522
+  size: 591, 477
+  orig: 591, 477
+  offset: 0, 0
+  index: -1
+PUBU5
+  rotate: false
+  xy: 2, 21
+  size: 574, 486
+  orig: 574, 486
+  offset: 0, 0
+  index: -1
+PUBU6
+  rotate: true
+  xy: 2, 509
+  size: 604, 474
+  orig: 604, 474
+  offset: 0, 0
+  index: -1
+PUBU7
+  rotate: true
+  xy: 1473, 25
+  size: 544, 466
+  orig: 544, 466
+  offset: 0, 0
+  index: -1
+PUBU8
+  rotate: true
+  xy: 957, 536
+  size: 577, 479
+  orig: 577, 479
+  offset: 0, 0
+  index: -1

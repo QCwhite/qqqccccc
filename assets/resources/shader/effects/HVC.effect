@@ -1,0 +1,129 @@
+// 定义效果
+// Effect Syntax Guide: https://github.com/cocos-creator/docs-3d/blob/master/zh/material-system/effect-syntax.md
+
+
+CCEffect %{
+  techniques:
+    - passes:
+        - vert: unlit-vs:vert
+          frag: unlit-fs:frag
+          depthStencilState:
+            depthTest: false
+            depthWrite: false
+          blendState:
+            targets:
+              - blend: true
+                blendSrc: src_alpha
+                blendDst: one_minus_src_alpha
+                blendDstAlpha: one_minus_src_alpha
+          rasterizerState:
+            cullMode: none
+          properties:
+       
+            brightness: { value: 1.0 }    # 亮度
+            saturation: { value: 1.0 }    # 饱和度
+            contrast: { value: 1.0 }      # 对比度
+}%
+
+CCProgram unlit-fs %{
+  precision highp float;
+  #include <builtin/internal/alpha-test>
+
+  in vec4 v_light;
+  #if TWO_COLORED
+    in vec4 v_dark;
+  #endif
+  in vec2 uv0;
+
+  #pragma builtin(local)
+  layout(set = 2, binding = 12) uniform sampler2D cc_spriteTexture;
+
+  uniform BrightnessSaturationContrast {
+    float brightness;    // 亮度
+    float saturation;   // 饱和度
+    float contrast;     // 对比度
+  };
+
+  // 线性插值函数
+  vec3 lerp(vec3 a, vec3 b, float w) {
+    return a + w * (b - a);
+  }
+
+  vec4 frag () {
+    vec4 c = vec4(1.);
+
+    #if USE_EMBEDDED_ALPHA
+      c *= vec4(texture(cc_spriteTexture, uv0).rgb, texture(cc_spriteTexture, uv0 + vec2(0.0, 0.5)).r);
+    #else
+      c *= texture(cc_spriteTexture, uv0);
+    #endif
+
+    // Alpha 测试
+    ALPHA_TEST(c);
+
+    // 亮度调整
+    vec3 finalColor = c.rgb * brightness;
+
+    // 饱和度调整
+    float luminance = 0.2126 * finalColor.r + 0.7152 * finalColor.g + 0.0722 * finalColor.b;
+    vec3 luminanceColor = vec3(luminance, luminance, luminance);
+    finalColor = lerp(luminanceColor, finalColor, saturation);
+
+    // 对比度调整
+    vec3 avgColor = vec3(0.5, 0.5, 0.5);
+    finalColor = lerp(avgColor, finalColor, contrast);
+
+    return vec4(finalColor, c.a);
+  }
+}%
+
+CCProgram unlit-vs %{
+  precision highp float;
+
+  #include <builtin/uniforms/cc-global>
+  #if USE_LOCAL
+    #include <builtin/uniforms/cc-local>
+  #endif
+
+  in vec3 a_position;
+  in vec2 a_texCoord;
+  in vec4 a_color;
+
+  out vec4 v_light;
+  out vec2 uv0;
+
+  #if TWO_COLORED
+    in vec4 a_color2;
+    out vec4 v_dark;
+  #endif
+
+  vec4 vert () {
+    vec4 pos = vec4(a_position, 1);
+
+    #if USE_LOCAL
+      pos = cc_matWorld * pos;
+    #endif
+
+    pos = cc_matViewProj * pos;
+
+    uv0 = a_texCoord;
+
+    v_light = a_color;
+    #if TWO_COLORED
+      v_dark = a_color2;
+    #endif
+
+    return pos;
+  }
+}%
+
+
+
+
+
+
+
+
+
+
+

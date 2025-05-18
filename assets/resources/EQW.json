@@ -1,0 +1,2044 @@
+[{
+    "id": "A110",
+    "name": "剑",
+    "an": "2",
+    "aface": "正前方一格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "一把普通的剑，攻击对前方造成两点物理伤害",
+    "description": "最基础的装备可花费2点气升级为“还不错的刀（二级刀·甲）”或“有点长的刀（二级刀·乙）”",
+    "else": "拿着它，你回想起了小时候对勇者的幻想......勇者怎么会用这种东西？"
+},
+{
+    "id": "A131",
+    "name": "还不错的刀（二级刀·甲）",
+    "an": "2",
+    "aface": "正前方一格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "一把被打磨过的剑，若攻击时正前方一格没有单位，则会先向前移动一格再攻击对正面造成2点伤害",
+    "description": "被打磨的更锋利，对护甲有更强的穿透力可花费4点气升级为“还不错的刀（三级刀·甲）”",
+    "else": "需要被打磨可不止刀剑，还有使用者的技艺"
+},
+{
+    "id": "A132",
+    "name": "有点长的刀（二级刀·乙）",
+    "an": "2",
+    "aface": "正前方一格、斜前方一格（伤害 - 1）",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "一把被打磨过的剑，可以选择对正面造成2点伤害或者对斜向造成1点伤害",
+    "description": "长了一些，可以攻击到斜前方了可花费4点气升级为“还不错的刀（三级刀·乙）”",
+    "else": "或许直接加长到40米就无敌了？"
+},
+{
+    "id": "A151",
+    "name": "锋利轻便的刀（三级刀·甲）",
+    "an": "3",
+    "aface": "正前方一格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "一把很牛的剑，若攻击时正前方一格没有单位，则会先向前移动一格再攻击，对正面造成3点伤害",
+    "description": "受到精细打磨，使用轻便材料",
+    "else": "你问我用的什么材料？我不会说是商业机密，因为我也不知道"
+},
+{
+    "id": "A152",
+    "name": "不寻长的刀（三级刀·乙）",
+    "an": "3",
+    "aface": "正前方一格、斜前方一格（伤害 - 1）",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "一把很牛的剑，可以选择对正面造成3点伤害或者对斜向造成2点伤害",
+    "description": "长度不寻常的刀，对斜前方有不错的威慑力",
+    "else": "这名字谁取的啊？"
+},
+{
+    "id": "A121",
+    "name": "斧头",
+    "an": "1",
+    "aface": "前方三格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "同时对前方和斜前方造成一点伤害，攻击树木时可额外造成一点伤害",
+    "description": "一把用来伐木的斧头可花费5点气升级为“狂战斧”",
+    "else": "我是一个伐伐伐伐伐木工"
+},
+{
+    "id": "A122",
+    "name": "菜刀",
+    "an": "2",
+    "aface": "正前方一格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "攻击对正面造成两点伤害，对没有武器的角色时伤害加1",
+    "description": "一把普通的菜刀，拿着尽显威风可花费4点气升级为“淬血剑”",
+    "else": "菜刀是用来切菜的，但你永远不知道持有者会拿来干什么"
+},
+{
+    "id": "A123",
+    "name": "美式居合",
+    "an": "2",
+    "aface": "正前方无限格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "外表和“不太厉害的刀（一级刀）”一样",
+    "description": "一把看起来和刀一样的枪可花费2点气升级为“还不错的刀（二级刀·甲）”或“（二级枪·甲）”",
+    "else": "大人，时代变了"
+},
+{
+    "id": "杀猪刀",
+    "name": "杀猪刀",
+    "an": "2",
+    "aface": "正前方一格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "攻击小猪时伤害加1",
+    "description": "一把用来对付小猪用的小刀",
+    "else": "没有一只小猪受到伤害小猪：咕噜......哼？"
+},
+{
+    "id": "A125",
+    "name": "鸡剑",
+    "an": "2",
+    "aface": "正前方一格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "一把砍起来十分带感的剑,攻击对正面造成两点伤害,持有者攻击消耗的体能减1",
+    "description": "手持鸡剑，与人击剑可花费4点气升级为“道法剑”",
+    "else": "这把剑随时可能从你手中飞走"
+},
+{
+    "id": "A126",
+    "name": "桃木剑",
+    "an": "1",
+    "aface": "正前方一格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "攻击对正前方一格的单位造成1点物理伤害,目标为亡灵类单位时会变为造成2点魔法伤害,攻击会获得1点气",
+    "description": "一把驱灵辟邪之剑",
+    "else": "妖魔鬼怪快离开，妖魔鬼怪快离开！"
+},
+{
+    "id": "A127",
+    "name": "弯刀",
+    "an": "2",
+    "aface": "斜前方一格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "一把弯弯的刀,只能对斜前方的一格造成2点伤害",
+    "description": "一把弯刀，或许能拿来做些改装可花4点气升级为“镰刀”",
+    "else": "为什么弯刀不能攻击正前方？ 因为那样太强了 "
+},
+{
+    "id": "A128",
+    "name": "物理学圣剑",
+    "an": "1",
+    "aface": "前方三格中的一格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "十分稳固的三角形武器。可以选定正前方或斜前方一格造成一点魔法伤害",
+    "description": "被冠以圣剑之名的撬棍可以花费3气升级为“樊剑”",
+    "else": "物理学的尽头是魔法！"
+},
+{
+    "id": "A141",
+    "name": "巨剑",
+    "an": "2",
+    "aface": "前方三格和左右两格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "一把长而重的剑,可以同时对前方三格和左右两格造成2点伤害",
+    "description": "一把长而重的剑，得利用离心力才能将其挥舞可花6点气升级为“圣骑士之剑”",
+    "else": "自带沉重式防沉迷系统，不建议长时间使用，会致使肌肉酸痛"
+},
+{
+    "id": "A142",
+    "name": "镰刀",
+    "an": "3",
+    "aface": "正前方，击杀目标获得一点体能石",
+    "bn": "1",
+    "bface": "正前方",
+    "BT": "NULL",
+    "effect": "砍小麦的农具,对前方造成3点伤害,如果击杀目标则获得一个体能石",
+    "description": "用于收割之镰，非常锋利可花6点气升级为“死神之镰”",
+    "else": "镰刀为什么不能攻击侧身的敌人啊，是因为太强了吗？ 你知道的太多了 "
+},
+{
+    "id": "A143",
+    "name": "水晶剑",
+    "an": "1",
+    "aface": "正前方一格和斜前方一格（一起）",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "一把bulingbuling的剑,可以同时对前方和斜前方造成一点伤害,持有者每持有2点气则会使攻击额外造成1点魔法伤害并消耗2点气",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "A144",
+    "name": "淬血剑",
+    "an": "2",
+    "aface": "正前方一格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "一把涂满番茄酱的刀,可以对正前方造成2点伤害,每当持有者使用淬血剑对其他单位造成伤害时，淬血剑的攻击力加1",
+    "description": "以他人之血，锐化己之剑锋",
+    "else": "越是浸润鲜血，越是深陷其中"
+},
+{
+    "id": "A145",
+    "name": "道法剑",
+    "an": "1",
+    "aface": "正前方一格、斜前方一格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "一把可以同时对前方和斜前方造成1点伤害的剑,持有者攻击消耗的体能减2，持有者每次攻击会切换伤害类型（物理/魔法，初始为物理）",
+    "description": "在一条道法上愈行愈远之人的佩剑被此番运用之后，此剑也不再是普通的剑了可花费6点气升级为“尚方宝剑”",
+    "else": "“道可道，非常道......““剑兄你别念了！”"
+},
+{
+    "id": "A146",
+    "name": "狂战斧",
+    "an": "3",
+    "aface": "九宫格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "攻击额外消耗1气和一点体能，同时对九宫格造成3点伤害的超级大斧头",
+    "description": "一把染上了疯狂的斧头",
+    "else": "只有我能带领我们走向胜利血怒一出，无人能阻！"
+},
+{
+    "id": "A147",
+    "name": "樊剑",
+    "an": "2",
+    "aface": "正前方一格、斜前方一格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "一把指定正前方或斜前方三格中任意一格造成2点伤害的激光应援棒,攻击会无视目标装备的效果（包括格挡值、闪避概率等）",
+    "description": "樊乱之剑，使人防无可防",
+    "else": "此剑的名字从何而来？——不是我取的，别问我，我不道啊"
+},
+{
+    "id": "A161",
+    "name": "圣骑士之剑",
+    "an": "4",
+    "aface": "以自身为中心的九宫格（不包含自身）",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "同时对九宫格内造成4点伤害的圣骑士之剑，每击杀一个单位获得一颗体能石,据说是哥布林不小心从石头中拔出来的",
+    "description": "象征圣洁正义之剑，手持着它便感觉有力量不断地从体内涌出",
+    "else": "横扫疲倦，做回自己！"
+},
+{
+    "id": "A162",
+    "name": "死神之镰",
+    "an": "∞",
+    "aface": "正前方一格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "一把恐怖到蚊子都不敢煽动翅膀的地狱武器,攻击不再消耗体能攻击会直接杀死正前方一格的单位，每使用死神之镰击杀一名角色（非分身）则会使生命值上限加1",
+    "description": "象征生命尽头之镰，能抹去触及的一切生机",
+    "else": "你永远无法到达存活的真实"
+},
+{
+    "id": "A164",
+    "name": "尚方宝剑",
+    "an": "2",
+    "aface": "正前方一格和斜前方一格（一起）",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "看起来是一条和屠龙刀冰在一起的罗非鱼,持有者攻击消耗的体能减2，若攻击时正前方一格没有单位，则会先向前移动一格再攻击持有者气数为奇数时攻击造成物理伤害，偶数时攻击造成魔法伤害",
+    "description": "见此剑者皆却步三分，持此剑者自信万分",
+    "else": "宝剑在手，天下我有！"
+},
+{
+    "id": "A210",
+    "name": "枪",
+    "an": "2",
+    "aface": "正前方无限",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "1/1",
+    "effect": "一把要装子弹的手枪,对前方直线的第一个单位造成2点伤害",
+    "description": "最基础的装备可花费3点气升级为“改装枪（二级枪·甲）”或“无中生有枪（二级枪·乙）”",
+    "else": "你别看它很小，但是它也很破啊！"
+},
+{
+    "id": "A232",
+    "name": "改装枪（二级枪·甲）",
+    "an": "3",
+    "aface": "正前方无限",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "1/1",
+    "effect": "一把go学长用了都说好的枪,对前方直线的第一个单位造成3点伤害",
+    "description": "通过改装获得了更高的攻击力可花费3点气升级为“高能冲击枪（三级枪·甲）”",
+    "else": "增加威力的方式很简单，把口径造大就行了"
+},
+{
+    "id": "A231",
+    "name": "无中生有枪（二级枪·乙）",
+    "an": "2",
+    "aface": "正前方无限",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "∞/∞",
+    "effect": "NULL",
+    "description": "一把瓦学弟用了都说妙的枪,不用换弹,对前方直线的第一个单位造成2点伤害",
+    "else": "不要纠结子弹从何而来了，这可是到处都在使用法术的世界！"
+},
+{
+    "id": "A252",
+    "name": "虚空生弹枪（三级枪·甲）",
+    "an": "3",
+    "aface": "正前方无限",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "1/1",
+    "effect": "一把高科技火焰枪,造成三点伤害的同时可以击退目标",
+    "description": "在子弹永远打不完的基础上，伤害更高了",
+    "else": "NULL"
+},
+{
+    "id": "A251",
+    "name": "虚空生弹枪（三级枪·乙）",
+    "an": "3",
+    "aface": "正前方无限",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "∞/∞",
+    "effect": "一把高科技雷电枪,造成三点伤害的同时还拥有无限的子弹",
+    "description": "在子弹永远打不完的基础上，伤害更高了",
+    "else": "NULL"
+},
+{
+    "id": "A221",
+    "name": "猎枪",
+    "an": "2",
+    "aface": "正前方无限",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "1/1",
+    "effect": "一把造成2点伤害的猎枪,对生命值高于自己的目标造成额外一点伤害",
+    "description": "一把用来打猎的枪",
+    "else": "NULL"
+},
+{
+    "id": "A221P",
+    "name": "斯海克",
+    "an": "2",
+    "aface": "正前方无限",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "1/1",
+    "effect": "可以指定前方的任意一格,对生命值高于自己的目标造成额外一点伤害",
+    "description": "一把用来打猎的枪",
+    "else": "NULL"
+},
+{
+    "id": "A222",
+    "name": "麻醉枪",
+    "an": "1",
+    "aface": "正前方无限",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "1/1",
+    "effect": "造成一点伤害的小枪,被命中的角色下次行动阶段的所有行动类型的体能消耗加1",
+    "description": "一把医用麻醉枪...？",
+    "else": "这可能大概或许是对大型兽类用的麻醉枪"
+},
+{
+    "id": "A224",
+    "name": "拳击手枪",
+    "an": "2",
+    "aface": "正前方两格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "∞/∞",
+    "effect": "对正前方2格的单位造成2点伤害,攻击视为拳击伤害，且击中正前方一格的单位时重量若为正常及以下则会被击退",
+    "description": "一把看着像玩具的拳头枪",
+    "else": "NULL"
+},
+{
+    "id": "A225",
+    "name": "多嘴青蛙",
+    "an": "2",
+    "aface": "正前方无限、斜前方无限",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "1/1",
+    "effect": "攻击时可选择正前方或左/右斜前方进行发射",
+    "description": "一把适合近距离作战的枪，目标越近，伤害越高可花费6点气升级为“加特林”",
+    "else": "NULL"
+},
+{
+    "id": "A226",
+    "name": "烟枪",
+    "an": "0",
+    "aface": "正前方第二格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "1/1",
+    "effect": "攻击会使正前方第2格为中心的九宫格产生持续6轮的烟雾阻碍视野，使用攻击会扣除使用者1点生命值",
+    "description": "一把能阻碍他人视野的大烟枪子，但吸烟有害身体健康，不建议过多使用可花费1点气升级为“水枪”",
+    "else": "但是哪个老烟民会听你的劝？还不是抽就完了"
+},
+{
+    "id": "A227",
+    "name": "水枪",
+    "an": "1",
+    "aface": "正前方无限",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "无限",
+    "effect": "击中的单位若未面向持有者则会被击退",
+    "description": "一把能让他人自觉远离的枪可花费1点气升级为“烟枪”",
+    "else": "汗流浃背了吧，老弟哦~~那不是汗，是我喷的水啊"
+},
+{
+    "id": "A228",
+    "name": "鸡枪",
+    "an": "2",
+    "aface": "正前方无限",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "∞/∞",
+    "effect": "使用攻击需消耗使用者1点气",
+    "description": "一把能用气代替子弹的枪可花费4点气升级为“UZI”",
+    "else": "NULL"
+},
+{
+    "id": "A241",
+    "name": "激光枪",
+    "an": "2",
+    "aface": "正前方无限",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "1/1",
+    "effect": "NULL",
+    "description": "一把能平等照顾到范围内所有单位的枪可花费10点气升级为“激光炮”",
+    "else": "NULL"
+},
+{
+    "id": "A242",
+    "name": "UZI",
+    "an": "2",
+    "aface": "正前方无限",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "∞/∞",
+    "effect": "持有者主动移动后会直接进行一次攻击",
+    "description": "无限子弹，助力冲锋火力覆盖可花费5点气升级为“暗杀者”",
+    "else": "NULL"
+},
+{
+    "id": "A243",
+    "name": "红缨枪",
+    "an": "2",
+    "aface": "正前方一格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "?/?",
+    "effect": "枪尖位于持有者正前方一格，移动时若使枪尖与其他单位重合则会对其造成两点物理伤害",
+    "description": "不使用子弹的‘枪’，使用枪尖对敌人造成威胁",
+    "else": "NULL"
+},
+{
+    "id": "A261",
+    "name": "火龙炮",
+    "an": "2",
+    "aface": "正前方无限",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "1/1",
+    "effect": "持有者视为额外拥有1个火符攻击时可以选择攻击范围内位置，以选择的位置为中心对九宫格内所有单位造成等量物理伤害",
+    "description": "来自爆炸物的破坏力，能大范围杀伤目标",
+    "else": "NULL"
+},
+{
+    "id": "A262",
+    "name": "激光炮",
+    "an": "5",
+    "aface": "正前方无限",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "∞/∞",
+    "effect": "对前方一条直线上的单位造成5击无视格挡值或护盾的伤害的",
+    "description": "纯粹的力量，能贯穿一切",
+    "else": "NULL"
+},
+{
+    "id": "A263",
+    "name": "暗杀者",
+    "an": "1",
+    "aface": "正前方无限",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "∞/∞",
+    "effect": "攻击始终仅消耗一点体能",
+    "description": "拥有独特的上弹机制，同时能一次性射出所有子弹，对于高坦度的单位有巨大威胁",
+    "else": "NULL"
+},
+{
+    "id": "A264",
+    "name": "地狱南瓜",
+    "an": "3",
+    "aface": "正前方和斜前方无限",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "∞/∞",
+    "effect": "NULL",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "A310",
+    "name": "盾",
+    "an": "1",
+    "aface": "正前方一格",
+    "bn": "1",
+    "bface": "正前方",
+    "BT": "NULL",
+    "effect": "木板子做的盾，格挡正前方受到的一点物理伤害",
+    "description": "最基础的装备可花费2点气升级为“寻常的盾（二级盾·甲）”或“平庸的盾（二级盾·乙）”",
+    "else": "我家旧门板感觉都比这个能抗......"
+},
+{
+    "id": "A331",
+    "name": "寻常的盾（二级盾·甲）",
+    "an": "1",
+    "aface": "正前方一格",
+    "bn": "2",
+    "bface": "正前方",
+    "BT": "NULL",
+    "effect": "坚硬的盾，格挡正前方受到的2点物理伤害",
+    "description": "更加坚固的护盾可花费3点气升级为“（三级盾·甲）”",
+    "else": "NULL"
+},
+{
+    "id": "A332",
+    "name": "平庸的盾（二级盾·乙）",
+    "an": "1",
+    "aface": "正前方一格",
+    "bn": "1",
+    "bface": "正前方、斜前方",
+    "BT": "NULL",
+    "effect": "圆圆的盾，格挡正前方与斜前方受到的1点物理伤害L",
+    "description": "扩宽了盾身，但是没有增加盾的强度可花费3点气升级为“（三级盾·乙）”",
+    "else": "NULL"
+},
+{
+    "id": "A351",
+    "name": "不再寻常的盾（三级盾·甲）",
+    "an": "1",
+    "aface": "正前方一格",
+    "bn": "2",
+    "bface": "正前方",
+    "BT": "NULL",
+    "effect": "免疫来自盾牌朝向的击退，格挡正前方受到的2点物理伤害，攻击会冲撞并击退对手",
+    "description": "又硬又重的护盾，能有效避免持有者被击退",
+    "else": "NULL"
+},
+{
+    "id": "A352",
+    "name": "不再平庸的盾（三级盾·乙）",
+    "an": "1",
+    "aface": "正前方与斜前方",
+    "bn": "1",
+    "bface": "正前方、斜前方",
+    "BT": "NULL",
+    "effect": "格挡正前方与斜前方受到的1点物理伤害并（即使伤害被格挡或抵消也算）时对前方、斜前方一格都造成1点魔法伤害",
+    "description": "有良好的防御范围与格挡能力，还能在被攻击时以附着的魔法反击优良护盾",
+    "else": "NULL"
+},
+{
+    "id": "A321",
+    "name": "刺盾？",
+    "an": "1",
+    "aface": "正前方一格",
+    "bn": "0",
+    "bface": "正前方",
+    "BT": "NULL",
+    "effect": "持有者被攻击时立即对正前方一格造成1点物理伤害",
+    "description": "附带的尖刺让它能对面前的敌人造成一定威胁可花费2点气升级为“刺盾”",
+    "else": "NULL"
+},
+{
+    "id": "A321P",
+    "name": "刺盾",
+    "an": "1",
+    "aface": "正前方一格",
+    "bn": "1",
+    "bface": "正前方",
+    "BT": "NULL",
+    "effect": "持有者被攻击时立即对正前方一格造成1点物理伤害",
+    "description": "附带的尖刺让它能对面前的敌人造成一定威胁可花费4点气升级为“（三级盾·乙）”",
+    "else": "NULL"
+},
+{
+    "id": "A322",
+    "name": "法盾",
+    "an": "1",
+    "aface": "九宫格",
+    "bn": "1",
+    "bface": "正前方",
+    "BT": "NULL",
+    "effect": "能够使持有者获得一定的魔法抗性的护盾，但似乎不耐击打",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "A343",
+    "name": "大法盾",
+    "an": "1",
+    "aface": "九宫格",
+    "bn": "1",
+    "bface": "正前方",
+    "BT": "NULL",
+    "effect": "能够使持有者获得一定的魔法抗性的护盾，但似乎不耐击打",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "A323P1",
+    "name": "碎石盾",
+    "an": "1",
+    "aface": "正前方一格",
+    "bn": "2",
+    "bface": "正前方",
+    "BT": "NULL",
+    "effect": "受到伤害时格挡值会减1，格挡值降为0时销毁",
+    "description": "一块石头做成的护盾，坏了难以被修复可花费[当前格挡值 + 1]点气升级以增加1点当前格挡值",
+    "else": "这可真是厚重如山啊！——毕竟是山上搬来的石头"
+},
+{
+    "id": "A323P2",
+    "name": "石盾",
+    "an": "1",
+    "aface": "正前方一格",
+    "bn": "2",
+    "bface": "正前方",
+    "BT": "NULL",
+    "effect": "受到伤害时格挡值会减1，格挡值降为0时销毁",
+    "description": "一块石头做成的护盾，坏了难以被修复可花费[当前格挡值 + 1]点气升级以增加1点当前格挡值",
+    "else": "这可真是厚重如山啊！——毕竟是山上搬来的石头"
+},
+{
+    "id": "A323P3",
+    "name": "岗石盾",
+    "an": "1",
+    "aface": "正前方一格",
+    "bn": "2",
+    "bface": "正前方",
+    "BT": "NULL",
+    "effect": "受到伤害时格挡值会减1，格挡值降为0时销毁",
+    "description": "一块石头做成的护盾，坏了难以被修复可花费[当前格挡值 + 1]点气升级以增加1点当前格挡值",
+    "else": "这可真是厚重如山啊！——毕竟是山上搬来的石头"
+},
+{
+    "id": "A323P4",
+    "name": "水晶盾",
+    "an": "1",
+    "aface": "正前方一格",
+    "bn": "2",
+    "bface": "正前方",
+    "BT": "NULL",
+    "effect": "受到伤害时格挡值会减1，格挡值降为0时销毁",
+    "description": "一块石头做成的护盾，坏了难以被修复可花费[当前格挡值 + 1]点气升级以增加1点当前格挡值",
+    "else": "这可真是厚重如山啊！——毕竟是山上搬来的石头"
+},
+{
+    "id": "A324",
+    "name": "小侧盾",
+    "an": "1",
+    "aface": "正前方一格",
+    "bn": "1",
+    "bface": "正左及正右方",
+    "BT": "NULL",
+    "effect": "能够抵挡身侧攻击的护盾可花费4点气升级为“大侧盾”",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "A341",
+    "name": "防爆盾",
+    "an": "1",
+    "aface": "正前方一格",
+    "bn": "2",
+    "bface": "正前方",
+    "BT": "NULL",
+    "effect": "受到火属性伤害时会减少1点",
+    "description": "拥有良好抗火性能的护盾",
+    "else": "冰鲜持久，尽享清凉！特制防爆盾，好评抢购中！"
+},
+{
+    "id": "A342",
+    "name": "东（南西北）盾",
+    "an": "1",
+    "aface": "正东（西南北）方",
+    "bn": "2",
+    "bface": "正东（西南北）方",
+    "BT": "NULL",
+    "effect": "护盾的防御方向不会因转身而改变，攻击会将盾牌朝向改为当前面朝方向，并且免疫来自盾牌朝向的击退",
+    "description": "固定防御方向的护盾",
+    "else": "NULL"
+},
+{
+    "id": "A343",
+    "name": "巨石盾",
+    "an": "1",
+    "aface": "正前方一格",
+    "bn": "3",
+    "bface": "正前方",
+    "BT": "NULL",
+    "effect": "成功格挡到伤害后格挡值会减1，格挡值降为0时销毁",
+    "description": "一块巨大石头做成的巨大的护盾，坏了难以被修复",
+    "else": "NULL"
+},
+{
+    "id": "A344",
+    "name": "大侧盾",
+    "an": "1",
+    "aface": "正前方一格",
+    "bn": "2",
+    "bface": "正左及正右方、斜左及斜右方",
+    "BT": "NULL",
+    "effect": "能够抵挡身侧攻击的护盾，经过扩展后防御范围更广了",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "A345",
+    "name": "冲锋盾",
+    "an": "1",
+    "aface": "正前方一格",
+    "bn": "2",
+    "bface": "正前方",
+    "BT": "NULL",
+    "effect": "受到伤害（即使伤害被格挡或抵消也算）时会立即向正前方移动一格可花费5点气升级为“圣骑士之盾”",
+    "description": "冲锋位使用的护盾，坚固且轻便，利～于快速突进",
+    "else": "NULL"
+},
+{
+    "id": "A361",
+    "name": "圣骑士之盾",
+    "an": "1 + 1",
+    "aface": "正前方与斜前方",
+    "bn": "2",
+    "bface": "正前方、斜前方",
+    "BT": "NULL",
+    "effect": "正前方每有一个敌方单位，移动后会立即获得1点体能",
+    "description": "象征圣洁正义之盾，有种令人放心的厚重感，仿佛没有事物可以贯穿这份守护的力量",
+    "else": "NULL"
+},
+{
+    "id": "A362",
+    "name": "冠军盾",
+    "an": "1",
+    "aface": "正前方一格",
+    "bn": "7",
+    "bface": "正前方",
+    "BT": "NULL",
+    "effect": "格挡值取决于刀塔二在下次夺冠前所经历的岁月持有者每次移动会获得一点气攻击会消耗持有者所有的气，按照消耗的气数向前冲刺相同格数，若路径上的首个单位重量为正常及以下且可被击退，则会将该单位击退，直至冲刺结束",
+    "description": "想成为冠军者永不退缩，将成为冠军者一往无前",
+    "else": "愿你的信念如不破之盾，愿你的前路能披荆斩棘"
+},
+{
+    "id": "A363",
+    "name": "嘴盾",
+    "an": "0",
+    "aface": "正前方无限",
+    "bn": "0",
+    "bface": "正前方",
+    "BT": "NULL",
+    "effect": "持有者攻击时会将正前方无限格的可位移异阵营单位朝自身吸近1格，若有吸取到则获得一份增益（1点攻击力 + 1点格挡值 + 1点生命值与上限）",
+    "description": "护盾上的这张嘴能吸取各种力量为持有者所用",
+    "else": "开局一张嘴，数值全靠怼"
+},
+{
+    "id": "A365",
+    "name": "英雄盾",
+    "an": "1",
+    "aface": "正前方 x 格",
+    "bn": "2",
+    "bface": "正前方",
+    "BT": "NULL",
+    "effect": "攻击时会以当前气数为距离（x），向正前方抛投英雄盾，对持有者正前方 x 格上所有敌方单位造成 1 点物理伤害，英雄盾到达最远格会自动返回，再次造成 1 点物理伤害（返回时伤害判定方向相反；最远格只受 1 次正面伤害，不受回程伤害）若击中的单位为友方单位，则会给予该单位 1 点假血，持续一回合",
+    "description": "英雄盾永远不会背叛它的主子，即使是它的主子主动将他丢开",
+    "else": "该装备当前附魔属性：忠诚 III"
+},
+{
+    "id": "A1421",
+    "name": "扫帚",
+    "an": "1",
+    "aface": "正前方一格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "攻击会偷取目标一点气",
+    "description": "一把可以用来扫地的扫把，当然还可以用来拍人",
+    "else": "你可以试试骑着它从悬崖上跳出去，我想你一定会感到很神奇的......或者是惊恐？不过你大概是没有机会进行关于惊恐感想的发表的"
+},
+{
+    "id": "A1422",
+    "name": "钓鱼竿",
+    "an": "0",
+    "aface": "正前方 x 格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "攻击时会以当前气数为距离（x），将正前方 x 格内距离最近的一个单位向持有者拉近一格",
+    "description": "一根用来钓鱼的鱼竿，或许可以拿来钓斜别的东西",
+    "else": "NULL"
+},
+{
+    "id": "A1461",
+    "name": "泰坦重锤",
+    "an": "3",
+    "aface": "正前方第一格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "攻击会对九宫格内的单位（包括自己）造成一点地震伤害",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "A1462",
+    "name": "死灵法杖",
+    "an": "0",
+    "aface": "3 格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "场上每有一个角色处于死亡状态则增加一点攻击力",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "A580",
+    "name": "",
+    "an": "0",
+    "aface": "3 格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "A581",
+    "name": "手里剑",
+    "an": "0",
+    "aface": "3 格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "场上每有一个角色处于死亡状态则增加一点攻击力",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "A581P1",
+    "name": "分裂手里剑",
+    "an": "0",
+    "aface": "3 格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "同时向前方和斜前方发射共3个飞镖",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "A581P2",
+    "name": "无限手里剑",
+    "an": "0",
+    "aface": "3 格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "攻击变为造成真实伤害且手里剑数量变为无限",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "A582",
+    "name": "苦无",
+    "an": "0",
+    "aface": "3 格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "既可以近战挥砍也可以远程投掷的武器，造成两点伤害，投掷后此武器消失",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "A582P1",
+    "name": "飞雷神苦无",
+    "an": "0",
+    "aface": "3 格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "投掷后会使自身传送至投掷点前一格，然后此武器变为普通苦无",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "A582P2",
+    "name": "忍刀",
+    "an": "0",
+    "aface": "3 格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "同时对正前方和斜前方造成1点真实伤害",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "A506",
+    "name": "沙包那么大的拳头",
+    "an": "0",
+    "aface": "3 格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "A509",
+    "name": "攻击环",
+    "an": "0",
+    "aface": "3 格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "",
+    "description": "转身对转身方向造成1点物理伤害",
+    "else": "NULL"
+},
+{
+    "id": "A509P2",
+    "name": "二级攻击环",
+    "an": "0",
+    "aface": "3 格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "",
+    "description": "转身对转身方向造成1点物理伤害，格挡来自周围方向的1的物理伤害",
+    "else": "NULL"
+},
+{
+    "id": "A509P3",
+    "name": "三级攻击环",
+    "an": "0",
+    "aface": "3 格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "",
+    "description": "转身对转身方向造成2点物理伤害，格挡来自周围方向的1的物理伤害",
+    "else": "NULL"
+},
+{
+    "id": "A503",
+    "name": "",
+    "an": "0",
+    "aface": "3 格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "A503A",
+    "name": "距离附魔",
+    "an": "0",
+    "aface": "3 格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "A503B",
+    "name": "魔气附魔",
+    "an": "0",
+    "aface": "3 格",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "",
+    "description": "NULL",
+    "else": "NULL"
+},
+
+{
+    "id": "B01",
+    "name": "盔甲",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "?",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "可以抵挡一次物理伤害（然后销毁最多受到 2 点）",
+    "description": "可以抵挡一定的攻击，但其重量会加剧体能的消耗",
+    "else": "NULL"
+},
+{
+    "id": "B01P",
+    "name": "黄金甲",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "?",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "单次最多受到 1 点物理伤害",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "B02",
+    "name": "魔法袍",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "1",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "具有良好的魔法抗性，而且可以吸收来自魔法的能量",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "B02P",
+    "name": "大魔法袍",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "1",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "每回合结束时对九宫格造成一点魔法伤害",
+    "description": "具有良好的魔法抗性，而且可以吸收来自魔法的能量",
+    "else": "NULL"
+},
+{
+    "id": "B03",
+    "name": "石甲",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "1",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "穿着者视为额外拥有 1 个土符成功格挡 2 次伤害后销毁（护甲类装备格挡的判定在护盾类装备之后）",
+    "description": "石头衣裳，坏了无从修理",
+    "else": "NULL"
+},
+{
+    "id": "B04",
+    "name": "鬼王的新衣",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "穿着者在晚上会变为非实体单位，同时重量降低一个等级（最低为轻），且受到魔法伤害时伤害加 1，白天失去所有效果",
+    "description": "穿着就会变为幽灵一般的存在，来去自如",
+    "else": "NULL"
+},
+{
+    "id": "B05",
+    "name": "守护者",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "穿着者生命值大于等于 2 时，若九宫格内的同阵营角色受到伤害会为其分担一点伤害",
+    "description": "以己之血，守护彼身",
+    "else": "我为兄弟两肋插刀！"
+},
+{
+    "id": "B06",
+    "name": "石榴裙",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "每移动或转身 6 次立即恢复一点生命值，并且每回合可以额外转身一次",
+    "description": "能展现身材，令人拜倒于石榴裙下",
+    "else": "似乎没有规定男性不能穿石榴裙...... “兄弟，你好香别回头，是我”"
+},
+{
+    "id": "B07",
+    "name": "炸药桶",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "穿着者获得该装备后，累计生命值降低 3 点时立即对 1 格范围内其他单位造成 2 点物理伤害",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "B08",
+    "name": "刺猬壳",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "1",
+    "bface": "正后方、斜后方",
+    "BT": "NULL",
+    "effect": "受到伤害时，对后方、斜后方都造成一点物理伤害",
+    "description": "穿于身背，成为刺猬",
+    "else": "NULL"
+},
+{
+    "id": "B09",
+    "name": "亡灵铠",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "当穿着者死亡后，会变为仅有阻挡体积的亡灵，且每回合都可以移动和转身一次，被复活时在亡灵所在格复活",
+    "description": "能挡子弹的亡灵，这很酷吧",
+    "else": "NULL"
+},
+{
+    "id": "B10",
+    "name": "鸡利服",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "在草丛中视为虚体，且夜晚时在草丛中发起攻击也不会暴露视野",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "B11",
+    "name": "刑天铠甲",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "穿着者的生命值上限与生命值加 1 穿着者可以无限次濒死，且在濒死状态下可以行动",
+    "description": "穿着之人会获得超越生死的力量，即使这只是暂时的",
+    "else": "NULL"
+},
+{
+    "id": "B12",
+    "name": "防弹衣",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "受到来自枪械类装备的伤害时伤害减 1",
+    "description": "正如其名，能减少受到的枪械伤害",
+    "else": "我能防御子弹的，老弟"
+},
+{
+    "id": "B13",
+    "name": "水晶甲",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "受到攻击时，若穿着者当前气数大于或等于 3 点，则会消耗 3 点气并抵消该次攻击的所有伤害",
+    "description": "水晶甲能抵挡几乎一切的攻击，且会利用气来修复自身永不损坏",
+    "else": "“能抵挡一切攻击，还能自动修复，那我岂不是无敌了？哈哈哈......”  “别高兴的太早，这玩意在没有气时就彻底不干活了，所以才不会损坏”  “......哈哈哈......蛤？”"
+},
+{
+    "id": "B14",
+    "name": "肉肉甲",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "增加一点生命值与生命上限，每回合恢复一点生命值",
+    "description": "坦度获得了提升，代价是灵活性的降低",
+    "else": "NULL"
+},
+{
+    "id": "B15",
+    "name": "狂战甲",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "生命值降低时立即获得一个体能石与一气生命值为一时获得一点格挡",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "B16",
+    "name": "路人甲",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "转身或移动后，使得九宫格范围内的单位面向远离自身",
+    "description": "坦度获得了提升，代价是灵活性的降低",
+    "else": "平时轻于鸿毛，受击重于泰山高生低防，极易破防"
+},
+{
+    "id": "B17",
+    "name": "诡异之甲",
+    "an": "NULL",
+    "aface": "物理和魔法",
+    "bn": "2",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "穿着者立即失去 1 气，但生命值与生命值上限加 1；穿着者每回合开始时减少 2 气，若气数不足则会消耗等量生命值进行抵扣",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "B18",
+    "name": "黑洞甲",
+    "an": "NULL",
+    "aface": "无",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "生命值与生命上限加一，每回合吸引生命值低于自己的角色靠近",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "B19",
+    "name": "史莱姆外衣",
+    "an": "NULL",
+    "aface": "无",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "一次性减少的生命值大于等于减少前生命值的一半时后击退 1 格内的可击退单位并回复一点生命值",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "C01",
+    "name": "地雷靴",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "受到来自地雷的伤害时伤害减 2",
+    "description": "拥有坚硬的鞋底，能稍微减轻地雷造成的伤害",
+    "else": "NULL"
+},
+{
+    "id": "C02",
+    "name": "木屐",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "能免疫地震的效果",
+    "description": "拥有增高的鞋底，能隔绝地震的影响",
+    "else": "NULL"
+},
+{
+    "id": "C03",
+    "name": "青蛙腿",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "移动可以选择跳跃至正前方第二格处",
+    "description": "有良好弹性和爆发力，能使你跳着前进",
+    "else": "NULL"
+},
+{
+    "id": "C04",
+    "name": "广东拖鞋",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "穿着者免疫飓风和冰冻法术的效果",
+    "description": "来自广东的神奇拖鞋，在水中行动十分便捷",
+    "else": "NULL"
+},
+{
+    "id": "C06",
+    "name": "迈扣 shoes",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "穿着者可以直接向正后方移动",
+    "description": "一双让人变得想滑步退后的鞋子",
+    "else": "NULL"
+},
+{
+    "id": "C07",
+    "name": "CR8",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "转身不消耗体能，穿着者位于草丛中时，移动消耗的体能减 1",
+    "description": "一双高级的球鞋（迫真）",
+    "else": "NULL"
+},
+{
+    "id": "C08",
+    "name": "高跟鞋",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "对男性造成伤害时伤害加 1，但移动需额外花费 1 体能",
+    "description": "无论是使对方分心还是使用脚踢，这双鞋都能对‘他’造成暴击",
+    "else": "NULL"
+},
+{
+    "id": "C09",
+    "name": "黄金切尔西",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "移动消耗一气，移动消耗体能 - 2，蓄气体能消耗加 1",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "C10",
+    "name": "滑轮",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "无法主动移动，但是获得每回合结束后会自动移动（在水中时无效）",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "C11",
+    "name": "水晶鞋",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "每次移动获得一气",
+    "description": "脆弱的易失鞋子，只有轻盈之人才可驾驭得住吧",
+    "else": "NULL"
+},
+{
+    "id": "C12",
+    "name": "云丸",
+    "an": "NULL",
+    "aface": "移动到前方基于自身气数内的一格，并消耗等量的气和 1 体能，且无视障碍物的效果，质量减一",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "NULL",
+    "description": "孩子，这就是云的实力",
+    "else": "NULL"
+},
+{
+    "id": "C13",
+    "name": "X 战靴",
+    "an": "NULL",
+    "aface": "变得可以斜向移动",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "NULL",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "C14",
+    "name": "鸡脚",
+    "an": "NULL",
+    "aface": "当穿着者的生命值小于等于自身生命值上限的一半时，移动消耗的 TN 减一",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "NULL",
+    "description": "当鸡脚藏不住时，干脆用鸡脚让战斗变得鸡飞狗跳吧",
+    "else": "小黑子终于露出鸡脚了吧！"
+},
+{
+    "id": "C15",
+    "name": "玉卒",
+    "an": "NULL",
+    "aface": "转身后立即移动一次",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "NULL",
+    "description": "现在你就是一个卒，不许后退",
+    "else": "NULL"
+},
+{
+    "id": "C16",
+    "name": "撼地靴",
+    "an": "NULL",
+    "aface": "移动后触发周围九宫格的陷阱并摧毁旗帜，且对九宫格内造成一次地震伤害",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "NULL",
+    "description": "现在你就是一个卒，不许后退",
+    "else": "NULL"
+},
+{
+    "id": "C17",
+    "name": "冲锋靴",
+    "an": "NULL",
+    "aface": "每移动一次攻击力加一，效果在行动回合结束时清零",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "NULL",
+    "description": "现在你就是一个卒，不许后退",
+    "else": "NULL"
+},
+{
+    "id": "C18",
+    "name": "火箭靴",
+    "an": "NULL",
+    "aface": "移动消耗体能减 2，转身消耗体能加 2",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "NULL",
+    "description": "现在你就是一个卒，不许后退",
+    "else": "NULL"
+},
+{
+    "id": "C19",
+    "name": "狂战靴",
+    "an": "NULL",
+    "aface": "移动后攻击一次",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "NULL",
+    "description": "现在你就是一个卒，不许后退",
+    "else": "NULL"
+},
+{
+    "id": "C20",
+    "name": "法阵",
+    "an": "NULL",
+    "aface": "九宫格内敌方无法指定施法，使用法术后对九宫格内的敌人造成一点魔法伤害",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "NULL",
+    "description": "现在你就是一个卒，不许后退",
+    "else": "NULL"
+},
+{
+    "id": "DP1",
+    "name": "项圈",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "仅动物可以携带，会模仿 2 格内队友的移动与攻击",
+    "description": "一个十字架挂饰，赐予诚心者抵挡灾厄的力量",
+    "else": "NULL"
+},
+{
+    "id": "D01",
+    "name": "十字架",
+    "an": "NULL",
+    "aface": "以穿着者为中心的十字无限距离范围内，且气数或当前生命值等于穿着者的友方角色，在穿着者移动或获得生命值时也会立即移动或获得相同的生命值",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "NULL",
+    "description": "一个十字架挂饰，赐予诚心者抵挡灾厄的力量",
+    "else": "NULL"
+},
+{
+    "id": "D02",
+    "name": "水晶之嘴",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "穿着者的气恰好变为 0 时，会立即获得 1 点气和 1 点体能，该效果每回合只能触发两次（轮到穿着者行动回合时刷新次数）",
+    "description": "一张不饶人的嘴，在这张嘴里什么都是它最厉害，讨价还价第一名",
+    "else": "啊对对对，你说的都对但在我这里，只有我才是真的对"
+},
+{
+    "id": "D03",
+    "name": "怯战蜥蜴",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "穿着者每次恢复生命值时获得 1 点气，受到治疗效果时若生命值已满则会额外增加上限",
+    "description": "一张不饶人的嘴，在这张嘴里什么都是它最厉害，讨价还价第一名",
+    "else": "啊对对对，你说的都对但在我这里，只有我才是真的对"
+},
+{
+    "id": "D04",
+    "name": "头戴式丝袜",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "穿着者攻击角色时，会偷取被攻击角色 1 点气",
+    "description": "戴上这个，你就无敌了，孩子",
+    "else": "欢快的 bgm 响起，伴随舞蹈展示购物凭证，你就可以开始快乐的零元购了！还有百亿补贴等着你哟！"
+},
+{
+    "id": "D05",
+    "name": "川普的领带",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "生命值与生命值上限加 1",
+    "description": "不知怎么回事，至少好像脸皮变厚变能抗了？",
+    "else": "NULL"
+},
+{
+    "id": "D06",
+    "name": "保命狗头",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "穿着者能免疫一次会使生命值降至 0 的伤害，之后该装备损毁",
+    "description": "只要拥有保命狗头，你就能保住你的性命",
+    "else": "NULL"
+},
+{
+    "id": "D07",
+    "name": "小丑鼻子",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "每三轮恢复一点生命值",
+    "description": "一只红色的小丑鼻子，带上它脑海里就会响起一阵音乐",
+    "else": "NULL"
+},
+{
+    "id": "D08",
+    "name": "恶霸金链",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "若穿着者的气数或者当前生命值为场上最高，则攻击力加 1（两种可叠加）",
+    "description": "当你拥有足够自信的资本，这条金链就会激发你的潜能",
+    "else": "NULL"
+},
+{
+    "id": "D09",
+    "name": "KGT 项链",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "获得气与生命值时数值均加一",
+    "description": "一件稳定升值的物品",
+    "else": "NULL"
+},
+{
+    "id": "D10",
+    "name": "樊圈",
+    "an": "NULL",
+    "aface": "主动进入自身九宫格和离开自身九宫格的非同阵营单位受到一点魔法伤害并减少一气",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "NULL",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "D11",
+    "name": "亡灵骷髅",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "每有一名角色死亡恢复一点生命值与获得一气",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "D12",
+    "name": "猎牙",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "穿着者的攻击无视物理格挡值",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "D13",
+    "name": "鸡冠",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "穿着者当前生命值小于等于上限的一半时获得 1 点攻击力，大于则使攻击体能消耗减 1。使用体能石时不再获得体能，而是改为获得额外攻击力直到回合结束",
+    "description": "你脑袋上的血又多了一个回路可走",
+    "else": "多了点脑子，但不多"
+},
+{
+    "id": "D14",
+    "name": "仙女吊坠",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "穿着者释放法术后，获得当前场上已死亡角色数相等的体能",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "D15",
+    "name": "冒险者",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "穿着者行动回合结束时，对与穿着者面对面的其他角色造成 1 点真实伤害",
+    "description": "它的眼神太尖锐了",
+    "else": "NULL"
+},
+{
+    "id": "D16",
+    "name": "命运之轮",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "穿着者的奖励轮不再生效，改为在行动回合开始时按穿着者气数判定体能减免的行动类型（0 转身，1 移动、2 蓄气、3 攻击、4 法术、5 商店，后续的气数按上述顺序循环）",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "D17",
+    "name": "血轮",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "穿着者攻击后会获得等同于造成伤害一半的生命值及上限",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "D18",
+    "name": "星",
+    "an": "NULL",
+    "aface": "夜晚时你始终可见，但基础体能及上限加一",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "NULL",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "D19",
+    "name": "阴阳脸",
+    "an": "NULL",
+    "af    ace": "奇数轮免疫物理伤害，偶数轮免疫魔法伤害",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "NULL",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "D20",
+    "name": "元素之心",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "穿着者视为额外拥有 4 种元素符各一个",
+    "description": "NULL",
+    "else": "NULL"
+},
+{
+    "id": "D21",
+    "name": "胜利之钥",
+    "an": "NULL",
+    "aface": "NULL",
+    "bn": "NULL",
+    "bface": "NULL",
+    "BT": "NULL",
+    "effect": "当队伍中拥有三个胜利之钥时，直接获得本场游戏的胜利",
+    "description": "NULL",
+    "else": "NULL"
+}
+,
+{
+"id":"FU0",
+"name":"火符",
+"effect": "强大的火属性魔法神符,集齐多个神符可以获得属性加成"
+
+}
+,
+{
+
+    "id":"FU1",
+"name":"土符",
+"effect": "强大的土属性魔法神符,集齐多个神符可以获得属性加成"
+}
+
+,{
+"id":"FU2",
+"name":"水符",
+"effect": "强大的水属性魔法神符,集齐多个神符可以获得属性加成"
+
+
+
+
+}
+,
+{
+    "id":"FU3",
+    "name":"风符",
+"effect": "强大的风属性魔法神符,集齐多个神符可以获得属性加成"
+    
+    
+    
+    
+    }
+    ,
+    {
+        "id":"Hun",
+        "name":"魂石",
+      "effect": "使得本方队伍立即获得一魂"
+        
+  
+        
+        
+        },{
+        "id": "S00-1",
+        "name": "存钱罐（主动）",
+        "description": "消耗3点体能，指定2格范围内的一名角色，抽取其1点气。死亡后击杀者获得所有气",
+        "cost": "3体能"
+      },
+      {
+        "id": "S00-3",
+        "name": "金猪靶罢",
+        "description": "当气数≥5且为全场最高时，获得万能符判定"
+      },
+      {
+        "id": "S00-2",
+        "name": "风险投资（主动）",
+        "description": "消耗1气3体能，使2格内目标获得1点气与一点体能",
+        "cost": "1气3体能"
+      },
+      {
+        "id": "S00-4",
+        "name": "金猪（觉醒）",
+        "description": "风险投资与存钱罐范围+1，消耗体能-1",
+        "requirement": "持有4符"
+      },
+ {
+        "id": "S01-2",
+      "name":"冲锋",
+        "description": "朝着敌人移动后可以获得1体能与1气",
+        "jieS": "FU0+FU1/12xRO"
+    },
+
+  {
+        "id": "S01-1",
+      "name":"全能骑士（主动）",
+        "description": "可以装备两把武器，主动使用可以切换当前使用武器",
+        "jieS": "FU0+FU1/12xRO"
+    },  {
+        "id": "S01-3",
+      "name":"继承",
+        "description": "骑士可以继承死亡队友的气和体能石，骑士死亡会将气和体能石交给轮次更后的队友",
+        "jieS": "FU0+FU1/12xRO"
+    } , 
+    {
+        "id": "S01-4",
+      "name":"圣骑（觉醒）",
+        "description": "每回合开始时，骑士获得1气与1体能石",
+        "jieS": "FU0+FU1/12xRO"
+    } , 
+   {
+        "id": "S02-1",
+        "name": "劫掠",
+        "description": "攻击时：目标气≥己则偷取1气，目标气＜己则额外+1伤害"
+      },
+      {
+        "id": "S02-2",
+        "name": "勾爪",
+        "description": "消耗2气2体能，如果目标气数高于或等于自身则将将目标拉向自身，如果目标生命值低于自身则将自身拉向目标",
+        "cost": "2气2体能"
+      },
+      {
+        "id": "S02-3",
+        "name": "海盗旗（主动）",
+        "description": "消耗2体能2气（每次使用加1气））在自身所在格与1格范围内放置旗帜，九宫格内角色气数判定-2",
+        "cost": "2体能2气（每次使用+1气）"
+      },
+      {
+        "id": "S02-4",
+        "name": "幽灵船长（觉醒）",
+        "description": "死亡后且为晚上时可被不消耗灵魂的复活为虚体幽灵船长，失去所有与装备但获得亡灵刀",
+        "requirement": "持有3魂"
+      }, {
+        "id": "S03-1",
+        "name": "魔法师",
+        "description": "自带1点魔抗并天生拥有法杖"
+      },
+      {
+        "id": "S03-2",
+        "name": "元素大师",
+        "description": "法术溅射+土符格（初始1格）,法术伤害溅射+火符点伤害，法术生效时击退风符格，施法减少水符点体能"
+      },
+        {
+        "id": "S03-3",
+        "name": "大魔法师（觉醒）（主动）",
+        "description": "使用后可以将法术栏在现有法术与其余未选择的法术间切换"
+      },
+  
+      {
+        "id": "S04-2",
+        "name": "剑来",
+        "description": "无法装备非刀剑类的武器，初始拥有一把一级基础刀剑，拥有土符或者水符时受到刀剑的伤害减1，拥有火符或者风符时，对持有刀剑武器的角色加一"
+      },
+      {
+        "id": "S04-1",
+        "name": "刺斩（主动）",
+        "description": "消耗2X+1气+X体能闪现攻击X格目标",
+        "cost": "气量随距离变化"
+      },
+      
+      {
+        "id": "S04-3",
+        "name": "剑圣觉醒",
+        "description": "攻击可瞬移至目标身后，击杀回复体能",
+        "requirement": "持有3符"
+      },
+    
+  
+
+      {
+        "id": "S05-1",
+        "name": "套牛的汉子（主动）",
+        "description": "消耗2气2体能限制目标移动距离",
+        "cost": "2气2体能"
+      },
+      {
+        "id": "S05-2",
+        "name": "对决",
+        "description": "攻击时：对使用相同武器类型的男性角色造成伤害+1"
+      },
+      {
+        "id": "S05-3",
+        "name": "游侠",
+        "description": "气数小于2时，转身消耗的体能-1，且每移动 3 次会立即获得一气"
+      },
+      {
+        "id": "S05-4",
+        "name": "西部之心",
+        "description": "套牛的汉子的持续回合变为无限，对决对生命值高于自己的角色造成的伤害也加一",
+        "requirement": "持有3符"
+      },
+    
+
+ 
+      {
+        "id": "S06-1",
+        "name": "重拳",
+        "description": "拳击伤害+1"
+      },
+      {
+        "id": "S06-2",
+        "name": "蝴蝶步",
+        "description": "朝斜前方移动，消耗3气与3点体能",
+        "cost": "3气3体能"
+      },
+      {
+        "id": "S06-3",
+        "name": "左右勾拳（主动）",
+        "description": "选择左右勾拳的其中一种，对斜前方攻击到斜前方变得能改变目标的面向（左勾拳左转，右勾拳右转），（造成拳击伤害减1）消耗2气与攻击点体能，",
+        "cost": "2气+攻击点体能"
+      },
+      {
+        "id": "S06-4",
+        "name": "升龙拳觉醒",
+        "description": "移动/转身自动触发攻击",
+        "requirement": "持有3符"
+      },
+  
+
+
+      {
+        "id": "S07-1",
+        "name": "墙头草（主动）",
+        "description": "使用技能消耗1体能与1气切换自己的阵营（特工阵营切换至对方阵营时，阵亡仍然算作原本阵营减员）。特工只能使用当前阵营的旗帜，享有当前阵营的法术、魂与角色的共有增益，但在敌方阵营时不能进行复活。",
+        "cost": "1体能1气"
+      },
+      {
+        "id": "S07-2",
+        "name": "碟中谍",
+        "description": "消耗2点体能与2点气，为指定目标附加两个特工标记，当目标是你的队友时，你受到伤害或者目标收到伤害与恢复都会附带一点伤害给目标并消耗一个标记，如果你们是对手时，你会模仿目标的一次行动并消耗一点标记",
+        "cost": "2体能2气"
+      },
+      {
+        "id": "S07-3",
+        "name": "蓝毒兽觉醒",
+        "description": "现在起，所有其他角色都会被同时视为特工的同阵营与异阵容角色，特工使用技能消耗的气和体能减一，使用技能范围加一",
+        "requirement": "持有3符"
+      },
+  
+  
+ 
+      {
+        "id": "S08-1",
+        "name": "分身术（主动）",
+        "description": "消耗2点气，1点生命值，与3点体能，在左右生成两个分身，分身初始拥有2点生命值，分身会模仿本体的移动转身和攻击，分身死亡本体获得一气",
+        "cost": "1生命2气3体能"
+      },
+      {
+        "id": "S08-2",
+        "name": "移形换影（主动）",
+        "description": "选择x格内的一个分身移动到他的位置，销毁这个分身并消耗1点体能与x点气",
+        "cost": "1体能+X气（X=距离）"
+      },
+      {
+        "id": "S08-4",
+        "name": "幻灭觉醒",
+        "description": "本体生命值变动时，所有分身会变为与本体相同的生命值，移形换影时不再摧毁分身，分身不消耗生命值",
+        "requirement": "持有3符"
+      },
+  
+  
+
+      {
+        "id": "S09-1",
+        "name": "华丽转身（主动）",
+        "description": "主动使用可以选择一个方向，进行180度的转身，消耗转身次数，消耗两倍转身消耗的体能",
+        "cost": "2体能"
+      },
+      {
+        "id": "S09-2",
+        "name": "舞步轻盈",
+        "description": "每移动2次第三次移动+1格"
+      },
+      {
+        "id": "S09-3",
+        "name": "光彩夺目（主动）",
+        "description": "让2格内的男性角色面向靠近舞者，消耗3点体能与一点气",
+        "cost": "2体能1气"
+      },
+      {
+        "id": "S09-4",
+        "name": "炫舞觉醒",
+        "description": "攻击环造成的伤害变为真实伤害，且舞者转身消耗的体能减1",
+        "requirement": "持有3符"
+      },
+  
+{
+        "id": "S10-1",
+        "name": "拓土",
+        "description": "你的气数格内与本方旗帜的九宫格视为你的疆土"
+      },
+      {
+        "id": "S10-2",
+        "name": "收税（主动）",
+        "description": "消耗x点体能对疆域内角色收1气的税，无法交税的角色受到1点真实伤害，每次使用此技能体能消耗加1",
+        "cost": "2体能2气"
+      },
+      {
+        "id": "S10-3",
+        "name": "派遣（主动）",
+        "description": "花费3气花费3气，在你的疆土内，你可以指定任意一个角色视为你派遣的对象，使其获得2气，且你本回合接下来的移动，转身或攻击将由派遣目标执行控制疆土内目标行动",
+        "cost": "3气"
+      },
+      {
+        "id": "S10-4",
+        "name": "棋王",
+        "description": "国王移动（派遣时同样）变为的范围变成九宫格",
+        "requirement": "持有3符"
+      }
+
+]

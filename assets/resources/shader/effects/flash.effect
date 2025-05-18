@@ -1,0 +1,93 @@
+// Effect Syntax Guide: https://docs.cocos.com/creator/manual/zh/shader/index.html
+
+CCEffect %{
+  techniques:
+    - name: default
+      passes:
+        - vert: unlit-vs:vert
+          frag: unlit-fs:frag
+          depthStencilState:
+            depthTest: false
+            depthWrite: false
+          blendState:
+            targets:
+              - blend: true
+                blendSrc: src_alpha
+                blendDst: one_minus_src_alpha
+                blendSrcAlpha: src_alpha
+                blendDstAlpha: one_minus_src_alpha
+          rasterizerState:
+            cullMode: none
+          properties:
+            brightness: { value: 1.0 }
+            saturation: { value: 1.0 }
+            contrast: { value: 1.0 }
+          defines:
+            USE_LOCAL: true
+            TWO_COLORED: false
+}%
+
+CCProgram unlit-fs %{
+  precision highp float;
+  #include <builtin/internal/alpha-test>
+
+  in vec4 v_light;
+  in vec2 uv0;
+
+  #pragma builtin(local)
+  uniform sampler2D cc_spriteTexture;
+
+  uniform BrightnessSaturationContrast {
+    float brightness;
+    float saturation;
+    float contrast;
+  };
+
+  vec3 lerp(vec3 a, vec3 b, float w) {
+    return a + w * (b - a);
+  }
+
+  vec4 frag () {
+    vec4 c = texture(cc_spriteTexture, uv0) * v_light;
+
+    // 亮度调整
+    vec3 finalColor = c.rgb * brightness;
+
+    // 饱和度调整
+    float luminance = dot(finalColor, vec3(0.2126, 0.7152, 0.0722));
+    finalColor = lerp(vec3(luminance), finalColor, saturation);
+
+    // 对比度调整
+    finalColor = lerp(vec3(0.5), finalColor, contrast);
+
+    return vec4(finalColor, c.a);
+  }
+}%
+
+CCProgram unlit-vs %{
+  precision highp float;
+  #include <builtin/uniforms/cc-global>
+  #if USE_LOCAL
+    #include <builtin/uniforms/cc-local>
+  #endif
+
+  in vec3 a_position;
+  in vec2 a_texCoord;
+  in vec4 a_color;
+
+  out vec4 v_light;
+  out vec2 uv0;
+
+  vec4 vert () {
+    #if USE_LOCAL
+      vec4 pos = cc_matWorld * vec4(a_position, 1.0);
+    #else
+      vec4 pos = vec4(a_position, 1.0);
+    #endif
+
+    gl_Position = cc_matViewProj * pos;
+    uv0 = a_texCoord;
+    v_light = a_color;
+    return gl_Position;
+  }
+}%

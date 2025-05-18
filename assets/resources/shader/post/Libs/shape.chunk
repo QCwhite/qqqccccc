@@ -1,0 +1,66 @@
+
+#ifndef SHAPE_INCLUDE
+#define SHAPE_INCLUDE
+
+#include <builtin/uniforms/cc-global>
+#include <Libs/common.chunk>
+#include <Libs/hlslFunction>
+
+float UniversalMask2D(vec2 uv, vec2 center, float intensity, float roundness, float smoothness) {
+    vec2 d = abs(uv - center) * intensity;
+    d = pow(saturate(d), vec2(roundness));
+    float dist = length(d);
+    float vfactor = pow(saturate(1.0 - dist * dist), smoothness);
+    return vfactor;
+}
+
+// 创建圆
+float createCircle(vec2 uv, vec2 pos, float radius, float smoothness) {
+    float dis = distance(pos, uv);
+    dis = smoothstep(radius + smoothness, radius, dis);
+    return dis;
+}
+// 齿轮
+float createGear(vec2 uv, vec2 pos, float scale) {
+    vec2 dir = pos - uv;
+    float radius = length(dir) * scale;
+    float angle = atan(dir.y, dir.x);
+    //造型函数
+    float f = smoothstep(-0.484, 1., cos(angle * 10.0)) * 0.080 + 0.372;
+    float dis = 1. - smoothstep(f, f + 0.02, radius);
+    return dis;
+}
+// 花瓣
+float createPetal(vec2 uv, vec2 pos, float scale) {
+    vec2 dir = pos - uv;
+    float radius = length(dir) * scale;
+    float angle = atan2(dir.y, dir.x);
+    //造型函数
+    float f = abs(cos(angle * 2.5)) * .5 + .3;
+    float dis = 1. - smoothstep(f, f + 0.02, radius);
+    return dis;
+}
+
+// 水滴
+float createWaterDrop(vec2 uv, vec2 pos, float scale) {
+    vec2 dir = pos - uv;
+    float radius = length(dir) * scale;
+    float angle = atan2(dir.y, dir.x);
+    //造型函数
+    float f = 1.0 - pow(abs(angle + -1.548), 2.416);
+    float dis = 1. - smoothstep(f, f + 0.02, radius);
+    return dis;
+}
+
+// 风车
+float createWindmill(vec2 uv, vec2 pos, float scale) {
+    vec2 dir = pos - uv;
+    float radius = length(dir) * scale;
+    float angle = atan2(dir.y, dir.x);
+
+    float f = frac(angle * 1.273) * 0.956;
+    float dis = 1. - smoothstep(f, f + 0.02, radius);
+    return dis;
+}
+
+#endif

@@ -1,0 +1,51 @@
+
+
+
+[
+    {
+        "id": "S01-冲锋",
+      
+        "description": "朝着敌人移动后可以获得1体能",
+        "jieS": "FU0+FU1/12xRO"
+    },
+
+    {
+        "id": "S01-冲锋P",
+       
+        "description": "朝着敌人移动后可以获得1体能和1点气",
+        "jieS": "FU3"
+    },
+    {
+        "id": "S02-掠夺",
+      
+        "description": "Steal resources from enemies.",
+        "jieS": "FU1+3xFU2/10xRO"
+    },
+    {
+        "id": "S02-掠夺P",
+       
+        "description": "Enhanced plunder ability.",
+        "jieS": "FU1+3xFU2/10xRO"
+    },
+    {
+        "id": "S03-火球",
+       
+        "description": "A fiery projectile that explodes on impact.",
+        "jieS": "FU2+2xFU3/8xRO"
+    },
+    {
+        "id": "S04-冰霜",
+       
+        "description": "Freeze enemies in their tracks.",
+        "jieS": "FU3+4xFU4/15xRO"
+    },
+    {
+        "id": "S05-闪电",
+       
+        "description": "Strike enemies with a bolt of lightning.",
+        "jieS": "FU4+5xFU5/20xRO"
+    }
+
+
+
+]

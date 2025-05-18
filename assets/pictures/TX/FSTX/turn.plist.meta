@@ -1,0 +1,252 @@
+{
+  "ver": "1.0.8",
+  "importer": "sprite-atlas",
+  "imported": true,
+  "uuid": "b9ac670d-51be-4db6-a352-2d85de320854",
+  "files": [
+    ".json"
+  ],
+  "subMetas": {
+    "23556": {
+      "importer": "sprite-frame",
+      "uuid": "b9ac670d-51be-4db6-a352-2d85de320854@23556",
+      "displayName": "",
+      "id": "23556",
+      "name": "turn4",
+      "userData": {
+        "importer": "sprite-frame",
+        "atlasUuid": "b9ac670d-51be-4db6-a352-2d85de320854",
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 78,
+        "offsetY": -59,
+        "trimX": 89,
+        "trimY": 127,
+        "width": 88,
+        "height": 82,
+        "rawWidth": 800,
+        "rawHeight": 900,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "packable": true,
+        "pixelsToUnit": 100,
+        "pivotX": 0.5,
+        "pivotY": 0.5,
+        "meshType": 0,
+        "vertices": {
+          "rawPosition": [],
+          "indexes": [],
+          "uv": [],
+          "nuv": [],
+          "minPos": [],
+          "maxPos": []
+        },
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "9ff4d426-2fe5-4bf1-91e7-4294d123b29a@6c48a"
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "1729e": {
+      "importer": "sprite-frame",
+      "uuid": "b9ac670d-51be-4db6-a352-2d85de320854@1729e",
+      "displayName": "",
+      "id": "1729e",
+      "name": "turn1",
+      "userData": {
+        "importer": "sprite-frame",
+        "atlasUuid": "b9ac670d-51be-4db6-a352-2d85de320854",
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 58,
+        "offsetY": -86,
+        "trimX": 89,
+        "trimY": 77,
+        "width": 92,
+        "height": 48,
+        "rawWidth": 800,
+        "rawHeight": 900,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "packable": true,
+        "pixelsToUnit": 100,
+        "pivotX": 0.5,
+        "pivotY": 0.5,
+        "meshType": 0,
+        "vertices": {
+          "rawPosition": [],
+          "indexes": [],
+          "uv": [],
+          "nuv": [],
+          "minPos": [],
+          "maxPos": []
+        },
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "9ff4d426-2fe5-4bf1-91e7-4294d123b29a@6c48a"
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9eeaf": {
+      "importer": "sprite-frame",
+      "uuid": "b9ac670d-51be-4db6-a352-2d85de320854@9eeaf",
+      "displayName": "",
+      "id": "9eeaf",
+      "name": "turn2",
+      "userData": {
+        "importer": "sprite-frame",
+        "atlasUuid": "b9ac670d-51be-4db6-a352-2d85de320854",
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 52,
+        "offsetY": -71,
+        "trimX": 1,
+        "trimY": 1,
+        "width": 130,
+        "height": 74,
+        "rawWidth": 800,
+        "rawHeight": 900,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "packable": true,
+        "pixelsToUnit": 100,
+        "pivotX": 0.5,
+        "pivotY": 0.5,
+        "meshType": 0,
+        "vertices": {
+          "rawPosition": [],
+          "indexes": [],
+          "uv": [],
+          "nuv": [],
+          "minPos": [],
+          "maxPos": []
+        },
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "9ff4d426-2fe5-4bf1-91e7-4294d123b29a@6c48a"
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "525fa": {
+      "importer": "sprite-frame",
+      "uuid": "b9ac670d-51be-4db6-a352-2d85de320854@525fa",
+      "displayName": "",
+      "id": "525fa",
+      "name": "turn3",
+      "userData": {
+        "importer": "sprite-frame",
+        "atlasUuid": "b9ac670d-51be-4db6-a352-2d85de320854",
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": true,
+        "offsetX": 53,
+        "offsetY": -61,
+        "trimX": 1,
+        "trimY": 77,
+        "width": 124,
+        "height": 86,
+        "rawWidth": 800,
+        "rawHeight": 900,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "packable": true,
+        "pixelsToUnit": 100,
+        "pivotX": 0.5,
+        "pivotY": 0.5,
+        "meshType": 0,
+        "vertices": {
+          "rawPosition": [],
+          "indexes": [],
+          "uv": [],
+          "nuv": [],
+          "minPos": [],
+          "maxPos": []
+        },
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "9ff4d426-2fe5-4bf1-91e7-4294d123b29a@6c48a"
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "e204b": {
+      "importer": "sprite-frame",
+      "uuid": "b9ac670d-51be-4db6-a352-2d85de320854@e204b",
+      "displayName": "",
+      "id": "e204b",
+      "name": "turn5",
+      "userData": {
+        "importer": "sprite-frame",
+        "atlasUuid": "b9ac670d-51be-4db6-a352-2d85de320854",
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 90,
+        "offsetY": -55,
+        "trimX": 133,
+        "trimY": 1,
+        "width": 58,
+        "height": 74,
+        "rawWidth": 800,
+        "rawHeight": 900,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "packable": true,
+        "pixelsToUnit": 100,
+        "pivotX": 0.5,
+        "pivotY": 0.5,
+        "meshType": 0,
+        "vertices": {
+          "rawPosition": [],
+          "indexes": [],
+          "uv": [],
+          "nuv": [],
+          "minPos": [],
+          "maxPos": []
+        },
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "9ff4d426-2fe5-4bf1-91e7-4294d123b29a@6c48a"
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "atlasTextureName": "turn.png",
+    "format": 3,
+    "textureUuid": "9ff4d426-2fe5-4bf1-91e7-4294d123b29a@6c48a",
+    "uuid": "b9ac670d-51be-4db6-a352-2d85de320854"
+  }
+}

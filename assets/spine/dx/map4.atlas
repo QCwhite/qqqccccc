@@ -1,0 +1,188 @@
+
+map4.png
+size: 2004,1313
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+arm-L
+  rotate: true
+  xy: 343, 1283
+  size: 28, 83
+  orig: 30, 85
+  offset: 1, 1
+  index: -1
+arm-R
+  rotate: true
+  xy: 54, 1291
+  size: 20, 46
+  orig: 22, 48
+  offset: 1, 1
+  index: -1
+body
+  rotate: true
+  xy: 630, 1271
+  size: 40, 49
+  orig: 42, 51
+  offset: 1, 1
+  index: -1
+butterfly1
+  rotate: true
+  xy: 208, 1286
+  size: 25, 28
+  orig: 25, 28
+  offset: 0, 0
+  index: -1
+butterfly2
+  rotate: true
+  xy: 238, 1286
+  size: 25, 26
+  orig: 25, 26
+  offset: 0, 0
+  index: -1
+butterfly3
+  rotate: false
+  xy: 182, 1287
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+butterfly4
+  rotate: true
+  xy: 102, 1289
+  size: 22, 24
+  orig: 22, 24
+  offset: 0, 0
+  index: -1
+chiken
+  rotate: false
+  xy: 153, 1288
+  size: 27, 23
+  orig: 29, 25
+  offset: 1, 1
+  index: -1
+clockwise
+  rotate: true
+  xy: 2, 1300
+  size: 11, 16
+  orig: 11, 16
+  offset: 0, 0
+  index: -1
+flower1
+  rotate: false
+  xy: 20, 1299
+  size: 13, 12
+  orig: 13, 12
+  offset: 0, 0
+  index: -1
+flower2
+  rotate: true
+  xy: 528, 1278
+  size: 33, 44
+  orig: 39, 44
+  offset: 0, 0
+  index: -1
+frog1
+  rotate: true
+  xy: 1074, 1240
+  size: 71, 77
+  orig: 73, 79
+  offset: 1, 1
+  index: -1
+frog2
+  rotate: true
+  xy: 898, 1242
+  size: 69, 91
+  orig: 71, 93
+  offset: 1, 1
+  index: -1
+frog3
+  rotate: true
+  xy: 991, 1242
+  size: 69, 81
+  orig: 71, 83
+  offset: 1, 1
+  index: -1
+grandmouse
+  rotate: false
+  xy: 574, 1276
+  size: 54, 35
+  orig: 54, 35
+  offset: 0, 0
+  index: -1
+grass1
+  rotate: false
+  xy: 842, 1258
+  size: 54, 53
+  orig: 63, 53
+  offset: 0, 0
+  index: -1
+grass2
+  rotate: false
+  xy: 266, 1286
+  size: 34, 25
+  orig: 34, 25
+  offset: 0, 0
+  index: -1
+hat
+  rotate: false
+  xy: 468, 1281
+  size: 58, 30
+  orig: 60, 32
+  offset: 1, 1
+  index: -1
+head
+  rotate: true
+  xy: 681, 1271
+  size: 40, 41
+  orig: 42, 43
+  offset: 1, 1
+  index: -1
+leg
+  rotate: true
+  xy: 302, 1284
+  size: 27, 39
+  orig: 29, 41
+  offset: 1, 1
+  index: -1
+light
+  rotate: false
+  xy: 724, 1266
+  size: 48, 45
+  orig: 50, 47
+  offset: 1, 1
+  index: -1
+map4
+  rotate: true
+  xy: 2, 2
+  size: 1236, 2000
+  orig: 1238, 2002
+  offset: 1, 1
+  index: -1
+mushroom
+  rotate: true
+  xy: 128, 1289
+  size: 22, 23
+  orig: 22, 23
+  offset: 0, 0
+  index: -1
+shit
+  rotate: false
+  xy: 774, 1262
+  size: 66, 49
+  orig: 66, 49
+  offset: 0, 0
+  index: -1
+snail
+  rotate: false
+  xy: 35, 1294
+  size: 17, 17
+  orig: 17, 17
+  offset: 0, 0
+  index: -1
+tomato
+  rotate: true
+  xy: 428, 1283
+  size: 28, 38
+  orig: 30, 40
+  offset: 1, 1
+  index: -1

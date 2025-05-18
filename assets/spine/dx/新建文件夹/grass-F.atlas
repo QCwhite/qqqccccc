@@ -1,0 +1,20 @@
+
+grass-F.png
+size: 283,290
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+grassK
+  rotate: false
+  xy: 2, 2
+  size: 208, 118
+  orig: 208, 118
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: false
+  xy: 2, 122
+  size: 279, 166
+  orig: 287, 238
+  offset: 8, 0
+  index: -1

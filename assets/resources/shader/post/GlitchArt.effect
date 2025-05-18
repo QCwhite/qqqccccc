@@ -1,0 +1,128 @@
+CCEffect %{
+techniques:
+    - passes:
+          - vert: vs
+            frag: fs
+            pass: post-process
+            rasterizerState:
+                cullMode: none
+            depthStencilState:
+                depthTest: false
+                depthWrite: false
+            blendState:
+                targets:
+                    - blend: true
+                      blendSrc: one
+                      blendDst: zero
+
+}%
+
+CCProgram ubo %{
+uniform PostUBO {
+	vec4 texSize;
+	vec4 params;
+};
+#pragma rate inputTexture pass
+uniform sampler2D inputTexture;
+}%
+
+CCProgram vs %{
+
+precision highp float;
+
+#include <legacy/decode-standard>
+#include <builtin/uniforms/cc-global>
+#include <common/common-define>
+#include <ubo>
+// #include <Libs/common>
+// #include <Libs/hlslFunction>
+
+#define _ScanLineJitter params.x
+#define _ColorDrift params.y
+#define _VerticalJump params.z
+#define _HorizontalShake params.w
+
+out vec2 v_uv;
+out vec4 v_scanLineJitter;
+out vec4 v_colorDrift;
+
+
+void main() {
+	StandardVertInput In;
+	CCDecode(In);
+	CC_HANDLE_GET_CLIP_FLIP(In.position.xy);
+	gl_Position = In.position;
+	v_uv = a_texCoord;
+	
+	float time_20 = cc_time.x * 0.05;
+	
+	float sl_thresh = saturate(1.0 - _ScanLineJitter * 1.2);
+	float sl_disp = 0.002 + pow(_ScanLineJitter, 3.0) * 0.05;
+	
+	float verticalJump = _VerticalJump;
+	float verticalJumpTime = time_20 * verticalJump;
+	
+	float horizontalShake = _HorizontalShake * 0.2;
+	
+	float colorDrift = _ColorDrift * 0.04;
+	float time = time_20 * 606.11;
+	
+	v_scanLineJitter = vec4(sl_disp, sl_thresh, abs(verticalJump), verticalJumpTime);
+	v_colorDrift = vec4(colorDrift, horizontalShake, time, time_20);
+}
+
+}%
+
+
+CCProgram fs %{
+precision highp float;
+
+#include <builtin/uniforms/cc-global>
+#include <legacy/output-standard>
+#include <unpack>
+#include <Libs/common>
+#include <Libs/color>
+#include <Libs/hlslFunction>
+
+in vec2 v_uv;
+in vec4 v_scanLineJitter;
+in vec4 v_colorDrift;
+#include <ubo>
+
+layout(location = 0)out vec4 fragColor;
+void main() {
+	
+	float sl_disp = v_scanLineJitter.x;
+	float sl_thresh = v_scanLineJitter.y;
+	float verticalJump = v_scanLineJitter.z;
+	float verticalJumpTime = v_scanLineJitter.w;
+	
+	float colorDrift = v_colorDrift.x;
+	float horizontalShake = v_colorDrift.y;
+	float time = v_colorDrift.z;
+	float time_20 = v_colorDrift.w;
+	
+	float u = v_uv.x;
+	float v = v_uv.y;
+	
+	// Scan line jitter           
+	float jitter = nrand(v, time_20) * 2.0 - 1.0;
+	jitter *= step(sl_thresh, abs(jitter)) * sl_disp;
+	
+	// Vertical jump           
+	float jump = mix(v, fract(v + verticalJumpTime), verticalJump);
+	
+	// Horizontal shake           
+	float shake = (nrand(time_20, 2.0) - 0.5) * horizontalShake;
+	
+	// Color drift           
+	float drift = sin(jump + time) * colorDrift;
+	
+	vec4 src1 = texture(inputTexture, fract(vec2(u + jitter + shake, jump)));
+	vec4 src2 = texture(inputTexture, fract(vec2(u + jitter + shake + drift, jump)));
+	vec4 color = vec4(src1.r, src2.g, src1.b, src1.a);
+	
+	fragColor = vec4(color.rgb,1);
+}
+
+}%

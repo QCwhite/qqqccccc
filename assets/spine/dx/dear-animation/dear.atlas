@@ -1,0 +1,83 @@
+
+dear.png
+size: 414,140
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+body
+  rotate: true
+  xy: 81, 18
+  size: 120, 73
+  orig: 120, 73
+  offset: 0, 0
+  index: -1
+ear-B
+  rotate: false
+  xy: 81, 6
+  size: 18, 10
+  orig: 18, 10
+  offset: 0, 0
+  index: -1
+ear-F
+  rotate: true
+  xy: 383, 2
+  size: 26, 18
+  orig: 26, 18
+  offset: 0, 0
+  index: -1
+ear-up
+  rotate: true
+  xy: 383, 30
+  size: 19, 29
+  orig: 19, 29
+  offset: 0, 0
+  index: -1
+face
+  rotate: false
+  xy: 2, 6
+  size: 77, 132
+  orig: 77, 132
+  offset: 0, 0
+  index: -1
+leg-BB
+  rotate: true
+  xy: 281, 2
+  size: 43, 79
+  orig: 43, 79
+  offset: 0, 0
+  index: -1
+leg-BF
+  rotate: false
+  xy: 217, 18
+  size: 62, 120
+  orig: 62, 120
+  offset: 0, 0
+  index: -1
+leg-FB
+  rotate: false
+  xy: 350, 51
+  size: 62, 87
+  orig: 63, 87
+  offset: 0, 0
+  index: -1
+leg-FF
+  rotate: false
+  xy: 156, 10
+  size: 59, 128
+  orig: 59, 128
+  offset: 0, 0
+  index: -1
+neck
+  rotate: false
+  xy: 281, 47
+  size: 67, 91
+  orig: 69, 91
+  offset: 1, 0
+  index: -1
+tail
+  rotate: true
+  xy: 362, 11
+  size: 38, 19
+  orig: 38, 19
+  offset: 0, 0
+  index: -1

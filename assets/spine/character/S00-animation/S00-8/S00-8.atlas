@@ -1,0 +1,41 @@
+
+S00-8.png
+size: 227,317
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+body
+  rotate: true
+  xy: 2, 2
+  size: 158, 217
+  orig: 158, 217
+  offset: 0, 0
+  index: -1
+cao
+  rotate: true
+  xy: 37, 275
+  size: 40, 49
+  orig: 40, 49
+  offset: 0, 0
+  index: -1
+cao1
+  rotate: true
+  xy: 88, 275
+  size: 40, 42
+  orig: 40, 42
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: false
+  xy: 2, 162
+  size: 223, 111
+  orig: 225, 113
+  offset: 1, 1
+  index: -1
+tail
+  rotate: true
+  xy: 2, 294
+  size: 21, 33
+  orig: 62, 122
+  offset: 0, 0
+  index: -1

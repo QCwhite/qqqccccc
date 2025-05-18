@@ -1,0 +1,158 @@
+{
+  "ver": "1.0.8",
+  "importer": "sprite-atlas",
+  "imported": true,
+  "uuid": "c3fb0b5b-d01b-44da-9c21-a5b03de699d7",
+  "files": [
+    ".json"
+  ],
+  "subMetas": {
+    "3344e": {
+      "importer": "sprite-frame",
+      "uuid": "c3fb0b5b-d01b-44da-9c21-a5b03de699d7@3344e",
+      "displayName": "",
+      "id": "3344e",
+      "name": "BA1",
+      "userData": {
+        "importer": "sprite-frame",
+        "atlasUuid": "c3fb0b5b-d01b-44da-9c21-a5b03de699d7",
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 9,
+        "offsetY": 42,
+        "trimX": 297,
+        "trimY": 1,
+        "width": 112,
+        "height": 106,
+        "rawWidth": 800,
+        "rawHeight": 900,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "packable": true,
+        "pixelsToUnit": 100,
+        "pivotX": 0.5,
+        "pivotY": 0.5,
+        "meshType": 0,
+        "vertices": {
+          "rawPosition": [],
+          "indexes": [],
+          "uv": [],
+          "nuv": [],
+          "minPos": [],
+          "maxPos": []
+        },
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "88b06118-93cf-4a48-9203-84a8745f0f74@6c48a"
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "cfe26": {
+      "importer": "sprite-frame",
+      "uuid": "c3fb0b5b-d01b-44da-9c21-a5b03de699d7@cfe26",
+      "displayName": "",
+      "id": "cfe26",
+      "name": "BA2",
+      "userData": {
+        "importer": "sprite-frame",
+        "atlasUuid": "c3fb0b5b-d01b-44da-9c21-a5b03de699d7",
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 8,
+        "offsetY": 35,
+        "trimX": 167,
+        "trimY": 1,
+        "width": 128,
+        "height": 100,
+        "rawWidth": 800,
+        "rawHeight": 900,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "packable": true,
+        "pixelsToUnit": 100,
+        "pivotX": 0.5,
+        "pivotY": 0.5,
+        "meshType": 0,
+        "vertices": {
+          "rawPosition": [],
+          "indexes": [],
+          "uv": [],
+          "nuv": [],
+          "minPos": [],
+          "maxPos": []
+        },
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "88b06118-93cf-4a48-9203-84a8745f0f74@6c48a"
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "77e39": {
+      "importer": "sprite-frame",
+      "uuid": "c3fb0b5b-d01b-44da-9c21-a5b03de699d7@77e39",
+      "displayName": "",
+      "id": "77e39",
+      "name": "BA3",
+      "userData": {
+        "importer": "sprite-frame",
+        "atlasUuid": "c3fb0b5b-d01b-44da-9c21-a5b03de699d7",
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 43,
+        "offsetY": 17,
+        "trimX": 1,
+        "trimY": 1,
+        "width": 164,
+        "height": 80,
+        "rawWidth": 800,
+        "rawHeight": 900,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "packable": true,
+        "pixelsToUnit": 100,
+        "pivotX": 0.5,
+        "pivotY": 0.5,
+        "meshType": 0,
+        "vertices": {
+          "rawPosition": [],
+          "indexes": [],
+          "uv": [],
+          "nuv": [],
+          "minPos": [],
+          "maxPos": []
+        },
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "88b06118-93cf-4a48-9203-84a8745f0f74@6c48a"
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "atlasTextureName": "BA.png",
+    "format": 3,
+    "textureUuid": "88b06118-93cf-4a48-9203-84a8745f0f74@6c48a",
+    "uuid": "c3fb0b5b-d01b-44da-9c21-a5b03de699d7"
+  }
+}

@@ -1,0 +1,167 @@
+// Effect Syntax Guide: https://docs.cocos.com/creator/manual/zh/shader/index.html
+
+// resources/shaders/gray.effect
+CCEffect %{
+  techniques:
+  - name: grayscale
+    passes:
+    - vert: vs
+      frag: fs
+      pass: post-process
+      properties: &props
+        grayPercent: { value: 0.5 }
+        u_strength: { value: 1.0 }   # 新增：暗角强度
+        u_radius:   { value: 0.8 }   # 新增：暗角半径
+        u_softness: { value: 0.5 }   # 新增：过渡软硬度
+        u_aspect:   { value: 1.0 }   # 新增：屏幕宽高比
+        lineWidth: { value: 1.0 }
+        lineSpacing: { value: 2.0 }
+        lineColor: { value: [0,0,0,0.5] }
+        lensPower: { value: 0.5 }     # 扭曲强度（0无效果，1强扭曲）
+        lensRadius: { value: 0.8 }    # 影响半径（0-1）
+        crtCurve: { value: 0.3 }      # 屏幕凸起曲率（0-1）
+        chromaShift: { value: 0.002 } # 色差偏移强度
+      rasterizerState:
+        cullMode: none
+      depthStencilState:
+        depthTest: false
+        depthWrite: false
+      blendState:
+        targets:
+        - blend: true
+          blendSrc: one
+          blendDst: one_minus_src_alpha
+          blendSrcAlpha: one
+          blendDstAlpha: zero
+}%
+
+
+
+
+
+CCProgram vs %{
+precision highp float;
+
+#include <legacy/decode-standard>
+#include <builtin/uniforms/cc-global>
+#include <common/common-define>
+
+out vec2 v_uv;
+
+void main () {
+  StandardVertInput In;
+  CCDecode(In);
+  CC_HANDLE_GET_CLIP_FLIP(In.position.xy);
+  gl_Position = In.position;
+
+  v_uv = a_texCoord;
+}
+
+}%
+
+
+CCProgram fs %{
+  precision highp float;
+
+  // #include <builtin/uniforms/cc-global>
+
+  in vec2 v_uv;
+uniform props {
+  vec4 inputViewPort;
+  vec4 lineColor;
+  float grayPercent;   // 灰度比例
+  float u_strength;    // 暗角强度
+  float u_radius;      // 暗角半径
+  float u_softness;    // 过渡软硬度
+  float u_aspect;      // 屏幕宽高比
+  float lineWidth;
+  float lineSpacing;
+  float lensPower;
+  float lensRadius;
+  float crtCurve;
+    float chromaShift;
+  
+};
+vec2 crtDistort(vec2 uv) {
+  vec2 center = vec2(0.5);
+  vec2 dir = uv - center;
+  float dist = length(dir);
+  
+  // 使用二次衰减公式：中心强度高，边缘平滑过渡
+  float attenuation = 1.0 - smoothstep(0.0, 0.8, dist); // 在80%半径内衰减
+  float distortion = 1.0 + crtCurve * dist * attenuation;
+  
+  return clamp(center + dir * distortion, 0.0, 1.0);
+}
+  #pragma rate inputTexture pass
+  uniform sampler2D inputTexture;
+
+  layout(location = 0) out vec4 fragColor;
+vec2 lensDistortion(vec2 uv, float power, float radius) {
+    vec2 center = vec2(0.5);
+    vec2 dir = uv - center;
+    float dist = length(dir);
+    
+    if (dist < radius) {
+      float scale = 1.0 - power * (1.0 - smoothstep(0.0, radius, dist));
+      return center + dir * scale;
+    }
+    return uv; // 超出半径不处理
+  }
+void main() {
+  // 原始颜色采样
+
+ vec2 distortedUV = crtDistort(v_uv);
+    
+    // 2. 色差偏移（RGB通道分离）
+    vec4 srcR = texture(inputTexture, distortedUV + vec2(chromaShift, 0));
+    vec4 srcG = texture(inputTexture, distortedUV);
+    vec4 srcB = texture(inputTexture, distortedUV - vec2(chromaShift, 0));
+
+
+
+
+    // 保留原有处理逻辑（仅替换采样坐标）
+    vec4 src = texture(inputTexture, distortedUV); // 修改此处
+  
+  // ======================
+  // 灰度处理（保持原有逻辑）
+  // ======================
+
+
+    
+  float luminance = dot(src.rgb, vec3(0.299, 0.587, 0.114));
+  vec3 finalColor = mix(src.rgb, vec3(luminance), grayPercent);
+
+  // ======================
+  // 新增暗角处理逻辑
+  // ======================
+  // 坐标转换
+  vec2 uv = v_uv - 0.5;      // 范围变为[-0.5, 0.5]
+  uv.x *= u_aspect;          // 宽高比补偿
+  
+  // 距离计算
+  float dist = length(uv);   // 距离中心点的欧氏距离
+  
+  // 生成渐变系数
+  float vignette = smoothstep(
+    u_radius,                // 起始半径
+    u_radius - u_softness,   // 结束半径
+    dist * u_strength        // 当前距离
+  );
+
+
+  // 应用暗角
+  finalColor *= vignette;
+float screenY = gl_FragCoord.y;  // 使用屏幕空间坐标
+  float linePos = mod(screenY, lineSpacing);
+  if (linePos < lineWidth) {
+    finalColor = mix(finalColor, lineColor.rgb, lineColor.a);
+  }
+  // ======================
+  // 最终输出
+  // ======================
+  fragColor = vec4(finalColor, src.a);
+}
+
+}%

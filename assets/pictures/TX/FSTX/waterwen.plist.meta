@@ -1,0 +1,205 @@
+{
+  "ver": "1.0.8",
+  "importer": "sprite-atlas",
+  "imported": true,
+  "uuid": "91bbac9f-8578-420d-b73a-ea22aa656bf2",
+  "files": [
+    ".json"
+  ],
+  "subMetas": {
+    "295a8": {
+      "importer": "sprite-frame",
+      "uuid": "91bbac9f-8578-420d-b73a-ea22aa656bf2@295a8",
+      "displayName": "",
+      "id": "295a8",
+      "name": "waterwen1",
+      "userData": {
+        "importer": "sprite-frame",
+        "atlasUuid": "91bbac9f-8578-420d-b73a-ea22aa656bf2",
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": true,
+        "offsetX": -15,
+        "offsetY": 33,
+        "trimX": 107,
+        "trimY": 119,
+        "width": 142,
+        "height": 54,
+        "rawWidth": 800,
+        "rawHeight": 900,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "packable": true,
+        "pixelsToUnit": 100,
+        "pivotX": 0.5,
+        "pivotY": 0.5,
+        "meshType": 0,
+        "vertices": {
+          "rawPosition": [],
+          "indexes": [],
+          "uv": [],
+          "nuv": [],
+          "minPos": [],
+          "maxPos": []
+        },
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "df564811-036c-49e7-9aae-c6faebe956ea@6c48a"
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "b82c9": {
+      "importer": "sprite-frame",
+      "uuid": "91bbac9f-8578-420d-b73a-ea22aa656bf2@b82c9",
+      "displayName": "",
+      "id": "b82c9",
+      "name": "waterwen2",
+      "userData": {
+        "importer": "sprite-frame",
+        "atlasUuid": "91bbac9f-8578-420d-b73a-ea22aa656bf2",
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": -14,
+        "offsetY": 27,
+        "trimX": 1,
+        "trimY": 279,
+        "width": 164,
+        "height": 96,
+        "rawWidth": 800,
+        "rawHeight": 900,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "packable": true,
+        "pixelsToUnit": 100,
+        "pivotX": 0.5,
+        "pivotY": 0.5,
+        "meshType": 0,
+        "vertices": {
+          "rawPosition": [],
+          "indexes": [],
+          "uv": [],
+          "nuv": [],
+          "minPos": [],
+          "maxPos": []
+        },
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "df564811-036c-49e7-9aae-c6faebe956ea@6c48a"
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "926c2": {
+      "importer": "sprite-frame",
+      "uuid": "91bbac9f-8578-420d-b73a-ea22aa656bf2@926c2",
+      "displayName": "",
+      "id": "926c2",
+      "name": "waterwen3",
+      "userData": {
+        "importer": "sprite-frame",
+        "atlasUuid": "91bbac9f-8578-420d-b73a-ea22aa656bf2",
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": true,
+        "offsetX": -26,
+        "offsetY": 2,
+        "trimX": 1,
+        "trimY": 119,
+        "width": 158,
+        "height": 104,
+        "rawWidth": 800,
+        "rawHeight": 900,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "packable": true,
+        "pixelsToUnit": 100,
+        "pivotX": 0.5,
+        "pivotY": 0.5,
+        "meshType": 0,
+        "vertices": {
+          "rawPosition": [],
+          "indexes": [],
+          "uv": [],
+          "nuv": [],
+          "minPos": [],
+          "maxPos": []
+        },
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "df564811-036c-49e7-9aae-c6faebe956ea@6c48a"
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "38a3c": {
+      "importer": "sprite-frame",
+      "uuid": "91bbac9f-8578-420d-b73a-ea22aa656bf2@38a3c",
+      "displayName": "",
+      "id": "38a3c",
+      "name": "waterwen4",
+      "userData": {
+        "importer": "sprite-frame",
+        "atlasUuid": "91bbac9f-8578-420d-b73a-ea22aa656bf2",
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 3,
+        "offsetY": 16,
+        "trimX": 1,
+        "trimY": 1,
+        "width": 148,
+        "height": 116,
+        "rawWidth": 800,
+        "rawHeight": 900,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "packable": true,
+        "pixelsToUnit": 100,
+        "pivotX": 0.5,
+        "pivotY": 0.5,
+        "meshType": 0,
+        "vertices": {
+          "rawPosition": [],
+          "indexes": [],
+          "uv": [],
+          "nuv": [],
+          "minPos": [],
+          "maxPos": []
+        },
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "df564811-036c-49e7-9aae-c6faebe956ea@6c48a"
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "atlasTextureName": "waterwen.png",
+    "format": 3,
+    "textureUuid": "df564811-036c-49e7-9aae-c6faebe956ea@6c48a",
+    "uuid": "91bbac9f-8578-420d-b73a-ea22aa656bf2"
+  }
+}

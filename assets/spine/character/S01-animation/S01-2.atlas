@@ -1,0 +1,167 @@
+
+S01-2.png
+size: 904, 505
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+LL
+  rotate: false
+  xy: 864, 157
+  size: 29, 39
+  orig: 29, 39
+  offset: 0, 0
+  index: -1
+RR
+  rotate: false
+  xy: 808, 187
+  size: 11, 41
+  orig: 11, 41
+  offset: 0, 0
+  index: -1
+YDB-L
+  rotate: false
+  xy: 750, 132
+  size: 44, 46
+  orig: 44, 46
+  offset: 0, 0
+  index: -1
+Z
+  rotate: false
+  xy: 2, 3
+  size: 500, 500
+  orig: 500, 500
+  offset: 0, 0
+  index: -1
+ZDB-L
+  rotate: false
+  xy: 796, 133
+  size: 66, 45
+  orig: 66, 45
+  offset: 0, 0
+  index: -1
+arm-L
+  rotate: false
+  xy: 504, 2
+  size: 59, 118
+  orig: 67, 118
+  offset: 4, 0
+  index: -1
+arm-R
+  rotate: false
+  xy: 750, 180
+  size: 56, 122
+  orig: 56, 130
+  offset: 0, 4
+  index: -1
+arm-lL
+  rotate: false
+  xy: 573, 282
+  size: 14, 20
+  orig: 14, 20
+  offset: 0, 0
+  index: -1
+arm-rL
+  rotate: false
+  xy: 589, 287
+  size: 10, 15
+  orig: 10, 15
+  offset: 0, 0
+  index: -1
+belt
+  rotate: false
+  xy: 803, 8
+  size: 84, 39
+  orig: 88, 42
+  offset: 2, 1
+  index: -1
+body
+  rotate: false
+  xy: 679, 9
+  size: 122, 112
+  orig: 122, 112
+  offset: 0, 0
+  index: -1
+body-L
+  rotate: true
+  xy: 803, 49
+  size: 82, 59
+  orig: 82, 59
+  offset: 0, 0
+  index: -1
+cloak
+  rotate: true
+  xy: 565, 5
+  size: 115, 112
+  orig: 121, 116
+  offset: 3, 2
+  index: -1
+eyes-L
+  rotate: false
+  xy: 821, 198
+  size: 78, 30
+  orig: 78, 32
+  offset: 0, 2
+  index: -1
+face
+  rotate: false
+  xy: 504, 122
+  size: 120, 156
+  orig: 120, 157
+  offset: 0, 0
+  index: -1
+hair
+  rotate: false
+  xy: 864, 92
+  size: 27, 63
+  orig: 27, 63
+  offset: 0, 0
+  index: -1
+hand-L
+  rotate: true
+  xy: 504, 280
+  size: 22, 28
+  orig: 22, 28
+  offset: 0, 0
+  index: -1
+head-L
+  rotate: false
+  xy: 626, 123
+  size: 122, 155
+  orig: 122, 155
+  offset: 0, 0
+  index: -1
+leg-L
+  rotate: true
+  xy: 808, 230
+  size: 48, 90
+  orig: 48, 90
+  offset: 0, 0
+  index: -1
+leg-R
+  rotate: true
+  xy: 809, 457
+  size: 46, 93
+  orig: 46, 93
+  offset: 0, 0
+  index: -1
+light
+  rotate: true
+  xy: 504, 304
+  size: 199, 303
+  orig: 201, 305
+  offset: 1, 1
+  index: -1
+poke
+  rotate: true
+  xy: 534, 281
+  size: 21, 37
+  orig: 22, 37
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: true
+  xy: 809, 280
+  size: 175, 91
+  orig: 177, 93
+  offset: 1, 1
+  index: -1

@@ -1,0 +1,90 @@
+CCEffect %{
+  techniques:
+  - passes:
+    - vert: vs
+      frag: fs
+      pass: post-process
+      rasterizerState:
+        cullMode: none
+      depthStencilState:
+        depthTest: false
+        depthWrite: false
+      blendState:
+        targets:
+        - blend: true
+          blendSrc: one
+          blendDst: zero
+}%
+
+CCProgram vs %{
+
+	precision highp float;
+
+	#include <legacy/decode-standard>
+	#include <builtin/uniforms/cc-global>
+	#include <common/common-define>
+
+	out vec2 v_uv;
+
+	void main () {
+		StandardVertInput In;
+		CCDecode(In);
+		CC_HANDLE_GET_CLIP_FLIP(In.position.xy);
+		gl_Position = In.position;
+		v_uv = a_texCoord;
+	}
+
+}%
+
+CCProgram ubo %{
+	uniform PostUBO {
+		vec4 params;
+		vec4 color;
+		float hueDegree;
+	};
+	#pragma rate inputTexture pass
+	uniform sampler2D inputTexture;
+}%
+
+CCProgram fs %{
+	precision highp float;
+	#include <builtin/uniforms/cc-global>
+	#include <legacy/output-standard>
+	#include <unpack>
+	#include <Libs/common>
+	#include <Libs/color>
+
+	#define _Brightness params.x 
+	#define _Saturation params.y
+	#define _Contrast params.z
+	#define _UseHue params.w
+
+	in vec2 v_uv;
+	#include <ubo>
+
+	layout(location = 0) out vec4 fragColor;
+
+	void main()
+	{
+		vec4 screenColor = texture(inputTexture, v_uv);    
+
+ 		// 亮度                    
+  		screenColor.rgb *= _Brightness;
+		//饱和度
+		float luminance = Luminance(screenColor.rgb);
+		vec3 luminanceColor = vec3(luminance, luminance, luminance);
+		screenColor.rgb = mix(luminanceColor, screenColor.rgb, _Saturation);
+
+		// 对比度 
+		screenColor.rgb = mix(vec3(0.5, 0.5, 0.5), screenColor.rgb, _Contrast);
+
+
+		if(_UseHue == 1.0){
+			screenColor.rgb = HueDegree(screenColor.rgb, hueDegree);
+		}
+
+		screenColor.rgb *= color.rgb;
+
+		fragColor = screenColor;  
+	}
+}%

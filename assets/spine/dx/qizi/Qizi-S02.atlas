@@ -1,0 +1,20 @@
+
+Qizi-S02.png
+size: 236,153
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+qizi3
+  rotate: false
+  xy: 2, 36
+  size: 172, 115
+  orig: 172, 115
+  offset: 0, 0
+  index: -1
+sdick
+  rotate: true
+  xy: 2, 2
+  size: 32, 232
+  orig: 32, 232
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,48 @@
+
+T4.png
+size: 629,271
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+eye ball
+  rotate: false
+  xy: 554, 134
+  size: 37, 42
+  orig: 37, 42
+  offset: 0, 0
+  index: -1
+eye black
+  rotate: true
+  xy: 507, 157
+  size: 112, 45
+  orig: 112, 46
+  offset: 0, 0
+  index: -1
+gzx
+  rotate: false
+  xy: 2, 132
+  size: 503, 137
+  orig: 503, 192
+  offset: 0, 0
+  index: -1
+lig
+  rotate: false
+  xy: 2, 2
+  size: 479, 128
+  orig: 479, 128
+  offset: 0, 0
+  index: -1
+lig2
+  rotate: false
+  xy: 483, 7
+  size: 144, 123
+  orig: 144, 123
+  offset: 0, 0
+  index: -1
+meimao
+  rotate: true
+  xy: 554, 178
+  size: 91, 25
+  orig: 91, 25
+  offset: 0, 0
+  index: -1

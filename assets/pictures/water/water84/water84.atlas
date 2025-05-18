@@ -1,0 +1,80 @@
+
+water84.png
+size: 1459,1921
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+water841
+  rotate: false
+  xy: 2, 2
+  size: 1431, 961
+  orig: 1431, 1032
+  offset: 0, 71
+  index: -1
+water842
+  rotate: false
+  xy: 2, 965
+  size: 1455, 954
+  orig: 1455, 1214
+  offset: 0, 260
+  index: -1
+
+water842.png
+size: 1503,1931
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+water844
+  rotate: false
+  xy: 2, 2
+  size: 1407, 963
+  orig: 1407, 1029
+  offset: 0, 66
+  index: -1
+water847
+  rotate: false
+  xy: 2, 967
+  size: 1499, 962
+  orig: 1499, 1169
+  offset: 0, 207
+  index: -1
+
+water843.png
+size: 1553,1940
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+water845
+  rotate: false
+  xy: 2, 972
+  size: 1513, 966
+  orig: 1513, 1172
+  offset: 0, 206
+  index: -1
+water846
+  rotate: false
+  xy: 2, 2
+  size: 1549, 968
+  orig: 1549, 1178
+  offset: 0, 210
+  index: -1
+
+water844.png
+size: 1959,1513
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+water843
+  rotate: true
+  xy: 976, 84
+  size: 1427, 981
+  orig: 1427, 1047
+  offset: 0, 66
+  index: -1
+water848
+  rotate: true
+  xy: 2, 2
+  size: 1509, 972
+  orig: 1509, 1170
+  offset: 0, 198
+  index: -1

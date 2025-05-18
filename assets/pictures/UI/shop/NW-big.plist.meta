@@ -1,0 +1,158 @@
+{
+  "ver": "1.0.8",
+  "importer": "sprite-atlas",
+  "imported": true,
+  "uuid": "2f71049e-e14f-4a31-a163-ee0802f24753",
+  "files": [
+    ".json"
+  ],
+  "subMetas": {
+    "31328": {
+      "importer": "sprite-frame",
+      "uuid": "2f71049e-e14f-4a31-a163-ee0802f24753@31328",
+      "displayName": "",
+      "id": "31328",
+      "name": "Flattened",
+      "userData": {
+        "importer": "sprite-frame",
+        "atlasUuid": "2f71049e-e14f-4a31-a163-ee0802f24753",
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": -10,
+        "offsetY": -150,
+        "trimX": 1,
+        "trimY": 251,
+        "width": 476,
+        "height": 190,
+        "rawWidth": 700,
+        "rawHeight": 700,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "packable": true,
+        "pixelsToUnit": 100,
+        "pivotX": 0.5,
+        "pivotY": 0.5,
+        "meshType": 0,
+        "vertices": {
+          "rawPosition": [],
+          "indexes": [],
+          "uv": [],
+          "nuv": [],
+          "minPos": [],
+          "maxPos": []
+        },
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "f77a8f2d-5981-4fd5-9b49-5aa5b8389198@6c48a"
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "ae4a9": {
+      "importer": "sprite-frame",
+      "uuid": "2f71049e-e14f-4a31-a163-ee0802f24753@ae4a9",
+      "displayName": "",
+      "id": "ae4a9",
+      "name": "Background",
+      "userData": {
+        "importer": "sprite-frame",
+        "atlasUuid": "2f71049e-e14f-4a31-a163-ee0802f24753",
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": true,
+        "offsetX": 1,
+        "offsetY": -47,
+        "trimX": 1,
+        "trimY": 443,
+        "width": 556,
+        "height": 464,
+        "rawWidth": 700,
+        "rawHeight": 700,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "packable": true,
+        "pixelsToUnit": 100,
+        "pivotX": 0.5,
+        "pivotY": 0.5,
+        "meshType": 0,
+        "vertices": {
+          "rawPosition": [],
+          "indexes": [],
+          "uv": [],
+          "nuv": [],
+          "minPos": [],
+          "maxPos": []
+        },
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "f77a8f2d-5981-4fd5-9b49-5aa5b8389198@6c48a"
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "a5f81": {
+      "importer": "sprite-frame",
+      "uuid": "2f71049e-e14f-4a31-a163-ee0802f24753@a5f81",
+      "displayName": "",
+      "id": "a5f81",
+      "name": "FD",
+      "userData": {
+        "importer": "sprite-frame",
+        "atlasUuid": "2f71049e-e14f-4a31-a163-ee0802f24753",
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": -13,
+        "offsetY": 130,
+        "trimX": 1,
+        "trimY": 1,
+        "width": 506,
+        "height": 248,
+        "rawWidth": 700,
+        "rawHeight": 700,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "packable": true,
+        "pixelsToUnit": 100,
+        "pivotX": 0.5,
+        "pivotY": 0.5,
+        "meshType": 0,
+        "vertices": {
+          "rawPosition": [],
+          "indexes": [],
+          "uv": [],
+          "nuv": [],
+          "minPos": [],
+          "maxPos": []
+        },
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "f77a8f2d-5981-4fd5-9b49-5aa5b8389198@6c48a"
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "atlasTextureName": "NW-big.png",
+    "format": 3,
+    "textureUuid": "f77a8f2d-5981-4fd5-9b49-5aa5b8389198@6c48a",
+    "uuid": "2f71049e-e14f-4a31-a163-ee0802f24753"
+  }
+}

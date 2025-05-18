@@ -1,0 +1,92 @@
+CCEffect %{
+  techniques:
+  - passes:
+    - vert: vs
+      frag: fs
+      pass: post-process
+      rasterizerState:
+        cullMode: none
+      depthStencilState:
+        depthTest: false
+        depthWrite: false
+    - vert: vs
+      frag: fs1
+      pass: post-process
+      rasterizerState:
+        cullMode: none
+      depthStencilState:
+        depthTest: false
+        depthWrite: false
+
+}%
+
+CCProgram vs %{
+  
+  precision highp float;
+  #include <legacy/decode-standard>
+  #include <builtin/uniforms/cc-global>
+  #include <common/common-define>
+
+  out vec2 v_uv;
+
+  void main () {
+    StandardVertInput In;
+    CCDecode(In);
+    CC_HANDLE_GET_CLIP_FLIP(In.position.xy);
+    gl_Position = In.position;
+    v_uv = a_texCoord;
+  }
+
+}%
+
+CCProgram ubo %{
+  uniform PostUBO {
+    vec4 texSize;
+    float blurRadius;
+  };
+  #pragma rate inputTexture pass
+  uniform sampler2D inputTexture;
+}%
+
+CCProgram fs %{
+  precision highp float;
+  #include <builtin/uniforms/cc-global>
+  #include <legacy/output-standard>
+  #include <unpack>
+  #include <Libs/common>
+
+  in vec2 v_uv;
+  #include <ubo>
+
+  layout(location = 0) out vec4 fragColor;
+
+  void main()
+  {
+    vec4 uvOffset = blurRadius * texSize.xyxy * vec4(-1.0, - 1.0, 1.0, 1.0);
+    vec4 color = texture(inputTexture, v_uv + uvOffset.xy);
+    color += texture(inputTexture, v_uv + uvOffset.zy);
+    color += texture(inputTexture, v_uv + uvOffset.xw);
+    color += texture(inputTexture, v_uv + uvOffset.zw);
+    fragColor = color * 0.25;
+  }
+}%
+
+
+CCProgram fs1 %{
+  precision highp float;
+  #include <builtin/uniforms/cc-global>
+  #include <legacy/output-standard>
+  #include <unpack>
+  #include <Libs/common>
+
+  in vec2 v_uv;
+  #include <ubo>
+
+  layout(location = 0)out vec4 fragColor;
+
+  void main()
+  {
+    fragColor = texture(inputTexture, v_uv);
+  }
+}%
+

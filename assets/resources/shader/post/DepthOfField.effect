@@ -1,0 +1,109 @@
+CCEffect %{
+  techniques:
+  - passes:
+    - vert: vs
+      frag: fs-blur
+      pass: post-process
+      rasterizerState:
+        cullMode: none
+      depthStencilState:
+        depthTest: false
+        depthWrite: false
+    - vert: vs
+      frag: fs-dof
+      pass: post-process
+      rasterizerState:
+        cullMode: none
+      depthStencilState:
+        depthTest: false
+        depthWrite: false
+}%
+
+CCProgram ubo %{
+    uniform PostUBO {
+        vec4 texSize;
+        vec4 params;
+        float blurRadius;
+    };
+    #pragma rate inputTexture pass
+    uniform sampler2D inputTexture;
+    #pragma rate depthTexture pass
+    uniform sampler2D depthTexture;
+    #pragma rate screenBlurTexture pass
+    uniform sampler2D screenBlurTexture;
+}%
+
+CCProgram vs %{
+  
+  precision highp float;
+    
+  #include <legacy/decode-standard>
+  #include <builtin/uniforms/cc-global>
+  #include <common/common-define>
+
+  out vec2 v_uv;
+
+  void main () {
+    StandardVertInput In;
+    CCDecode(In);
+    CC_HANDLE_GET_CLIP_FLIP(In.position.xy);
+    gl_Position = In.position;
+
+    v_uv = a_texCoord;
+  }
+
+}%
+
+
+CCProgram fs-blur %{
+  precision highp float;
+  #include <builtin/uniforms/cc-global>
+  #include <legacy/output-standard>
+  #include <unpack>
+  #include <Libs/common>
+
+  in vec2 v_uv;
+  #include <ubo>
+
+  layout(location = 0) out vec4 fragColor;
+
+  void main()
+  {
+    vec4 uvOffset = blurRadius * texSize.xyxy * vec4(-1.0, - 1.0, 1.0, 1.0);
+    vec4 color = texture(inputTexture, v_uv + uvOffset.xy);
+    color += texture(inputTexture, v_uv + uvOffset.zy);
+    color += texture(inputTexture, v_uv + uvOffset.xw);
+    color += texture(inputTexture, v_uv + uvOffset.zw);
+    fragColor = color * 0.25;
+  }
+}%
+
+
+CCProgram fs-dof %{
+  precision highp float;
+
+  #include <builtin/uniforms/cc-global>
+  #include <legacy/output-standard>
+  #include <unpack>
+  #include <Libs/common>
+
+  in vec2 v_uv;
+  #include <ubo>
+
+  #define FocalDistance params.x
+  #define Range params.y
+
+  layout(location = 0) out vec4 fragColor;
+  void main () {
+      vec4 blurColor = texture(screenBlurTexture, v_uv);
+      vec4 screenColor = texture(inputTexture, v_uv);
+      float depth = texture(depthTexture, v_uv).r;
+      depth = LinearEyeDepth(depth);
+    
+      float a = depth - FocalDistance;
+      float coc = saturate(a * a / Range);
+
+      fragColor = mix(screenColor, blurColor, coc);
+  }
+}%
+

@@ -1,0 +1,180 @@
+
+T1.png
+size: 1720,1894
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+BK
+  rotate: false
+  xy: 2, 2
+  size: 1600, 1000
+  orig: 1602, 1002
+  offset: 1, 1
+  index: -1
+bat
+  rotate: false
+  xy: 207, 1869
+  size: 26, 23
+  orig: 26, 23
+  offset: 0, 0
+  index: -1
+bkl
+  rotate: false
+  xy: 2, 1004
+  size: 1602, 648
+  orig: 1602, 648
+  offset: 0, 0
+  index: -1
+dragonfly
+  rotate: false
+  xy: 158, 1872
+  size: 25, 20
+  orig: 25, 20
+  offset: 0, 0
+  index: -1
+flower
+  rotate: false
+  xy: 10, 1884
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+leaf
+  rotate: true
+  xy: 71, 1879
+  size: 13, 18
+  orig: 13, 18
+  offset: 0, 0
+  index: -1
+light
+  rotate: true
+  xy: 110, 1874
+  size: 18, 22
+  orig: 18, 22
+  offset: 0, 0
+  index: -1
+line
+  rotate: false
+  xy: 91, 1879
+  size: 17, 13
+  orig: 17, 13
+  offset: 0, 0
+  index: -1
+o
+  rotate: true
+  xy: 20, 1883
+  size: 9, 11
+  orig: 9, 11
+  offset: 0, 0
+  index: -1
+pink
+  rotate: false
+  xy: 134, 1873
+  size: 22, 19
+  orig: 22, 19
+  offset: 0, 0
+  index: -1
+point
+  rotate: false
+  xy: 58, 1881
+  size: 11, 11
+  orig: 11, 11
+  offset: 0, 0
+  index: -1
+purple
+  rotate: false
+  xy: 185, 1872
+  size: 20, 20
+  orig: 20, 20
+  offset: 0, 0
+  index: -1
+rune
+  rotate: false
+  xy: 33, 1883
+  size: 11, 9
+  orig: 11, 9
+  offset: 0, 0
+  index: -1
+tw1
+  rotate: false
+  xy: 955, 1804
+  size: 260, 88
+  orig: 1131, 88
+  offset: 0, 0
+  index: -1
+tw2
+  rotate: false
+  xy: 1416, 1785
+  size: 302, 107
+  orig: 498, 107
+  offset: 0, 0
+  index: -1
+tw3
+  rotate: true
+  xy: 560, 1845
+  size: 47, 127
+  orig: 47, 127
+  offset: 0, 0
+  index: -1
+tw4
+  rotate: true
+  xy: 235, 1851
+  size: 41, 157
+  orig: 41, 157
+  offset: 0, 0
+  index: -1
+tw5
+  rotate: true
+  xy: 1217, 1795
+  size: 97, 197
+  orig: 97, 197
+  offset: 0, 0
+  index: -1
+tw6
+  rotate: false
+  xy: 2, 1654
+  size: 1001, 148
+  orig: 1001, 148
+  offset: 0, 0
+  index: -1
+tw7
+  rotate: true
+  xy: 394, 1848
+  size: 44, 164
+  orig: 47, 164
+  offset: 0, 0
+  index: -1
+tw8
+  rotate: false
+  xy: 689, 1825
+  size: 264, 67
+  orig: 264, 67
+  offset: 0, 0
+  index: -1
+wtf
+  rotate: false
+  xy: 2, 1886
+  size: 6, 6
+  orig: 6, 6
+  offset: 0, 0
+  index: -1
+x
+  rotate: false
+  xy: 46, 1882
+  size: 10, 10
+  orig: 10, 10
+  offset: 0, 0
+  index: -1
+
+T12.png
+size: 1504,1006
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bdl
+  rotate: false
+  xy: 2, 2
+  size: 1500, 1002
+  orig: 1500, 1002
+  offset: 0, 0
+  index: -1

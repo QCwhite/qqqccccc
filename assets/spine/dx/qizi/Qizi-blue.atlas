@@ -1,0 +1,20 @@
+
+Qizi-blue.png
+size: 236,154
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+qizi2
+  rotate: false
+  xy: 2, 36
+  size: 172, 116
+  orig: 172, 116
+  offset: 0, 0
+  index: -1
+sdick
+  rotate: true
+  xy: 2, 2
+  size: 32, 232
+  orig: 32, 232
+  offset: 0, 0
+  index: -1

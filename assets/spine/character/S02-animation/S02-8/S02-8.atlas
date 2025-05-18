@@ -1,0 +1,265 @@
+
+S02-8.png
+size: 381,523
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+X/arm-L
+  rotate: false
+  xy: 232, 128
+  size: 42, 90
+  orig: 42, 90
+  offset: 0, 0
+  index: -1
+X/arm-R
+  rotate: false
+  xy: 322, 68
+  size: 39, 68
+  orig: 39, 68
+  offset: 0, 0
+  index: -1
+X/belt
+  rotate: true
+  xy: 320, 138
+  size: 88, 32
+  orig: 92, 37
+  offset: 0, 5
+  index: -1
+X/bird
+  rotate: true
+  xy: 121, 2
+  size: 42, 41
+  orig: 42, 41
+  offset: 0, 0
+  index: -1
+X/birdhead
+  rotate: false
+  xy: 354, 159
+  size: 20, 21
+  orig: 20, 21
+  offset: 0, 0
+  index: -1
+X/body2
+  rotate: true
+  xy: 130, 112
+  size: 74, 100
+  orig: 76, 102
+  offset: 1, 1
+  index: -1
+X/coat
+  rotate: false
+  xy: 2, 204
+  size: 126, 101
+  orig: 126, 131
+  offset: 0, 0
+  index: -1
+X/coat-F
+  rotate: true
+  xy: 322, 300
+  size: 109, 44
+  orig: 110, 44
+  offset: 0, 0
+  index: -1
+X/face
+  rotate: false
+  xy: 2, 4
+  size: 117, 95
+  orig: 117, 95
+  offset: 0, 0
+  index: -1
+X/foot-L
+  rotate: true
+  xy: 279, 18
+  size: 33, 28
+  orig: 33, 29
+  offset: 0, 0
+  index: -1
+X/foot-R
+  rotate: false
+  xy: 309, 37
+  size: 33, 29
+  orig: 33, 30
+  offset: 0, 0
+  index: -1
+X/hat
+  rotate: false
+  xy: 2, 415
+  size: 205, 106
+  orig: 206, 106
+  offset: 0, 0
+  index: -1
+X/leg-L
+  rotate: true
+  xy: 303, 264
+  size: 34, 76
+  orig: 34, 76
+  offset: 0, 0
+  index: -1
+X/leg-R
+  rotate: true
+  xy: 130, 79
+  size: 31, 78
+  orig: 31, 80
+  offset: 0, 2
+  index: -1
+X/map
+  rotate: false
+  xy: 207, 10
+  size: 34, 41
+  orig: 35, 44
+  offset: 0, 3
+  index: -1
+X/scarf
+  rotate: false
+  xy: 210, 88
+  size: 20, 22
+  orig: 20, 22
+  offset: 0, 0
+  index: -1
+X/wing-L
+  rotate: false
+  xy: 354, 205
+  size: 23, 21
+  orig: 23, 24
+  offset: 0, 1
+  index: -1
+X/wing-R
+  rotate: false
+  xy: 303, 306
+  size: 17, 14
+  orig: 17, 14
+  offset: 0, 0
+  index: -1
+arm-L
+  rotate: false
+  xy: 276, 128
+  size: 42, 90
+  orig: 42, 90
+  offset: 0, 0
+  index: -1
+arm-R
+  rotate: true
+  xy: 232, 53
+  size: 39, 68
+  orig: 39, 68
+  offset: 0, 0
+  index: -1
+belt
+  rotate: false
+  xy: 232, 94
+  size: 88, 32
+  orig: 92, 37
+  offset: 0, 5
+  index: -1
+bird
+  rotate: true
+  xy: 164, 2
+  size: 42, 41
+  orig: 42, 41
+  offset: 0, 0
+  index: -1
+birdhead
+  rotate: false
+  xy: 344, 45
+  size: 20, 21
+  orig: 20, 21
+  offset: 0, 0
+  index: -1
+body2
+  rotate: false
+  xy: 227, 220
+  size: 74, 100
+  orig: 74, 100
+  offset: 0, 0
+  index: -1
+coat
+  rotate: false
+  xy: 2, 101
+  size: 126, 101
+  orig: 126, 131
+  offset: 0, 0
+  index: -1
+coat-F
+  rotate: true
+  xy: 322, 411
+  size: 110, 44
+  orig: 113, 45
+  offset: 1, 1
+  index: -1
+face
+  rotate: true
+  xy: 130, 188
+  size: 117, 95
+  orig: 117, 95
+  offset: 0, 0
+  index: -1
+foot-L
+  rotate: true
+  xy: 340, 2
+  size: 33, 28
+  orig: 33, 29
+  offset: 0, 0
+  index: -1
+foot-R
+  rotate: true
+  xy: 309, 2
+  size: 33, 29
+  orig: 33, 30
+  offset: 0, 0
+  index: -1
+hat
+  rotate: false
+  xy: 2, 307
+  size: 205, 106
+  orig: 206, 106
+  offset: 0, 0
+  index: -1
+leg-L
+  rotate: true
+  xy: 303, 228
+  size: 34, 76
+  orig: 34, 76
+  offset: 0, 0
+  index: -1
+leg-R
+  rotate: true
+  xy: 121, 46
+  size: 31, 78
+  orig: 31, 80
+  offset: 0, 2
+  index: -1
+map
+  rotate: false
+  xy: 243, 10
+  size: 34, 41
+  orig: 35, 44
+  offset: 0, 3
+  index: -1
+scarf
+  rotate: false
+  xy: 210, 64
+  size: 20, 22
+  orig: 20, 22
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: true
+  xy: 209, 322
+  size: 199, 111
+  orig: 201, 113
+  offset: 1, 1
+  index: -1
+wing-L
+  rotate: false
+  xy: 354, 182
+  size: 23, 21
+  orig: 23, 24
+  offset: 0, 1
+  index: -1
+wing-R
+  rotate: false
+  xy: 279, 2
+  size: 17, 14
+  orig: 17, 14
+  offset: 0, 0
+  index: -1

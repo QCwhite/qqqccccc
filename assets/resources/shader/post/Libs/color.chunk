@@ -1,0 +1,47 @@
+
+#ifndef COLOR_INCLUDE
+#define COLOR_INCLUDE
+
+#include <builtin/uniforms/cc-global>
+#include <Libs/hlslFunction.chunk>
+
+float Luminance(vec3 color) {
+  return dot(color, vec3(0.2126729, 0.7151522, 0.0721750));
+}
+
+float Luminance(vec4 color) {
+  return Luminance(color.rgb);
+}
+
+vec3 OldPhotoColor(vec3 color) {
+  float r = 0.393 * color.r + 0.769 * color.g + 0.189 * color.b;
+  float g = 0.349 * color.r + 0.686 * color.g + 0.168 * color.b;
+  float b = 0.272 * color.r + 0.534 * color.g + 0.131 * color.b;
+  return vec3(r, g, b);
+}
+
+float SmoothValue(float threshold, float smoothness, float value) {
+  float minValue = threshold - smoothness;
+  float maxValue = threshold + smoothness;
+  return smoothstep(minValue, maxValue, value);
+}
+
+vec3 HueDegree(vec3 In, float Offset) {
+  vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+  vec4 P = mix(vec4(In.bg, K.wz), vec4(In.gb, K.xy), step(In.b, In.g));
+  vec4 Q = mix(vec4(P.xyw, In.r), vec4(In.r, P.yzx), step(P.x, In.r));
+  float D = Q.x - min(Q.w, Q.y);
+  float E = 1e-10;
+  vec3 hsv = vec3(abs(Q.z + (Q.w - Q.y) / (6.0 * D + E)), D / (Q.x + E), Q.x);
+
+  float hue = hsv.x + Offset / 360.0;
+  hsv.x = (hue < 0.0) ? hue + 1.0 : (hue > 1.0) ? hue - 1.0 : hue;
+
+  vec4 K2 = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+  vec3 P2 = abs(frac(hsv.xxx + K2.xyz) * 6.0 - K2.www);
+  vec3 Out = hsv.z * mix(K2.xxx, saturate(P2 - K2.xxx), hsv.y);
+
+  return Out;
+}
+
+#endif

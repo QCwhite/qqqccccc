@@ -1,0 +1,209 @@
+ // BloomEffect.effect
+CCEffect %{
+  techniques:
+  - name: opaque
+    passes:
+    - vert: bloom-vs:vert          
+      frag: bloom-fs:frag         
+      depthStencilState:
+        depthTest: false
+        depthWrite: false
+      blendState:
+        targets:
+          - blend: true
+            blendSrc: one
+            blendDst: one_minus_src_alpha
+            blendDstAlpha: one_minus_src_alpha
+            
+      rasterizerState:
+        cullMode: none
+      properties: &props
+     
+        emissionColor:  { value: [1.0, 1.0, 1.0, 1.0] , editor: { type: color } } 
+        bloomColor:  { value: [1.0, 0.8, 0.5, 1.0] , editor: { type: color }  }   
+        emissionPower: { value: 1.0 , editor: { slide: true, range: [0, 1.0], step: 0.001 } }                   
+        bloomIntensity: { value: 1.0 , editor: { slide: true, range: [0, 1.0], step: 0.001 } }                   
+        bloomRadius: { value: 0.02 , editor: { slide: true, range: [0, 1.0], step: 0.001 } }  
+        brightness: { value: 1.0 ,editor: { slide: true, range: [0, 1.0], step: 0.001 }}    # 亮度
+        saturation: { value: 1.0 ,editor: { slide: true, range: [0, 1.0], step: 0.001 }}    # 饱和度
+        contrast: { value: 1.0 ,editor: { slide: true, range: [0, 1.0], step: 0.001 }}      # 对比度                     
+        
+}%
+
+
+CCProgram bloom-vs %{
+  precision highp float;
+  #include <builtin/uniforms/cc-global>
+  
+  #if USE_LOCAL
+    #include <builtin/uniforms/cc-local>
+  #endif
+  #if SAMPLE_FROM_RT
+    #include <common/common-define>
+  #endif
+  
+  in vec3 a_position;
+  in vec2 a_texCoord;
+  in vec4 a_color;
+
+  out vec4 color;
+  out vec2 uv0;
+
+  vec4 vert () {
+    vec4 pos = vec4(a_position, 1);
+
+    #if USE_LOCAL
+      pos = cc_matWorld * pos;
+    #endif
+
+    #if USE_PIXEL_ALIGNMENT
+      pos = cc_matView * pos;
+      pos.xyz = floor(pos.xyz);
+      pos = cc_matProj * pos;
+    #else
+      pos = cc_matViewProj * pos;
+    #endif
+
+    uv0 = a_texCoord;
+    #if SAMPLE_FROM_RT
+      CC_HANDLE_RT_SAMPLE_FLIP(uv0);
+    #endif
+    color = a_color;
+  
+    return pos;
+  }
+}%
+
+CCProgram bloom-fs %{
+precision highp float;
+  #include <builtin/internal/embedded-alpha>
+  #include <builtin/internal/alpha-test>
+
+  in vec4 color;
+
+uniform Constant{
+   
+   vec4 emissionColor ;
+   vec4  bloomColor ;
+   float emissionPower   ;             
+   float bloomIntensity ;              
+   float bloomRadius  ;     
+    float brightness;   
+    float saturation;   
+    float contrast;             
+  }; 
+
+
+  
+    in vec2 uv0;
+    #pragma builtin(local)
+    layout(set = 2, binding = 12) uniform sampler2D cc_spriteTexture;
+  
+
+
+
+
+
+ vec3 lerp(vec3 a, vec3 b, float w) {
+    return a + w * (b - a);
+  }
+
+
+
+
+
+
+ vec4 frag() {
+ vec4 c = vec4(1.);
+
+    #if USE_EMBEDDED_ALPHA
+      c *= vec4(texture(cc_spriteTexture, uv0).rgb, texture(cc_spriteTexture, uv0 + vec2(0.0, 0.5)).r);
+    #else
+      c *= texture(cc_spriteTexture, uv0);
+    #endif
+
+    // Alpha 测试
+   c *= color;
+
+    // 亮度调整
+    vec3 finalColor = c.rgb * brightness;
+
+    // 饱和度调整
+    float luminance = 0.2126 * finalColor.r + 0.7152 * finalColor.g + 0.0722 * finalColor.b;
+    vec3 luminanceColor = vec3(luminance, luminance, luminance);
+    finalColor = lerp(luminanceColor, finalColor, saturation);
+
+    // 对比度调整
+    vec3 avgColor = vec3(0.5, 0.5, 0.5);
+    finalColor = lerp(avgColor, finalColor, contrast);
+
+
+
+  vec3 emission = emissionColor.rgb * emissionPower;
+
+    // 增强型发光（可选）
+ 
+
+    // 发光合成模式（三选一）
+    // 模式1：简单叠加（适合LDR）
+    //finalColor += emission;
+    
+    // 模式2：屏幕混合（更自然）
+    finalColor = 1.0 - (1.0 - finalColor) * (1.0 - emission);
+    
+    // 模式3：HDR混合（需要后处理支持）
+    // finalColor = finalColor * (1.0 - emission) + emission * 2.0;
+
+    // 亮度保护（防止过曝）
+    finalColor = min(finalColor, vec3(2.0)); // 限制最大亮度
+
+
+ vec3 bloom = vec3(0.0);
+    const int SAMPLES = 16;
+    vec2 poissonDisk[16] ;
+    poissonDisk[0]=  vec2(-0.942, -0.399);
+    poissonDisk[1]=  vec2(-0.580, -0.791);
+    poissonDisk[2]=  vec2(-0.446, 0.765);
+    poissonDisk[3]=   vec2(-0.366, 0.155);
+    poissonDisk[4]=  vec2(-0.165, 0.359);
+    poissonDisk[5]=   vec2(0.045, -0.932);
+    poissonDisk[6]=   vec2(0.121, 0.519);
+    poissonDisk[7]=   vec2(0.281, -0.371);
+    poissonDisk[8]=   vec2(0.295, 0.934);
+    poissonDisk[9]=  vec2(0.568, -0.730);
+    poissonDisk[10]= vec2(0.628, 0.024);
+    poissonDisk[11]=   vec2(0.734, 0.680);
+    poissonDisk[12]=  vec2(0.874, -0.439); 
+    poissonDisk[13]=  vec2(0.951, 0.176);
+    poissonDisk[14]=   vec2(0.107, -0.154);
+    poissonDisk[15]=   vec2(0.415, 0.045);
+     
+   
+    
+ 
+
+    for(int i = 0; i < SAMPLES; i++) {
+     vec2 sampleUV = fract(uv0 + poissonDisk[i] * bloomRadius); // 使用 fract 强制重复
+      vec4 sampleColor = texture(cc_spriteTexture, sampleUV);
+      
+      // Spine 兼容性：预乘 Alpha 处理
+      sampleColor.rgb *= sampleColor.a;
+
+      float sampleLum = dot(sampleColor.rgb, vec3(0.2126, 0.7152, 0.0722));
+      bloom += sampleColor.rgb * sampleLum;
+    }
+
+    bloom /= float(SAMPLES);
+    bloom *= bloomColor.rgb * bloomIntensity;
+
+    // ======================
+    // 最终合成（保留 Alpha 通道）
+    // ======================
+
+   finalColor = c.rgb* brightness + emission + bloom;
+
+    finalColor *= c.a; // 保留原始透明度
+    return vec4(finalColor, c.a);
+
+ }
+}%

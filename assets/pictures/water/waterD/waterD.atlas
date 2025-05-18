@@ -1,0 +1,62 @@
+
+waterD.png
+size: 1953,279
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+waterD1
+  rotate: false
+  xy: 1728, 2
+  size: 223, 275
+  orig: 223, 275
+  offset: 0, 0
+  index: -1
+waterD2
+  rotate: false
+  xy: 1497, 2
+  size: 229, 275
+  orig: 229, 275
+  offset: 0, 0
+  index: -1
+waterD3
+  rotate: false
+  xy: 1256, 2
+  size: 239, 275
+  orig: 239, 275
+  offset: 0, 0
+  index: -1
+waterD4
+  rotate: false
+  xy: 2, 2
+  size: 267, 275
+  orig: 267, 275
+  offset: 0, 0
+  index: -1
+waterD5
+  rotate: false
+  xy: 1013, 2
+  size: 241, 275
+  orig: 241, 275
+  offset: 0, 0
+  index: -1
+waterD6
+  rotate: false
+  xy: 519, 2
+  size: 245, 275
+  orig: 245, 275
+  offset: 0, 0
+  index: -1
+waterD7
+  rotate: false
+  xy: 766, 2
+  size: 245, 275
+  orig: 245, 275
+  offset: 0, 0
+  index: -1
+waterD8
+  rotate: false
+  xy: 271, 2
+  size: 246, 275
+  orig: 246, 275
+  offset: 0, 0
+  index: -1

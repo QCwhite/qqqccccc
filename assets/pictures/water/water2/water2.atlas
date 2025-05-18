@@ -1,0 +1,62 @@
+
+water2.png
+size: 1897,1546
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+water21
+  rotate: false
+  xy: 2, 967
+  size: 1876, 191
+  orig: 1876, 191
+  offset: 0, 0
+  index: -1
+water22
+  rotate: false
+  xy: 2, 774
+  size: 1876, 191
+  orig: 1876, 191
+  offset: 0, 0
+  index: -1
+water23
+  rotate: false
+  xy: 2, 581
+  size: 1876, 191
+  orig: 1876, 191
+  offset: 0, 0
+  index: -1
+water24
+  rotate: false
+  xy: 2, 388
+  size: 1876, 191
+  orig: 1876, 191
+  offset: 0, 0
+  index: -1
+water25
+  rotate: false
+  xy: 2, 195
+  size: 1876, 191
+  orig: 1876, 191
+  offset: 0, 0
+  index: -1
+water26
+  rotate: false
+  xy: 2, 2
+  size: 1876, 191
+  orig: 1876, 191
+  offset: 0, 0
+  index: -1
+water27
+  rotate: false
+  xy: 2, 1160
+  size: 1888, 191
+  orig: 1952, 191
+  offset: 0, 0
+  index: -1
+water28
+  rotate: false
+  xy: 2, 1353
+  size: 1893, 191
+  orig: 1952, 191
+  offset: 0, 0
+  index: -1

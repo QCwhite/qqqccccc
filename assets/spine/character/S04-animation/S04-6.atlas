@@ -1,0 +1,258 @@
+
+S04-6.png
+size: 1206, 504
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+A1
+  rotate: false
+  xy: 2, 2
+  size: 500, 500
+  orig: 500, 500
+  offset: 0, 0
+  index: -1
+A2
+  rotate: false
+  xy: 504, 2
+  size: 500, 500
+  orig: 500, 500
+  offset: 0, 0
+  index: -1
+A3
+  rotate: false
+  xy: 504, 2
+  size: 500, 500
+  orig: 500, 500
+  offset: 0, 0
+  index: -1
+A3-F
+  rotate: false
+  xy: 504, 2
+  size: 500, 500
+  orig: 500, 500
+  offset: 0, 0
+  index: -1
+CH
+  rotate: false
+  xy: 504, 2
+  size: 500, 500
+  orig: 500, 500
+  offset: 0, 0
+  index: -1
+CQ
+  rotate: false
+  xy: 504, 2
+  size: 500, 500
+  orig: 500, 500
+  offset: 0, 0
+  index: -1
+KB-B
+  rotate: false
+  xy: 504, 2
+  size: 500, 500
+  orig: 500, 500
+  offset: 0, 0
+  index: -1
+KB-F
+  rotate: false
+  xy: 504, 2
+  size: 500, 500
+  orig: 500, 500
+  offset: 0, 0
+  index: -1
+KB-H
+  rotate: false
+  xy: 504, 2
+  size: 500, 500
+  orig: 500, 500
+  offset: 0, 0
+  index: -1
+KB-Q
+  rotate: false
+  xy: 504, 2
+  size: 500, 500
+  orig: 500, 500
+  offset: 0, 0
+  index: -1
+KC-B
+  rotate: false
+  xy: 504, 2
+  size: 500, 500
+  orig: 500, 500
+  offset: 0, 0
+  index: -1
+KC-F
+  rotate: false
+  xy: 504, 2
+  size: 500, 500
+  orig: 500, 500
+  offset: 0, 0
+  index: -1
+KD1
+  rotate: false
+  xy: 504, 2
+  size: 500, 500
+  orig: 500, 500
+  offset: 0, 0
+  index: -1
+KD1-F
+  rotate: false
+  xy: 504, 2
+  size: 500, 500
+  orig: 500, 500
+  offset: 0, 0
+  index: -1
+KD2-B
+  rotate: false
+  xy: 504, 2
+  size: 500, 500
+  orig: 500, 500
+  offset: 0, 0
+  index: -1
+KD2-F
+  rotate: false
+  xy: 504, 2
+  size: 500, 500
+  orig: 500, 500
+  offset: 0, 0
+  index: -1
+KD3-F
+  rotate: false
+  xy: 504, 2
+  size: 500, 500
+  orig: 500, 500
+  offset: 0, 0
+  index: -1
+arm-B
+  rotate: true
+  xy: 1126, 420
+  size: 82, 63
+  orig: 82, 63
+  offset: 0, 0
+  index: -1
+arm-F
+  rotate: true
+  xy: 1099, 92
+  size: 35, 66
+  orig: 40, 67
+  offset: 5, 1
+  index: -1
+body
+  rotate: true
+  xy: 1099, 129
+  size: 52, 72
+  orig: 54, 76
+  offset: 0, 0
+  index: -1
+face
+  rotate: false
+  xy: 1099, 183
+  size: 80, 102
+  orig: 80, 102
+  offset: 0, 0
+  index: -1
+feather
+  rotate: false
+  xy: 1126, 317
+  size: 78, 31
+  orig: 78, 31
+  offset: 0, 0
+  index: -1
+foot-B
+  rotate: false
+  xy: 1126, 11
+  size: 41, 36
+  orig: 41, 36
+  offset: 0, 0
+  index: -1
+foot-F
+  rotate: true
+  xy: 1169, 80
+  size: 42, 35
+  orig: 43, 35
+  offset: 0, 0
+  index: -1
+hair
+  rotate: true
+  xy: 1006, 5
+  size: 103, 86
+  orig: 103, 88
+  offset: 0, 2
+  index: -1
+hair-B
+  rotate: false
+  xy: 1126, 49
+  size: 38, 41
+  orig: 38, 41
+  offset: 0, 0
+  index: -1
+hand-F
+  rotate: true
+  xy: 1181, 290
+  size: 25, 23
+  orig: 25, 23
+  offset: 0, 0
+  index: -1
+hat
+  rotate: true
+  xy: 1006, 287
+  size: 215, 118
+  orig: 215, 158
+  offset: 0, 40
+  index: -1
+hulu
+  rotate: true
+  xy: 1126, 288
+  size: 27, 34
+  orig: 27, 34
+  offset: 0, 0
+  index: -1
+leg-B
+  rotate: false
+  xy: 1173, 124
+  size: 31, 57
+  orig: 31, 57
+  offset: 0, 0
+  index: -1
+leg-F
+  rotate: false
+  xy: 1094, 16
+  size: 30, 74
+  orig: 30, 74
+  offset: 0, 0
+  index: -1
+moustache-8
+  rotate: false
+  xy: 1191, 479
+  size: 13, 23
+  orig: 13, 23
+  offset: 0, 0
+  index: -1
+moustache-L
+  rotate: true
+  xy: 1162, 299
+  size: 16, 17
+  orig: 16, 19
+  offset: 0, 2
+  index: -1
+moustache-R
+  rotate: false
+  xy: 1191, 458
+  size: 13, 19
+  orig: 13, 19
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: true
+  xy: 1006, 110
+  size: 175, 91
+  orig: 177, 93
+  offset: 1, 1
+  index: -1
+skirt
+  rotate: false
+  xy: 1126, 350
+  size: 64, 68
+  orig: 65, 74
+  offset: 1, 3
+  index: -1

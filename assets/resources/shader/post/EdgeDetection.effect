@@ -1,0 +1,111 @@
+CCEffect %{
+techniques:
+    - passes:
+          - vert: vs
+            frag: fs
+            pass: post-process
+            rasterizerState:
+                cullMode: none
+            depthStencilState:
+                depthTest: false
+                depthWrite: false
+            blendState:
+                targets:
+                    - blend: true
+                      blendSrc: one
+                      blendDst: zero
+
+}%
+
+CCProgram ubo %{
+uniform PostUBO {
+	vec4 texSize;
+	vec4 params;
+	float edgeLerp;
+};
+#pragma rate inputTexture pass
+uniform sampler2D inputTexture;
+}%
+
+CCProgram vs %{
+
+precision highp float;
+
+#include <legacy/decode-standard>
+#include <builtin/uniforms/cc-global>
+#include <common/common-define>
+#include <ubo>
+
+#define _EdgeWidth params.x
+
+out vec2 v_uv;
+out vec4 v_uv1;
+out vec4 v_uv2;
+out vec4 v_uv3;
+out vec4 v_uv4;
+
+void main() {
+	StandardVertInput In;
+	CCDecode(In);
+	CC_HANDLE_GET_CLIP_FLIP(In.position.xy);
+	gl_Position = In.position;
+	
+	v_uv = a_texCoord;
+	vec2 width = _EdgeWidth * texSize.xy;
+	// vec2 width = vec2(_EdgeWidth);  
+	v_uv1.xy = v_uv + vec2(-1.0, 1.0) * width;
+	v_uv1.zw = v_uv + vec2(-1.0, 0.0) * width;
+	v_uv2.xy = v_uv + vec2(-1.0, - 1.0) * width;
+	v_uv2.zw = v_uv + vec2(0.0, 1.0) * width;
+	v_uv3.xy = v_uv + vec2(0.0, - 1.0) * width;
+	v_uv3.zw = v_uv + vec2(1.0, 1.0) * width;
+	v_uv4.xy = v_uv + vec2(1.0, 0.0) * width;
+	v_uv4.zw = v_uv + vec2(1.0, - 1.0) * width;
+}
+
+}%
+
+
+CCProgram fs %{
+precision highp float;
+
+#include <builtin/uniforms/cc-global>
+#include <legacy/output-standard>
+#include <unpack>
+#include <Libs/common>
+#include <Libs/color>
+#define _EdgeColor params.yzw
+
+in vec2 v_uv;
+in vec4 v_uv1;
+in vec4 v_uv2;
+in vec4 v_uv3;
+in vec4 v_uv4;
+#include <ubo>
+
+layout(location = 0)out vec4 fragColor;
+void main() {
+	
+	vec4 color = texture(inputTexture, v_uv);
+	// fragColor.rgb = color.rgb;  
+	
+	float topLeft = Luminance(texture(inputTexture, v_uv1.xy));
+	float midLeft = Luminance(texture(inputTexture, v_uv1.zw));
+	float bottomLeft = Luminance(texture(inputTexture, v_uv2.xy));
+	float midTop = Luminance(texture(inputTexture, v_uv2.zw));
+	float midBottom = Luminance(texture(inputTexture, v_uv3.xy));
+	float topRight = Luminance(texture(inputTexture, v_uv3.zw));
+	float midRight = Luminance(texture(inputTexture, v_uv4.xy));
+	float bottomRight = Luminance(texture(inputTexture, v_uv4.zw));
+	
+	float Gx = topLeft + 2.0 * midLeft + bottomLeft - topRight - 2.0 * midRight - bottomRight;
+	float Gy = -topLeft - 2.0 * midTop - topRight + bottomLeft + 2.0 * midBottom + bottomRight;
+	float sobelGradient = sqrt((Gx * Gx) + (Gy * Gy));
+	sobelGradient = saturate(sobelGradient);
+	// fragColor.rgb = vec3(sobelGradient);  
+	
+	fragColor.rgb = mix(color.rgb, _EdgeColor, sobelGradient);
+	fragColor.rgb = mix(fragColor.rgb, sobelGradient * _EdgeColor, edgeLerp);
+}
+
+}%
