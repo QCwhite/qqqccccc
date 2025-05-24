@@ -20,6 +20,9 @@ import DJT from "./DJT";
 import { AudioManager } from '../BASE/music';
 import { Vec3, tween } from 'cc';
 import { start } from 'repl';
+import { Sprite } from 'cc';
+import { SpriteFrame } from 'cc';
+import { Label } from 'cc';
 
 
 
@@ -46,6 +49,27 @@ export default class Choose extends ComponentBase {
    @property(Camera)
    private mainCamera: Camera  = null; // 主摄像机
 
+
+   @property(SpriteFrame)
+   S00:SpriteFrame=null
+ @property(SpriteFrame)
+   S01:SpriteFrame=null
+    @property(SpriteFrame)
+   S02:SpriteFrame=null
+    @property(SpriteFrame)
+   S03:SpriteFrame=null
+    @property(SpriteFrame)
+   S04:SpriteFrame=null
+    @property(SpriteFrame)
+   S05:SpriteFrame=null
+    @property(SpriteFrame)
+   S06:SpriteFrame=null
+    @property(SpriteFrame)
+   S07:SpriteFrame=null
+    @property(SpriteFrame)
+   S08:SpriteFrame=null
+    @property(SpriteFrame)
+   S09:SpriteFrame=null
 
    
  private _originalCameraPos: Vec3 = new Vec3();
@@ -205,7 +229,7 @@ if(this.hasOverlap(this.lun[this.XU],KHD2.PT)){
  onLoad(){
  
         MessageCenter.Managers.push(this)
-      console.log(MessageCenter.Managers)
+   //   console.log(MessageCenter.Managers)
         this.re=find("Canvas/Main Camera/background/redside")
         this.bu=find("Canvas/Main Camera/background/blueside")
         
@@ -214,7 +238,7 @@ if(this.hasOverlap(this.lun[this.XU],KHD2.PT)){
 
 start(): void {
     this.FAS=find("Canvas/Main Camera/background/fashu background")
-
+find("Canvas/Main Camera/background/juese background/cS").getComponent(Button).interactable=false;
 
     //director.preloadScene("SL", (err) => {
     //    if (err) {
@@ -227,7 +251,7 @@ start(): void {
 
    this.YJR=false
     this.node.getComponent(DJT).startCountdown(21,o)
-console.log(KHD2.PT)
+//console.log(KHD2.PT)
 }
 
 
@@ -239,10 +263,10 @@ if (KHD2.PT.includes(this.lun[this.XU][0])) {
   
 
 
-
+find("Canvas/Main Camera/Label").getComponent(Label).string="轮到你了..."
 
     this.shakeCameraAndNode(this.mainCamera,find("Canvas/Main Camera/background"),20,0.4)
-}
+}else{find("Canvas/Main Camera/Label").getComponent(Label).string=""}
 
 
 
@@ -269,7 +293,7 @@ switch (this.XU) {
 find("Canvas/Main Camera/background/juese background/cS").getComponent(Button).interactable=false;
 this.KYD==false;
 MessageCenter.MakeGMessage("CH",KHD2.PT[KHD2.xz],this.tj.name,1,"PASS")
-console.log(this.juese);
+//console.log(this.juese);
 if (KHD2.PT.length>1) {
     KHD2.xz++
   }  
@@ -296,7 +320,7 @@ let o=function(){
 this.YJR=true
 find("Canvas/Main Camera/background/juese background/babda/BZS").active=true
 this.node.getComponent(DJT).startCountdown(21,o)
-    
+    find("Canvas/Main Camera/Label").getComponent(Label).string="检查法术选择，准备进入游戏了"
 }
 
 
@@ -374,6 +398,7 @@ switch (message.SHtype) {
         break;
         
     case "PASS": 
+    
     let o=function(){
         // this.node.getComponent(Choose).togame()
      }
@@ -381,7 +406,8 @@ switch (message.SHtype) {
     let c=this.lun[this.XU].indexOf(message.Command);
     this.lun[this.XU].splice(c,1)
     
-    console.log(this.lun[this.XU]);if(this.lun[this.XU].length==0){this.XU++;
+   // console.log(this.lun[this.XU]);
+    if(this.lun[this.XU].length==0){this.XU++;
 
 if(this.XU==6){this.BTG()}else{
 
@@ -396,6 +422,9 @@ if(this.XU==6){this.BTG()}else{
         
             }      
 }
+
+
+
         }
 
       
@@ -406,8 +435,10 @@ if(this.XU==6){this.BTG()}else{
           
       
 
-        this.XU=message.Content;console.log(this.XU);if(this.hasOverlap(this.lun[this.XU],KHD2.PT)){this.KYD=true;this.tothis();} 
-        console.log("xz")
+        this.XU=message.Content;//console.log(this.XU);
+        
+        if(this.hasOverlap(this.lun[this.XU],KHD2.PT)){this.KYD=true;this.tothis();} 
+       // console.log("xz")
         for(let a of this.pi){if(this.lun[this.XU].includes(a.p)){a.dao();}}
         break;
     }
@@ -432,7 +463,25 @@ hasOverlap(arr1: number[], arr2: number[]): boolean {
   }
 
 
+getSTOux(n:string){
 
+switch (n) {
+    case "S00":return this.S00
+    case "S01":return this.S01
+    case "S02":return this.S02
+    case "S03":return this.S03
+    case "S04":return this.S04
+    case "S05":return this.S05
+    case "S06":return this.S06  
+    case "S07":return this.S07
+    case "S08":return this.S08
+    case "S09":return this.S09  
+
+    default:return this.S07
+        break;
+}
+
+}
 
 
 }

@@ -25,6 +25,8 @@ export default class D18 extends DXX {
             this.target=this.node.getComponent(Character);
             this.target.t1.push(this)
             this.target.move3.push(this)
+                  MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,this.target.Pturn,"TNS")
+                this.changeEP()
         }
      
     T1(turn1: number): void {

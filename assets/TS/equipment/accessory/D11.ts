@@ -29,7 +29,7 @@ start () {
     GeZiManager.P4.dead2.push(this);
     GeZiManager.P5.dead2.push(this);
     GeZiManager.P6.dead2.push(this);
-
+    this.changeEP()
     
 }
 
@@ -39,9 +39,14 @@ start () {
 Dead2(dead: number): void {
 if (dead!=this.target.Pturn) {
 this.j++
-MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,this.target.Pturn,"Qi+")
-MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,this.target.Pturn,"HP+")
-MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,this.target.Pturn,"TN+")
+let o=1
+if (this.color=="Red") {
+  o=1+GeZiManager.Rhun
+}else{  o=1+GeZiManager.Bhun}
+
+MessageCenter.MakeSHMessage("AM",[this.target.ZB],o,this.target.Pturn,"Qi+")
+MessageCenter.MakeSHMessage("AM",[this.target.ZB],o,this.target.Pturn,"HP+")
+MessageCenter.MakeSHMessage("AM",[this.target.ZB],o,this.target.Pturn,"TN+")
 }
 
 }

@@ -4,6 +4,7 @@ const { ccclass, property } = _decorator;
 import ComponentBase from "../BASE/ComponentBase";
 import { gif1 } from "../BASE/spineANDgif/gif";
 import Choose from "./choose";
+import GeZiManager from '../Manager/GeZiManager';
   
 
 @ccclass('Playimage')
@@ -24,28 +25,28 @@ export default class playimage extends ComponentBase {
     }
 
     changeui(num: string) {
-      this.getComponent(Sprite).spriteFrame = this.Atlas.getSpriteFrame(""+num);
+        this.node.getComponent(Sprite).spriteFrame=find("Canvas/Main Camera/background/juese background").getComponent(Choose).getSTOux(num)
       
-      this.node.parent.children[1].getComponent(Label).string = num;
+      this.node.parent.children[1].getComponent(Label).string =GeZiManager.skillDataMap[num].name
         // this.node.parent.children[2].color = color(255, 255, 255);
     }
 
     dao() {
-        console.log("ad");
+    //    console.log("ad");
         if (this.p>0) {
             const targetSprite = this.node.parent.children[2].getComponent(Sprite);
-
+     this.node.parent.children[1].getComponent(Label).string ="选择中...";
             if (targetSprite) {
                 // 获取材质数组
                 const materials = targetSprite.getSharedMaterial(1)
             
           
-                    targetSprite.setSharedMaterial(materials, 0);
+                //    targetSprite.setSharedMaterial(materials, 0);
                 } else {
-                    console.error('材质数量不足，无法设置');
+                   // console.error('材质数量不足，无法设置');
                 }
             } else {
-                console.error('未找到 Sprite 组件');
+               // console.error('未找到 Sprite 组件');
             }
         }
      /*   this.schedule(() => {
@@ -63,9 +64,9 @@ export default class playimage extends ComponentBase {
 
     qd() {
     if (this.p>0) {
-        console.log(this.name)
-        const defaultMaterial = this.node.parent.children[2].getComponent(Sprite).getSharedMaterial(0)
-        this.node.parent.children[2].getComponent(Sprite).setSharedMaterial(defaultMaterial, 0)
+      //  console.log(this.name)
+       // const defaultMaterial = this.node.parent.children[2].getComponent(Sprite).getSharedMaterial(0)
+       // this.node.parent.children[2].getComponent(Sprite).setSharedMaterial(defaultMaterial, 0)
     }    
 }
 }

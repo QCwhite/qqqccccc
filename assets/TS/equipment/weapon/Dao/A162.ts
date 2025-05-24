@@ -23,6 +23,15 @@ Ytype: number=15;
 start(){
        this.node.getComponent(Character).kill3.push(this)
 AudioManager.instance.ZJP("attack",this.Ytype)
+   this.target=this.node.getComponent(Character)
+   let c=0
+   if(this.color=="Red"){
+     c= GeZiManager.Rhun
+      
+   }else{ c= GeZiManager.Bhun; }
+   
+          MessageCenter.MakeSHMessage("AM",[this.node.getComponent(Character).ZB],c,this.node.getComponent(Character).Pturn,"HP+")
+     this.changeEP()
 }
 Kill3(): void {
        MessageCenter.MakeSHMessage("AM",[this.node.getComponent(Character).ZB],1,this.node.getComponent(Character).Pturn,"MaxHP+")

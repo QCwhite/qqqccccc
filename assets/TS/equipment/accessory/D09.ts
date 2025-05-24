@@ -24,7 +24,7 @@ export default class D09 extends DXX {
         this.target=this.node.getComponent(Character);
         this.target.HPm2.push(this)
         this.target.qi2.push(this)
-
+    this.changeEP()
     }
    
     Qi2(n: number, pn: number,m:SHMessage): void {

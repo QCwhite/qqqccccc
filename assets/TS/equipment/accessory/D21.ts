@@ -26,6 +26,7 @@ start(): void {
     if (this.target.color=="Blue") {
     GeZiManager.blueD21+=1
    } else{  GeZiManager.redD21+=1}
+       this.changeEP()
 }
 
 

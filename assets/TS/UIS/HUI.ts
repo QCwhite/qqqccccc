@@ -197,7 +197,7 @@ export default class HUI extends ComponentBase {
             let ice=instantiate(this.ice)
           ice.setParent(this.node)
           this.GDs.push(ice)
-        ice.angle=180 ;console.log("waowaowao")
+        ice.angle=180 ;//console.log("waowaowao")
         }}
         
         

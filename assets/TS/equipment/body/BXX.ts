@@ -18,15 +18,17 @@ export default class BXX extends equipment {
    
 
     TheNumber:string = 'BXX';
+    target: Character=null;
     changeEP(){
      let a=this.node.getComponent(Cspine)
+   
+       let c=this.target.Pturn
 
+     a.changeSlot(a.spine2,"KB-F",this.node.parent.getComponent(Shops).find(2,this.TheNumber,"KB-F",c),0)
 
-     a.changeSlot(a.spine2,"KB-F",this.node.parent.getComponent(Shops).find(2,this.TheNumber,0),0)
+     a.changeSlot(a.spine6,"KB-F",this.node.parent.getComponent(Shops).find(6,this.TheNumber,"KB-F",c),2)
 
-     a.changeSlot(a.spine6,"KB-F",this.node.parent.getComponent(Shops).find(6,this.TheNumber,2),2)
-
-     a.changeSlot(a.spine4,"KB-F",this.node.parent.getComponent(Shops).find(4,this.TheNumber,4),4)
+     a.changeSlot(a.spine4,"KB-F",this.node.parent.getComponent(Shops).find(4,this.TheNumber,"KB-F",c),4)
          }
     remove(){}
 }

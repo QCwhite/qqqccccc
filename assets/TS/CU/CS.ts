@@ -6,6 +6,7 @@ import { AudioManager } from '../BASE/music';
 import MessageCenter from '../Message/MessageCenter';
 import { find } from 'cc';
 import { Label } from 'cc';
+import GeZiManager from '../Manager/GeZiManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('TogglePosition')
@@ -103,7 +104,18 @@ thi(){director.loadScene("thi", function() {AudioManager.instance.stopAll(0.5); 
 protected start(): void {
        if (KHD2.Cname) {
        find("Canvas/Node").active=false
-       } 
+       GeZiManager.DLCG()
+       } else{
+
+setTimeout(()=>{    find("Canvas/SpriteSplash/Layout/Button").getComponent(CustomButton).disableButton()
+find("Canvas/SpriteSplash/Layout/Button-001").getComponent(CustomButton).disableButton()
+find("Canvas/SpriteSplash/Layout/Button-004").getComponent(CustomButton).disableButton()
+find("Canvas/SpriteSplash/Layout/Button-003").getComponent(CustomButton).disableButton()},300)
+
+
+
+
+       }
     AudioManager.instance.stopAll(0);
 
      AudioManager.instance.ZJP("bgm",0,{
@@ -116,7 +128,10 @@ protected start(): void {
                         KHD2.c=0;
                         KHD2.FZ=false
                         KHD2.FJN=false
-}
+
+
+
+                    }
 
 DL(){
 
@@ -128,6 +143,12 @@ if (!KHD2.Cname) {
 
     KHD2.start1()
 }
+
+
+
+
+
+
 
 }
 

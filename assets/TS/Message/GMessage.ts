@@ -12,7 +12,7 @@ import { SHMessage } from "./SHMessage";
 
 @ccclass('GMessage')
 export default class GMessage extends SHMessage {
-  
+  sequenceId:number=0
 
 }
 /**

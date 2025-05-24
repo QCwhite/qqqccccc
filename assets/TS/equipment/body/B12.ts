@@ -25,6 +25,7 @@ export default class B12 extends BXX {
     start () {
         this.target=this.node.getComponent(Character);
         this.target.behurt2.push(this)
+           this.changeEP()
     }
     Behurt2(m:SHMessage){
         if(m.from!=null){if(this.node.getComponent(Character).getc(m.from).weapon.getComponent(weapon).Wtype==2){GeZiManager.dm-=1;}  

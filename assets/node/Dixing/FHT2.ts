@@ -54,17 +54,19 @@ this.HP=3
 
               }
         this.node.children[0].getComponent(gif1).moveToNextFrame(0,11,0);
-        GeZiManager.Tcharacter.FH(this.ZB,this.turn,this.HP)
+       this.getc(this.turn).FH(this.ZB,this.turn,this.HP)
 
         GeZiManager.shanchu(GeZiManager.BDZD,this.ZB)
 
 
         this.fadeOutAndDisappear(this.node,1200)
+
+        GeZiManager.shanchu(turn.Too,this)
 } 
 turnPass() {
 ////if (!(turn.round%12==2||turn.round%12==7)) {    
         if(turn.round>=this.round&&turn.turn==this.turn&&!GeZiManager.BanMove.includes(this.ZB)){
-        console.log("fd")
+     //   console.log("fd")
         this.BZ();
         }
 }

@@ -44,6 +44,9 @@ export default class CustomButton extends ComponentBase {
     @property({ type: EventHandler })
     DonClick: EventHandler = new EventHandler();
 
+    @property(Boolean)
+    o: Boolean=false
+
     start() {
         this.node.on(Node.EventType.MOUSE_ENTER, this.onHover, this);
         this.node.on(Node.EventType.MOUSE_LEAVE, this.onLeave, this);
@@ -52,7 +55,9 @@ export default class CustomButton extends ComponentBase {
         this.node.on(Node.EventType.TOUCH_START, this.onPressDown, this);
         this.node.on(Node.EventType.TOUCH_END, this.onClick, this);
 
-
+if (this.o) {
+    this.disableButton()
+}
 
         
         
@@ -159,13 +164,20 @@ export default class CustomButton extends ComponentBase {
 
         this.node.off(Node.EventType.MOUSE_ENTER, this.onHover, this);
         this.node.off(Node.EventType.MOUSE_LEAVE, this.onLeave, this);
-  
-        
         this.node.off(Node.EventType.TOUCH_START, this.onPressDown, this);
         this.node.off(Node.EventType.TOUCH_END, this.onClick, this);
+       
+       
+       
+       
         if(this.fw==7){ this.gif.getComponent(gif1).setBrightness(0.3)
             this.gif.getComponent(gif1).nodeBig(1,0.2);}
-    }}
+      //  console.log(this.node.name+" disableButton")
+    }
+
+
+
+}
     enableButton() {
       
         this.zt = 0;
@@ -176,6 +188,8 @@ export default class CustomButton extends ComponentBase {
         
         this.node.on(Node.EventType.TOUCH_START, this.onPressDown, this);
         this.node.on(Node.EventType.TOUCH_END, this.onClick, this);
+
+     //   console.log(this.node.name+"  enableButton")
     }
     click2() {
         // 在这里加入您想实现的自定义点击事件逻辑

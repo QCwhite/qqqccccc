@@ -57,13 +57,13 @@ export default class banana extends DES {
  
      MessageCenter.MakeSHMessage("AM",[this.ZB],1,0,"getOne")
     let o= this.DfaceIs(preZB,this.ZB)
-     console.log(preZB)
-     console.log(o)
-     console.log(this.ZB)
+   //  console.log(preZB)
+   //  console.log(o)
+   //  console.log(this.ZB)
      let c=0.6/this.getdis(preZB)
 if (preZB!=this.ZB) {
     MessageCenter.MakeSHMessage("AM",[this.ZB],[this.DfaceIs(preZB,this.ZB),0.4],turn.turn,"move")
-    console.log(this.ZB)
+  //  console.log(this.ZB)
 }
 
  let p=0

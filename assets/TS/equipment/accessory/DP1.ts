@@ -25,7 +25,7 @@ export class DP1 extends DXX {
       GeZiManager.P5.XD1.push(this)
       GeZiManager.P6.XD1.push(this)
       this.target.behurt3.push(this)
-
+    this.changeEP()
     }
     xd1(message: SHMessage,n:number): void {
         if (this.target.node.getComponent(SXX).ZZ.includes("animal")&&message.from!=this.target.Pturn&&message.from==n&&this.target.color==GeZiManager.getc(message.from).color&&GeZiManager.getc(message.from).getdis(this.target.ZB)<=2) {

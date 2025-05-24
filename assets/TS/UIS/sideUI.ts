@@ -23,6 +23,7 @@ import { find } from 'cc';
 import { resources, JsonAsset } from 'cc';
 import SXX from '../Scharacter/SXX';
 import { Widget, UITransform, view } from 'cc';
+import { Sprite } from 'cc';
 interface SkillData {
     id: string; // 技能ID
     name: string; // 技能名称
@@ -58,7 +59,8 @@ export default class sideUI extends ComponentBase {
      GeZiManager.sideUI.push(this);
      
      this.node.getChildByName("TN").getComponent(CustomButton).disableButton()
-     console.log(GeZiManager.sideUI)
+   //  console.log(GeZiManager.sideUI)
+  
  
      }
      
@@ -70,14 +72,14 @@ for (let index = 0; index < GeZiManager.getc(this.pturn).getComponent(SXX).JNs; 
   
 }
 
-
+ this.node.getChildByName("Toux").getChildByName("gif").getComponent(Sprite).spriteFrame=GeZiManager.getc(this.pturn).getComponent(SXX).Toux
 
 }
 
 setEQ(n:string){
     let o=find("Canvas/DituManager/New Node/AnimalManager")
    
-this.node.getChildByName("equipment").getChildByName(n[0]).getComponent(gif1).spriteFrame=o.getComponent(Shops).find(10,n)
+this.node.getChildByName("equipment").getChildByName(n[0]).getComponent(gif1).spriteFrame=o.getComponent(Shops).find(10,n,"",0)
 
 
 }
@@ -173,14 +175,14 @@ SEEEQD(){
      this.MaxHP=this.PC.MaxHP;
      this.HP=this.PC.HP;
      this.qi=this.PC.qi;
-     console.log(this.PC.MaxHP)
-     console.log(this.PC.Pturn)
+   //  console.log(this.PC.MaxHP)
+    // console.log(this.PC.Pturn)
      for(let i=1;i<=this.MaxHP;i++){
        let HP=instantiate(this.heart)
        HP.setParent(this.node.getChildByName("HPx"))
      HP.getComponent(heart).DB=i;
        
-     console.log(  HP.getComponent(heart).DB)
+  //   console.log(  HP.getComponent(heart).DB)
      }
      
      for(let h of this.hearts){h.node.setScale(h.node.getScale()[1],h.node.getScale()[1])}
@@ -197,10 +199,10 @@ SEEEQD(){
              this.HP=this.PC.HP;
          if(this.HP<=0){ this.HP=0}
          
-             console.log(this.PC.MaxHP)
+           //  console.log(this.PC.MaxHP)
          
-             console.log(this.PC.HP)
-             console.log(this.PC.Pturn)
+           //  console.log(this.PC.HP)
+           //  console.log(this.PC.Pturn)
          
          
              let n=this.MaxHP-this.HP;
@@ -236,7 +238,7 @@ SEEEQD(){
      
      
          ReceiveMessage(message: Message) {
-     console.log(this.PC.Pturn!=turn.turn)
+   //  console.log(this.PC.Pturn!=turn.turn)
         
           this.TN()
           this.TNS()
@@ -296,7 +298,7 @@ SEEEQD(){
      FU(){
      let d
      let p=filterArray(this.PC.FU)
-     console.log(p)
+   //  console.log(p)
      for (let index = 0; index <p.length;index++) {
         
         this.node.getChildByName("FU").children[index].getComponent(gif1).spriteFrame=null
@@ -355,7 +357,7 @@ function filterArray(arr) {
 
 
  setJN1(){
-    console.log(GeZiManager.skillDataMap[this.PC.node.getComponent(SXX).Snumber+"-1"])
+  //  console.log(GeZiManager.skillDataMap[this.PC.node.getComponent(SXX).Snumber+"-1"])
      if (GeZiManager.skillDataMap[this.PC.node.getComponent(SXX).Snumber+"-1"]) {
         this.node.getChildByName("EQM").getChildByName("Sprite").active=true
     }else{this.node.getChildByName("EQM").getChildByName("Sprite").active=false}
@@ -367,7 +369,7 @@ function filterArray(arr) {
 
 
 setJN2(){
-    console.log(GeZiManager.skillDataMap[this.PC.node.getComponent(SXX).Snumber+"-2"])
+   // console.log(GeZiManager.skillDataMap[this.PC.node.getComponent(SXX).Snumber+"-2"])
      if (GeZiManager.skillDataMap[this.PC.node.getComponent(SXX).Snumber+"-2"]) {
         this.node.getChildByName("EQM").getChildByName("Sprite").active=true
     }else{this.node.getChildByName("EQM").getChildByName("Sprite").active=false}
@@ -377,7 +379,7 @@ setJN2(){
 
  }
  setJN3(){
-    console.log(GeZiManager.skillDataMap[this.PC.node.getComponent(SXX).Snumber+"-3"])
+ //   console.log(GeZiManager.skillDataMap[this.PC.node.getComponent(SXX).Snumber+"-3"])
      if (GeZiManager.skillDataMap[this.PC.node.getComponent(SXX).Snumber+"-3"]) {
         this.node.getChildByName("EQM").getChildByName("Sprite").active=true
     }else{this.node.getChildByName("EQM").getChildByName("Sprite").active=false}
@@ -387,7 +389,7 @@ setJN2(){
 
  }
  setJN4(){
-    console.log(GeZiManager.skillDataMap[this.PC.node.getComponent(SXX).Snumber+"-4"])
+   // console.log(GeZiManager.skillDataMap[this.PC.node.getComponent(SXX).Snumber+"-4"])
      if (GeZiManager.skillDataMap[this.PC.node.getComponent(SXX).Snumber+"-4"]) {
         this.node.getChildByName("EQM").getChildByName("Sprite").active=true
     }else{this.node.getChildByName("EQM").getChildByName("Sprite").active=false}
@@ -397,7 +399,7 @@ setJN2(){
 
  }
  setJN5(){
-    console.log(GeZiManager.skillDataMap[this.PC.node.getComponent(SXX).Snumber+"-1"])
+  //  console.log(GeZiManager.skillDataMap[this.PC.node.getComponent(SXX).Snumber+"-1"])
      if (GeZiManager.skillDataMap[this.PC.node.getComponent(SXX).Snumber+"-1"]) {
         this.node.getChildByName("EQM").getChildByName("Sprite").active=true
     }else{this.node.getChildByName("EQM").getChildByName("Sprite").active=false}
@@ -407,7 +409,7 @@ setJN2(){
 
  }
  setJN6(){
-    console.log(GeZiManager.skillDataMap[this.PC.node.getComponent(SXX).Snumber+"-6"])
+  //  console.log(GeZiManager.skillDataMap[this.PC.node.getComponent(SXX).Snumber+"-6"])
      if (GeZiManager.skillDataMap[this.PC.node.getComponent(SXX).Snumber+"-6"]) {
         this.node.getChildByName("EQM").getChildByName("Sprite").active=true
     }else{this.node.getChildByName("EQM").getChildByName("Sprite").active=false}

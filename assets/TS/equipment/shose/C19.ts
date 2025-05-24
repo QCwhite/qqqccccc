@@ -22,7 +22,10 @@ export default class C19 extends CXX {
             start () {
        this.target=this.node.getComponent(Character);
        this.target.walk3.push(this)
-
+       if (this.target.HP==1) {
+        this.target.Walk(false);
+       }
+   this.changeEP()
             }
     Walk3(ZB: number): void {
        if(this.target.weapon.DT){this.target.weapon.QD([this.target.findGe(this.target.faceTo,1)])}else{

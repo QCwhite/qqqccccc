@@ -47,7 +47,7 @@ import BXX from "../equipment/body/BXX";
 import Countdown from "../UIS/else/time";
 import A509 from "../equipment/weapon/SC/A509";
 import ZManager from "../Manager/ZManager";
-import BAOmMAN from "../UIS/else/BAOmMAN";
+//import BAOmMAN from "../UIS/else/BAOmMAN";
 import NWshopUI from "../UIS/shop/NWshopUI";
 import YSgod from "./YSgod";
 import JJ from "../UIS/else/JJ";
@@ -566,6 +566,20 @@ if(this.Pturn==6&&turn.round<=1){
   console.log( state.ST)
  }
 this.node.getComponent(Cspine).currentSpine.animation="SHOW"
+
+
+
+for (let G of this.node.parent.children) {
+if (G.getComponent(realThing)&&  G.getComponent(realThing).ZB!=0) {
+   G.getComponent(realThing).setXY(0)
+}
+   
+}
+
+
+
+
+
    }//开局放置生成的方法
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   
@@ -618,7 +632,7 @@ for (let m of this.UI){
                     bgSprite: null,
                     image1:this.node.getComponent(SXX).Toux,
                     text1: "装备了",
-                    image2: this.node.parent.getComponent(Shops).find(10,pre) ,
+                    image2: this.node.parent.getComponent(Shops).find(10,pre,"",0) ,
                     text2: GeZiManager.skillDataMap[pre].name,
                     duration: 3
                 })
@@ -720,7 +734,7 @@ ZBW(T:boolean,n:number){
 this.Walk(T)
    }
 else{
-if (n!=0) {
+if (n!=0&&n!=2) {
     this.node.getComponent(Cspine).changeDirection(this.faceTo)
      this.node.getComponent(Cspine).currentSpine.animation="Walk"
         this.node.getChildByName("shadow").getComponent(gif1).moveToNextFrame(5,8,0)
@@ -750,6 +764,17 @@ if (n!=0) {
           if(this.walk3!=null){for(let w of this.walk3){w.Walk3(this.ZB);}}
           if (this.PPC()&&T) {
             MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],GeZiManager.TNC[1]+this.TNJJ[1],0,"TN-");  
+
+
+             this.node.getComponent(Cspine).currentSpine.animation="Walk"
+        this.node.getChildByName("shadow").getComponent(gif1).moveToNextFrame(5,8,0)
+    setTimeout(() => {
+     this.node.getChildByName("shadow").getComponent(gif1).changeF(5,1)
+  },600);
+    setTimeout(() => {
+     this.node.getComponent(Cspine).idle()
+    }, 800);
+    AudioManager.instance.ZJP("hit",0)
       }
       
            break;
@@ -1323,9 +1348,13 @@ this.node.getChildByName("FU").children[index].getComponent(gif1).spriteFrame= t
  
 
 
-     case 1:  if(tu==2){
-      MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"MaxHP+")
-MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"HP+")
+     case 1: 
+        if(tu==1){      MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"MaxHP+")
+MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"HP+")}
+     
+     
+     if(tu==2){
+
 this.Mjia(+1);//质量+1
 }
 else if(tu==3){
@@ -1338,9 +1367,11 @@ this.node.getComponent(YSgod).FW[1]=1;//TN+1
 }
      break;
      
-     case -1:if(tu==2){
-      MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"MaxHP+")
-MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"HP+")
+     case -1:
+         if(tu==1){      MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"MaxHP+")
+MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"HP+")}
+     if(tu==2){
+      
 this.Mjia(+1);//质量+1
 }
 else if(tu==3){
@@ -1417,10 +1448,10 @@ this.node.getComponent(YSgod).FW[1]=1;//TN+1
          this.node.getComponent(YSgod).FW[0]=1
       }
      }
-
+   if(tu==1){      MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"MaxHP+")
+MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"HP+")}
      if(tu==2){
-      MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"MaxHP+")
-MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"HP+")
+
 this.Mjia(+1);//质量+1
 }
 else if(tu==3){
@@ -1463,10 +1494,10 @@ break;
          this.node.getComponent(YSgod).FW[0]=1
       }
      }
-
+   if(tu==1){      MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"MaxHP+")
+MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"HP+")}
      if(tu==2){
-      MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"MaxHP+")
-MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"HP+")
+
 this.Mjia(+1);//质量+1
 }
 else if(tu==3){
@@ -1643,24 +1674,22 @@ BFUs(ch:number){
                   this.node.getComponent(YSgod).FW[0]=0
                }
               }
-
-
-
+ if(tu==0){
+ MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"MaxHP-")
+      MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"HP-")
+ }
               if(tu==1){
-               MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"MaxHP-")
-         MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"HP-")
+              
          this.Mjia(-1);//质量+1
          }
          else if(tu==2){
          //格挡+1
-         MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"MaxHP-")
-         MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"HP-")
+ 
          this.mk-=1;
          this.wk-=1;
          }
          else if(tu==3){
-            MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"MaxHP-")
-            MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"HP-")
+           
          this.node.getComponent(YSgod).FW[1]=0;//TN+1
          }
 
@@ -1707,21 +1736,22 @@ BFUs(ch:number){
           
         
            
-           case -1: if(tu==1){
-            MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"MaxHP-")
-      MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"HP-")
+           case -1: 
+            if(tu==0){ MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"MaxHP-")
+      MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"HP-")}
+           
+           if(tu==1){
+           
       this.Mjia(-1);//质量+1
       }
       else if(tu==2){
       //格挡+1
-      MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"MaxHP-")
-      MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"HP-")
+     
       this.mk-=1;
       this.wk-=1;
       }
       else if(tu==3){
-         MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"MaxHP-")
-         MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"HP-")
+ 
       this.node.getComponent(YSgod).FW[1]=0;//TN+1
       }
            break;
@@ -2357,7 +2387,7 @@ break;
          }
          for(let a of this. XD1){a.xd2(message)} 
              GeZiManager.free=0;GeZiManager.dlU=0;GeZiManager.ms=0;GeZiManager.un=0;//清零
-             this.baoMA(message)
+            // this.baoMA(message)
       } else {
          this.DO(message);
       }}
@@ -2432,7 +2462,7 @@ break;
    }
 baoMA(message:SHMessage){
 
-find("Canvas/BAOm").getComponent(BAOmMAN).jj(message,this.Pturn)
+//find("Canvas/BAOm").getComponent(BAOmMAN).jj(message,this.Pturn)
 
 
 
@@ -2636,7 +2666,8 @@ GeZiManager.PCP.DYJS()
 GeZiManager.PCP.MZJS()
 GeZiManager.PCP.CZJS()
 GeZiManager.PCP.ICEJS()
-   this.UIchange(null); if (!(turn.round%12==2||turn.round%12==7)) {   
+   this.UIchange(null); 
+   if (!(turn.round%12==2||turn.round%12==7)) {   
    if(this.DiXing=="water"&&!GeZiManager.boxs.includes(this.ZB)){GeZiManager.PCP.WAT-=1;this.node.getChildByName("water").getComponent(waterPp).PO(1)}}
    this.node.children[2].active=false;//体能显示
 
@@ -2863,6 +2894,9 @@ let j=0
 
 endGame.endGame(9)
 
+
+console.log(   this.node.getComponent(Cspine).currentSpine)
+
 }
 getZDSX(n:string){
 
@@ -2941,6 +2975,7 @@ KBL(n:number){
    if(this.body.TheNumber!="B05"){
    if (this.KB==0) {
      this.sh+=1
+     this.wk+=1
    }
    
    this.KB+=n
@@ -3025,6 +3060,7 @@ KBL(n:number){
            this.ZBW(false,1)
            if (this.KB==0) {
               this.sh-=1
+              this.wk-=1
            }
         }
      }

@@ -27,6 +27,7 @@ export default class D15 extends DXX {
     start () {
         this.target=this.node.getComponent(Character)
         this.node.getComponent(Character).t3.push(this);
+            this.changeEP()
     }
     T3(){
     
@@ -36,20 +37,20 @@ export default class D15 extends DXX {
     //利用line返回装备角色的背后第一个对象
     if( this.node.getComponent(Character).faceTo==2){
        let as= GeZiManager.line(this.node.getComponent(Character).ZB,1,2,a);
-       this.BJ(as[0]);console.log(as[0])
+       this.BJ(as[0]);//console.log(as[0])
     }
     else if(this.node.getComponent(Character).faceTo==8){
         let as= GeZiManager.line(this.node.getComponent(Character).ZB,1,8,a);
-        this.BJ(as[0]);console.log(as[0])
+        this.BJ(as[0]);//console.log(as[0])
     }
     else if(this.node.getComponent(Character).faceTo==4){
         let as= GeZiManager.line(this.node.getComponent(Character).ZB,1,4,a);
-        this.BJ(as[0]);console.log(as[0])
+        this.BJ(as[0]);//console.log(as[0])
     }
     
     else if(this.node.getComponent(Character).faceTo==6){
         let as= GeZiManager.line(this.node.getComponent(Character).ZB,1,6,a);
-        this.BJ(as[0]);console.log(as[0])
+        this.BJ(as[0]);//console.log(as[0])
     }
     
     else if(this.node.getComponent(Character).faceTo==1){
@@ -102,10 +103,10 @@ export default class D15 extends DXX {
     
     changeEP(){
     let a=this.node.getComponent(Cspine)
-    
-      a.changeSlot(a.spine2,"KD1",this.node.parent.getComponent(Shops).find(2,this.TheNumber,0),0)
-      a.changeSlot(a.spine4,"KD1",this.node.parent.getComponent(Shops).find(4,this.TheNumber,2),2)
-     a.changeSlot(a.spine6,"KD1",this.node.parent.getComponent(Shops).find(6,this.TheNumber,4),4)
+    let c=this.target.Pturn
+      a.changeSlot(a.spine2,"KD1",this.node.parent.getComponent(Shops).find(2,this.TheNumber,"KD1",c),0)
+      a.changeSlot(a.spine4,"KD1",this.node.parent.getComponent(Shops).find(4,this.TheNumber,"KD1",c),2)
+     a.changeSlot(a.spine6,"KD1",this.node.parent.getComponent(Shops).find(6,this.TheNumber,"KD1",c),4)
       
      }
     }

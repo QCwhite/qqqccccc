@@ -22,7 +22,7 @@ export default class waterPool extends DES {
 ICET:number=0
 FW: number[]=[];
 start(): void {
-       console.log("ice")
+      // console.log("ice")
 
 }
 ToICE( time: number): void {
@@ -33,7 +33,7 @@ ToICE( time: number): void {
 
        turn.Roo.push(this)
        this.node.getComponent(UIOpacity).opacity=155
-       console.log("ice")
+    //   console.log("ice")
 
 
 }
@@ -82,12 +82,12 @@ BZ(preZB: number): void {
 ReceiveMessage(message: Message): void {
        if (message instanceof SHMessage) {
 
-       console.log("ice")
+       //console.log("ice")
        if (message.Command.includes(this.ZB) || message.Command[0] == 65) {
-       console.log("ice")
+      /// console.log("ice")
        switch (message.SHtype) {
        case "ice":this.ToICE(3)
-       console.log("ice")
+      // console.log("ice")
        break;
        case "mofa":if(this.IFice){this.ToN()}
 

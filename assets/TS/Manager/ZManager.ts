@@ -18,6 +18,8 @@ import AnimalManager from "./AnimalManager";
 import GeZiManager from "./GeZiManager";
 import ManagerBase from "./ManagerBase";
 import TNanager from "./TNanager";
+import { ok } from 'assert';
+import { log } from 'console';
     
 
 @ccclass('ZManager')
@@ -212,8 +214,51 @@ export default class ZManager extends ManagerBase {
         }
         
         Cx(){
-        let j=this.ccx[Math.floor(Math.random() * this.ccx.length)]//Math.floor(Math.random() * this.ccx.length)
+
+console.log(MessageCenter.Text)
+
+  let Sb=[]
+  let s1,s2,s3
+  s1=this.addZ([2,3,4],[2,3],Sb)
+  Sb.push(s1)
+  s2=this.addZ([5,6,7],[2,3],Sb)
+
+  Sb.push(s2)
+  s3=this.addZ([0],[2],Sb)
+
+
+    GeZiManager.BanMove.push(s1)
+GeZiManager.BanMove.push(s2)
+GeZiManager.BanMove.push(s3)
+  
+
+  AnimalManager.FF=[s1,s2,s3]
+
+
+  MessageCenter.MakeGMessage("AM",[AnimalManager.FF[0]],1.1,1,"FTP");
+     
+        //   view.enableAutoFullScreen(true); // 启用自动全屏
         
+        //game.frame.requestFullscreen();
+        
+
+            MessageCenter.MakeGMessage("AM",[AnimalManager.FF[1]],1.1,1,"FTP");
+
+        
+
+            MessageCenter.MakeGMessage("AM",[AnimalManager.FF[2]],2,2,"FTP");
+
+        
+
+
+
+
+
+        let j=this.ccx[Math.floor(Math.random() * this.ccx.length)]//Math.floor(Math.random() * this.ccx.length)
+      if (MessageCenter.Text) {
+        
+      }  else{j.push("ok")}
+      //  console.log(j)
         for(let a of j){
         switch (a) {
             case "tree":let j=this.addZ([0],[2,3],this.mArr1Arr2(GeZiManager.BanMove,GeZiManager.getAllOZB(),GeZiManager.grass,GeZiManager.waterPool,GeZiManager.boxs))
@@ -253,6 +298,10 @@ export default class ZManager extends ManagerBase {
                     break;
                     case "Sheep":this.Ysheep(2)//this.YFlag(2);
                     
+                    break;
+
+
+                    case "ok": // MessageCenter.MakeGMessage("AM",[v],1111,1,"FTP");
                     break;
             default:
                 break;

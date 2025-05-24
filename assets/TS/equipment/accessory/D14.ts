@@ -24,6 +24,18 @@ k:number=0
         this.target=this.node.getComponent(Character);
        // this.target.qi3.push(this)
         this.target.magic3.push(this)
+
+        if(this.color=="Red"){
+           if (   GeZiManager.Rhun==0) {
+               GeZiManager.Rhun+=1
+           }
+         
+           
+        }else{     if (   GeZiManager.Bhun==0) {
+               GeZiManager.Bhun+=1
+           } }
+        GeZiManager.getHUN();
+            this.changeEP()
     }
  
 Qi3(): void {

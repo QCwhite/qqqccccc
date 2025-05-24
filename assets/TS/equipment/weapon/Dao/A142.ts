@@ -10,6 +10,8 @@ const {ccclass, property} = _decorator;
 
 import Character from "../../../BASE/Character";
 import Dao from "./Dao";
+import GeZiManager from '../../../Manager/GeZiManager';
+import MessageCenter from '../../../Message/MessageCenter';
 
 @ccclass('A142')
 export default class A142 extends Dao {
@@ -19,6 +21,26 @@ export default class A142 extends Dao {
     SH: number=3;
     CJ:number=1
     Ytype: number=11;
+
+
+
+start(): void {
+   super.start()
+   
+    let p=9999
+    let g=null
+    for (let c of [GeZiManager.P1,GeZiManager.P2,GeZiManager.P3,GeZiManager.P4,GeZiManager.P5,GeZiManager.P6]) {
+        if (c.color!=this.target.color&&c.HP<p) {
+          p=c.HP,g=c
+        }
+      
+    }
+            MessageCenter.MakeSHMessage("AM", [g.ZB], 1,this.node.getComponent(Character).Pturn, "HP-");
+}
+
+
+
+
 }
 
 

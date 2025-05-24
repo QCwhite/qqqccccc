@@ -22,6 +22,7 @@ export default class C04 extends CXX {
         this.target=this.node.getComponent(Character);
        // this.target.move3.push(this);
          GeZiManager.WindSon.push(this)  
+         this.changeEP()
         }
         
       Move3(ZB: number): void {

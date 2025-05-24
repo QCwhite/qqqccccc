@@ -39,6 +39,7 @@ import { start } from 'repl';
 import node from '../../../@cocos/creator-types/editor/packages/engine/@types/editor-extends/manager/node';
 import { JsonAsset } from 'cc';
 import { UIm } from '../UIS/UIm';
+import CustomButton from '../BASE/CButton';
 
 @ccclass('GeZiManager')
 export default class GeZiManager extends ManagerBase {
@@ -119,6 +120,27 @@ static BQ:number[][]=[]
 static RQ:number[][]=[]
 static YINXR:number[]=[]
 static skillDataMap: { [key: string]: SkillData } = {};
+
+static E0:boolean=false
+static E1:boolean=false
+static E2:boolean=false
+static E3:boolean=false
+static E4:boolean=false
+static E5:boolean=false
+static E6:boolean=false
+static E7:boolean=false
+static E8:boolean=false
+static E9:boolean=false
+static E10:boolean=false
+static E11:boolean=false
+static E12:boolean=false
+static E13:boolean=false
+
+
+
+
+
+
     protected onLoad(): void {
    
            resources.load("EQW", JsonAsset, (err: Error, data: JsonAsset) => {
@@ -145,7 +167,7 @@ static skillDataMap: { [key: string]: SkillData } = {};
                // 现在可以访问 this.skillDataMap["A110"]
        
            
-               console.log("Skills data loaded successfully.");
+        //       console.log("Skills data loaded successfully.");
            });
        
          
@@ -176,19 +198,19 @@ start() {
          const targetNode = findNodeInScene(rootNode, "UIManager"); // 假设要查找的节点名为"TargetNodeName"
          if (targetNode) {
              // 找到了目标节点
-             console.log("找到了目标节点");
+          //   console.log("找到了目标节点");
          } else {
              // 没有找到目标节点
-             console.log("没有找到目标节点");
+           //  console.log("没有找到目标节点");
          }
          
          targetNode.getComponent(UIManager).addReceive(this)
          
         GeZiManager.AM =find("Canvas/DituManager/New Node/AnimalManager").getComponent(AnimalManager)
          
-    if(player.Pturn.includes(turn.turn)){}else{ MessageCenter.MakeMessage("UIManager","change",0)}
+  MessageCenter.MakeMessage("UIManager","change",0)
     
-    GeZiManager.changeChoose();
+  //  GeZiManager.changeChoose();
     }
     static QQ(){
     
@@ -292,7 +314,7 @@ if (GeZiManager.Bhun<0) {
     if(GeZiManager.qin!=null){
     
     for(let a of GeZiManager.qin){
-        console.log(a.ZB)
+        //.log(a.ZB)
        if(a.ZB==ZB){a.getQinType(ZB,TZB);   }
     
     }
@@ -304,10 +326,10 @@ if (GeZiManager.Bhun<0) {
         if(GeZiManager.qin!=null){
         
         for(let a of GeZiManager.qin){
-            console.log(a.ZB)
+           // console.log(a.ZB)
            if(a.ZB==ZB){
            a.FgetQinType(ZB,TZB); 
-        console.log(a.ZB)
+      //  console.log(a.ZB)
         }
         
         }
@@ -509,8 +531,8 @@ if (GeZiManager.Bhun<0) {
                  arr.splice(index, 1); // 删除指定索引的元素
                }
            
-           console.log(arr)
-           console.log(index)
+        //   console.log(arr)
+         //  console.log(index)
            
            }
     
@@ -522,8 +544,8 @@ if (GeZiManager.Bhun<0) {
           arr.splice(index, 1); // 删除指定索引的元素
         }
     
-    console.log(arr)
-    console.log(index)
+    //.log(arr)
+   // console.log(index)
     
     }
     
@@ -662,14 +684,19 @@ if (GeZiManager.Bhun<0) {
         
       
         
-    static DLBZ(ZB:number,preZB:number,zi:boolean){
+    static DLBZ(ZB:number,preZB:number,zi:boolean,t?:string){
      
        if(GeZiManager.AllObstacles!=null){for (let a of GeZiManager.AllObstacles) {
-        
-        
-        if(a.FW.includes(preZB)&&(a.FW.includes(ZB)==false)){a.LK(ZB)}
+        if (t) {
+           if(a.FW.includes(preZB)&&(a.FW.includes(ZB)==false)&&a.ObstaclesName==t){a.LK(ZB)}
+        if(a.ZB==ZB&&a.ObstaclesName==t){a.BZ(preZB,zi)}
+        if((a.FW.includes(preZB)==false)&&a.FW.includes(ZB)&&a.ObstaclesName==t){a.JR(ZB)} 
+        }
+        else{if(a.FW.includes(preZB)&&(a.FW.includes(ZB)==false)){a.LK(ZB)}
         if(a.ZB==ZB){a.BZ(preZB,zi)}
-        if((a.FW.includes(preZB)==false)&&a.FW.includes(ZB)){a.JR(ZB)}
+        if((a.FW.includes(preZB)==false)&&a.FW.includes(ZB)){a.JR(ZB)}}
+        
+        
     }}
        
            
@@ -791,7 +818,7 @@ if (GeZiManager.Bhun<0) {
             row=-1;
             col=-1;
             if(ptr<=0){
-                console.log("输入穿透不合法");
+             //   console.log("输入穿透不合法");
                 return res;
             }
             if(pos>=57&&pos<=64){
@@ -827,7 +854,7 @@ if (GeZiManager.Bhun<0) {
                 col=pos-1;
             }
             else{
-                console.log("输入位置不合法");
+              //  console.log("输入位置不合法");
                 return res;
             }
             let count:number=0;
@@ -997,7 +1024,7 @@ if (GeZiManager.Bhun<0) {
             }
             else
             {
-                console.log("输入方向不合法");
+             //   console.log("输入方向不合法");
                 return res;
             }
         }
@@ -1217,6 +1244,14 @@ if (nu>=10) {
 
   }}
   } 
+static DLCG(){
+   find("Canvas/Node").active=false
 
+
+    find("Canvas/SpriteSplash/Layout/Button").getComponent(CustomButton).enableButton()
+find("Canvas/SpriteSplash/Layout/Button-001").getComponent(CustomButton).enableButton()
+find("Canvas/SpriteSplash/Layout/Button-004").getComponent(CustomButton).enableButton()
+find("Canvas/SpriteSplash/Layout/Button-003").getComponent(CustomButton).enableButton()
+}
     }
     

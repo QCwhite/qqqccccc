@@ -26,6 +26,7 @@ FW:number[]=[]
         this.target=this.node.getComponent(Character);
         this.target.move3.push(this)
         GeZiManager.AllObstacles.push(this)
+            this.changeEP()
     }
 /*  Move3(ZB: number, pturn: number): void {
    if (this.target.PPC()) {
@@ -75,13 +76,13 @@ remove(){
 }
 changeEP(){
   let a=this.node.getComponent(Cspine)
-  
-    a.changeSlot(a.spine2,"KD3-F",this.node.parent.getComponent(Shops).find(2,"D10-F",0),0)
-    a.changeSlot(a.spine2,"KD2-B",this.node.parent.getComponent(Shops).find(2,"D10-B",1),1)
-    a.changeSlot(a.spine4,"KD3-F",this.node.parent.getComponent(Shops).find(2,"D10-F",2),2)
-    a.changeSlot(a.spine4,"KD2-B",this.node.parent.getComponent(Shops).find(2,"D10-B",4),4)
-    a.changeSlot(a.spine6,"KD3-F",this.node.parent.getComponent(Shops).find(2,"D10-F",5),5)
-    a.changeSlot(a.spine6,"KD2-B",this.node.parent.getComponent(Shops).find(2,"D10-B",6),6)
+  let c=this.target.Pturn
+    a.changeSlot(a.spine2,"KD3-F",this.node.parent.getComponent(Shops).find(2,"D10-F","KD3-F",c),0)
+    a.changeSlot(a.spine2,"KD2-B",this.node.parent.getComponent(Shops).find(2,"D10-B","KD2-B",c),0)
+      a.changeSlot(a.spine4,"KD3-F",this.node.parent.getComponent(Shops).find(4,"D10-F","KD3-F",c),0)
+    a.changeSlot(a.spine4,"KD2-B",this.node.parent.getComponent(Shops).find(4,"D10-B","KD2-B",c),0)
+       a.changeSlot(a.spine6,"KD3-F",this.node.parent.getComponent(Shops).find(6,"D10-F","KD3-F",c),0)
+    a.changeSlot(a.spine6,"KD2-B",this.node.parent.getComponent(Shops).find(6,"D10-B","KD2-B",c),0)
 
    }
 }

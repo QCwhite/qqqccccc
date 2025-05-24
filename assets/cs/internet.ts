@@ -21,9 +21,9 @@ onMouseDown(event: EventMouse) {
     if (event.isStopped()) {
        
     } else {
-        console.log("Mouse down event was not intercepted.");
+     //   console.log("Mouse down event was not intercepted.");
         // 打印鼠标点击的位置
-        console.log("Mouse down at position:"+ event);
+       // console.log("Mouse down at position:"+ event);
     }
 }
 
@@ -36,10 +36,10 @@ onLoad() {
 
 onTouchStart(event: EventTouch) {
     try {
-        console.log('Touch start event triggered');
-        console.log('Event details:', event);
+      //  console.log('Touch start event triggered');
+      //  console.log('Event details:', event);
     } catch (error) {
-        console.error('Error in touch-start event listener:', error);
+      //  console.error('Error in touch-start event listener:', error);
     }
 }
 

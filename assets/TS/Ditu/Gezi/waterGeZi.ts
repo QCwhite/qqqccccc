@@ -19,7 +19,7 @@ export default class  waterGZ extends GeZi {
  
 
 start(){
-         console.log("afa")
+        // console.log("afa")
 }
      
   

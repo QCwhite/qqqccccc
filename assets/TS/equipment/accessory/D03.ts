@@ -32,6 +32,11 @@ export default class D03 extends DXX {
       // this.target.Ehun+=1
       this.target.TNJJ[3]+=1
       this.target.TNJJ[2]-=1
+          this.changeEP()
+
+
+
+this.target.ZBW(false,8)
     }
   
   

@@ -44,7 +44,7 @@ export default class Fireball extends realThing {
      //   if (turn.round%12==2||turn.round%12==7) { turn.round+=1  }
         this.turn = turn.turn;
         this.node.children[0].getComponent(Label).string=this.turn.toString()
-        console.log(this.SH);
+       // console.log(this.SH);
     }
 
 
@@ -110,9 +110,9 @@ if(v!=-1){b[v]=0}
 let g=[]
 for (let a of GeZiManager.AllObstacles) {
     if (a instanceof DL&&b.includes(a.ZB)) {
-        console.log(a.ZB)   
+       // console.log(a.ZB)   
         a.DBZ();
-      console.log(b);console.log(a.ZB)
+     // console.log(b);console.log(a.ZB)
       for(let c of b){if(c!=0){this.ZHA(c,b.indexOf(c))};}
    g.push(a.ZB);
     }

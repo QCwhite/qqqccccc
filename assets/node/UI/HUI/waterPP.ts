@@ -33,7 +33,7 @@ makewaterPO(){
 
       this.node.active=true;
       for(let a of this.waters){a.active=false;}
-      console.log(this.node.parent.getComponent(Character).WAT)
+      //console.log(this.node.parent.getComponent(Character).WAT)
 
       for(let i=1;i<=this.node.parent.getComponent(Character).WAT;i++){
       let GD=instantiate(this.waterPO)
@@ -54,7 +54,7 @@ Move3(){
 
       }else{this.node.active=false;
 
-      console.log("ice")
+   //   console.log("ice")
       }
 
       },100);

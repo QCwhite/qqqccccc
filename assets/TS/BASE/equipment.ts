@@ -9,6 +9,7 @@ import { _decorator, Label } from 'cc';
 const {ccclass, property} = _decorator;
 
 import ComponentBase from "./ComponentBase";
+import Character from './Character';
 
 @ccclass('Equipment')
 export default class equipment extends ComponentBase {
@@ -18,8 +19,9 @@ export default class equipment extends ComponentBase {
     text: string = 'hello';
 //   LIFE-CYCLE CALLBACKS:
 //   onLoad () {}
+target:Character=null
     start () {
-
+this.target=this.node.getComponent(Character)
     }
 //   update (dt) {}
     getFar(dis:number,ZB){

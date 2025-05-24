@@ -28,6 +28,7 @@ HD:number=3
 
        this.target.wk+=99
        this.target.mk+=99
+          this.changeEP()
     }
   Behurt3(n: number,killp:realThing){
        this.HD--

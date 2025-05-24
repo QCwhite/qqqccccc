@@ -112,7 +112,7 @@ export default class fsc extends ComponentBase {
                    for (let i = 0; i < o.length; i++) {
                        if (o[i] === 0) {
                          o[i] = fc;
-                         console.log(o);
+                    //     console.log(o);
                          k = true;
                          j.Q = true;
                          j.fixui();
@@ -148,13 +148,13 @@ export default class fsc extends ComponentBase {
        
        GGF(){
        for (let index = 0; index < 4; index++) {
-          console.log(this.node.name+index)
+      //    console.log(this.node.name+index)
            find("Canvas/Main Camera/background/fashu background/New Layout").children[index].getComponent(Sprite).spriteFrame=this.Atlas.getSpriteFrame("FASHU2-"+(this.Gfashu[index]+2))
            
        }
        let k=find("Canvas/Main Camera/background/fashu background/New ScrollView/view/choose background")
        
-       console.log(this.Gfashu)
+    //   console.log(this.Gfashu)
        for (let index = 0; index < 14; index++) {
        if (this.Gfashu.includes(index+1)) {
            k.children[index].active=false  
@@ -182,7 +182,7 @@ export default class fsc extends ComponentBase {
            // 合并选择的数字
            const selectedNumbers = [selectedFromGroup1, selectedFromGroup2, ...selectedFromRemaining];
        
-           console.log("Selected numbers:", selectedNumbers);
+         //  console.log("Selected numbers:", selectedNumbers);
            return selectedNumbers;
        }
        
@@ -208,7 +208,7 @@ export default class fsc extends ComponentBase {
        
        onScroll() {
            const scrollOffset = this.scrollView!.getScrollOffset();
-       console.log(this.scrollView.getMaxScrollOffset())    
+     //  console.log(this.scrollView.getMaxScrollOffset())    
            // 限制水平滚动范围
          //  let newX = scrollOffset.x;
          //  if (scrollOffset.x > this.maxScrollX) {

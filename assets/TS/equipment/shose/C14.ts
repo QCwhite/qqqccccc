@@ -22,7 +22,7 @@ start () {
        this.target=this.node.getComponent(Character);
        this.target.HPm3.push(this)
        this.target.Walk(false)
-
+   this.changeEP()
 }
 HPM3(){
        if (this.target.HP<=this.target.MaxHP/2&&this.j==false) {

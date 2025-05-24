@@ -27,6 +27,20 @@ export default class D13 extends DXX {
             this.target=this.node.getComponent(Character);
             this.target.HPm2.push(this)
             this.HPM2(0,0,0);
+                this.changeEP()
+
+                GeZiManager.Tcharacters=[]
+                    MessageCenter.MakeSHMessage("AM",[GeZiManager.line(this.target.ZB,8,this.target.faceTo,GeZiManager.BanMove)],1,this.target.Pturn,"getOneCs");
+                 let j=0
+                 for (let c of GeZiManager.Tcharacters) {
+                if (c.color!=this.color) {
+                    j++
+                }
+                    
+                 }
+                 
+                    MessageCenter.MakeSHMessage("AM",[this.target.ZB],j,this.target.Pturn,"TN+");
+                
         }
      
     T3(): void {
@@ -69,10 +83,10 @@ export default class D13 extends DXX {
 
 changeEP(){
          let a=this.node.getComponent(Cspine)
-
-         a.changeSlot(a.spine2,"KD1",this.node.parent.getComponent(Shops).find(2,this.TheNumber,0),0)
-        a.changeSlot(a.spine4,"KD1",this.node.parent.getComponent(Shops).find(4,this.TheNumber,2),2)
-       a.changeSlot(a.spine6,"KD1",this.node.parent.getComponent(Shops).find(6,this.TheNumber,4),4)
+let c=this.target.Pturn
+         a.changeSlot(a.spine2,"KD1",this.node.parent.getComponent(Shops).find(2,this.TheNumber,"KD1",c),0)
+        a.changeSlot(a.spine4,"KD1",this.node.parent.getComponent(Shops).find(4,this.TheNumber,"KD1",c),2)
+       a.changeSlot(a.spine6,"KD1",this.node.parent.getComponent(Shops).find(6,this.TheNumber,"KD1",c),4)
 
  }
 

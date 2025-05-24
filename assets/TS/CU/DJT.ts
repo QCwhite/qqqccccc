@@ -69,7 +69,7 @@ export default class DJT extends Component {
          */
         private onCountdownFinished(): void {
             
-            console.log( this.fn)
+          //  console.log( this.fn)
             this.fn()
         }
     }

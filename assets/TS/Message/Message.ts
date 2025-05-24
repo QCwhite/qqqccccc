@@ -12,6 +12,7 @@ export  class Message {
   Type:string;
   Command:any;
   Content:any;
+  sequenceId:number;
 constructor(Type:string,Command:any,Content:any){
 this.Type=Type
 this.Command= Command

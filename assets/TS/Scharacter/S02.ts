@@ -43,7 +43,7 @@ RtoRelive:number=99;
        if(GeZiManager.Tcharacter!=null&&!GeZiManager.Tcharacter.gui){
 
        let c=this.node.getComponent(Character).qi
-       console.log(c)
+   //    console.log(c)
 
        let k=false
 
@@ -181,7 +181,7 @@ Move2(ZB: number,p:number,time:number): void {
        if(p==this.target.Pturn) {
        GeZiManager.shanchuALL(this.GZN.move2,this)
 
-       console.log( this.turn8([this.target.faceIs(ZB)])[0])
+    //   console.log( this.turn8([this.target.faceIs(ZB)])[0])
        setTimeout(()=>{  this.GZN.move(a,a1);this.GZN.moveto(time, this.GZN.ZB)
 
        this.GZN.move2.push(this)
@@ -240,7 +240,7 @@ Move2(ZB: number,p:number,time:number): void {
        }else{  MessageCenter.MakeSHMessage("AM",[GeZiManager.Tcharacter.ZB],[this.target.turn8([GeZiManager.Tcharacter.faceIs(this.target.ZB)])[0],0.3],this.target.Pturn,"move")}
        this.node.parent.getComponent(JNUM).JNF("S勾爪2",this.target.ZB)
        this.node.parent.getComponent(JNUM).JNF("S勾爪2",this.target.findGe(this.target.faceTo,2))
-       
+              MessageCenter.MakeSHMessage("AM",[this.target.ZB],2,this.target.Pturn,"Qi-")
 
        }
 
@@ -320,7 +320,7 @@ choseS(n:string): void {
        default:
        break;
        }
-       console.log(n)
+  //     console.log(n)
 }
 getJNF(n: number[]): void {
   
@@ -370,7 +370,7 @@ NWNA(e:string[],n:number){
        break;
        }
 //  */
-       console.log(e)
+      // console.log(e)
        return  e
 
 
@@ -403,7 +403,7 @@ roundPass(): void {
 
 }
 relive(){
-       console.log(this.target.ZB)
+     //  console.log(this.target.ZB)
 
        for(let a of this.node.children){a.active=true;}
        this.node.getChildByName("to8").getComponent(UIOpacity).opacity=155

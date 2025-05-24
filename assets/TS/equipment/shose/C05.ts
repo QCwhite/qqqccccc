@@ -26,6 +26,8 @@ export default class C05 extends CXX {
         this.target.move3.push(this);
         this.target.tt="rock"
        // this.target.M=0;
+          this.changeEP()
+       
     }
 Move3(ZB: number): void {
 for(let a of GeZiManager.DL){if(a[0]==ZB){

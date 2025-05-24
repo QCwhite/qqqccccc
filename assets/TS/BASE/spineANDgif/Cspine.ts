@@ -14,6 +14,7 @@ import { gif1 } from './gif';
 import { ImageAsset } from 'cc';
 import { gfx } from 'cc';
 import { Sprite } from 'cc';
+import GeZiManager from '../../Manager/GeZiManager';
 
 const { property, ccclass } = _decorator;
 
@@ -159,7 +160,7 @@ this.spine8.setCompleteListener((trackEntry:sp.spine.TrackEntry) => {
                 break;
             default:
                 this.currentSpine = null;
-                console.error('Invalid direction:', direction);
+            //    console.error('Invalid direction:', direction);
                 break;
         }
         if (this.currentSpine) {
@@ -413,19 +414,8 @@ this.spine8.setCompleteListener((trackEntry:sp.spine.TrackEntry) => {
           this.a8.getComponent(Sprite).spriteFrame=b8;}
        }
       */
-      console.log(what)
-      switch (what[0]) {
-        case "A":this.node.getComponent(Character).weapon.changeEP();
-       break;
-       case "C":this.node.getComponent(Character).shose.changeEP();
-       break;
-       case "B":this.node.getComponent(Character).body.changeEP();
-       break;
-       case "D":this.node.getComponent(Character).accessory.changeEP();
-       break;
-        default:
-          break;
-      }
+     // console.log(what)
+     
       
       
       
@@ -516,42 +506,126 @@ this.spine8.setCompleteListener((trackEntry:sp.spine.TrackEntry) => {
          
     
          
-  changeSlot(sk:sp.Skeleton, slotName:string, Sprite1:SpriteFrame,o:number) {
-    //获取插槽function spriteFrameToTexture2D(spriteFrame: SpriteFrame): Texture2D | null {
-    
-   
-
-    Sprite1=find("Canvas/BAOm").getComponent(Sprite). spriteFrame
-//find("Canvas/DituManager/New Node/AnimalManager").getComponent(Shops).S
-   // console.log(find("Canvas/BAOm").getComponent(Sprite). spriteFrame)
+  changeSlot(sk: sp.Skeleton, slotName: string, Sprite1: SpriteFrame, o: number) {
+  
 
 
-
-    setTimeout(()=>{ 
-      console.log(find("Canvas/BAOm").children[o].getComponent(Sprite).spriteFrame.texture)
-            console.log(find("Canvas/BAOm").children[o].getComponent(Sprite).spriteFrame)
-         let b=find("Canvas/BAOm").children[o].getComponent(Sprite).spriteFrame.texture
-      if (b) {
-const texture2D = b as unknown as Texture2D;
-
-// 使用前验证关键属性
+let l=2
 
 
+switch (sk) {
+    case this.spine2:l=2
+        
+        break;
+ case this.spine4:l=4
+        
+        break;
+         case this.spine6:l=6
+        
+        break;
+         case this.spine8:l=8
+        
+        break;
+    default:
+        break;
+}
 
 
-          sk.setSlotTexture(slotName,texture2D,true)
-      }
-     
-      },600)
+    // 获取目标节点并添加监听
+    setTimeout(()=>{
  
-  console.log(Sprite1)
+     
+  let targetNode = null
 
+          if (o==13) {
+targetNode = find("Canvas/BAOm/sprite")
+} else{
+ targetNode = find("Canvas/BAOm"+"/"+this.node.getComponent(Character).Pturn+"/"+l+"/"+slotName)
+
+
+
+}
+    if (!targetNode) {
+       // console.error(`目标节点不存在: index ${o}`);
+        return;
+    }
+
+    const spriteComp = targetNode.getComponent(Sprite);
+    if (!spriteComp) {
+     //   console.error(`Sprite组件不存在: index ${o}`);
+        return;
+    }
+
+    // 使用事件监听确保精灵帧更新
+    let textureCheckCount = 0;
+    const onSpriteFrameChanged = () => {
+        textureCheckCount++;
+        
+        // 防止无限重试（最多5次检查）
+        if (textureCheckCount > 5) {
+            spriteComp.node.off(Sprite.EventType.SPRITE_FRAME_CHANGED, onSpriteFrameChanged);
+            console.warn(`纹理加载超时: index ${o}`);
+            return;
+        }
+
+        const currentTexture = spriteComp.spriteFrame?.texture;
+        if (currentTexture?.isValid) {
+            spriteComp.node.off(Sprite.EventType.SPRITE_FRAME_CHANGED, onSpriteFrameChanged);
+            this.applyTextureToSlot(sk, slotName, currentTexture);
+        }
+    };
+
+    // 初始检查
+    if (spriteComp.spriteFrame?.texture?.isValid) {
+        this.applyTextureToSlot(sk, slotName, spriteComp.spriteFrame.texture);
+    } else {
+        spriteComp.node.on(Sprite.EventType.SPRITE_FRAME_CHANGED, onSpriteFrameChanged);
+        this.scheduleOnce(() => onSpriteFrameChanged(), 0.1); // 立即触发首次检查
+    }},300)
+   
+}
+
+private applyTextureToSlot(sk: sp.Skeleton, slotName: string, texture: Texture2D) {
+    if (!texture?.isValid || !sk.isValid) return;
+
+    try {
+        sk.setSlotTexture(slotName, texture, false);
+        console.log('纹理设置成功:', slotName, texture);
+    } catch (e) {
+        console.error('设置纹理时发生异常:', e);
+    }
 }
 
 
 
+clearSlot(sk: sp.Skeleton, slotName: string, mode: 0 | 1 = 0) {
+    // 安全验证
+    if (!sk?.isValid || !sk.findSlot(slotName)) {
+        console.error('骨骼或插槽无效:', slotName);
+        return;
+    }
 
+    // 两种清空方式
+    switch(mode) {
+        case 0: // 透明纹理方案
+            const emptyTexture = new Texture2D();
+          
+            const emptySpriteFrame = new SpriteFrame();
+            emptySpriteFrame.texture = emptyTexture;
+            sk.setSlotTexture(slotName, emptyTexture, true);
+            break;
 
+        case 1: // 移除附件方案
+            const slot = sk.findSlot(slotName);
+            if (slot) {
+                slot.setAttachment(null); // Spine运行时API
+            }
+            break;
+    }
+
+    // 强制刷新骨骼显示
+    sk.invalidAnimationCache();
+}
 
 getUVS(Sprite:SpriteFrame,name:string){ 
   // 假设 spriteFrame 已经在编辑器中设置，或者通过代码获取
@@ -595,4 +669,191 @@ let Trim=o.rect
       
   }else return [0,0,0,0,0,0,0,0]
 
-}}
+}
+
+
+
+
+
+
+
+
+
+mo(sk:sp.Skeleton, slotName:string,o:number){
+
+
+
+
+
+
+
+switch (o) {
+    case 0:
+        if (GeZiManager.E0) {
+            this.mmo(sk, slotName, o);
+            GeZiManager.E0=false
+        } else {
+            setTimeout(() => { this.mo(sk, slotName, o); }, 100);
+        }
+        break;
+
+    case 1:
+        if (GeZiManager.E1) {
+            this.mmo(sk, slotName, o);
+                   GeZiManager.E1=false
+        } else {
+            setTimeout(() => { this.mo(sk, slotName, o); }, 100);
+        }
+        break;
+
+    case 2:
+        if (GeZiManager.E2) {
+            this.mmo(sk, slotName, o);
+                   GeZiManager.E2=false
+        } else {
+            setTimeout(() => { this.mo(sk, slotName, o); }, 100);
+        }
+        break;
+
+    case 3:
+        if (GeZiManager.E3) {
+            this.mmo(sk, slotName, o);
+                   GeZiManager.E3=false
+        } else {
+            setTimeout(() => { this.mo(sk, slotName, o); }, 100);
+        }
+        break;
+
+    case 4:
+        if (GeZiManager.E4) {
+            this.mmo(sk, slotName, o);
+                   GeZiManager.E4=false
+        } else {
+            setTimeout(() => { this.mo(sk, slotName, o); }, 100);
+        }
+        break;
+
+    case 5:
+        if (GeZiManager.E5) {
+            this.mmo(sk, slotName, o);
+                   GeZiManager.E5=false
+        } else {
+            setTimeout(() => { this.mo(sk, slotName, o); }, 100);
+        }
+        break;
+
+    case 6:
+        if (GeZiManager.E6) {
+            this.mmo(sk, slotName, o);
+                   GeZiManager.E6=false
+        } else {
+            setTimeout(() => { this.mo(sk, slotName, o); }, 100);
+        }
+        break;
+
+    case 7:
+        if (GeZiManager.E7) {
+            this.mmo(sk, slotName, o);
+                   GeZiManager.E7=false
+        } else {
+            setTimeout(() => { this.mo(sk, slotName, o); }, 100);
+        }
+        break;
+
+    case 8:
+        if (GeZiManager.E8) {
+            this.mmo(sk, slotName, o);
+              GeZiManager.E8=false
+        } else {
+            setTimeout(() => { this.mo(sk, slotName, o); }, 100);
+        }
+        break;
+
+    case 9:
+        if (GeZiManager.E9) {
+            this.mmo(sk, slotName, o);
+              GeZiManager.E9=false
+        } else {
+            setTimeout(() => { this.mo(sk, slotName, o); }, 100);
+        }
+        break;
+
+    case 10:
+        if (GeZiManager.E10) {
+            this.mmo(sk, slotName, o);
+                   GeZiManager.E10=false
+        } else {
+            setTimeout(() => { this.mo(sk, slotName, o); }, 100);
+        }
+        break;
+
+    case 11:
+        if (GeZiManager.E11) {
+            this.mmo(sk, slotName, o);
+                   GeZiManager.E11=false
+        } else {
+            setTimeout(() => { this.mo(sk, slotName, o); }, 100);
+        }
+        break;
+
+    case 12:
+        if (GeZiManager.E12) {
+            this.mmo(sk, slotName, o);
+                GeZiManager.E12=false
+        } else {
+            setTimeout(() => { this.mo(sk, slotName, o); }, 100);
+        }
+        break;
+
+    case 13:
+        if (GeZiManager.E13) {
+            this.mmo(sk, slotName, o);
+                    GeZiManager.E13=false
+        } else {
+            setTimeout(() => { this.mo(sk, slotName, o); }, 100);
+        }
+        break;
+
+   
+
+    default:
+        break;
+}
+
+
+}
+
+
+mmo(sk:sp.Skeleton, slotName:string,o:number){
+
+
+setTimeout(()=>{ let b=find("Canvas/BAOm").children[o].getComponent(Sprite).spriteFrame.texture
+      if (b.isValid) {
+const texture2D = b as unknown as Texture2D;
+
+// 使用前验证关键属性
+
+console.log(texture2D )
+
+
+          sk.setSlotTexture(slotName,texture2D,true)
+
+
+
+      }},1000)
+  
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+}

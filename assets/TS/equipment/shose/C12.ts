@@ -32,6 +32,7 @@ export default class C12 extends CXX {
        this.target.walk2.push(this);
        this.target.walk1.push(this);
        this.target.TNJJ[1]-=2
+          this.changeEP()
         }
     
     Walk1(): void {
@@ -87,15 +88,15 @@ export default class C12 extends CXX {
     
 changeEP(){
        let a=this.node.getComponent(Cspine)
-
-       a.changeSlot(a.spine2,"KC-B",this.node.parent.getComponent(Shops).find(2,this.TheNumber,0),0)
-       a.changeSlot(a.spine4,"KC-B",this.node.parent.getComponent(Shops).find(2,this.TheNumber,0),0)
-       a.changeSlot(a.spine6,"KC-B",this.node.parent.getComponent(Shops).find(2,this.TheNumber,0),0)
-       a.changeSlot(a.spine8,"KC-B",this.node.parent.getComponent(Shops).find(2,this.TheNumber,0),0)
-       a.changeSlot(a.spine2,"KC-F",this.node.parent.getComponent(Shops).find(2,"C12-B",0),0)
-       a.changeSlot(a.spine4,"KC-F",this.node.parent.getComponent(Shops).find(2,"C12-B",0),0)
-       a.changeSlot(a.spine6,"KC-F",this.node.parent.getComponent(Shops).find(2,"C12-B",0),0)
-       a.changeSlot(a.spine8,"KC-F",this.node.parent.getComponent(Shops).find(2,"C12-B",0),0)
+       let c=this.target.Pturn
+       a.changeSlot(a.spine2,"KC-B",this.node.parent.getComponent(Shops).find(2,this.TheNumber,"KC-B",c),0)
+       a.changeSlot(a.spine4,"KC-B",this.node.parent.getComponent(Shops).find(4,this.TheNumber,"KC-B",c),0)
+       a.changeSlot(a.spine6,"KC-B",this.node.parent.getComponent(Shops).find(6,this.TheNumber,"KC-B",c),0)
+       a.changeSlot(a.spine8,"KC-B",this.node.parent.getComponent(Shops).find(8,this.TheNumber,"KC-B",c),0)
+       a.changeSlot(a.spine2,"KC-F",this.node.parent.getComponent(Shops).find(2,"C12-B","KC-F",c),0)
+       a.changeSlot(a.spine4,"KC-F",this.node.parent.getComponent(Shops).find(4,"C12-B","KC-F",c),0)
+       a.changeSlot(a.spine6,"KC-F",this.node.parent.getComponent(Shops).find(6,"C12-B","KC-F",c),0)
+       a.changeSlot(a.spine8,"KC-F",this.node.parent.getComponent(Shops).find(8,"C12-B","KC-F",c),0)
 //               a.changeSlot(a.spine4,"KC-B",this.node.parent.getComponent(Shops).find(4,this.TheNumber+"-Q"))
 //               a.changeSlot(a.spine4,"KC-F",this.node.parent.getComponent(Shops).find(4,this.TheNumber))
 //                a.changeSlot(a.spine4,"CH",this.node.parent.getComponent(Shops).find(2,this.TheNumber+"-L"))

@@ -19,6 +19,8 @@ export default class A131 extends Dao {
    SH: number=2;
    start(): void {
        this.node.getComponent(Character).attack1.push(this)
+       this.target=this.node.getComponent(Character)
+            this.changeEP()
    }
   Attack1(): void {
        let a =this.node.getComponent(Character)

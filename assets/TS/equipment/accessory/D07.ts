@@ -32,6 +32,12 @@ c:number=3
        if (this.target.tt=="wangling") {
         this.c=2
        }
+
+GeZiManager.Tcharacter=null
+    MessageCenter.MakeSHMessage("AM",[GeZiManager.line(this.target.ZB,1,this.target.faceTo,GeZiManager.BanMove)],1,this.target.Pturn,"getOneC");
+  MessageCenter.MakeSHMessage("AM",[GeZiManager.Tcharacter.ZB],1,this.target.Pturn,"Qi-");
+
+           this.changeEP()
     }
  /* Behurt3(n: number,killp:realThing){
     
@@ -59,9 +65,11 @@ remove(){
 changeEP(){
 let a=this.node.getComponent(Cspine)
 
-  a.changeSlot(a.spine2,"KD1-F",this.node.parent.getComponent(Shops).find(2,this.TheNumber,0),0)
-  a.changeSlot(a.spine4,"KD1-F",this.node.parent.getComponent(Shops).find(4,this.TheNumber,2),2)
- a.changeSlot(a.spine6,"KD1-F",this.node.parent.getComponent(Shops).find(6,this.TheNumber,4),4)
+ a.changeSlot(a.spine2,"KD1",this.node.parent.getComponent(Shops).find(2,this.TheNumber,"KD1",this.target.Pturn),0)
+    
+            a.changeSlot(a.spine4,"KD1",this.node.parent.getComponent(Shops).find(4,this.TheNumber,"KD1",this.target.Pturn),0)
+            a.changeSlot(a.spine6,"KD1",this.node.parent.getComponent(Shops).find(6,this.TheNumber,"KD1",this.target.Pturn),0)
+
   
  }
   

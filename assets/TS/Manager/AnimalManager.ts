@@ -70,13 +70,14 @@ import { sp } from 'cc';
 import { Material } from 'cc';
 import { SubtitleManager } from '../UIS/baom';
 import FHT2 from '../../node/Dixing/FHT2';
+import { Stats } from 'node:fs';
+import { set } from '../../../@cocos/creator-types/editor/packages/scene/@types/cce/utils/dump';
 
 
 const {ccclass, property} = _decorator;
 
 @ccclass
 export default class AnimalManager extends ManagerBase {
-
 
 ac:Node[]=[]
 P1SN:number=0;
@@ -85,7 +86,7 @@ P1SN:number=0;
  P4SN:number=0;
  P5SN:number=0;
  P6SN:number=0;
-juese:string[]=["SXX","S09","S02","S05","S04","S00","S01"];
+juese:string[]=["SXX","S01","S02","S08","S00","S09","S04"];
 @property(Prefab)
  s00:Prefab=null;
  @property(Prefab)
@@ -206,6 +207,7 @@ if (!GeZiManager.aos.includes(ZB)) {
     DL.getComponent(realThing).ZB=ZB;
     DL.getComponent(realThing).setXY(0.8);
     DL.getComponent(realThing).moveto(0,ZB)
+       this.node.getComponent(AnimalManager).YuanGong.push(DL.getComponent(realThing))
     if (GeZiManager.grass.includes(ZB)) {
        if (KHD2.PT.includes(GeZiManager.PCP.Pturn)) {
         DL.getComponent(UIOpacity).opacity=155;
@@ -339,7 +341,7 @@ makeBox(ZB:number,type:number){
    box1.getComponent(realThing).setXY(0);
     this.node.getComponent(AnimalManager).YuanGong.push(box1.getComponent(realThing))
     box1.getComponent(box).sk(type);
-    box1.getComponent(box).move(5,1)
+  //  box1.getComponent(box).move(5,1)
     GeZiManager.boxs.push(ZB)
 
     }
@@ -781,7 +783,7 @@ console.log(MessageCenter.Text)
 
 
 
-
+this.WEN()
 
 
 
@@ -936,24 +938,7 @@ onLoad(): void {
     //  AnimalManager.FF=[num1,num2,num3]
    */
       
-  console.log(MessageCenter.Text)
-
-  let Sb=[]
-  let s1,s2,s3
-  s1=this.addZ([2,3,4],[2,3],Sb)
-  Sb.push(s1)
-  s2=this.addZ([5,6,7],[2,3],Sb)
-
-  Sb.push(s2)
-  s3=this.addZ([0],[2],Sb)
-
-
-    GeZiManager.BanMove.push(s1)
-GeZiManager.BanMove.push(s2)
-GeZiManager.BanMove.push(s3)
   
-
-  AnimalManager.FF=[s1,s2,s3]
 
 
 
@@ -1194,28 +1179,17 @@ g.setJN()
 
 console.log("abc")
 
-     MessageCenter.MakeGMessage("AM",[AnimalManager.FF[0]],1.1,1,"FTP");
-     
-        //   view.enableAutoFullScreen(true); // 启用自动全屏
+   
         
-        //game.frame.requestFullscreen();
-        
-        setTimeout(() => {
-            MessageCenter.MakeGMessage("AM",[AnimalManager.FF[1]],1.1,1,"FTP");
-        },200);
-        
-        setTimeout(() => {
-            MessageCenter.MakeGMessage("AM",[AnimalManager.FF[2]],2,2,"FTP");
-        }, 400);
-        
-        
-        GeZiManager.blueBan();
+      //  GeZiManager.blueBan();
             
             setTimeout(() => {
                 MessageCenter.MakeGMessage("TN",TNanager.makePool(),0,0,"pool") 
             }, 600);
             setTimeout(() => {
-          find("Canvas/DituManager/New Node/AnimalManager").getComponent(ZManager).Cx(),800})
+          find("Canvas/DituManager/New Node/AnimalManager").getComponent(ZManager).Cx()},800)
+    
+      setTimeout(()=>{MessageCenter.MakeGMessage("AM",[0],1111,1,"FTP");},1200)  
   }
 
 
@@ -1238,6 +1212,10 @@ ReceiveMessage(message: Message){
      if (message instanceof SHMessage&& message.SHtype=="CX") {
         this.ok()
      }
+
+        if (message instanceof SHMessage&& message.SHtype=="hao") {
+   //
+     }
     if(message.Type==this.messageType){
 
 if(message instanceof SHMessage&& message.SHtype=="FTP"){
@@ -1249,7 +1227,7 @@ switch (message.Content) {
         case 1.1:this.makeTree(message.Command[0],1);
         
         break;
-        case 2:this.makeRock(message.Command[0]);if(state.ST==0&&KHD2.PT.includes(1)){GeZiManager.blueBan()}
+        case 2:this.makeRock(message.Command[0]);
         
         break;
         case 3:this.makeDL(message.Command[0]);shopM.A6n[1]-=1;if(this.PPC()){GeZiManager.TNC[5]=2};
@@ -1349,6 +1327,19 @@ switch (message.Content) {
  case 29:this.makeFH2(message.Command[0],message.Command[1])
         
         break;
+
+
+        case 1111:
+            
+        console.log("发了23")
+        
+        const data = { id:23,
+    playername:KHD2.Cname
+  
+  };
+  
+  WebSocketManager.instance.ws.send(JSON.stringify(data))
+            break;
     default:console.log(GeZiManager.Tcharacter)
        console.log(message.Command[1]) 
     this.makeFH(message.Command[0],message.Command[1])
@@ -1387,7 +1378,32 @@ find("")
 
 
 
+WEN(){
+setTimeout(()=>{
 
+if (state.JJW==false) {
+    KHD2.GetGameALLp();
+    this.WEN()
+}else{
+
+
+state.Pchange()
+GeZiManager.blueBan()
+
+
+}
+
+
+
+
+
+
+},800)
+
+
+
+
+}
 
 
 

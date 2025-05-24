@@ -20,6 +20,7 @@ export default class D08 extends DXX {
     start () {
        this.target=this.node.getComponent(Character);
        this.target.attack2.push(this)
+           this.changeEP()
     }
     Attack2(an: number[]): void {
        let ak=[GeZiManager.P1.qi,GeZiManager.P2.qi,GeZiManager.P3.qi,GeZiManager.P4.qi,GeZiManager.P5.qi,GeZiManager.P6.qi]

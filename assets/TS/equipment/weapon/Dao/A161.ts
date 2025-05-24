@@ -25,6 +25,17 @@ export default class A161 extends A141 {
     start(){
 //      this.node.getComponent(Character).attack25.push(this)
 AudioManager.instance.ZJP("hit",16)
+   this.target=this.node.getComponent(Character)
+let c=0
+if(this.color=="Red"){
+  c= GeZiManager.Rhun
+   
+}else{ c= GeZiManager.Bhun; }
+
+       MessageCenter.MakeSHMessage("AM",[this.node.getComponent(Character).ZB],c,this.node.getComponent(Character).Pturn,"TN+")
+
+
+     this.changeEP()
     }
     Attack25(at:realThing,csh: number): void {
        MessageCenter.MakeSHMessage("AM",[this.node.getComponent(Character).ZB],1,this.node.getComponent(Character).Pturn,"TN+")

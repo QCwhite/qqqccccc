@@ -28,7 +28,7 @@ j:number=0
       this.target=this.node.getComponent(Character);
       this.target.t1.push(this)
       this.target.shop2.push(this)
-
+    this.changeEP()
         }
  
 T1(turn1: number): void {
@@ -128,10 +128,10 @@ remove(): void {
   }
    changeEP(){
       let a=this.node.getComponent(Cspine)
-
-      a.changeSlot(a.spine2,"KD2-B",this.node.parent.getComponent(Shops).find(2,this.TheNumber,0),0)
-      a.changeSlot(a.spine4,"KD2-B",this.node.parent.getComponent(Shops).find(4,this.TheNumber,2),2)
-      a.changeSlot(a.spine6,"KD2-B",this.node.parent.getComponent(Shops).find(6,this.TheNumber,4),4)
+ let c=this.target.Pturn
+      a.changeSlot(a.spine2,"KD2-B",this.node.parent.getComponent(Shops).find(2,this.TheNumber,"KD2-B",c),0)
+      a.changeSlot(a.spine4,"KD2-B",this.node.parent.getComponent(Shops).find(4,this.TheNumber,"KD2-B",c),2)
+      a.changeSlot(a.spine6,"KD2-B",this.node.parent.getComponent(Shops).find(6,this.TheNumber,"KD2-B",c),4)
 
  }
   

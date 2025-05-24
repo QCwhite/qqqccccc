@@ -20,6 +20,8 @@ export default class A126 extends A110 {
    SH: number=1;
    start(): void {
        this.node.getComponent(Character).attack1.push(this)
+          this.target=this.node.getComponent(Character)
+            this.changeEP()
    }
 Attack25(at: any, csh: number): void {
        if (at&&at.tt=="M") {
@@ -30,7 +32,7 @@ Attack25(at: any, csh: number): void {
   
   QD(an:number[]){
 
-       console.log(this.node.getComponent(Character).Pturn)
+      // console.log(this.node.getComponent(Character).Pturn)
        if(this.node.getComponent(Character).attack2!=null){for(let a of this.node.getComponent(Character).attack2){a.Attack2(an);}}
        MessageCenter.MakeSHMessage("AM", an, this.SH,this.node.getComponent(Character).Pturn, "wuli")
        MessageCenter.MakeSHMessage("AM", an, 1,this.node.getComponent(Character).Pturn, "Qi+")
@@ -44,6 +46,11 @@ Attack25(at: any, csh: number): void {
   GeZiManager.Bu.push(2);}
   remove(): void {
        GeZiManager.shanchu(this.node.getComponent(Character).attack1,this)
+ }
+
+
+ changeEP(): void {
+     
  }
 }
 

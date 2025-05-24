@@ -25,8 +25,8 @@
   ],
   "_props": [
     {
-      "grayPercent": 0.13,
-      "u_strength": 0.72,
+      "grayPercent": 0.12,
+      "u_strength": 0.7,
       "u_radius": 0.82,
       "u_softness": 0.7,
       "lineWidth": 0.8,

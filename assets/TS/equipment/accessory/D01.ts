@@ -31,6 +31,7 @@ start () {
     this.target.HPm2.push(this)
    // this.Qi3()
    this.target.behurt2.push(this)
+       this.changeEP()
 }
 
 HPM2(n: number,fo:number,wo:number): void {
@@ -42,7 +43,7 @@ for(let j of o){
 MessageCenter.MakeSHMessage("AM",[j],1,this.target.Pturn,"getOne")  
 if (GeZiManager.Tcharacter&&GeZiManager.Tcharacter!=this.target&&GeZiManager.Tcharacter.accessory.TheNumber!="D01"&&GeZiManager.Tcharacter.color==this.target.color&&(GeZiManager.Tcharacter.HP==this.target.HP||GeZiManager.Tcharacter.qi==this.target.qi)&&GeZiManager.Tcharacter.HP!=GeZiManager.Tcharacter.MaxHP) {
 MessageCenter.MakeSHMessage("AM",[j],1,this.target.Pturn,"HP+")  
-console.log(GeZiManager.Tcharacter) 
+//console.log(GeZiManager.Tcharacter) 
 }
 
 
@@ -54,7 +55,7 @@ for(let j of o){
 MessageCenter.MakeSHMessage("AM",[j],1,this.target.Pturn,"getOne")  
 if (GeZiManager.Tcharacter&&GeZiManager.Tcharacter!=this.target&&GeZiManager.Tcharacter.accessory.TheNumber!="D01"&&GeZiManager.Tcharacter.color==this.target.color&&(GeZiManager.Tcharacter.HP==this.target.HP||GeZiManager.Tcharacter.qi==this.target.qi)&&GeZiManager.Tcharacter.HP!=GeZiManager.Tcharacter.MaxHP) {
 MessageCenter.MakeSHMessage("AM",[j],1,this.target.Pturn,"HP+") 
-console.log(GeZiManager.Tcharacter)  
+//console.log(GeZiManager.Tcharacter)  
 }
 
 
@@ -71,7 +72,7 @@ Walk2(ZB: number): void {
 let o=[]
 
   o= GeZiManager.onY(this.target.y)
-console.log(o) 
+//console.log(o) 
 for(let j of o){
 
 MessageCenter.MakeSHMessage("AM",[j],1,this.target.Pturn,"getOne")  
@@ -89,7 +90,7 @@ o= GeZiManager.onX(this.target.x)
 for(let j of o){
 MessageCenter.MakeSHMessage("AM",[j],1,this.target.Pturn,"getOne")  
 if (GeZiManager.Tcharacter&&GeZiManager.Tcharacter!=this.target&&GeZiManager.Tcharacter.color==this.target.color&&(GeZiManager.Tcharacter.HP==this.target.HP||GeZiManager.Tcharacter.qi==this.target.qi)) {
-console.log(j)
+//console.log(j)
 MessageCenter.MakeSHMessage("AM",[j],1,this.target.Pturn,"walk")  
 }
 

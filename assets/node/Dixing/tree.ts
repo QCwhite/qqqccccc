@@ -46,7 +46,7 @@ MK:boolean=false
     
     dead(k:realThing): void {
        if (this.app==true) {
-              console.log(this.app)
+             // console.log(this.app)
        
               MessageCenter.MakeSHMessage("AM",[this.ZB],7.1,GeZiManager.PCP.Pturn,"FTP");}
 
@@ -222,8 +222,8 @@ if (!this.MK) {
 
 
        if (KHD2.PT.includes(1)||MessageCenter.Text) {
-         console.log(this.getFarINN(this.ZB,2))
-console.log(this.randomSelect(this.getFarINN(this.ZB,2),GeZiManager.BanMove,1,true))
+        // console.log(this.getFarINN(this.ZB,2))
+//console.log(this.randomSelect(this.getFarINN(this.ZB,2),GeZiManager.BanMove,1,true))
 MessageCenter.MakeGMessage("AM",this.randomSelect(this.getFarINN(this.ZB,2),GeZiManager.BanMove,1,true),7,1,"FTP");
 
        }

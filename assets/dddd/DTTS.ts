@@ -29,7 +29,7 @@ WZTS(str:string){
 }
 BC(str:string){
 
-      console.log(str)
+    //  console.log(str)
 
       if(this.nn==0){}else{
       this.node.children[0].children[0].getComponent(Label).string=str;
@@ -39,7 +39,7 @@ BC(str:string){
       }
 }
 LK(){
-      console.log(this.nn)
+   //   console.log(this.nn)
 
 
       if(this.nn!=0){
@@ -114,7 +114,7 @@ LC(){
 }
 kaiShi(){
     find("Canvas/fangJian/kaishi").active=false
-      console.log("xi")
+     // console.log("xi")
       const data = {
       id:4
 
@@ -173,17 +173,17 @@ dcroom(){
     KHD2.Client.emit('quick_match',['0','0','0','0'])
     KHD2.Client.on('quick_match_uuid',dat=>{
      KHD2.dat=dat
-     console.log("hhh")
+     .log("hhh")
      KHD2.Client.emit('createroom',[  KHD2.dat, KHD2.dat,KHD2.Cname,1]);
     })
     
     KHD2.Client.on('createroomTF',(data:any)=>{
-      console.log(data)
+     // .log(data)
       switch (data) {
       case 'T':KHD2.FZ=true;
 //         KHD2.inRoom(KHD.dat,KHD.dat);
 
-      console.log(KHD2.dat)
+    //  console.log(KHD2.dat)
       find("Canvas/New Node/New Label").getComponent(Label).string="匹配中"
 
 
@@ -240,7 +240,7 @@ dcroom(){
       if (this.nn==1) {
       //KHD2.Cname=Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000+""
 // //KHD2.indl()
-      console.log("llla")
+     // console.log("llla")
        AudioManager.instance.ZJP("bgm",2,{
                             loop: true,
                             volume: 0.8,

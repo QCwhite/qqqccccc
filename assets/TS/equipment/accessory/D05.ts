@@ -20,8 +20,9 @@ export default class D05 extends DXX {
     Cname:string="川普的领带"
     start () {
        this.target=this.node.getComponent(Character);
-         MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,this.target.Pturn,"MaxHP+")
-        MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,this.target.Pturn,"HP+")
+         MessageCenter.MakeSHMessage("AM",[this.target.ZB],this.target.D05,this.target.Pturn,"MaxHP+")
+        MessageCenter.MakeSHMessage("AM",[this.target.ZB],this.target.D05,this.target.Pturn,"HP+")
+            this.changeEP()
     }
    
 remove(){

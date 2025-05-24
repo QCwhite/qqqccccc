@@ -21,6 +21,7 @@ start () {
        this.target=this.node.getComponent(Character);
        this.target.attack25.push(this);
        this.target.TNJJ[1]+=1
+          this.changeEP()
 }
 Attack25(at: any, csh: number): void {
        if (at.sex=="man") {

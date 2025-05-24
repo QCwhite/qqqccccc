@@ -55,8 +55,8 @@ export default class MUI extends ComponentBase {
         CC: number = 0;
         MCD:number[]=[0,0,0,0,0,0,0,0,0,0,7,0,0,0,0,0,0]
         DMAG:number=0;
-        fashu: number[] = [1,2,3,6];
-        BLfas:number[]=[11,13,4];
+        fashu: number[] = [1,2,6,14];
+        BLfas:number[]=[10,3,4];
         RLfas:number[]=[9,8,5];
        son:MAG[]=[];
        @property(Node)  
@@ -114,7 +114,7 @@ export default class MUI extends ComponentBase {
           
             case 8:a="ice" ;qi=3;//this.MCD[7]=4;
             break;
-            case 9:a="banana" ;qi=3;//this.MCD[8]=2;
+            case 9:a="banana" ;qi=2;//this.MCD[8]=2;
             break;
             case 10:a="thunder" ;qi=6;//this.MCD[9]=7;
             break;
@@ -122,11 +122,13 @@ export default class MUI extends ComponentBase {
             case 11:a="tree" ;qi=3;//this.MCD[10]=4;
             break;
           
-            case 12:a="BZ";qi=4;//this.MCD[10]=4;
+            case 12:a="BZ";qi=3;//this.MCD[10]=4;
             break;
-            case 13:a="pig" ;qi=6;//this.MCD[10]=4;
+            case 13:a="pig" ;qi=4;//this.MCD[10]=4;
             break;
-            case 14:a="tui" ;qi=3;//this.MCD[10]=4;
+            case 14:a="tui" ; qi=Math.floor(GeZiManager.PCP.qi/2)
+      
+    
             break;
         default:a="BZ";qi=3
             break;
@@ -292,14 +294,15 @@ if (Br&&manager.getFarH(n+GeZiManager.JL)) {
     
     
     for(let a of GeZiManager.PCP.magic2){a.Magic2();}
-    
-    MessageCenter.MakeSHMessage("AM",[n,2+GeZiManager.dm],4,GeZiManager.PCP.Pturn,"FTP");
+
 
     let o=2+GeZiManager.free
     if (o<1) {
         o=1
     }
     MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],o,null,"Qi-")
+        
+    MessageCenter.MakeSHMessage("AM",[n,2+GeZiManager.dm],4,GeZiManager.PCP.Pturn,"FTP");
     for(let a of GeZiManager.PCP.magic3){a.Magic3(n);}
     
 
@@ -344,18 +347,18 @@ if (Br&&manager.getFarH(n+GeZiManager.JL)) {
     Dfalsh(){
         console.log("dg")
      for(let a of GeZiManager.PCP.magic2){a.Magic2();}
-        
+           let o=3+GeZiManager.free
+    if (o<1) {
+        o=1
+    }
+    MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],o,null,"Qi-")
         let k  = GeZiManager.PCP.findGe(GeZiManager.PCP.faceTo,2)
         if(GeZiManager.BanMove.includes(k)){}else{
          
             GeZiManager.PCP.To(k,0.1);
         
     }
-    let o=3+GeZiManager.free
-    if (o<1) {
-        o=1
-    }
-    MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],o,null,"Qi-")
+ 
     
         for(let a of GeZiManager.PCP.magic3){a.Magic3(k);}
     
@@ -393,13 +396,18 @@ if (Br&&manager.getFarH(n+GeZiManager.JL)) {
         MessageCenter.MakeSHMessage("AM",[n],1,GeZiManager.PCP.Pturn,"getOne")
     
         for(let a of GeZiManager.PCP.magic2){a.Magic2();}
-    GeZiManager.Tcharacter.KBL(2)
-    
-    let o=3+GeZiManager.free
+        let o=3+GeZiManager.free
     if (o<1) {
         o=1
     }
     MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],o,null,"Qi-")
+        MessageCenter.MakeSHMessage("AM",[n],1,GeZiManager.PCP.Pturn,"getOne")
+console.log( GeZiManager.Tcharacter)
+    GeZiManager.Tcharacter.KBL(1)
+     GeZiManager.Tcharacter.ZBW(false,1)
+console.log( GeZiManager.Tcharacter)
+    
+
     for(let a of GeZiManager.PCP.magic3){a.Magic3(GeZiManager.PCP.ZB);}
         AudioManager.instance.ZJP("magic",4)
     }
@@ -423,7 +431,7 @@ if (Br&&manager.getFarH(n+GeZiManager.JL)) {
     for(let a of GeZiManager.PCP.magic2){a.Magic2();}
 
     
-    let o=6+GeZiManager.free
+    let o=4+GeZiManager.free
     if (o<1) {
         o=1
     }
@@ -459,18 +467,18 @@ let k=0
     Dcure(n:number){
         for(let a of GeZiManager.PCP.magic2){a.Magic2();}
        
-    
+     let o=3+GeZiManager.free
+        if (o<1) {
+            o=1
+        }
+        MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],o,null,"Qi-")
        
        MessageCenter.MakeSHMessage("AM",[n],1,GeZiManager.PCP.Pturn,"getOne")
        if(GeZiManager.Tcharacter!=null){GeZiManager.Tcharacter.node.getChildByName("MTX").getComponent(MTX).playFrameAnimation1("cure")}
        setTimeout(() => {
         MessageCenter.MakeSHMessage("AM",[n],1,GeZiManager.PCP.Pturn,"MaxHP+");
         MessageCenter.MakeSHMessage("AM",[n],1,GeZiManager.PCP.Pturn,"HP+");
-        let o=3+GeZiManager.free
-        if (o<1) {
-            o=1
-        }
-        MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],o,null,"Qi-")
+       
         for(let a of GeZiManager.PCP.magic3){a.Magic3(n);}
        }, 500); 
     
@@ -509,7 +517,11 @@ let k=0
         let l=find("Canvas/DituManager/New Node/AnimalManager/QP")
           find("Canvas/weatherManager").getComponent(weatherM).shakeCameraAndNode(g,l,13,3000)
           let a=find("Canvas/DituManager/New Node/AnimalManager").getComponent(AnimalManager).YuanGong;
-          
+            let o=4+GeZiManager.free
+          if (o<1) {
+              o=1
+          }
+          MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],o,null,"Qi-")
           setTimeout(() => {
            
             for(let manager of a) {
@@ -523,11 +535,7 @@ let k=0
           let b=new SHMessage("AM",[65],[1+GeZiManager.dm,"DZ"],turn.turn,"mofaT")
         
           find("Canvas/Main Camera/UIManager/magicUI").getComponent(MUI).DZLM=false    
-          let o=4+GeZiManager.free
-          if (o<1) {
-              o=1
-          }
-          MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],o,null,"Qi-")
+        
     
        for(let a of GeZiManager.PCP.magic3){a.Magic3(GeZiManager.PCP.ZB);}
        AudioManager.instance.ZJP("magic",5)
@@ -549,10 +557,14 @@ let k=0
     Dice(n:number){
            GeZiManager.DLLM='ice'
         for(let a of GeZiManager.PCP.magic2){a.Magic2();}
-     
+       let o=3+GeZiManager.free
+          if (o<1) {
+              o=1
+          }
+          MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],o,null,"Qi-")
         MessageCenter.MakeSHMessage("AM",[n],1,GeZiManager.PCP.Pturn,"ice");
-        MessageCenter.MakeSHMessage("AM",[n],GeZiManager.dm,GeZiManager.PCP.Pturn,"Qi-");
-        MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],3+GeZiManager.free,null,"Qi-")
+  
+        
         for(let a of GeZiManager.PCP.magic3){a.Magic3(n);}
     
     
@@ -585,7 +597,15 @@ let k=0
     
         for(let a of GeZiManager.PCP.magic2){a.Magic2();}
       //  if(GeZiManager.PCP.FU[3]>0){GeZiManager.free-=1}
-        MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],5+GeZiManager.free,null,"Qi-")
+
+  let o=5+GeZiManager.free
+          if (o<1) {
+              o=1
+          }
+          MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],o,null,"Qi-")
+
+
+        MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],o,null,"Qi-")
      for (let index = 0; index < 1+GeZiManager.dm; index++) {
        
         
@@ -676,8 +696,13 @@ let k=0
     Dthunder(n:number){
        GeZiManager.JL=0;
         for(let a of GeZiManager.PCP.magic2){a.Magic2();}
+         let o=6+GeZiManager.free
+       if (o<1) {
+           o=1
+       }
+       MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],o,null,"Qi-")
     MessageCenter.MakeSHMessage("AM",[n],1,0,"getOneC")
-    
+   
     this.fadeINAndA(find("Canvas/weatherManager/th"),300);
     setTimeout(() => {if (GeZiManager.Tcharacter) {
         GeZiManager.Tcharacter.node.getChildByName("MTX").getComponent(MTX).playFrameAnimation1("thunder");
@@ -690,11 +715,7 @@ let k=0
        if (GeZiManager.Tcharacter.qi==0) {
         GeZiManager.Tcharacter.MZL(1)
        }
-       let o=6+GeZiManager.free
-       if (o<1) {
-           o=1
-       }
-       MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],o,null,"Qi-")
+       
         for(let a of GeZiManager.PCP.magic3){a.Magic3(n);}
     
         AudioManager.instance.ZJP("magic",10)
@@ -706,7 +727,7 @@ let k=0
      
 
     
-        this.XZ(5,false,true)
+        this.XZ(5,false,false)
     GeZiManager.DLLM='TP'
         this.close();
       }
@@ -715,24 +736,38 @@ let k=0
     
         DTP(n:number){
             for(let a of GeZiManager.PCP.magic2){a.Magic2();}
-            
-         if (GeZiManager.BanMove.includes(n)) {
-            
-         }else{     GeZiManager.PCP.To(n,0);}
-       
-         let o=5+GeZiManager.free
+              let o=5+GeZiManager.free
          if (o<1) {
              o=1
          }
          MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],o,null,"Qi-")
+GeZiManager.Tcharacter=null
+            MessageCenter.MakeSHMessage("AM",[n],1,null,"getOne")
+         if ( GeZiManager.Tcharacter) {
+        
+         let    g=   GeZiManager.PCP.ZB
+             
+         GeZiManager.PCP.ZB=0
+           GeZiManager.shanchu(GeZiManager.BanMove, g);
+             GeZiManager.Tcharacter.To(g,0)
+            
+                  
+         }   
+         GeZiManager.PCP.To(n,0)
+       
             for(let a of GeZiManager.PCP.magic3){a.Magic3(n);}
    AudioManager.instance.ZJP("magic",7)
+
+
+
+
+
 
         }
     
         banana(){
        
-            this.XZ(4,true,true)
+            this.XZ(4,false,false)
             GeZiManager.DLLM='banana'
                 this.close();
             
@@ -740,17 +775,24 @@ let k=0
         
         Dbanana(n:number){
             for(let a of GeZiManager.PCP.magic2){a.Magic2();}
-      
-                       MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],1,GeZiManager.PCP.Pturn,"TNS")
-            
-            if (GeZiManager.BanMove.includes(n)||GeZiManager.aos.includes(n)) {
-                
-            }else{   MessageCenter.MakeSHMessage("AM",[n],7,GeZiManager.PCP.Pturn,"FTP");}
-            let o=3+GeZiManager.free
+                  let o=3+GeZiManager.free
             if (o<1) {
                 o=1
             }
             MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],o,null,"Qi-")
+                      
+            
+            if (GeZiManager.BanMove.includes(n)) {
+                
+ MessageCenter.MakeSHMessage("AM",[n],2,GeZiManager.PCP.Pturn,"TN+")
+
+
+            }else  if (GeZiManager.aos.includes(n)) {
+        
+            
+                GeZiManager.DLBZ(n,n,false,"DL")
+            }else{  MessageCenter.MakeSHMessage("AM",[n],7,GeZiManager.PCP.Pturn,"FTP");}
+
             for(let a of GeZiManager.PCP.magic3){a.Magic3(n);}
         }
     
@@ -771,13 +813,13 @@ let k=0
     
     
         for(let a of GeZiManager.PCP.magic2){a.Magic2();}
-       
-        MessageCenter.MakeSHMessage("AM",[n,GeZiManager.PCP.color],14,GeZiManager.PCP.Pturn,"FTP");
-        let o=4+GeZiManager.free
+          let o=4+GeZiManager.free
         if (o<1) {
             o=1
         }
         MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],o,null,"Qi-")
+        MessageCenter.MakeSHMessage("AM",[n,GeZiManager.PCP.color],14,GeZiManager.PCP.Pturn,"FTP");
+     
         for(let a of GeZiManager.PCP.magic3){a.Magic3(GeZiManager.PCP.ZB);}
    
     
@@ -799,6 +841,12 @@ let k=0
     
     Dtree(n:number){
     for(let a of GeZiManager.PCP.magic2){a.Magic2();}
+
+        let o=3+GeZiManager.free
+    if (o<1) {
+        o=1
+    }
+    MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],o,null,"Qi-")
     let j=GeZiManager.Rhun
     if (GeZiManager.PCP.color=="Blue") {
         j=GeZiManager.Bhun
@@ -832,11 +880,7 @@ if(o.Pturn<=C){C=o.Pturn}
             break;
     }
     MessageCenter.MakeSHMessage("AM",[n,C],1,GeZiManager.PCP.Pturn,"FTP");
-    let o=3+GeZiManager.free
-    if (o<1) {
-        o=1
-    }
-    MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],o,null,"Qi-")
+
     for(let a of GeZiManager.PCP.magic3){a.Magic3(GeZiManager.PCP.ZB);}
     
   AudioManager.instance.ZJP("magic",11)
@@ -848,12 +892,9 @@ if(o.Pturn<=C){C=o.Pturn}
         let a  = GeZiManager.PCP.findGe(GeZiManager.PCP.faceTo,1)
         find("Canvas/DituManager/New Node/AnimalManager/GUIManager").active=true;
          
-        for(let c of GeZiManager.YuanGong){
-    
-    
-            if(c.ZB==a){c.blue();  MessageCenter.MakeMessage("UIManager","change",2)}else c.null();
-          
-        }
+
+        let g=Math.floor(GeZiManager.PCP.qi/2)
+         this.XZ(g+1,false,false)
     
         this.close();
         GeZiManager.DLLM='tui'
@@ -868,11 +909,15 @@ if(o.Pturn<=C){C=o.Pturn}
     
     
     Dtui(n:number){
-        n = GeZiManager.PCP.findGe(GeZiManager.PCP.faceTo,1)
+      //  n = GeZiManager.PCP.findGe(GeZiManager.PCP.faceTo,1)
         for(let a of GeZiManager.PCP.magic2){a.Magic2();}
-    
-        MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],3+GeZiManager.free,GeZiManager.PCP.Pturn,"Qi-")
-        MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],1,GeZiManager.PCP.Pturn,"Qi+")
+
+        let o=  GeZiManager.PCP.getdis(n)*2+GeZiManager.free
+    if (o<1) {
+        o=1
+    }
+    MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],o,null,"Qi-")
+        MessageCenter.MakeSHMessage("AM",[n],o/2,GeZiManager.PCP.Pturn,"Qi+")
         MessageCenter.MakeSHMessage("AM",[n],[GeZiManager.PCP.turn8([GeZiManager.PCP.faceIs(n)])[0],0.3],GeZiManager.PCP.Pturn,"move")
         console.log(GeZiManager.PCP.faceIs(n))
         for(let a of GeZiManager.PCP.magic3){a.Magic3(n);}
@@ -937,14 +982,15 @@ if(o.Pturn<=C){C=o.Pturn}
         default:
             break;
     }
-    
+    let C=null
+    if(this.node.children[0].children[0].getChildByName(l)){C=this.node.children[0].children[0].getChildByName(l).getComponent(Sprite).spriteFrame}
     
      SubtitleManager.show(
                     {
                         bgSprite: GeZiManager.PCP.color,
                         image1:GeZiManager.PCP.getComponent(SXX).Toux,
                         text1: "使用了法术"+n,
-                        image2: this.node.children[0].children[0].getChildByName(l).getComponent(Sprite).spriteFrame,
+                        image2: C,
                         text2: "",
                         duration: 3
                     })

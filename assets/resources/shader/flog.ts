@@ -45,8 +45,10 @@ export class flog extends Component {
     }
     start() {
         // 初始化浮动动画
-       this.setMaterialToSprite("m")
-        this.initFloating();
+
+        setTimeout(()=>{this.setMaterialToSprite("m")
+        this.initFloating();},300)
+       
 
     
     }
@@ -155,14 +157,14 @@ setMaterialToSprite( materialName: string) {
         // 查找目标精灵节点
         const targetSpriteNode = this.node
         if (!targetSpriteNode) {
-            console.error(`未找到名称为 的节点`);
+        //    console.error(`未找到名称为 的节点`);
             return;
         }
       
         // 获取目标精灵组件
         const targetSprite =this.node.getComponent(Sprite);
         if (!targetSprite) {
-            console.error(`节点 " 上未找到 Sprite 组件`);
+      //      console.error(`节点 " 上未找到 Sprite 组件`);
             return;
         }
       

@@ -25,7 +25,7 @@ export default class C10 extends CXX {
        this.target.t1.push(this);
        this.target.t3.push(this)
        
-
+   this.changeEP()
     }
   remove(){
 
@@ -46,13 +46,14 @@ T3(): void {
     changeEP(){
        let a=this.node.getComponent(Cspine)
 
-       a.changeSlot(a.spine2,"KC-F",this.node.parent.getComponent(Shops).find(2,this.TheNumber,0),0)
-       a.changeSlot(a.spine4,"KC-F",this.node.parent.getComponent(Shops).find(4,this.TheNumber,4),4)
-       a.changeSlot(a.spine6,"KC-F",this.node.parent.getComponent(Shops).find(6,this.TheNumber,6),6)
+       let c=this.target.Pturn
+       a.changeSlot(a.spine2,"KC-F",this.node.parent.getComponent(Shops).find(2,this.TheNumber,"KC-F",c),0)
+       a.changeSlot(a.spine6,"KC-F",this.node.parent.getComponent(Shops).find(4,this.TheNumber,"KC-F",c),4)
+       a.changeSlot(a.spine4,"KC-F",this.node.parent.getComponent(Shops).find(6,this.TheNumber,"KC-F",c),6)
      //  a.changeSlot(a.spine8,"KC-B",this.node.parent.getComponent(Shops).find(2,this.TheNumber,0),0)
-       a.changeSlot(a.spine2,"KC-B",this.node.parent.getComponent(Shops).find(2,"C10-B",2),2)
-       a.changeSlot(a.spine4,"KC-B",this.node.parent.getComponent(Shops).find(2,"C10-B",2),2)
-       a.changeSlot(a.spine6,"KC-B",this.node.parent.getComponent(Shops).find(2,"C10-B",2),2)
+       a.changeSlot(a.spine2,"KC-B",this.node.parent.getComponent(Shops).find(2,"C10-B","KC-B",c),2)
+       a.changeSlot(a.spine4,"KC-B",this.node.parent.getComponent(Shops).find(4,"C10-B","KC-B",c),2)
+       a.changeSlot(a.spine6,"KC-B",this.node.parent.getComponent(Shops).find(6,"C10-B","KC-B",c),2)
        //a.changeSlot(a.spine8,"KC-F",this.node.parent.getComponent(Shops).find(2,"C10-B",0),2)
 //               a.changeSlot(a.spine4,"KC-B",this.node.parent.getComponent(Shops).find(4,this.TheNumber+"-Q"))
 //               a.changeSlot(a.spine4,"KC-F",this.node.parent.getComponent(Shops).find(4,this.TheNumber))

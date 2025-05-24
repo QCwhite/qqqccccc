@@ -21,7 +21,7 @@ export default class C16 extends CXX {
 start () {
         this.target=this.node.getComponent(Character);
         this.target.walk3.push(this)
-
+   this.changeEP()
 }
 Walk3(ZB: number): void {
 

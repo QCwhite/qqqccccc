@@ -26,7 +26,7 @@ export default class A345 extends Dun {
    
     start () {
 
-
+     this.changeEP()
       this.node.getComponent(Character).behurt2.push(this);
     }
 Behurt2(m: SHMessage, BeHC: any, HC: any): void {

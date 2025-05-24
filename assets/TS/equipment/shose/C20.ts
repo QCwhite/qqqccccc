@@ -29,6 +29,7 @@ tt="C20"
         GeZiManager.AllObstacles.push(this)
         this.color=this.target.color
         GeZiManager.getMB();
+           this.changeEP()
         }
   
       Move3(arg0: number,pturn: number): void {
@@ -68,11 +69,11 @@ Magic3(ZB: number): void {
 }
        changeEP(){
         let a=this.node.getComponent(Cspine)
-
-        a.changeSlot(a.spine2,"KC-B",this.node.parent.getComponent(Shops).find(2,this.TheNumber,0),0)
-        a.changeSlot(a.spine4,"KC-B",this.node.parent.getComponent(Shops).find(2,this.TheNumber,0),0)
-        a.changeSlot(a.spine6,"KC-B",this.node.parent.getComponent(Shops).find(2,this.TheNumber,0),0)
-        a.changeSlot(a.spine8,"KC-B",this.node.parent.getComponent(Shops).find(2,this.TheNumber,0),0)
+    let c=this.target.Pturn
+        a.changeSlot(a.spine2,"KC-B",this.node.parent.getComponent(Shops).find(2,this.TheNumber,"KC-B",c),0)
+        a.changeSlot(a.spine4,"KC-B",this.node.parent.getComponent(Shops).find(4,this.TheNumber,"KC-B",c),0)
+        a.changeSlot(a.spine6,"KC-B",this.node.parent.getComponent(Shops).find(6,this.TheNumber,"KC-B",c),0)
+        a.changeSlot(a.spine8,"KC-B",this.node.parent.getComponent(Shops).find(8,this.TheNumber,"KC-B",c),0)
 //                a.changeSlot(a.spine4,"KC-B",this.node.parent.getComponent(Shops).find(4,this.TheNumber+"-Q"))
 //                a.changeSlot(a.spine4,"KC-F",this.node.parent.getComponent(Shops).find(4,this.TheNumber))
 //                 a.changeSlot(a.spine4,"CH",this.node.parent.getComponent(Shops).find(2,this.TheNumber+"-L"))

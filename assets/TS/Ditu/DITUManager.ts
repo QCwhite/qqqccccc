@@ -185,25 +185,41 @@ if (turn.round%12==12) {
 
 
 
+find("Canvas/DituManager/New Node/AnimalManager/QP").getComponent(Sprite).color=color(255,255,255,255)
+find("Canvas/DituManager/New Node/map").getComponent(Sprite).color=color(255,255,255,255)
+
+find("Canvas/DituManager/New Node/map4").getComponent(sp.Skeleton).color=color(255,255,255,255)
+find("Canvas/DituManager/New Node/map2").getComponent(sp.Skeleton).color=color(255,255,255,255)
+find("Canvas/DituManager/New Node/map8").getComponent(sp.Skeleton).color=color(255,255,255,255)
 
 
         for(let a of find("Canvas/DituManager/New Node/AnimalManager").getComponent(AnimalManager).YuanGong){
                 if (a.node.getComponent(Sprite)!=null) {
                         
                 
-                a.node.getComponent(Sprite).color=color(200,190,239)}}
+                a.node.getComponent(Sprite).color=color(255,255,255)}}
         tween(this.k.getComponent(UIOpacity)).to(3, { opacity:0}).start();
 
 
 
-        for(let a of find("Canvas/DituManager/New Node/AnimalManager").children){
-        if (a.getComponent(Sprite)!=null) {
-                
-        
-                a.getComponent(Sprite).color=color(255,255,255)}
+              for(let a of find("Canvas/DituManager/New Node/AnimalManager").children){
+if ( a.getComponent(Sprite)!=null) {
+        if (a.getComponent(Qin)==null) {
+              //  a.getComponent(Sprite).color=color(200,190,239)
+}
+     
 
+        if (a.getComponent(Character)==null) {
         for(let c of a.children){if(c.getComponent(Sprite)!=null){c.getComponent(Sprite).color=color(255,255,255)}}
+        } else{
+        for(let c of a.children){if (c.getComponent(sp.Skeleton)!=null) {
 
+
+        c.getComponent(sp.Skeleton).color=color(255,255,255)}
+
+
+        }}
+        }
         }
 
         }

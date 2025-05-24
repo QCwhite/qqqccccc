@@ -21,6 +21,7 @@ export default class    A1461 extends A110 {
     start () {
        this.target=this.node.getComponent(Character)
        this.target.attack3.push(this)
+            this.changeEP()
     }
 Attack3(an: number[]): void {
        MessageCenter.MakeSHMessage  ("AM",[65],[1,"DZ"],this.target.Pturn,"mofaT")

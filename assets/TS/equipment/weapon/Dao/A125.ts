@@ -22,6 +22,8 @@ export default class A125 extends Dao {
            Ytype: number=12;
       start() {
         //this.node.getComponent(Character).behurt2.push(this)
+           this.target=this.node.getComponent(Character)
+             this.changeEP()
     }
     
     Behurt2(m:SHMessage,BeHC:any,HC:any) {

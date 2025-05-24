@@ -13,6 +13,8 @@ export default class A122 extends Dao {
         SH:number=2;
       start() {
         this.node.getComponent(Character).attack25.push(this)
+           this.target=this.node.getComponent(Character)
+             this.changeEP()
     }
     
     Attack25(at:realThing, csh: number): void {

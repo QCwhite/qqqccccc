@@ -21,7 +21,7 @@ target:Character=null;
 
       this.target=this.node.getComponent(Character);
       this.target.move2.push(this);
-
+this.changeEP()
 
     }
 Move2(ZB: number){

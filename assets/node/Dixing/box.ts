@@ -32,7 +32,7 @@ k2:string[]=[]
 HP: number=3;
 iceL:boolean=false
 dead(r:realThing): void {
-     console.log(GeZiManager.boxs)
+   //  console.log(GeZiManager.boxs)
      GeZiManager.shanchuALL(GeZiManager.BanMove,this.ZB);
      GeZiManager.shanchuALL(GeZiManager.BanMove,this.ZB);
      GeZiManager.shanchuALL(GeZiManager.boxs,this.ZB);
@@ -89,7 +89,7 @@ for (let c of GeZiManager.Tcharacters) {
      }
 this.ZB=0
      this.fadeOutAndDisappear(this.node,200)
-     console.log(this.type)
+    // console.log(this.type)
      GeZiManager.shanchu(this.node.parent.getComponent(AnimalManager).YuanGong,this)
 
 }
@@ -126,9 +126,9 @@ ZHA(k,v:number){
      let g=[]
      for (let a of GeZiManager.AllObstacles) {
      if (a instanceof DL&&b.includes(a.ZB)) {
-     console.log(a.ZB)
+    // console.log(a.ZB)
      a.DBZ();
-     console.log(b);console.log(a.ZB)
+   //  console.log(b);console.log(a.ZB)
      for(let c of b){if(c!=0){this.ZHA(c,b.indexOf(c))};}
      g.push(a.ZB);
      }
@@ -189,8 +189,22 @@ sk(n:number){
 
 
 }
+
+To(ZB: number, time: number): void {
+    GeZiManager.shanchuALL(GeZiManager.boxs,this.ZB)
+    
+     super.To(ZB,time)
+
+   GeZiManager.boxs.push(ZB)  
+}
+
+
+
+
+
+
 move(face: number, dis: number,zi?:boolean): void {
-    console.log(GeZiManager.boxs)
+  //  console.log(GeZiManager.boxs)
     AudioManager.instance.ZJP("hit",1)
     GeZiManager.shanchuALL(GeZiManager.boxs, this.ZB)
      if (this.HP>0) {
@@ -235,7 +249,7 @@ move(face: number, dis: number,zi?:boolean): void {
 
      }
 
-     console.log(GeZiManager.boxs)
+     //.log(GeZiManager.boxs)
 }
 ReceiveMessage(message: Message) {
      if (message instanceof SHMessage&&this.HP>0) {
@@ -268,7 +282,7 @@ ReceiveMessage(message: Message) {
      break;
 
 
-     case "getOne":if(!this.ice){GeZiManager.Tcharacter=this;}
+     case "getOne":GeZiManager.Tcharacter=this;
      break;
      case "ice":
      this.iceL=true;

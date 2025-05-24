@@ -21,11 +21,11 @@ export default class state extends ComponentBase {
    
         static state:number=0;
         static ST:number=0;
-        
+        static JJW:boolean=false
         static Pchange(){
-        
+        console.log(state.JJW)
             if(state.state==0){
-            if(KHD2.PT.includes(turn.turn)){
+            if(KHD2.PT.includes(turn.turn)&&this.JJW){
                 MessageCenter.MakeMessage("UIManager","change",-1)
                 console.log(-1)
                 GeZiManager.qing();
@@ -73,7 +73,7 @@ export default class state extends ComponentBase {
         }
         
         start(){
-            state.Pchange();
+          //  state.Pchange();
             //GeZiManager.blueBan();   
         }
         

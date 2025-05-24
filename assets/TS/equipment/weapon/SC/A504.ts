@@ -11,10 +11,16 @@ const {ccclass, property} = _decorator;
 import A110 from "../Dao/A110";
 import Dao from "../Dao/Dao";
 import weapon from "../weapon";
+import Character from '../../../BASE/Character';
 
 @ccclass('A504')
 export default class A504 extends A110 {
     TheNumber: string="A110";
+    start(): void {
+       
+       this.target=this.node.getComponent(Character)
+      
+    }
 }
 
 

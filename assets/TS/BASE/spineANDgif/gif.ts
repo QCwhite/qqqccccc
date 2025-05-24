@@ -152,7 +152,7 @@ if (this.ooo) {
                 this.moveToNextFrame(currentIndex + 1, endIndex, m);
             }, this.timeArray[currentIndex] / 1000);
         } else if (m==1) {
-            console.log(this.node.worldPosition.z)
+         //   console.log(this.node.worldPosition.z)
             this.setEmptyFrame();
         }
   
@@ -207,7 +207,7 @@ if (this.ooo) {
         if (index >= 0 && k) {
             this.spriteFrame = k.getSpriteFrames()[index];
         } else {
-            console.log(this.node.worldPosition.z)
+           // console.log(this.node.worldPosition.z)
             this.setEmptyFrame();
         }
     }
@@ -234,7 +234,7 @@ tween(this.node)
 
     updateMaterialProperties() {
         if (!this) {
-            console.error("Target Sprite component is not set.");
+           // console.error("Target Sprite component is not set.");
             return;
         }
 
@@ -294,14 +294,14 @@ tween(this.node)
         // 查找目标精灵节点
         const targetSpriteNode = this.node
         if (!targetSpriteNode) {
-            console.error(`未找到名称为 的节点`);
+          //  console.error(`未找到名称为 的节点`);
             return;
         }
       
         // 获取目标精灵组件
         const targetSprite =this.node.getComponent(Sprite);
         if (!targetSprite) {
-            console.error(`节点 " 上未找到 Sprite 组件`);
+          //  console.error(`节点 " 上未找到 Sprite 组件`);
             return;
         }
       

@@ -103,7 +103,7 @@ export default class S04 extends SXX {
        if(GeZiManager.BanMove.includes(a)){}else{
            GeZiManager.PCP.To(a,0.1);
     }
-    this.node.parent.getComponent(JNUM).JNF("S瞬斩",this.target.ZB)  
+    this.node.parent.getComponent(JNUM).JNF("S瞬斩",a)  
       }
     }
     

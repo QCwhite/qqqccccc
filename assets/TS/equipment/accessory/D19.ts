@@ -25,6 +25,7 @@ export default class D19 extends DXX {
         start () {
             this.target=this.node.getComponent(Character);
             this.target.behurt2.push(this)
+                this.changeEP()
         }
      
   
@@ -49,10 +50,10 @@ export default class D19 extends DXX {
   
     changeEP(){
     let a=this.node.getComponent(Cspine)
-    
-      a.changeSlot(a.spine2,"KD1",this.node.parent.getComponent(Shops).find(2,this.TheNumber,0),0)
-      a.changeSlot(a.spine4,"KD1",this.node.parent.getComponent(Shops).find(4,this.TheNumber,2),2)
-     a.changeSlot(a.spine6,"KD1",this.node.parent.getComponent(Shops).find(6,this.TheNumber,4),4)
+       let c=this.target.Pturn
+        a.changeSlot(a.spine2,"KD1",this.node.parent.getComponent(Shops).find(2,this.TheNumber,"KD1",c),0)
+        a.changeSlot(a.spine4,"KD1",this.node.parent.getComponent(Shops).find(4,this.TheNumber,"KD1",c),2)
+       a.changeSlot(a.spine6,"KD1",this.node.parent.getComponent(Shops).find(6,this.TheNumber,"KD1",c),4)
       
      }
   }

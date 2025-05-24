@@ -29,7 +29,11 @@ levelup(n:string){
       console.log(this.MZ)
       if(this.MZ==2){this.Pnumber+=1}
       if(this.MZ==3){this.AA+=1}
-    this.label.string=this.MZ+"级攻击环"}}
+    this.label.string=this.MZ+"级攻击环"}
+  
+  this.TheNumber='A509-'+this.MZ
+  
+  }
 attack(){
       if(this.node.getComponent(S09).tu==4){this.node.getComponent(S09).tu=6}else{this.node.getComponent(S09).tu=4}
       console.log(this.node.getComponent(S09).tu)

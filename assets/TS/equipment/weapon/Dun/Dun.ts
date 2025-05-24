@@ -34,6 +34,7 @@ FJ(){}//,每次格挡触发
 //      turn.Too.push(this);
        super.start()
        this.node.getComponent(Character).eqiupment.push(this);
+         this.changeEP()
     }
     turnPass() {
 
@@ -63,10 +64,12 @@ remove(): void {
 
 changeEP(){
        let a=this.node.getComponent(Cspine)
+      
+       let c=this.target.Pturn
+              a.changeSlot(a.spine2,"A3",this.node.parent.getComponent(Shops).find(2,this.TheNumber,"A3",c),0)
+              a.changeSlot(a.spine4,"A3",this.node.parent.getComponent(Shops).find(4,this.TheNumber,"A3",c),0)
+              a.changeSlot(a.spine6,"A3",this.node.parent.getComponent(Shops).find(6,this.TheNumber,"A3",c),0)
 
-       a.changeSlot(a.spine2,"A3",this.node.parent.getComponent(Shops).find(2,this.TheNumber,0),0)
-       a.changeSlot(a.spine4,"A3",this.node.parent.getComponent(Shops).find(4,this.TheNumber,2),2)
-       a.changeSlot(a.spine6,"A3",this.node.parent.getComponent(Shops).find(6,this.TheNumber,4),4)
      }
      
 }

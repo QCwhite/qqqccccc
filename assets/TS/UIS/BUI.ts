@@ -368,10 +368,10 @@ export default class BUI extends ComponentBase {
         }
             
     
-        Skill1.children[0].getComponent(Sprite).spriteFrame=GeZiManager.PCP.node.getComponent(S06).skiil1
+        Skill1.children[0].getComponent(Sprite).spriteFrame=GeZiManager.PCP.node.getComponent(S06).skiil2
     
         Skill1.children[2].active=true
-        Skill1.children[2].getComponent(gif1).changeF(3,1)//体能
+        Skill1.children[2].getComponent(gif1).changeF(2,1)//体能
         Skill1.children[3].children[0].getComponent(Label).string="3"
         Skill1.children[3].active=true
         
@@ -381,7 +381,7 @@ export default class BUI extends ComponentBase {
             
         }
       
-        Skill2.children[0].getComponent(Sprite).spriteFrame=GeZiManager.PCP.node.getComponent(S06).skiil2
+        Skill2.children[0].getComponent(Sprite).spriteFrame=GeZiManager.PCP.node.getComponent(S06).skiil6
     
         Skill2.children[2].active=true
         Skill2.children[2].getComponent(gif1).changeF(this.getTNC(3)-1,1)//体能
@@ -394,7 +394,7 @@ export default class BUI extends ComponentBase {
             
         }
       
-        Skill3.children[0].getComponent(Sprite).spriteFrame=GeZiManager.PCP.node.getComponent(S06).skiil3
+        Skill3.children[0].getComponent(Sprite).spriteFrame=GeZiManager.PCP.node.getComponent(S06).skiil5
     
         Skill3.children[2].active=true
         Skill3.children[2].getComponent(gif1).changeF(this.getTNC(3)-1,1)//体能
@@ -460,7 +460,7 @@ if (GeZiManager.PCP.getComponent(SXX).JX) {
             Skill1.parent.getComponent(CustomButton).disableButton()}
             
     
-        Skill1.children[0].getComponent(Sprite).spriteFrame=GeZiManager.PCP.node.getComponent(S09).skiil1
+        Skill1.children[0].getComponent(Sprite).spriteFrame=GeZiManager.PCP.node.getComponent(S09).skiil6
     
         Skill1.children[2].active=true
         Skill1.children[2].getComponent(gif1).changeF(1,1)//体能
@@ -470,7 +470,7 @@ if (GeZiManager.PCP.getComponent(SXX).JX) {
             Skill4.parent.getComponent(CustomButton).disableButton()}
             
     
-        Skill4.children[0].getComponent(Sprite).spriteFrame=GeZiManager.PCP.node.getComponent(S09).skiil2
+        Skill4.children[0].getComponent(Sprite).spriteFrame=GeZiManager.PCP.node.getComponent(S09).skiil5
     
         Skill4.children[2].active=true
         Skill4.children[2].getComponent(gif1).changeF(1,1)//体能
@@ -481,7 +481,7 @@ if (GeZiManager.PCP.getComponent(SXX).JX) {
             Skill2.parent.getComponent(CustomButton).disableButton()}
             
     
-        Skill2.children[0].getComponent(Sprite).spriteFrame=GeZiManager.PCP.node.getComponent(S09).skiil1
+        Skill2.children[0].getComponent(Sprite).spriteFrame=GeZiManager.PCP.node.getComponent(S09).skiil3
     
         Skill2.children[2].active=true
         Skill2.children[2].getComponent(gif1).changeF(1,1)//体能
@@ -569,7 +569,7 @@ if (GeZiManager.PCP.getComponent(SXX).JX) {
           
     
     
-       console.log("nit")
+    //   console.log("nit")
     
          // if(MessageCenter.Text){  MessageCenter.MakeGMessage("AM",[GeZiManager.PCP.ZB],turn.day+GeZiManager.free,GeZiManager.PCP.Pturn,"Qi+");}
           

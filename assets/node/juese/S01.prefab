@@ -1429,10 +1429,7 @@
     "__prefab": {
       "__id__": 62
     },
-    "_customMaterial": {
-      "__uuid__": "5c68dd6e-f035-4afd-b822-1abaa3133034",
-      "__expectedType__": "cc.Material"
-    },
+    "_customMaterial": null,
     "_srcBlendFactor": 2,
     "_dstBlendFactor": 4,
     "_color": {
@@ -1921,7 +1918,7 @@
       "__expectedType__": "sp.SkeletonData"
     },
     "defaultSkin": "default",
-    "defaultAnimation": "",
+    "defaultAnimation": "<None>",
     "_premultipliedAlpha": false,
     "_timeScale": 1,
     "_preCacheMode": 0,
@@ -4386,8 +4383,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 40,
-      "height": 36
+      "width": 100,
+      "height": 100
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4709,8 +4706,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 40,
-      "height": 36
+      "width": 100,
+      "height": 100
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -5083,7 +5080,7 @@
       "__id__": 243
     },
     "Toux": {
-      "__uuid__": "d8295f76-3ed4-40a6-8e79-bc6c81b619bd@4d87d",
+      "__uuid__": "131ff634-6e23-4dd5-9d6c-3aba8eee9a06@f9941",
       "__expectedType__": "cc.SpriteFrame"
     },
     "skiil1": {

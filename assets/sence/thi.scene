@@ -202,7 +202,7 @@
     "_priority": -1,
     "_fov": 60,
     "_fovAxis": 0,
-    "_orthoHeight": 592.2077922077922,
+    "_orthoHeight": 540,
     "_near": 1,
     "_far": 4096,
     "_color": {
@@ -10513,7 +10513,7 @@
         "__id__": 308
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 317
@@ -11524,6 +11524,7 @@
     "DonClick": {
       "__id__": 338
     },
+    "o": false,
     "_id": "f0v46azMlLWqXPpMww5XzI"
   },
   {

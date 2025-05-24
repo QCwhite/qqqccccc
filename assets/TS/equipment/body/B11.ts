@@ -26,9 +26,10 @@ Cname:string="刑天铠甲"
 start () {
     //生命上限+1
      this.target=this.node.getComponent(Character);
-    MessageCenter.MakeSHMessage("AM",[this.node.getComponent(Character).ZB] , 1, this.node.getComponent(Character).Pturn, "MaxHP+");
-    MessageCenter.MakeSHMessage("AM",[this.node.getComponent(Character).ZB] , 1, this.node.getComponent(Character).Pturn, "HP+");
+    MessageCenter.MakeSHMessage("AM",[this.node.getComponent(Character).ZB] , 2, this.node.getComponent(Character).Pturn, "MaxHP+");
+    MessageCenter.MakeSHMessage("AM",[this.node.getComponent(Character).ZB] , 2, this.node.getComponent(Character).Pturn, "HP+");
     this.node.getComponent(Character).dead1.push(this);
+       this.changeEP()
 }
 Dead1(): void {
 //LST改成12
@@ -37,7 +38,7 @@ this.node.getComponent(Character).bs=false;
 setTimeout(()=>{   this.node.getComponent(Cspine).FH()},100)
 }
 remove(): void {
-    MessageCenter.MakeSHMessage("AM",[this.node.getComponent(Character).ZB] , 1, this.node.getComponent(Character).Pturn, "MaxHP-");
+    MessageCenter.MakeSHMessage("AM",[this.node.getComponent(Character).ZB] , 2, this.node.getComponent(Character).Pturn, "MaxHP-");
 GeZiManager.shanchu( this.node.getComponent(Character).dead1,this)
 }
 }

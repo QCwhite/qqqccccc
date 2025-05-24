@@ -92,7 +92,7 @@ dead(): void {
 }
 playFrameAnimation1(n:string,loop:number,p:number) {
      switch (n) {
-     case "dead":this.gif.moveToNextFrame(0,8,0);this.node.children[1].active=false;console.log(this.gif.spriteFrame.name)
+     case "dead":this.gif.moveToNextFrame(0,8,0);this.node.children[1].active=false;//console.log(this.gif.spriteFrame.name)
 
      break;
      case "hit":this.node.children[0].getComponent(gif1).moveToNextFrame(14,18,1);this.node.children[1].getComponent(gif1).changeF(p+8,1)

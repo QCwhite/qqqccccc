@@ -1,0 +1,62 @@
+
+S03-8.png
+size: 738, 504
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+Z
+  rotate: false
+  xy: 2, 2
+  size: 500, 500
+  orig: 500, 500
+  offset: 0, 0
+  index: -1
+arm-L
+  rotate: false
+  xy: 599, 96
+  size: 79, 99
+  orig: 79, 99
+  offset: 0, 0
+  index: -1
+arm-R
+  rotate: false
+  xy: 666, 249
+  size: 70, 96
+  orig: 78, 108
+  offset: 6, 12
+  index: -1
+body
+  rotate: false
+  xy: 504, 197
+  size: 160, 148
+  orig: 160, 148
+  offset: 0, 0
+  index: -1
+doumao
+  rotate: true
+  xy: 680, 153
+  size: 94, 54
+  orig: 94, 54
+  offset: 0, 0
+  index: -1
+face
+  rotate: false
+  xy: 599, 10
+  size: 96, 84
+  orig: 96, 87
+  offset: 0, 0
+  index: -1
+hat
+  rotate: false
+  xy: 504, 347
+  size: 200, 155
+  orig: 200, 159
+  offset: 0, 4
+  index: -1
+shadow
+  rotate: true
+  xy: 504, 18
+  size: 177, 93
+  orig: 177, 93
+  offset: 0, 0
+  index: -1

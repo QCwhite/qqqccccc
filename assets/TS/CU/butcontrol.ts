@@ -16,7 +16,7 @@ export default class btc extends ComponentBase {
     
         choose(){
     if (!this.node.parent.parent.getComponent(Choose).YJR) {
-        console.log(this.node.parent.parent.getComponent(Choose).KYD)
+       // console.log(this.node.parent.parent.getComponent(Choose).KYD)
         if(this.node.parent.parent.getComponent(Choose).KYD){ if(this.node.parent.parent.getComponent(Choose).tj!=null) { this.node.parent.parent.getComponent(Choose).tj2=this.node
            this.node.parent.parent.getComponent(Choose).LCC(this.node.parent.parent.getComponent(Choose).tj.name,this.node.parent.parent.getComponent(Choose).tj2.name);
        }else{

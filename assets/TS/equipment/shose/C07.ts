@@ -25,8 +25,20 @@ in:boolean=false
             this.target.move3.push(this);
          this.target.TNJJ[0]-=1;
             this.Move3(this.target.ZB)
+GeZiManager.Tcharacter=null
+    MessageCenter.MakeSHMessage("AM",[this.target.findGe(this.target.faceTo,1)],1,this.target.Pturn,"getOneC");
+           if (GeZiManager.Tcharacter) {
+            if (this.target.qi%2==0) {
+              if (!GeZiManager.BanMove.includes(this.target.findGe(this.target.PfaceFinal(this.target.faceTo,[1])[0],1))) {
+                 this.target.To(this.target.findGe(this.target.PfaceFinal(this.target.faceTo,[1])[0],1),0.3)
+              } 
+            }else{   if (!GeZiManager.BanMove.includes(this.target.findGe(this.target.PfaceFinal(this.target.faceTo,[3])[0],1))) {
+               this.target.To(this.target.findGe(this.target.PfaceFinal(this.target.faceTo,[3])[0],1),0.3)}
+           }
+            this.changeEP()
+
         }
-        
+    }
         /*
         T1(){
         let a=GeZiManager.blueP[0].HP+GeZiManager.blueP[1].HP+GeZiManager.blueP[2].HP;

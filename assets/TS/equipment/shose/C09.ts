@@ -24,6 +24,7 @@ fWwalkWay=1;
        this.target.walk3.push(this)
        this.target.TNJJ[1]-=2
        this.target.TNJJ[2]+=1
+          this.changeEP()
     }
   remove(){
        this.target.TNJJ[1]+=2

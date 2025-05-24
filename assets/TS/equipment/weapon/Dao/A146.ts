@@ -23,6 +23,9 @@ export default class A146 extends Dao {
     start(){
        this.node.getComponent(Character).kill2.push(this)
        this.node.getComponent(Character).TNJJ[3]+=1
+          this.target=this.node.getComponent(Character)
+          this.target.KBL(1)
+            this.changeEP()
     }
 Attack3(): void {
        MessageCenter.MakeSHMessage("AM",[this.node.getComponent(Character).ZB],1,this.node.getComponent(Character).Pturn,"Qi-")

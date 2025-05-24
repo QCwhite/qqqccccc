@@ -22,7 +22,19 @@ export default class C11 extends CXX {
 
       this.target=this.node.getComponent(Character);
       this.target.walk3.push(this);
-
+   this.changeEP()
+   let g=0
+   if (this.target.accessory.TheNumber=="D02") {
+       g++
+   }
+   if (this.target.weapon.TheNumber=="A143") {
+       g++
+   }
+   if (this.target.body.TheNumber=="B13") {
+       g++
+   }
+   
+   MessageCenter.MakeSHMessage("AM",[this.target.ZB],g,this.target.Pturn,"Qi+")
         }
         
      Walk3(ZB: number): void {

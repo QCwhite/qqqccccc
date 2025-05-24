@@ -33,6 +33,7 @@ export default class B03 extends BXX {
 
 
         this.node.getComponent(SXX).getJNF(this.target.FU);
+            this.changeEP()
     }
     Behurt2(m:SHMessage){
 

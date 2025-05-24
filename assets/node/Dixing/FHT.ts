@@ -63,7 +63,7 @@ BZ() {
 turnPass() {
 ////if (!(turn.round%12==2||turn.round%12==7)) {    
         if(turn.round==this.round+1&&turn.turn==this.FT){
-        console.log("fd")
+    //    console.log("fd")
         this.BZ();
         }
 }

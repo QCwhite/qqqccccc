@@ -132,7 +132,7 @@ getFar(dis:number,ZB){
         if(Math.abs(x-x1)+Math.abs(y-y2)<=dis){b.push(index)}
 
         }
-        console.log(b)
+    //    console.log(b)
         return b
     }
     getTeamZB(n:number,ZB:number){

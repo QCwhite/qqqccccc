@@ -23,8 +23,22 @@ import { WebSocketManager } from './websocket';
 import { NONE } from '../../../@cocos/creator-types/editor/packages/scene/@types/cce/3d/manager/physics-2d/marching-squares';
 import { PP } from '../CU/PP';
 import { set } from '../../../@cocos/creator-types/editor/packages/scene/@types/cce/utils/misc';
+import state from '../game/time/state';
+import CustomButton from '../BASE/CButton';
+import { TogglePosition } from '../CU/CS';
 
+export interface GetGameAllLoadReadyReq
+{
+    playername:string;
+}
 
+export interface GetGameAllLoadReadyRes
+{
+    id:MsgId;
+    is_all_ready:boolean;
+    allreadyplayer:string[];
+    error:ErrorCode;
+}
 export interface GetAllLocationRes
 {id:MsgId;
 error:ErrorCode;
@@ -53,7 +67,18 @@ export interface ConnectRoomRes
 {
     error:ErrorCode;
 }
+export interface GameLoadReadyReq
+{
+    playername:string;
+   
+}
 
+export interface GameLoadReadyRes
+{
+    id:MsgId;
+    playername:string;
+    error:ErrorCode;
+}
 
 export enum MsgId{
     StressTest=888888,
@@ -148,6 +173,9 @@ export enum MsgId{
                 ObtainTimestampFail=37,
             
                 RandomMatchFail=38,
+                PrepareSuccess=39,
+    PrepareFail=40,
+    RandomRoomGameStart=41,
             SomeoneHaveInThisLocation=10009,
                 None=10086,
                 YourGameRoomIsNull=10087,}
@@ -195,12 +223,7 @@ playername:string;
  error:ErrorCode;
 }
 
-export interface RadomMatchRoomPrepareRes
-{ 
- id:MsgId;
- playername:string;
- error:ErrorCode;
-}
+
 
 //MsgId RandomMatch=19
 //发送随机匹配的请求
@@ -276,7 +299,14 @@ export interface RandomMatchCancelReq
  playername:string;
 }
 
-
+export interface RadomMatchRoomPrepareRes
+{ 
+    id:MsgId;
+    playername:string;
+    allplayer:string[];
+    roomname:string|null;
+    error:ErrorCode;
+}
 export interface RandomMatchCancelRes
 {
  id:MsgId;
@@ -374,6 +404,15 @@ if (K.allplayer.length==2) {
     }else{   KHD2.PT=[4,2,4,6]}
 }
 console.log(KHD2.PT)
+
+
+if (K.error==38) {
+    KHD2.stopPP()
+}
+
+
+
+
             }
 
 
@@ -542,6 +581,14 @@ static youl6(){
                                     case 22://KHD2.youl6()
                                     
                                     break;
+                                      case 23:KHD2.peoplo(k)
+                                    
+                                    break;
+                                       case 24:KHD2.GetGameALL(k)
+                                    
+                                    break;
+                                    case 38:KHD2.stopPP()
+                                    break
                                 default:
                                     break;
                             }
@@ -724,7 +771,13 @@ if (k.error==22) {
 WebSocketManager._instance=null
 
      setTimeout(()=>{ find("Canvas/Label").active=false},500)
-}else{  find("Canvas/Node").active=false}
+}else{  
+    
+    GeZiManager.DLCG()
+
+
+
+}
 
 
 }
@@ -1029,6 +1082,49 @@ WebSocketManager._instance=null
                 
                         
                         break;
+
+
+ case 10086: 
+             
+                    
+                    
+                    director.loadScene("chooseui",()=>{
+                       let a=new SHMessage("CH",0,0,1,"To")
+          MessageCenter.SendMessage(a);
+                        
+                        AudioManager.instance.stopAll(1.5)
+                        AudioManager.instance.ZJP("bgm",3 ,{
+                            loop: true,
+                            volume: 0.8,
+                            fadeIn: 2
+                        })
+                        
+                        })
+                
+                        
+                        break;
+
+ case 41: 
+             
+                    
+                    
+                    director.loadScene("chooseui",()=>{
+                       let a=new SHMessage("CH",0,0,1,"To")
+          MessageCenter.SendMessage(a);
+                        
+                        AudioManager.instance.stopAll(1.5)
+                        AudioManager.instance.ZJP("bgm",3 ,{
+                            loop: true,
+                            volume: 0.8,
+                            fadeIn: 2
+                        })
+                        
+                        })
+                
+                        
+                        break;
+
+
                 default:
                     break;
             }
@@ -1197,6 +1293,76 @@ static back(){
       
             WebSocketManager.instance.ws.send(JSON.stringify(data1))
       director.loadScene("CS", function() {})}
+
+
+static GetGameALL(k){
+
+if (!k.allreadyplayer.includes(KHD2.Cname)) {
+    const data = { id:23,
+    playername:KHD2.Cname
+  
+  };
+  
+  WebSocketManager.instance.ws.send(JSON.stringify(data))
+}
+
+if (k.is_all_ready) {
+    state.JJW=true;
+   GeZiManager.blueBan();
+ state.Pchange()
+}
+
+}
+
+static GetGameALLp(){
+
+ const data = { 
+    id:24,
+    playername:KHD2.Cname
+  
+  };
+  
+  WebSocketManager.instance.ws.send(JSON.stringify(data))
+
+
+}
+
+
+
+
+static peoplo(k){
+
+
+switch (k.error) {
+       
+    
+    
+    case 42:
+        
+        break;
+        case 43:setTimeout(()=>{     const data = { id:23,
+    playername:KHD2.Cname
+  
+  };
+  
+  WebSocketManager.instance.ws.send(JSON.stringify(data))},100)
+        
+   
+        
+        break;
+          case 44:state.JJW=true;
+   GeZiManager.blueBan();
+ state.Pchange()
+        
+        break;
+
+
+    default:
+        break;
+}
+}
+
+
 
 
 

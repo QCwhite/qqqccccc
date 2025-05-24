@@ -41,22 +41,22 @@ xd1(message: SHMessage,n:number): void {
      
       if (message.SHtype=="walkL"||message.SHtype=="walk") {
             this.Walk(true)
-            console.log(message)
+          //  console.log(message)
       }
 
       if (message.SHtype=="attack") {
             this.attack()
-            console.log(message)
+          //  console.log(message)
       }
 
       if (message.SHtype=="turn4") {
           this.faceTo=  this.turn4([this.faceTo])[0]
-          console.log(message)
+        //  console.log(message)
       }
 
       if (message.SHtype=="turn6") {
             this.faceTo=  this.turn6([this.faceTo])[0]
-            console.log(message)
+          //  console.log(message)
       }} 
 }
 
@@ -71,7 +71,7 @@ attack(){
 
 
 Walk(T: boolean): void {
-      console.log(this.faceTo)
+    // console.log(this.faceTo)
       MessageCenter.MakeSHMessage("AM",[this.ZB],[this.faceTo,0.6],-1,"move")
 }
 

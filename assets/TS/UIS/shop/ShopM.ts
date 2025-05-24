@@ -28,6 +28,7 @@ import { log } from 'console';
 import { SubtitleManager } from '../baom';
 import { SpriteFrame } from 'cc';
 import state from '../../game/time/state';
+import { set } from '../../../../@cocos/creator-types/editor/packages/scene/@types/cce/utils/lodash';
 
 @ccclass('ShopM')
 export default class shopM extends ComponentBase {
@@ -65,18 +66,18 @@ export default class shopM extends ComponentBase {
              static Day2_A = ["A143", "A141", "A142", "A225", "A243", "A242", "A345", "A581P2", "A582P1", "A321P", "Hun", "Hun"];
              static Day2_C = ["C17", "C01", "C15", "C18", "C08", "C13", "C19"];
              static Day2_D = ["D08", "D06", "D17", "D15", "D13"];
-             static Day2_B = ["B16", "B11", "B15", "B17", "B18", "B03"];
+             static Day2_B = ["B16", "B11", "B15", "B17", "B18", "B03P2"];
          
              // 女巫池 (Witch)
-             static Witch2_A = ["A1421", "A1421", "A1421", "A1422", "A582", "A128", "A321", "A323", "A110", "A310", "A210", "A322", "Hun", "Hun", "Hun"];
+             static Witch2_A = ["A1421", "A1421", "A1421", "A1422", "A582", "A128", "A321","A110", "A310", "A210", "A322", "Hun", "Hun", "Hun"];// "A323"
              static Witch2_C = ["C07", "C04", "C03", "C14", "C10", "C11", "C06", "Hun", "Hun"];
              static Witch2_D = ["DP1", "D02", "D07", "D14", "D18", "D11", "D03", "Hun"];
              static Witch2_B = ["A322", "B01", "B02", "B06", "B13"];
          
-             static Witch3_A = ["A228", "A125", "A243", "A127", "A225", "A221", "A224", "A581", "A582", "A323", "A322", "Hun", "Hun"];
+             static Witch3_A = ["A228", "A125", "A243", "A127", "A225", "A221", "A224", "A581", "A582", "A322", "Hun", "Hun"];// "A323"
              static Witch3_C = ["C03", "C08", "C11", "C09", "C20", "C18", "C13"];
              static Witch3_D = ["D02", "D18", "D16", "D09", "D06", "D10", "D13"];
-             static Witch3_B = ["B13", "B16", "B19", "B03", "B09"];
+             static Witch3_B = ["B13", "B16", "B19", "B03P2", "B09"];
          
              static Witch4_A = ["A143", "A142", "A141", "A243", "A147", "A225", "A225", "A343", "A321P", "A345"];
              static Witch4_C = ["C09", "C13", "C12", "C16", "C20", "Hun"];
@@ -282,7 +283,7 @@ export default class shopM extends ComponentBase {
                    case "pool": shopM.A1n=message.Content[0];shopM.A2n=message.Content[1];shopM.A3n=message.Content[2];  shopM.A4n=message.Content[3];shopM.A5n=message.Content[4];shopM.A6n=message.Content[5];
                //    shopM.TGEQ=message.Content[6]
                   // console.log(shopM.TGEQ)
-                 
+                 console.log("pool")
                    shopM.shopUI.getComponent(shopUI).ST();
                   
                        break;
@@ -468,7 +469,21 @@ break;
           A1="A509"
            co=4;
        break;
-       
+       case "A509-1":
+           
+          A1="A509"
+           co=4;
+       break;
+       case "A509-2":
+           
+          A1="A509"
+           co=4;
+       break;
+        case "A509-3":
+           
+          A1="A509"
+           co=4;
+       break;
        case "A504":
            
           A1="A110"
@@ -546,8 +561,9 @@ break;
            
            if(shopM.A6n[1]==0){shopM.A6n[0]+=1};
             if(shopM.A6n[1]!=3){shopM.A6n[1]+=1}
-               MessageCenter.MakeGMessage("SU",[GeZiManager.PCP.ZB],[shopM.A1n,shopM.A2n,shopM.A3n,shopM.A4n,shopM.A5n,shopM.A6n],GeZiManager.PCP.Pturn,"pool")
-       
+
+
+
        
        
              //  console.log(l)
@@ -564,15 +580,51 @@ break;
            if(shopM.A7n[2]<1){shopM.A7n[2]+=1};
           
        shopM.SL++
+
+
+      shopM.D();
            }
        
-      
+  static   D(){
+
+console.log("D")
+if (state.JJW) {
+    shopM.FA();
+}else{setTimeout(()=>{shopM.D()},200)}
+              
        
+
+
+    }
+
+
+
+       static  FA(){
+console.log("FA")
+ MessageCenter.MakeGMessage("SU",[GeZiManager.PCP.ZB],[shopM.A1n,shopM.A2n,shopM.A3n,shopM.A4n,shopM.A5n,shopM.A6n],GeZiManager.PCP.Pturn,"pool")
+
+
+
+
+
+
+
+
+
+       }
        
         start(): void {
          if (MessageCenter.Text) {
-    shopM.BTshop()
+               console.log("HHH")
+// shopM.BTshop()
+
+
+
          }  
+
+
+
+       //     find("Canvas/Main Camera/UIManager/BUIManager/BUI/BaseChoose/shop").getComponent(shopUI).ST()
        }
        
        

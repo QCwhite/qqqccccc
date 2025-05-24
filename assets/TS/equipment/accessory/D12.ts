@@ -25,7 +25,7 @@ export default class D12 extends DXX {
 //      this.target.kill3.push(this)
 
 this.target.walk3.push(this)
-
+    this.changeEP()
 }
 Walk3(ZB: number): void {
 
@@ -45,7 +45,7 @@ this.target.weapon.attack()
  
 Shop2(A: string, s: boolean): void {
        this.target.weapon.CJ+=99
-       console.log(this.target.weapon.CJ)
+    //   console.log(this.target.weapon.CJ)
 }
 Kill3(n: number): void {
        if (this.target.getc(n).tt=="human") {

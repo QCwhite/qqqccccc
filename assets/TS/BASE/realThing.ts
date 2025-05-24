@@ -36,7 +36,7 @@ CZ:number=0
 DY:number=0
 QX:number=0
 fly:boolean=false
-
+D05:number=1
   UI:ComponentBase[]=[];
   GD: number;
     FH2(i:number,FT:number,HP:number){}
@@ -194,6 +194,7 @@ if (nu>=10) {
   To(ZB: number,time:number) {
     if(this.move2!=null){for(let w of this.move2){w.Move2(ZB,this.Pturn,time);}}
     GeZiManager.shanchu(GeZiManager.BanMove, this.ZB);
+   
     const b=this.ZB
     this.ZB = ZB;
 
@@ -207,8 +208,8 @@ if (nu>=10) {
    
  setTimeout(()=>{  GeZiManager.getQin(this.ZB,this.ZB);if(!this.fly){GeZiManager.DLBZ(this.ZB,b,false)}},time*1000+20) 
 
-  console.log(this.ZB)
-console.log(b)
+//  console.log(this.ZB)
+//console.log(b)
 
 
 
@@ -298,7 +299,7 @@ k=false
 
 
    
-   console.log(this.kcd)
+  // console.log(this.kcd)
    
       for (let i = 1; i <= dis; i++) {
 
@@ -317,7 +318,7 @@ k=false
           if (this.tt == "rock") { GeZiManager.shanchu(GeZiManager.rock, this.ZB) }
 
           if (this.tt == "box") { GeZiManager.shanchuALL(GeZiManager.boxs, this.ZB) }
-console.log(GeZiManager.boxs)
+//console.log(GeZiManager.boxs)
 
           if (this.WD==true) {
             GeZiManager.shanchu(GeZiManager.WD, this.ZB);
@@ -333,9 +334,9 @@ if (this.tt=="human"||this.tt=="pig") {
   GeZiManager.getQin(this.ZB,this.ZB);
 }
         if (this.gui==false) {
-          console.log(this.ZB)
-          console.log(b)
-          console.log(this.findGe(face, 1))
+        //  console.log(this.ZB)
+       //   console.log(b)
+        //  console.log(this.findGe(face, 1))
           let c=false
 if (zi) {
   c=true
@@ -447,6 +448,7 @@ for (let a =0;a<= this.node.parent.children.length-1;a++) {
 if (a==this.node.parent.children.length-1) {
   this.node.setSiblingIndex(a)
 }
+
 }
 
 
@@ -571,6 +573,21 @@ if (this.x==1&&this.y!=8) {
 
 
 if (this.x==8&&this.y!=8) {
+
+                  
+  
+  
+  setTimeout(()=>{
+    // this.moveto(0.6,8)
+     this.ZB=8;
+     this.moveto(0.6,8)
+     if (this.ZB == 8) { this.dead(null); }
+  },400)             
+
+}
+
+
+if (this.y==1&&this.x!=1) {
 
                   
   
@@ -781,7 +798,7 @@ default:n = a
 
       case 9: point = new Vec3(445, 200,1);
         break;
-      case 10: point = new Vec3(684, 270,1); console.log("10");
+      case 10: point = new Vec3(684, 270,1);// console.log("10");
         break;
       case 11: point = new Vec3(950, 270,1);
         break;
@@ -1205,6 +1222,7 @@ Mjia(n:number){
 
     if (this.KB==0) {
       this.sh+=1
+      this.wk+=1
     }
     
     this.KB+=n
@@ -1258,6 +1276,7 @@ Mjia(n:number){
                  this.ZBW(false,1)
                  if (this.KB==0) {
                     this.sh-=1
+                    this.wk-=1
                  }
               }
            }

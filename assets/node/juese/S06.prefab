@@ -1444,7 +1444,10 @@
     "__prefab": {
       "__id__": 62
     },
-    "_customMaterial": null,
+    "_customMaterial": {
+      "__uuid__": "5c68dd6e-f035-4afd-b822-1abaa3133034",
+      "__expectedType__": "cc.Material"
+    },
     "_srcBlendFactor": 2,
     "_dstBlendFactor": 4,
     "_color": {
@@ -1455,7 +1458,7 @@
       "a": 255
     },
     "_skeletonData": {
-      "__uuid__": "852ce36c-e081-48f4-8db8-8b0a9c37a36d",
+      "__uuid__": "2baf9eca-5048-46bf-803e-96369a786955",
       "__expectedType__": "sp.SkeletonData"
     },
     "defaultSkin": "default",
@@ -1510,13 +1513,13 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 705.5399780273438,
-      "height": 705.5399780273438
+      "width": 924.3900146484375,
+      "height": 924.3900146484375
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.4259574342187731,
-      "y": 0.3961504786468213
+      "x": 0.4919784848089884,
+      "y": 0.2615021710500339
     },
     "_id": ""
   },
@@ -1613,7 +1616,7 @@
       "a": 255
     },
     "_skeletonData": {
-      "__uuid__": "5a66c0ed-8fe0-4b1d-b1fb-f0f1cc8cb65d",
+      "__uuid__": "d17ca6d2-27b8-44e4-927b-72f754873068",
       "__expectedType__": "sp.SkeletonData"
     },
     "defaultSkin": "default",
@@ -1668,13 +1671,13 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 773.8300170898438,
-      "height": 616.02001953125
+      "width": 1405.280029296875,
+      "height": 1405.280029296875
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.564620141088436,
-      "y": 0.3531054143954268
+      "x": 0.635183000357712,
+      "y": 0.30020350842690624
     },
     "_id": ""
   },
@@ -1771,7 +1774,7 @@
       "a": 255
     },
     "_skeletonData": {
-      "__uuid__": "a7768e91-6f7b-45c6-9660-e6fd24c66f90",
+      "__uuid__": "95bdb2fe-67a3-4897-b1a1-1e1acf77797d",
       "__expectedType__": "sp.SkeletonData"
     },
     "defaultSkin": "default",
@@ -1826,13 +1829,13 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 778.9400024414062,
-      "height": 753.469970703125
+      "width": 1102.8499755859375,
+      "height": 943.6400146484375
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.3554060588366242,
-      "y": 0.4778027310493475
+      "x": 0.3764519405344839,
+      "y": 0.2634903093657826
     },
     "_id": ""
   },
@@ -1929,7 +1932,7 @@
       "a": 255
     },
     "_skeletonData": {
-      "__uuid__": "7f9f4cb4-d929-4b13-a755-07bfe8217bb9",
+      "__uuid__": "9bacf7ab-7548-4889-87de-3f5983c7db87",
       "__expectedType__": "sp.SkeletonData"
     },
     "defaultSkin": "default",
@@ -1984,13 +1987,13 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 522.6300048828125,
-      "height": 529.5499877929688
+      "width": 782.0700073242188,
+      "height": 769.0900268554688
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5060559258277403,
-      "y": 0.2008875454738146
+      "x": 0.5004539376053337,
+      "y": 0.22325084314285212
     },
     "_id": ""
   },
@@ -9078,7 +9081,7 @@
       "__id__": 1
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 411
@@ -9465,15 +9468,33 @@
       "__id__": 433
     },
     "Toux": {
-      "__uuid__": "d8295f76-3ed4-40a6-8e79-bc6c81b619bd@2d84b",
+      "__uuid__": "d9848c30-85c2-4ecf-9590-34cbbcfadc73@f9941",
       "__expectedType__": "cc.SpriteFrame"
     },
-    "skiil1": null,
-    "skiil2": null,
-    "skiil3": null,
-    "skiil4": null,
-    "skiil5": null,
-    "skiil6": null,
+    "skiil1": {
+      "__uuid__": "3026638a-2adf-4088-a807-d06aca9e1181@f9941",
+      "__expectedType__": "cc.SpriteFrame"
+    },
+    "skiil2": {
+      "__uuid__": "799ea0f3-978f-4408-8a1e-14510de1741f@f9941",
+      "__expectedType__": "cc.SpriteFrame"
+    },
+    "skiil3": {
+      "__uuid__": "b8f9e114-5e6e-467c-a3ed-37de69039b57@f9941",
+      "__expectedType__": "cc.SpriteFrame"
+    },
+    "skiil4": {
+      "__uuid__": "159e9443-7b33-4132-a4d8-be68797e10af@f9941",
+      "__expectedType__": "cc.SpriteFrame"
+    },
+    "skiil5": {
+      "__uuid__": "0ac4b5b4-8748-4735-934e-3831d77ea015@f9941",
+      "__expectedType__": "cc.SpriteFrame"
+    },
+    "skiil6": {
+      "__uuid__": "895a14b6-0445-41ea-bec9-5c371589eb84@f9941",
+      "__expectedType__": "cc.SpriteFrame"
+    },
     "JNs": 4,
     "_id": ""
   },

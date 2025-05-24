@@ -11,21 +11,27 @@ const {ccclass, property} = _decorator;
 import equipment from "../../BASE/equipment";
 import Cspine from "../../BASE/spineANDgif/Cspine";
 import Shops from "../../UIS/shop/shops";
+import Character from '../../BASE/Character';
 
 @ccclass('CXX')
 export default class CXX extends equipment {
     TheNumber:string="CXX"
+    target: Character=null;
+      start () {
+    this.target=this.node.getComponent(Character)
+  //  this.changeEP()
+        }
     remove(){}
        changeEP(){
         let a=this.node.getComponent(Cspine)
+    let c=this.target.Pturn
+        a.changeSlot(a.spine2,"CL",this.node.parent.getComponent(Shops).find(2,this.TheNumber+"-L","CL",c),0)
+        a.changeSlot(a.spine2,"CR",this.node.parent.getComponent(Shops).find(2,this.TheNumber+"-R","CR",c),1)
+        a.changeSlot(a.spine6,"CQ",this.node.parent.getComponent(Shops).find(6,this.TheNumber+"-Q","CQ",c),2)
+        a.changeSlot(a.spine6,"CH",this.node.parent.getComponent(Shops).find(6,this.TheNumber,"CH",c),3)
 
-        a.changeSlot(a.spine2,"CL",this.node.parent.getComponent(Shops).find(2,this.TheNumber+"-L",0),0)
-        a.changeSlot(a.spine2,"CR",this.node.parent.getComponent(Shops).find(2,this.TheNumber+"-R",1),1)
-        a.changeSlot(a.spine6,"CQ",this.node.parent.getComponent(Shops).find(6,this.TheNumber+"-Q",2),2)
-        a.changeSlot(a.spine6,"CH",this.node.parent.getComponent(Shops).find(6,this.TheNumber,3),3)
-
-        a.changeSlot(a.spine4,"CQ",this.node.parent.getComponent(Shops).find(4,this.TheNumber+"-Q",4),4)
-        a.changeSlot(a.spine4,"CH",this.node.parent.getComponent(Shops).find(4,this.TheNumber,5),5)
+        a.changeSlot(a.spine4,"CQ",this.node.parent.getComponent(Shops).find(4,this.TheNumber+"-Q","CQ",c),4)
+        a.changeSlot(a.spine4,"CH",this.node.parent.getComponent(Shops).find(4,this.TheNumber,"CH",c),5)
 //            a.changeSlot(a.spine4,"KC-B",this.node.parent.getComponent(Shops).find(4,this.TheNumber+"-Q"))
 //            a.changeSlot(a.spine4,"KC-F",this.node.parent.getComponent(Shops).find(4,this.TheNumber))
 //             a.changeSlot(a.spine4,"CH",this.node.parent.getComponent(Shops).find(2,this.TheNumber+"-L"))

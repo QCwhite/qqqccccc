@@ -47,6 +47,9 @@ export default class Shops extends ComponentBase {
         @property(SpriteAtlas)
         A3_8: SpriteAtlas = null;//通用图集
         @property(SpriteAtlas)
+          @property(SpriteAtlas)
+        A5_2: SpriteAtlas = null;//通用图集
+        @property(SpriteAtlas)
         B_2: SpriteAtlas = null;//通用图集
         @property(SpriteAtlas)
        B_4: SpriteAtlas = null;//通用图集
@@ -131,7 +134,7 @@ export default class Shops extends ComponentBase {
       
       
       
-        find(face:number,th:string,P?:number){
+        find(face:number,th:string,to:string,who:number){
         let Tatlas=this.A1_2;
       if (th!=null) {
         
@@ -149,7 +152,7 @@ if (th=="Hun") {
       }
       
       if (th=="D16") {
-        return this.find(2,"D16",0)
+        return this.find(10,"D16","",0)
       }
       if (th[0]=="F") {
       switch (th[2]) {
@@ -187,7 +190,11 @@ if (th=="Hun") {
       case "2":Tatlas=this.A2_2
       break;
       case "3":Tatlas=this.A3_2
-      break;}
+      break;
+    case "5":Tatlas=this.A5_2
+      break;
+    
+    }
       
       
       
@@ -197,7 +204,7 @@ if (th=="Hun") {
       
         //console.log(this.loadEquipmentTexture(th,face))
 // 加载装备 A110 的朝向 2 的图片
-let o=this.loadImageAndApply(this.loadEquipmentTexture(th,face),P)
+let o=this.loadImageAndApply(this.loadEquipmentTexture(th,face),face,to,who)
 return o
 
 
@@ -222,9 +229,9 @@ return o
       
       PM(w:string){
       
-      if(w[1]=="3"){return this.find(2,w,0)}else{return this.find(6,w,0)}
+      //if(w[1]=="3"){return this.find(10,w,0)}else{return this.find(10,w,0)}
       
-      
+      return this.find(10,w,"",0)
       
       }
       
@@ -271,7 +278,7 @@ return o
 
 
 
-loadImageAndApply(n,o){
+loadImageAndApply(n,face,to,who){
   
   
  
@@ -295,7 +302,15 @@ console.log(n)
         spriteFrame.texture = texture;
 
         // 获取当前节点的 Sprite 组件
-        const sprite = find("Canvas/BAOm").children[o].getComponent(Sprite)
+  console.log("Canvas/BAOm/6/2/A1")
+        console.log("Canvas/BAOm"+"/"+who+"/"+face+"/"+to)
+        if (face==10) {
+          return
+        }
+
+
+        let j="Canvas/BAOm"+"/"+who+"/"+face+"/"+to
+        const sprite = find(j).getComponent(Sprite)
         if (!sprite) {
             console.error('Sprite component not found on the node.');
             return;
@@ -312,6 +327,19 @@ console.log(n)
   
   )
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

@@ -23,6 +23,19 @@ export default class B13 extends BXX {
     start () {
         this.target=this.node.getComponent(Character);
         this.target.behurt2.push(this)
+           this.changeEP()
+let g=0
+if (this.target.shose.TheNumber=="C11") {
+    g++
+}
+if (this.target.weapon.TheNumber=="A143") {
+    g++
+}
+if (this.target.accessory.TheNumber=="D02") {
+    g++
+}
+
+MessageCenter.MakeSHMessage("AM",[this.target.ZB],g,this.target.Pturn,"Qi+")
     }
     Behurt2(m:SHMessage){
         if(this.target.qi>=3){MessageCenter.MakeSHMessage("AM",[this.target.ZB],3,this.target.Pturn,"Qi-")

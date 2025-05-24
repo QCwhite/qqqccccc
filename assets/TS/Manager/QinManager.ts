@@ -84,14 +84,14 @@ export default class QinManager extends ManagerBase {
          }
         
         if(a.length==0){if(GeZiManager.BanMove.includes(j)||GeZiManager.AllObstacles.includes(j)||GeZiManager.qins.includes(j)){}else{this.makeQin(j)}}else{this.makeQin(a[Math.floor(Math.random()*a.length)])}
-        console.log(a)
+       // console.log(a)
         }
         
         
         makeQin(n:number){
             MessageCenter.MakeGMessage("AM", [n,Math.floor(Math.random()*4)],10,1,"FTP");
           
-        console.log([n,Math.floor(Math.random()*4)])
+      //  console.log([n,Math.floor(Math.random()*4)])
         
         
         }

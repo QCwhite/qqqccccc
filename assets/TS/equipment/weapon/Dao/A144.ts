@@ -11,6 +11,7 @@ const {ccclass, property} = _decorator;
 import Character from "../../../BASE/Character";
 import GeZiManager from "../../../Manager/GeZiManager";
 import A110 from "./A110";
+import MessageCenter from '../../../Message/MessageCenter';
 
 @ccclass('A144')
 export default class A144 extends A110 {
@@ -20,6 +21,9 @@ export default class A144 extends A110 {
     SH: number=2;
     start(){
       this.node.getComponent(Character).attack35.push(this)
+         this.target=this.node.getComponent(Character)
+              MessageCenter.MakeSHMessage("AM", [this.target.ZB], 1,this.node.getComponent(Character).Pturn, "HP+");
+           this.changeEP()
     }
 Attack35(an: any, kn: number): void {
       if(kn>0) {

@@ -27,6 +27,8 @@ jj:number=0
         this.target.behurt3.push(this)
         this.target.HPm3.push(this)
        // this.target.t3.push(this)
+       this.target.KBL(1)
+          this.changeEP()
     }
    Behurt3(n: number, killp: any, k: number): void {
     if (n>0) {

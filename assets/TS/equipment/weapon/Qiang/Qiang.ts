@@ -82,11 +82,12 @@ tishi:gif1=null
 
   }
 start(): void {
-
+super.start()
         let QUI=instantiate(this.node.parent.getComponent(Shops).tishi)
         QUI.setParent(this.node)
         this.tishi=QUI.getComponent(gif1)
         this.ZD()
+      
 }
 ZD(){
         if(this.BT){if (this.BTS>=1) {
@@ -115,10 +116,10 @@ remove(): void {
 }
 changeEP(){
         let a=this.node.getComponent(Cspine)
-
-        a.changeSlot(a.spine2,"A2",this.node.parent.getComponent(Shops).find(2,this.TheNumber,0),0)
-        a.changeSlot(a.spine4,"A2",this.node.parent.getComponent(Shops).find(4,this.TheNumber,2),2)
-        a.changeSlot(a.spine6,"A2",this.node.parent.getComponent(Shops).find(6,this.TheNumber,4),4)
+       let c=this.target.Pturn
+        a.changeSlot(a.spine2,"A2",this.node.parent.getComponent(Shops).find(2,this.TheNumber,"A2",c),0)
+        a.changeSlot(a.spine4,"A2",this.node.parent.getComponent(Shops).find(4,this.TheNumber,"A2",c),2)
+        a.changeSlot(a.spine6,"A2",this.node.parent.getComponent(Shops).find(6,this.TheNumber,"A2",c),4)
      }
 }//GeZiManager.line这个方法是判断直线上目标的
 

@@ -93,7 +93,7 @@ turn6(arr: number[]): number[] {
 
 QD(an:number[]){
 
-console.log(this.node.getComponent(Character).Pturn)
+//console.log(this.node.getComponent(Character).Pturn)
 if(this.node.getComponent(Character).attack2!=null){for(let a of this.node.getComponent(Character).attack2){a.Attack2(an);}}
   MessageCenter.MakeSHMessage("AM", an, this.SH,this.node.getComponent(Character).Pturn, "wuli")
   MessageCenter.MakeSHMessage("AM",[this.node.getComponent(Character).ZB],this.getTNC(3)+this.TNJ,this.node.getComponent(Character).Pturn,"TN-")
@@ -113,8 +113,10 @@ GeZiManager.PCP.ST()
 }
 
 start() {
-console.log(this.node)
+
 this.target=this.node.getComponent(Character)
+console.log(this.target)
+this.changeEP()
 }
 
 PD(PJ: number) {
@@ -151,7 +153,7 @@ if(k[n]+l[n]>=0){return k[n]+l[n]}else {return 0}
 }
 
 attack() {
-  console.log(this.node.getComponent(Character))
+ // console.log(this.node.getComponent(Character))
 
  
   setTimeout(() => {

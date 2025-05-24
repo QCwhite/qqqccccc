@@ -73,6 +73,10 @@ export default class MAG extends ComponentBase {
         this.node.children[1].getComponent(Label).string=""+this.MUI.getComponent(MUI).MCD[this.n]}else this.node.children[1].getComponent(Label).string=""
       
         this.node.children[0].getComponent(Label).string=o+""
+
+        if (this.n==14) {
+            this.node.children[0].getComponent(Label).string="X"
+        }
         this.node.children[2].getComponent(gif1).getComponent(gif1).changeF(this.getTNC(4)-1,1);
         
         

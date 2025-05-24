@@ -23,6 +23,7 @@ import KHD2 from "./KHD2";
 import { UIOpacity } from 'cc';
 import { TGManager } from '../Manager/TGManager';
 import { BowlContainer } from '../Ditu/TGMZ';
+import shopM from '../UIS/shop/ShopM';
 
 @ccclass('Pchange')
 export default class Pchange extends Component {
@@ -39,7 +40,7 @@ export default class Pchange extends Component {
             break;
         }
         
-          console.log("wc")
+        //  console.log("wc")
         }
         
         
@@ -47,17 +48,17 @@ export default class Pchange extends Component {
         p1(){
         KHD2.PT=[3,1,3,5]
         player.Pturn=[1]
-        
+        state.JJW=true
         state.Pchange();
         //Pchange.timeC.resetTimer ()
-        console.log(find("Canvas/DituManager").getComponent(UIOpacity).opacity)
+      //  console.log(find("Canvas/DituManager").getComponent(UIOpacity).opacity)
         
         }
          p2(){
           KHD2.PT=[4,2,4,6]
             player.Pturn=[2]
            
-           
+                 state.JJW=true
             state.Pchange();
            //Pchange.timeC. resetTimer ()
         
@@ -205,12 +206,15 @@ export default class Pchange extends Component {
           console.log(turn.turn)
           console.log(  GeZiManager.PCP)
           MessageCenter.MakeMessage("AM",turn.turn,"getC"); 
+               state.ST=1;
+          state.JJW=true
           state.Pchange() ;  
           
           GeZiManager.PCP.Tstart();
         
-          state.ST=1;
+     
           MessageCenter.MakeSHMessage("TN",this.makePool(),0,0,"pool")
+          shopM.BTshop()
         }
         
         
@@ -248,7 +252,7 @@ export default class Pchange extends Component {
          // state.ST=1;
           MessageCenter.MakeSHMessage("TN",this.makePool(),0,0,"pool")
 
-
+shopM.BTshop()
 
           for (let g of GeZiManager.UIm) {
            // g.initPosition()
@@ -261,7 +265,7 @@ export default class Pchange extends Component {
           KHD2.PT=[3,1,3,5]
           MessageCenter.Text=true
         
-        
+        shopM.BTshop()
          // state.state=1;
          // MessageCenter.MakeGMessage("AM",[AnimalManager.FF[0]],1.1,1,"FTP");
              
@@ -333,7 +337,7 @@ generateGroup(retryCount = 0): number[] {
           }
           
           if (candidates.length === 0) {
-              console.warn("区间内无法放置4，重新生成");
+              //console.warn("区间内无法放置4，重新生成");
               return this.generateGroup(retryCount + 1);
           }
           

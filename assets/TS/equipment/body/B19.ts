@@ -24,6 +24,7 @@ a:AnimalManager=null
         this.target=this.node.getComponent(Character)
         this.node.getComponent(Character).behurt3.push(this);
 //        this.node.getComponent(Character).dead2.push(this);
+   this.changeEP()
      }
    Behurt3(n: number, killp: any, k: number): void {
         if (n>=this.target.HP/2) {

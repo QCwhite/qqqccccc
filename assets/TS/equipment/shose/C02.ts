@@ -11,6 +11,7 @@ const {ccclass, property} = _decorator;
 import Character from "../../BASE/Character";
 import GeZiManager from "../../Manager/GeZiManager";
 import CXX from "./CXX";
+import MessageCenter from '../../Message/MessageCenter';
 
 @ccclass('C02')
 export default class C02 extends CXX {
@@ -22,6 +23,11 @@ t:number=3;
 
        this.target=this.node.getComponent(Character);
        this.target.mmc.push(this);
+        if (this.target.weapon.Wtype==1) {
+              MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,this.target.Pturn,"TNS")
+                 MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,this.target.Pturn,"HP+")
+       }
+       this.changeEP()
 
 }
 mg(m: string): void {

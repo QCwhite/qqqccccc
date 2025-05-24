@@ -1,0 +1,69 @@
+
+S03-2.png
+size: 799, 507
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+Z
+  rotate: false
+  xy: 2, 5
+  size: 500, 500
+  orig: 500, 500
+  offset: 0, 0
+  index: -1
+arm-L
+  rotate: false
+  xy: 618, 246
+  size: 79, 100
+  orig: 93, 116
+  offset: 0, 16
+  index: -1
+arm-R
+  rotate: false
+  xy: 706, 289
+  size: 79, 110
+  orig: 79, 110
+  offset: 0, 0
+  index: -1
+body
+  rotate: true
+  xy: 504, 2
+  size: 98, 124
+  orig: 98, 124
+  offset: 0, 0
+  index: -1
+face
+  rotate: false
+  xy: 706, 401
+  size: 91, 104
+  orig: 91, 108
+  offset: 0, 0
+  index: -1
+hat
+  rotate: false
+  xy: 504, 348
+  size: 200, 157
+  orig: 200, 159
+  offset: 0, 2
+  index: -1
+moustache
+  rotate: false
+  xy: 630, 28
+  size: 97, 108
+  orig: 97, 108
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: true
+  xy: 504, 102
+  size: 244, 112
+  orig: 244, 112
+  offset: 0, 0
+  index: -1
+skirt
+  rotate: false
+  xy: 618, 138
+  size: 160, 106
+  orig: 160, 125
+  offset: 0, 0
+  index: -1

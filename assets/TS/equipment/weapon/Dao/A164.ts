@@ -34,8 +34,17 @@ Aface: number[]=[1,2,3];
   }
     start() {
 //       this.node.getComponent(Character).attack25.push(this)
-
+   this.target=this.node.getComponent(Character)
 this.target.Fus(-2)
+     this.changeEP()
+
+        let c=0
+        if(this.color=="Red"){
+          c= GeZiManager.Rhun
+           
+        }else{ c= GeZiManager.Bhun; }
+        
+               MessageCenter.MakeSHMessage("AM",[this.node.getComponent(Character).ZB],c,this.node.getComponent(Character).Pturn,"Qi+")
     }
 //   /* 
     Behurt2(m:SHMessage,BeHC:any,HC:any) {

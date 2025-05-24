@@ -24,6 +24,7 @@ export default class D20 extends DXX {
         this.target=this.node.getComponent(Character);
       
         this.target.Fus(-10)
+            this.changeEP()
     }
  
 remove(){

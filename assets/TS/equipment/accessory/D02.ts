@@ -23,8 +23,20 @@ in:Boolean=false
     start () {
        this.target=this.node.getComponent(Character);
        this.target.qi2.push(this)
+      
+    this.changeEP()
+let g=0
+if (this.target.shose.TheNumber=="C11") {
+    g++
+}
+if (this.target.weapon.TheNumber=="A143") {
+    g++
+}
+if (this.target.body.TheNumber=="B13") {
+    g++
+}
 
-
+MessageCenter.MakeSHMessage("AM",[this.target.ZB],g,this.target.Pturn,"Qi+")
     }
   
     Qi2(n: number, pn: number,m:SHMessage): void {

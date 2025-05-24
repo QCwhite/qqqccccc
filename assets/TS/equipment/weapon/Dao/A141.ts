@@ -9,6 +9,8 @@ import { _decorator } from 'cc';
 const {ccclass, property} = _decorator;
 
 import Dao from "./Dao";
+import MessageCenter from '../../../Message/MessageCenter';
+import S01 from '../../../Scharacter/S01';
 
 @ccclass('A141')
 export default class A141 extends Dao {
@@ -17,6 +19,31 @@ export default class A141 extends Dao {
     Aface: number[] = [1,2,3,4,6];
     SH: number=2;
     Ytype: number=4;
+
+
+
+
+    start(): void {
+        super.start()
+
+  let g=1
+   if (this.target.accessory.TheNumber=="DXX") {
+       g++
+   }
+   if (this.target.shose.TheNumber=="CXX") {
+       g++
+   }
+   if (this.target.body.TheNumber=="BXX") {
+       g++
+   }
+    if (this.target.node.getComponent(S01)&&this.target.node.getComponent(S01).weapon2) {
+       g++
+   }
+   MessageCenter.MakeSHMessage("AM",[this.target.ZB],g,this.target.Pturn,"TN+")
+
+
+
+    }
 }
 
 

@@ -15,6 +15,7 @@ import GeZiManager from "../../Manager/GeZiManager";
 
 import BXX from "./BXX";
 import { SHMessage } from "../../Message/SHMessage";
+import MessageCenter from '../../Message/MessageCenter';
 
 @ccclass('B10')
 export default class  B10 extends BXX {
@@ -26,6 +27,8 @@ export default class  B10 extends BXX {
      start () {
             this.target=this.node.getComponent(Character);
          this.node.getComponent(Character).move3.push(this);
+         MessageCenter.MakeSHMessage("AM",[this.target.ZB],11,1,"FTP");
+            this.changeEP()
      }
 
 /*  
@@ -75,6 +78,6 @@ Move3(ZB: number){
 
 
 remove(): void {
-GeZiManager.shanchu(this.node.getComponent(Character).behurt2,this)
+GeZiManager.shanchu(this.node.getComponent(Character).Move3,this)
 }
  }

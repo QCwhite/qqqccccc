@@ -28,6 +28,7 @@ export default class B06 extends BXX {
             this.node.getComponent(Character).walk3.push(this);
             this.target=this.node.getComponent(Character);
             this.target.MaxT+=1
+            this.changeEP()
         }
     T1(){
         let a:any[]=GeZiManager.BanMove;

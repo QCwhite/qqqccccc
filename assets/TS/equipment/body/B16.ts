@@ -25,7 +25,7 @@ jj:number=0
     start () {
         this.target=this.node.getComponent(Character);
         this.target.move3.push(this)
-
+   this.changeEP()
     }
   
 remove(){

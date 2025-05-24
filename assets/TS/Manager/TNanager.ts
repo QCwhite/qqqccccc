@@ -108,7 +108,7 @@ export default class TNanager extends ComponentBase {
                     
                     // 如果没有合法位置则重新生成
                     if (candidates.length === 0) {
-                        console.warn("无法在区间放置4，重新生成");
+                     //   console.warn("无法在区间放置4，重新生成");
                         return this.generateGroup(retryCount + 1);
                     }
                     
@@ -180,7 +180,7 @@ export default class TNanager extends ComponentBase {
                     counts[4] === 3; // 每组3个4（每4元素1个）
                 
                 if (!isValid) {
-                    console.warn("校验失败，重新生成");
+                 //   console.warn("校验失败，重新生成");
                     return this.generateGroup(retryCount + 1);
                 }
         
@@ -234,8 +234,8 @@ export default class TNanager extends ComponentBase {
                   default:GeZiManager.TNC=[1,3,3,4,4,2]//转身
               break
                }   
-               console.log(GeZiManager.TNJM[turn.round%12]+"")
-               console.log(GeZiManager.TNC+"")
+           //    console.log(GeZiManager.TNJM[turn.round%12]+"")
+            //   console.log(GeZiManager.TNC+"")
                //this.lun.string=GeZiManager.TNC+""
               }
               
@@ -244,11 +244,11 @@ export default class TNanager extends ComponentBase {
               ReceiveMessage(message: Message): void {
                  
                   if (message instanceof SHMessage&&message.Type=="TN") {
-                      console.log(message.Command)
+                //      console.log(message.Command)
                       switch (message.SHtype) {
                           case "pool":GeZiManager.TNJM=[].concat(message.Command); 
 
-console.log(GeZiManager.TNJM)
+//console.log(GeZiManager.TNJM)
 
            find("Canvas/DituManager/New Node/xgcol").getComponent(xgcol).c();
               

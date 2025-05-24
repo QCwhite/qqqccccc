@@ -24,6 +24,96 @@ start () {
        this.target.walk3.push(this)
        this.target.t3.push(this)
        this.target.Fus(-3)
+   this.changeEP()
+
+
+   MessageCenter.MakeSHMessage("AM",[65],1,this.target.Pturn,"getOneCs");
+
+ for (let c of GeZiManager.Tcharacters) {
+
+if (c.color==this.target.color&&c.faceTo!=this.target.faceTo) {
+    let Y   
+
+switch (this.target.faceTo) {
+       case 2:switch (c.faceTo) {
+              case 4:Y=6
+                     
+                     break;
+               case 6:Y=4
+                     
+                     break;
+               case 8:Y=8
+                     
+                break;
+              default:
+                     break;
+       }
+              
+              break;
+       case 4:switch (c.faceTo) {
+              case 2:Y=4
+                     
+                     break;
+               case 6:Y=8
+                     
+                     break;
+               case 8:Y=6
+                     
+                break;
+              default:
+                     break;
+       }
+              
+              break;
+       case 6:switch (c.faceTo) {
+              case 2:Y=6
+                     
+                     break;
+               case 4:Y=8
+                     
+                     break;
+               case 8:Y=4
+                     
+                break;
+              default:
+                     break;
+       }
+       case 8:switch (c.faceTo) {
+              case 2:Y=8
+                     
+                     break;
+               case 4:Y=4
+                     
+                     break;
+               case 6:Y=6
+                     
+                break;
+              default:
+                     break;
+       }       
+              break;
+       default:
+              break;
+}
+
+
+    MessageCenter.MakeSHMessage("AM",[c.ZB],1,this.target.Pturn,Y);
+
+}
+
+  
+
+  
+  
+
+}
+
+
+
+ 
+
+
+
 
 }
 Walk3(ZB: number) {

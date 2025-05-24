@@ -23,10 +23,11 @@ export default class A121 extends Dao {
     start(){
       this.node.getComponent(Character).attack25.push(this)
       this.target=this.node.getComponent(Character)
+      this.changeEP()
     }
     Attack25(at:realThing,csh: number): void {
 
-      console.log(at.tt)
+    //  console.log(at.tt)
       if (at.tt=="tree") {
 GeZiManager.dm+=1
       }

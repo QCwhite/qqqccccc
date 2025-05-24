@@ -16,6 +16,9 @@ import DES from "./DES";
 import { TGManager } from '../../Manager/TGManager';
 import turn from '../../game/time/turn';
 import { AudioManager } from '../../BASE/music';
+import { Message } from '../../Message/Message';
+import { SHMessage } from '../../Message/SHMessage';
+import { color } from 'cc';
 
 
 @ccclass('DL')
@@ -25,7 +28,7 @@ export default class DL extends DES {
   FW:number[]=[]//作用范围
   gif:gif1=null
   timeArray: number[]=[40,40,40,40,40,40,100,100,100,100,40,40,40,40,40,40,40,40,40,40,40,40,60,60,60,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40];
-  
+  HP: number=1;
   onLoad(): void {
        this.gif=this.node.getComponent(gif1)
        if(this.gif!=null){this.gif.timeArray=this.timeArray}
@@ -103,9 +106,94 @@ export default class DL extends DES {
   LK(){}
   
   JR(){}
+
+
+
+
+ReceiveMessage(message: Message) {
+     if (message instanceof SHMessage&&this.HP>0) {
+
+     if (message.Command.includes(this.ZB) || message.Command[0] == 65) {
+
+     switch (message.SHtype) {
+    
+
+     case "getOne":GeZiManager.Tcharacter=this;
+     break;
+    
+      case "mofaT":if (message.Content[1]=="DZ") {
+          this.BZ(this.ZB)
+      }
+break;
+
+}}}
+
+
+
+
   
 }
 
+
+
+
+To(ZB: number, time: number): void {
+  //    if(this.move2!=null){for(let w of this.move2){w.Move2(ZB,this.Pturn,time);}}
+       //  GeZiManager.shanchu(GeZiManager.BanMove, this.ZB);
+       GeZiManager.shanchu( GeZiManager.aos,this.ZB)
+         const b=this.ZB
+         this.ZB = ZB;
+     
+     
+                GeZiManager.aos.push(ZB)
+       GeZiManager.KCLR()
+     
+     
+     
+     
+        
+    //  setTimeout(()=>{  GeZiManager.getQin(this.ZB,this.ZB);if(!this.fly){GeZiManager.DLBZ(this.ZB,b,false)}},time*1000+20) 
+     
+     //  console.log(this.ZB)
+     //console.log(b)
+     
+     
+       this.ghost=true;
+     this.setXY(time);
+     //    if (this.WD) { GeZiManager.shanchu(GeZiManager.WD, this.ZB); }
+     
+
+       //  if(this.move3!=null){for(let w of this.move3){w.Move3(this.ZB,this.Pturn);}}
+         this.moveto(time,this.ZB);
+             
+
+ function isDarkSquare(n) {
+        // 校验输入是否在 1~64 范围内
+        if (n < 1 || n > 64) return false;
+    
+        // 计算行号与列号
+        const row = Math.floor((n - 1) / 8) + 1;
+        const col = (n - 1) % 8 + 1;
+    
+        // 判断是否为深色格（行号+列号为奇数）
+        return (row + col) % 2 === 1;
+    }
+
+
+if (isDarkSquare(ZB)) {
+    this.node.getChildByName('d').getComponent(gif1).color=color(181,231,191)
+}else{  this.node.getChildByName('d').getComponent(gif1).color=color(255,255,255)}
+
+
+
+
+}
+
+
+
+
+
+}
 
 /**
  * 注意：已把原脚本注释，由于脚本变动过大，转换的时候可能有遗落，需要自行手动转换

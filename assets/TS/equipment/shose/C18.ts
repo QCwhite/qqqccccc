@@ -22,7 +22,7 @@ start () {
       this.target=this.node.getComponent(Character);
       this.target.TNJJ[0]+=2
       this.target.TNJJ[1]-=2
-
+   this.changeEP()
 }
 remove(): void {
       this.target.TNJJ[1]+=2

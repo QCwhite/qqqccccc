@@ -1,341 +1,236 @@
 
 S09-6.png
-size: 729, 504
+size: 681,506
 format: RGBA8888
-filter: Linear, Linear
+filter: Linear,Linear
 repeat: none
-A1
+Z
   rotate: false
-  xy: 2, 2
-  size: 500, 500
-  orig: 500, 500
-  offset: 0, 0
-  index: -1
-A2
-  rotate: false
-  xy: 2, 2
-  size: 500, 500
-  orig: 500, 500
-  offset: 0, 0
-  index: -1
-A3
-  rotate: false
-  xy: 2, 2
-  size: 500, 500
-  orig: 500, 500
-  offset: 0, 0
-  index: -1
-A3-B
-  rotate: false
-  xy: 2, 2
+  xy: 2, 4
   size: 500, 500
   orig: 500, 500
   offset: 0, 0
   index: -1
 CH
   rotate: false
-  xy: 2, 2
+  xy: 2, 4
   size: 500, 500
   orig: 500, 500
   offset: 0, 0
   index: -1
 CQ
   rotate: false
-  xy: 2, 2
-  size: 500, 500
-  orig: 500, 500
-  offset: 0, 0
-  index: -1
-KB-B
-  rotate: false
-  xy: 2, 2
-  size: 500, 500
-  orig: 500, 500
-  offset: 0, 0
-  index: -1
-KB-F
-  rotate: false
-  xy: 2, 2
-  size: 500, 500
-  orig: 500, 500
-  offset: 0, 0
-  index: -1
-KB-H
-  rotate: false
-  xy: 2, 2
-  size: 500, 500
-  orig: 500, 500
-  offset: 0, 0
-  index: -1
-KB-Q
-  rotate: false
-  xy: 2, 2
-  size: 500, 500
-  orig: 500, 500
-  offset: 0, 0
-  index: -1
-KC-B
-  rotate: false
-  xy: 2, 2
-  size: 500, 500
-  orig: 500, 500
-  offset: 0, 0
-  index: -1
-KC-F
-  rotate: false
-  xy: 2, 2
-  size: 500, 500
-  orig: 500, 500
-  offset: 0, 0
-  index: -1
-KD1
-  rotate: false
-  xy: 2, 2
-  size: 500, 500
-  orig: 500, 500
-  offset: 0, 0
-  index: -1
-KD1-F
-  rotate: false
-  xy: 2, 2
-  size: 500, 500
-  orig: 500, 500
-  offset: 0, 0
-  index: -1
-KD2-B
-  rotate: false
-  xy: 2, 2
-  size: 500, 500
-  orig: 500, 500
-  offset: 0, 0
-  index: -1
-KD2-F
-  rotate: false
-  xy: 2, 2
-  size: 500, 500
-  orig: 500, 500
-  offset: 0, 0
-  index: -1
-KD3-F
-  rotate: false
-  xy: 2, 2
+  xy: 2, 4
   size: 500, 500
   orig: 500, 500
   offset: 0, 0
   index: -1
 arm1-B
-  rotate: false
-  xy: 683, 422
+  rotate: true
+  xy: 573, 3
   size: 44, 33
   orig: 44, 33
   offset: 0, 0
   index: -1
 arm1-F
-  rotate: true
-  xy: 609, 246
+  rotate: false
+  xy: 542, 2
   size: 29, 45
   orig: 29, 45
   offset: 0, 0
   index: -1
 arm2-B
-  rotate: false
-  xy: 504, 8
+  rotate: true
+  xy: 641, 58
   size: 22, 24
   orig: 22, 24
   offset: 0, 0
   index: -1
 arm2-F
-  rotate: false
-  xy: 660, 371
+  rotate: true
+  xy: 504, 2
   size: 20, 36
   orig: 20, 36
   offset: 0, 0
   index: -1
 body
   rotate: true
-  xy: 649, 56
+  xy: 599, 168
   size: 51, 76
   orig: 51, 84
   offset: 0, 0
   index: -1
 bow
-  rotate: true
-  xy: 504, 34
+  rotate: false
+  xy: 668, 356
   size: 10, 14
   orig: 10, 14
   offset: 0, 0
   index: -1
 eye-L
-  rotate: true
-  xy: 520, 34
+  rotate: false
+  xy: 668, 342
   size: 10, 12
   orig: 10, 12
   offset: 0, 0
   index: -1
 eye-R
-  rotate: false
-  xy: 660, 353
+  rotate: true
+  xy: 662, 43
   size: 13, 16
   orig: 13, 16
   offset: 0, 0
   index: -1
 eyeball-R
-  rotate: true
-  xy: 590, 165
+  rotate: false
+  xy: 668, 315
   size: 9, 15
   orig: 9, 15
   offset: 0, 0
   index: -1
 eyebrow-L
   rotate: false
-  xy: 590, 155
+  xy: 668, 372
   size: 11, 8
   orig: 11, 8
   offset: 0, 0
   index: -1
 eyebrow-R
-  rotate: true
-  xy: 528, 13
+  rotate: false
+  xy: 641, 38
   size: 19, 18
   orig: 19, 18
   offset: 0, 0
   index: -1
 eyelash-R
   rotate: true
-  xy: 590, 176
+  xy: 662, 28
   size: 13, 16
   orig: 13, 16
   offset: 0, 0
   index: -1
 face
-  rotate: true
-  xy: 652, 109
+  rotate: false
+  xy: 607, 307
   size: 59, 73
   orig: 59, 73
   offset: 0, 0
   index: -1
 hair-B
   rotate: true
-  xy: 660, 273
+  xy: 609, 382
   size: 78, 65
   orig: 78, 65
   offset: 0, 0
   index: -1
 hair-shadow
-  rotate: true
-  xy: 504, 126
+  rotate: false
+  xy: 599, 221
   size: 77, 84
   orig: 77, 84
   offset: 0, 0
   index: -1
 hair1
   rotate: false
-  xy: 590, 96
+  xy: 596, 110
   size: 57, 56
   orig: 57, 56
   offset: 0, 0
   index: -1
 hair2
-  rotate: false
-  xy: 683, 353
+  rotate: true
+  xy: 609, 462
   size: 42, 67
   orig: 42, 67
   offset: 0, 0
   index: -1
 hair3
-  rotate: true
-  xy: 590, 34
+  rotate: false
+  xy: 504, 24
   size: 34, 56
   orig: 34, 63
   offset: 0, 7
   index: -1
 hair4
   rotate: true
-  xy: 504, 46
+  xy: 590, 82
   size: 25, 84
   orig: 25, 85
   offset: 0, 1
   index: -1
 hair5
-  rotate: false
-  xy: 609, 154
+  rotate: true
+  xy: 504, 148
   size: 41, 90
   orig: 41, 90
   offset: 0, 0
   index: -1
 hair6
   rotate: true
-  xy: 504, 73
+  xy: 504, 95
   size: 51, 84
   orig: 51, 84
   offset: 0, 0
   index: -1
 highlight
   rotate: true
-  xy: 675, 365
+  xy: 668, 309
   size: 4, 5
   orig: 4, 5
   offset: 0, 0
   index: -1
 leg-B
-  rotate: false
-  xy: 648, 4
+  rotate: true
+  xy: 589, 54
   size: 26, 50
   orig: 28, 50
   offset: 0, 0
   index: -1
 leg-F
-  rotate: true
-  xy: 590, 70
+  rotate: false
+  xy: 655, 109
   size: 24, 57
   orig: 25, 58
   offset: 0, 1
   index: -1
 mimiyan
-  rotate: false
-  xy: 590, 191
+  rotate: true
+  xy: 667, 63
   size: 17, 12
   orig: 17, 12
   offset: 0, 0
   index: -1
 mouse
-  rotate: true
-  xy: 534, 34
+  rotate: false
+  xy: 668, 332
   size: 10, 8
   orig: 10, 8
   offset: 0, 0
   index: -1
 shadow
-  rotate: false
-  xy: 504, 409
+  rotate: true
+  xy: 504, 191
   size: 177, 93
   orig: 177, 93
   offset: 0, 0
   index: -1
 skirt
-  rotate: true
-  xy: 656, 170
+  rotate: false
+  xy: 504, 370
   size: 101, 62
   orig: 101, 62
   offset: 0, 0
   index: -1
 skirt-shadow
   rotate: false
-  xy: 504, 205
+  xy: 504, 434
   size: 103, 70
   orig: 103, 70
   offset: 0, 0
   index: -1
-stick
-  rotate: true
-  xy: 504, 277
-  size: 130, 154
-  orig: 130, 154
-  offset: 0, 0
-  index: -1
 wanzi
-  rotate: false
-  xy: 683, 457
+  rotate: true
+  xy: 542, 49
   size: 44, 45
   orig: 44, 45
   offset: 0, 0

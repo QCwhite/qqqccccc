@@ -13,8 +13,8 @@ export default class fimage extends ComponentBase {
     
         fixui(B:number[],R:number[])//修改ui
         {
-    console.log(B)
-    console.log(R)     
+   // console.log(B)
+  //  console.log(R)     
     if (KHD2.PT[0]%2==0) {
       for(let i=0;i<3;i+=1){
         //     console.log(PT)

@@ -27,6 +27,7 @@ a:AnimalManager=null
        this.a= this.target.node.parent.getComponent(AnimalManager)
        MessageCenter.MakeSHMessage("AM",[this.node.getComponent(Character).ZB] , 1, this.node.getComponent(Character).Pturn, "MaxHP+");
        MessageCenter.MakeSHMessage("AM",[this.node.getComponent(Character).ZB] , 1, this.node.getComponent(Character).Pturn, "HP+");
+          this.changeEP()
     }
     
     

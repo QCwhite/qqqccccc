@@ -30,6 +30,7 @@ fWwalkWay=1;
     this.fWwalkWay=this.target.walkWay;
     this.target.walkWay=0;
     this.target.MwalkWay=0
+    this.changeEP()
 }
 
 Walk1(): void {

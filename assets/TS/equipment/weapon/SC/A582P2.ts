@@ -41,6 +41,7 @@ start(): void {
        this.tishi=QUI.getComponent(gif1)
        this.tishi.node.setScale(0.8,0.8)
        }
+       
 }
   yy(){ 
   MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.target.Pturn,"Qi-");

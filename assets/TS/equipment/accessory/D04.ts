@@ -23,6 +23,7 @@ export default class D04 extends DXX {
     start () {
         this.target=this.node.getComponent(Character);
         this.target.attack3.push(this)
+            this.changeEP()
     }
     Attack3(an: number[]): void {
         MessageCenter.MakeSHMessage("AM",an,1,this.target.Pturn,"Qi-")
@@ -34,9 +35,10 @@ remove(){
 changeEP(){
         let a=this.node.getComponent(Cspine)
 
-        a.changeSlot(a.spine2,"KD1",this.node.parent.getComponent(Shops).find(2,this.TheNumber,0),0)
-        a.changeSlot(a.spine4,"KD1",this.node.parent.getComponent(Shops).find(4,this.TheNumber,2),2)
-        a.changeSlot(a.spine6,"KD1",this.node.parent.getComponent(Shops).find(6,this.TheNumber,4),4)
+            a.changeSlot(a.spine2,"KD1",this.node.parent.getComponent(Shops).find(2,this.TheNumber,"KD1",this.target.Pturn),0)
+    
+            a.changeSlot(a.spine4,"KD1",this.node.parent.getComponent(Shops).find(4,this.TheNumber,"KD1",this.target.Pturn),0)
+            a.changeSlot(a.spine6,"KD1",this.node.parent.getComponent(Shops).find(6,this.TheNumber,"KD1",this.target.Pturn),0)
 
  }
 }

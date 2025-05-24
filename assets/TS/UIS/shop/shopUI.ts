@@ -33,6 +33,7 @@ import { resources } from 'cc';
 import { JsonAsset } from 'cc';
 import { Button } from 'cc';
 import { AudioManager } from '../../BASE/music';
+import { set } from '../../../../@cocos/creator-types/editor/packages/scene/@types/cce/utils/lodash';
 
 @ccclass('ShopUI')
 export default class shopUI extends ComponentBase {
@@ -60,7 +61,8 @@ export default class shopUI extends ComponentBase {
     yes:Node;
     DW:number=0;
     i:number=1
-    
+    JJ:boolean=false
+    first=true
     onLoad(): void {
         this.MU=find("Canvas/Main Camera/UIManager/magicUI");
     
@@ -77,15 +79,43 @@ export default class shopUI extends ComponentBase {
      this.changL= find("Canvas/Main Camera/UIManager/shopUI/3L/changL")
      this.AM=find("Canvas/DituManager/New Node/AnimalManager")
      this.MU=find("Canvas/Main Camera/UIManager/shopUI/New Button")
+
+      
     }
-    shop(){    console.log(shopM.n)
+
+
+
+ start(): void {
+  
+
+
+}
+
+    shop(){   
+             for(let m of GeZiManager.PCP.shop1){m.Shop1();}  
+      
+
+
+
+
+
+
+             
+        console.log(shopM.n)
        AudioManager.instance.ZJP("ui",3,{volume:0.9})
         console.log(shopM.A1n)
-    
-     for(let m of GeZiManager.PCP.shop1){m.Shop1();}  
+    this.ST()
+
+
         MessageCenter.MakeMessage("UIManager","change",3);
-    setTimeout(()=>{this.ST();},50)
-       
+      
+        
+        
+        
+
+
+
+  
        }
     shopX(){
         MessageCenter.MakeMessage("UIManager","change",1);
@@ -179,22 +209,32 @@ export default class shopUI extends ComponentBase {
        console.log(this.AM.getComponent(AnimalManager).YuanGong)
        for(let manager of GeZiManager.YuanGong){
       
-      manager.getFar(GeZiManager.JL);
-    
-      
+       manager.getFar(GeZiManager.JL);
+     
+
+
        
         if(GeZiManager.BanMove.includes(manager.ZB)&&(this.getTeamZB(GeZiManager.PCP.Pturn,manager.ZB)==false)){
-         manager.red()}
-         
-      if(GeZiManager.AllObstacles[0]!=null){
-         for(let a of GeZiManager.AllObstacles){
-          if(a.ZB==manager.ZB){manager.red()}
-        
-        
+        manager.red()} else
+        if(GeZiManager.BanMove.includes(manager.ZB)){
+        manager.red()}
+
+
+
+  
+
+        if(GeZiManager.AllObstacles[0]!=null){ for(let a of GeZiManager.AllObstacles){
+        if(a.ZB==manager.ZB&&!(GeZiManager.grass.includes(a.ZB)&&a.ObstaclesName!="qizi")){manager.red()}
+        if((GeZiManager.FTPN==3||GeZiManager.FTPN==3.5)){
+        if(a.tt=="flag"&&a.FW.includes(manager.ZB)&&a.color!=GeZiManager.PCP.color&&a.color!="S02"){manager.red()}
+        if(a.tt=="flag"&&a.FW.includes(manager.ZB)&&a.color==GeZiManager.PCP.color&&a.color!="S02"){manager.green()}
+        }
         }}
+        
+        }
+    }
     
-    }
-    }
+    
     qic(qic:number){
       
         MessageCenter.MakeMessage("AM",turn.turn,"getQi")
@@ -275,51 +315,51 @@ export default class shopUI extends ComponentBase {
             case "A110": switch(shopM.i){
         
         
-                case 1:dll=2+GeZiManager.free+"气,A131";PS=this.AM.getComponent(Shops).find(6,"A131");
+                case 1:dll=2+GeZiManager.free+"气,A131";PS=this.AM.getComponent(Shops).find(6,"A131","",0);
               
                  break;
             
-                case 2:dll=2+GeZiManager.free+"气,A132";PS=this.AM.getComponent(Shops).find(6,"A132");
+                case 2:dll=2+GeZiManager.free+"气,A132";PS=this.AM.getComponent(Shops).find(6,"A132","",0);
                 break;
              }
           
              break;
-            case "A132":dll=4+GeZiManager.free+"气,A152";PS=this.AM.getComponent(Shops).find(6,"A152");
+            case "A132":dll=4+GeZiManager.free+"气,A152";PS=this.AM.getComponent(Shops).find(6,"A152","",0);
                 break;
-            case "A131":dll=4+GeZiManager.free+"气,A151";PS=this.AM.getComponent(Shops).find(6,"A153");
+            case "A131":dll=4+GeZiManager.free+"气,A151";PS=this.AM.getComponent(Shops).find(6,"A153","",0);
             break;  
             case "A210": switch(shopM.i){
         
         
-                case 1:dll=3+GeZiManager.free+"气,A231";PS=this.AM.getComponent(Shops).find(6,"A231");
+                case 1:dll=3+GeZiManager.free+"气,A231";PS=this.AM.getComponent(Shops).find(6,"A231","",0);
                 break;  
                  break;
             
-                case 2:dll=3+GeZiManager.free+"气,A232";PS=this.AM.getComponent(Shops).find(6,"A232");
+                case 2:dll=3+GeZiManager.free+"气,A232";PS=this.AM.getComponent(Shops).find(6,"A232","",0);
                 break;
              }
           
              break;
-            case "A232":dll=3+GeZiManager.free+"气,A252";PS=this.AM.getComponent(Shops).find(6,"A252");
+            case "A232":dll=3+GeZiManager.free+"气,A252";PS=this.AM.getComponent(Shops).find(6,"A252","",0);
                   
                 break;
-            case "A231":dll=3+GeZiManager.free+"气,A251";PS=this.AM.getComponent(Shops).find(6,"A251");
+            case "A231":dll=3+GeZiManager.free+"气,A251";PS=this.AM.getComponent(Shops).find(6,"A251","",0);
             break;
             case "A310": switch(shopM.i){
         
         
-                case 1:dll=2+GeZiManager.free+"气,A331";PS=this.AM.getComponent(Shops).find(2,"A331");
+                case 1:dll=2+GeZiManager.free+"气,A331";PS=this.AM.getComponent(Shops).find(2,"A331","",0);
                  break;
             
-                case 2:dll=2+GeZiManager.free+"气,A332";PS=this.AM.getComponent(Shops).find(2,"A332");
+                case 2:dll=2+GeZiManager.free+"气,A332";PS=this.AM.getComponent(Shops).find(2,"A332","",0);
                 break;
              }
           
              break;
-            case "A332":dll=3+GeZiManager.free+"气,A352";PS=this.AM.getComponent(Shops).find(2,"A352");
+            case "A332":dll=3+GeZiManager.free+"气,A352";PS=this.AM.getComponent(Shops).find(2,"A352","",0);
                   
                 break;
-            case "A331":dll=3+GeZiManager.free+"气,A351";PS=this.AM.getComponent(Shops).find(2,"A351");
+            case "A331":dll=3+GeZiManager.free+"气,A351";PS=this.AM.getComponent(Shops).find(2,"A351","",0);
             break;
             case "A503":dll=4+GeZiManager.free+"气,"+(GeZiManager.PCP.getComponent(S03).MZ+1)+"级法杖"
             break;
@@ -413,7 +453,9 @@ export default class shopUI extends ComponentBase {
     
     ST(){
       //1L
-    
+
+                //  this.A1.getComponent(CustomButton).disableButton()
+
       console.log(shopM.A1n[1])
         let t
         if(GeZiManager.free!=0){t=GeZiManager.free+""}else if(GeZiManager.free>0){t="+"+GeZiManager.free}else{t="";}
@@ -435,29 +477,29 @@ export default class shopUI extends ComponentBase {
         
     
     
+    console.log(GeZiManager.PCP.qi<shopM.A1n[0]+GeZiManager.free||shopM.A1n[1]==0)
     
-    
-    
-        if(GeZiManager.PCP.qi<shopM.A1n[0]+GeZiManager.free||shopM.A1n[1]==0){this.A1.getComponent(CustomButton).disableButton()}else{this.A1.getComponent(CustomButton).enableButton();}
-        if(GeZiManager.PCP.qi<shopM.A2n[0]+GeZiManager.free||shopM.A2n[1]==0){this.A2.getComponent(CustomButton).disableButton()}else{this.A2.getComponent(CustomButton).enableButton();}
-        if(GeZiManager.PCP.qi<shopM.A3n[0]+GeZiManager.free||shopM.A3n[1]==0){this.A3.getComponent(CustomButton).disableButton()}else{this.A3.getComponent(CustomButton).enableButton();}
+     console.log(GeZiManager.PCP.qi<shopM.A1n[0]+GeZiManager.free||shopM.A1n[1]==0)
+        if(GeZiManager.PCP.qi<shopM.A1n[0]+GeZiManager.free){this.A1.getComponent(CustomButton).disableButton()}else{this.A1.getComponent(CustomButton).enableButton();}
+        if(GeZiManager.PCP.qi<shopM.A2n[0]+GeZiManager.free){this.A2.getComponent(CustomButton).disableButton()}else{this.A2.getComponent(CustomButton).enableButton();}
+        if(GeZiManager.PCP.qi<shopM.A3n[0]+GeZiManager.free){this.A3.getComponent(CustomButton).disableButton()}else{this.A3.getComponent(CustomButton).enableButton();}
     
         let k=1
        
     //if(turn.round>=2){
     
         if (shopM.A1n[1]!=0) {
-            this.A1.getChildByName("Y").getChildByName("New Sprite").getComponent(Sprite).spriteFrame=this.AM.getComponent(Shops).find(10,shopM.A1n[2]) 
+            this.A1.getChildByName("Y").getChildByName("New Sprite").getComponent(Sprite).spriteFrame=this.AM.getComponent(Shops).find(10,shopM.A1n[2],"",0) 
     
               KOG.DSP( this.A1.getChildByName("Y").getChildByName("New Sprite"),shopM.A1n[2])
         }
         if (shopM.A2n[1]!=0) {
-            this.A2.getChildByName("Y").getChildByName("New Sprite").getComponent(Sprite).spriteFrame=this.AM.getComponent(Shops).find(10,shopM.A2n[2]) 
+            this.A2.getChildByName("Y").getChildByName("New Sprite").getComponent(Sprite).spriteFrame=this.AM.getComponent(Shops).find(10,shopM.A2n[2],"",0) 
             KOG.DSP( this.A2.getChildByName("Y").getChildByName("New Sprite"),shopM.A2n[2])
         }
     
         if (shopM.A3n[1]!=0) {
-            this.A3.getChildByName("Y").getChildByName("New Sprite").getComponent(Sprite).spriteFrame=this.AM.getComponent(Shops).find(10,shopM.A3n[2]) 
+            this.A3.getChildByName("Y").getChildByName("New Sprite").getComponent(Sprite).spriteFrame=this.AM.getComponent(Shops).find(10,shopM.A3n[2],"",0) 
             KOG.DSP( this.A3.getChildByName("Y").getChildByName("New Sprite"),shopM.A3n[2])
         }
     
@@ -466,7 +508,7 @@ export default class shopUI extends ComponentBase {
         if(shopM.A4n){
         this.A4.getChildByName("Background").getChildByName("xLabel").getComponent(Label).string=k+GeZiManager.free+turn.day+""
         this.A4.getChildByName("Label").getComponent(Label).string=""+this.findNameById(shopM.A4n)
-        this.A4.getChildByName("Y").getChildByName("New Sprite").getComponent(Sprite).spriteFrame=this.AM.getComponent(Shops).find(10,shopM.A4n)
+        this.A4.getChildByName("Y").getChildByName("New Sprite").getComponent(Sprite).spriteFrame=this.AM.getComponent(Shops).find(10,shopM.A4n,"",0)
         KOG.DSP( this.A4.getChildByName("Y").getChildByName("New Sprite"),shopM.A4n)
         this.A4.children[0].active=true;
         if(GeZiManager.PCP.qi<k+GeZiManager.free+turn.day){this.A4.getComponent(CustomButton).disableButton();}else{this.A4.getComponent(CustomButton).enableButton();}
@@ -478,7 +520,7 @@ export default class shopUI extends ComponentBase {
     if(shopM.A5n){
         this.A5.getChildByName("Background").getChildByName("xLabel").getComponent(Label).string=k+GeZiManager.free+turn.day+""
         this.A5.getChildByName("Label").getComponent(Label).string=""+this.findNameById(shopM.A5n)
-        this.A5.getChildByName("Y").getChildByName("New Sprite").getComponent(Sprite).spriteFrame=this.AM.getComponent(Shops).find(10,shopM.A5n)
+        this.A5.getChildByName("Y").getChildByName("New Sprite").getComponent(Sprite).spriteFrame=this.AM.getComponent(Shops).find(10,shopM.A5n,"",0)
         KOG.DSP( this.A5.getChildByName("Y").getChildByName("New Sprite"),shopM.A5n)
         this.A5.children[0].active=true;
         if(GeZiManager.PCP.qi<k+GeZiManager.free+turn.day){this.A5.getComponent(CustomButton).disableButton();}else{this.A5.getComponent(CustomButton).enableButton();}
@@ -523,15 +565,15 @@ export default class shopUI extends ComponentBase {
                 break;
          }  
      ////////////////////////////    
-         
-    
+         let L=100
+  
     
     switch (this.i) {
-        case 2:this.fadeOutAndDisappear(find("Canvas/Main Camera/UIManager/shopUI/3L/Leve/PS"),100);this.fadeINAndA(find("Canvas/Main Camera/UIManager/shopUI/3L/Leve/PS2"),100)
+        case 2:this.fadeOutAndDisappear(find("Canvas/Main Camera/UIManager/shopUI/3L/Leve/PS"),L);this.fadeINAndA(find("Canvas/Main Camera/UIManager/shopUI/3L/Leve/PS2"),L)
             
             break;
     
-        default:this.fadeOutAndDisappear(find("Canvas/Main Camera/UIManager/shopUI/3L/Leve/PS2"),100);this.fadeINAndA(find("Canvas/Main Camera/UIManager/shopUI/3L/Leve/PS"),100)
+        default:this.fadeOutAndDisappear(find("Canvas/Main Camera/UIManager/shopUI/3L/Leve/PS2"),L);this.fadeINAndA(find("Canvas/Main Camera/UIManager/shopUI/3L/Leve/PS"),L)
             break;
     }
     //////////////////
@@ -648,103 +690,103 @@ export default class shopUI extends ComponentBase {
         case "A110": switch(this.i){
     
     
-            case 1:dll=2+GeZiManager.free+"气,A131";PS=this.AM.getComponent(Shops).find(10,"A131");
+            case 1:dll=2+GeZiManager.free+"气,A131";PS=this.AM.getComponent(Shops).find(10,"A131","",0);
           
              break;
         
-            case 2:dll=2+GeZiManager.free+"气,A132";PS=this.AM.getComponent(Shops).find(10,"A132");
+            case 2:dll=2+GeZiManager.free+"气,A132";PS=this.AM.getComponent(Shops).find(10,"A132","",0);
             break;
          }
       n=2
          break;
-        case "A132":dll=4+GeZiManager.free+"气,A152";PS=this.AM.getComponent(Shops).find(10,"A152");n=4
+        case "A132":dll=4+GeZiManager.free+"气,A152";PS=this.AM.getComponent(Shops).find(10,"A152","",0);n=4
             break;
-        case "A131":dll=4+GeZiManager.free+"气,A151";PS=this.AM.getComponent(Shops).find(10,"A151");n=4
+        case "A131":dll=4+GeZiManager.free+"气,A151";PS=this.AM.getComponent(Shops).find(10,"A151","",0);n=4
         break;  
         case "A210": switch(this.i){
     
     
-            case 1:dll=3+GeZiManager.free+"气,A231";PS=this.AM.getComponent(Shops).find(10,"A231");
+            case 1:dll=3+GeZiManager.free+"气,A231";PS=this.AM.getComponent(Shops).find(10,"A231","",0);
             break;  
              break;
         
-            case 2:dll=3+GeZiManager.free+"气,A232";PS=this.AM.getComponent(Shops).find(10,"A232");
+            case 2:dll=3+GeZiManager.free+"气,A232";PS=this.AM.getComponent(Shops).find(10,"A232","",0);
             break;
          }
       n=3
          break;
-        case "A232":dll=2+GeZiManager.free+"气,A252";PS=this.AM.getComponent(Shops).find(10,"A252");
+        case "A232":dll=2+GeZiManager.free+"气,A252";PS=this.AM.getComponent(Shops).find(10,"A252","",0);
               n=3
             break;
-        case "A231":dll=2+GeZiManager.free+"气,A251";PS=this.AM.getComponent(Shops).find(10,"A251");n=3
+        case "A231":dll=2+GeZiManager.free+"气,A251";PS=this.AM.getComponent(Shops).find(10,"A251","",0);n=3
         break;
         case "A310": switch(this.i){
     
     
-            case 1:dll=2+GeZiManager.free+"气,A331";PS=this.AM.getComponent(Shops).find(10,"A331");n=2
+            case 1:dll=2+GeZiManager.free+"气,A331";PS=this.AM.getComponent(Shops).find(10,"A331","",0);n=2
              break;
         
-            case 2:dll=2+GeZiManager.free+"气,A332";PS=this.AM.getComponent(Shops).find(10,"A332");n=2
+            case 2:dll=2+GeZiManager.free+"气,A332";PS=this.AM.getComponent(Shops).find(10,"A332","",0);n=2
             break;
          }
       
          break;
-        case "A332":dll=3+GeZiManager.free+"气,A352";PS=this.AM.getComponent(Shops).find(10,"A352");n=3
+        case "A332":dll=3+GeZiManager.free+"气,A352";PS=this.AM.getComponent(Shops).find(10,"A352","",0);n=3
               
             break;
-        case "A331":dll=3+GeZiManager.free+"气,A351";PS=this.AM.getComponent(Shops).find(10,"A351");n=3
+        case "A331":dll=3+GeZiManager.free+"气,A351";PS=this.AM.getComponent(Shops).find(10,"A351","",0);n=3
         break;
     
-        case "A121": PS=this.AM.getComponent(Shops).find(10,"A146") ; n=5;
+        case "A121": PS=this.AM.getComponent(Shops).find(10,"A146","",0) ; n=5;
         break
-        case "A122":PS=this.AM.getComponent(Shops).find(10,"A144") ; n=4;
+        case "A122":PS=this.AM.getComponent(Shops).find(10,"A144","",0) ; n=4;
         break
-        case "A125": PS=this.AM.getComponent(Shops).find(10,"A145") ; n=4;
+        case "A125": PS=this.AM.getComponent(Shops).find(10,"A145","",0) ; n=4;
         break
        
-        case "A127": PS=this.AM.getComponent(Shops).find(10,"A142") ; n=3;
+        case "A127": PS=this.AM.getComponent(Shops).find(10,"A142","",0) ; n=3;
         break
-        case "A128": PS=this.AM.getComponent(Shops).find(10,"A147") ; n=3;
+        case "A128": PS=this.AM.getComponent(Shops).find(10,"A147","",0) ; n=3;
         break
-        case "A141": PS=this.AM.getComponent(Shops).find(10,"A161") ; n=5;
+        case "A141": PS=this.AM.getComponent(Shops).find(10,"A161","",0) ; n=5;
         break
-        case "A142": PS=this.AM.getComponent(Shops).find(10,"A162") ; n=6;
+        case "A142": PS=this.AM.getComponent(Shops).find(10,"A162","",0) ; n=6;
         break;
-        case "A145": PS=this.AM.getComponent(Shops).find(10,"A164") ; n=5;
+        case "A145": PS=this.AM.getComponent(Shops).find(10,"A164","",0) ; n=5;
         break
-        case "A227": PS=this.AM.getComponent(Shops).find(10,"A223") ; n=3;
+        case "A227": PS=this.AM.getComponent(Shops).find(10,"A223","",0) ; n=3;
         break
-        case "A223": PS=this.AM.getComponent(Shops).find(10,"A262") ; n=6;
+        case "A223": PS=this.AM.getComponent(Shops).find(10,"A262","",0) ; n=6;
         break
-        case "A228": PS=this.AM.getComponent(Shops).find(10,"A242") ; n=3;
+        case "A228": PS=this.AM.getComponent(Shops).find(10,"A242","",0) ; n=3;
         break
-        case "A242": PS=this.AM.getComponent(Shops).find(10,"A263") ; n=5;
+        case "A242": PS=this.AM.getComponent(Shops).find(10,"A263","",0) ; n=5;
         break
-        case "A321": PS=this.AM.getComponent(Shops).find(10,"A321P") ; n=2;
+        case "A321": PS=this.AM.getComponent(Shops).find(10,"A321P","",0) ; n=2;
         break
-        case "A321P": PS=this.AM.getComponent(Shops).find(10,"A352") ; n=4;
+        case "A321P": PS=this.AM.getComponent(Shops).find(10,"A352","",0) ; n=4;
         break
-        case "A323P1": PS=this.AM.getComponent(Shops).find(10,"A323P2") ; n=1;
+        case "A323P1": PS=this.AM.getComponent(Shops).find(10,"A323P2","",0) ; n=1;
         break
-        case "A323P2": PS=this.AM.getComponent(Shops).find(10,"A323P3") ; n=2;
+        case "A323P2": PS=this.AM.getComponent(Shops).find(10,"A323P3","",0) ; n=2;
         break
-        case "A323P3": PS=this.AM.getComponent(Shops).find(10,"A323P4") ; n=3;
+        case "A323P3": PS=this.AM.getComponent(Shops).find(10,"A323P4","",0) ; n=3;
         break
-        case "A323P4": PS=this.AM.getComponent(Shops).find(10,"A362") ; n=4;
+        case "A323P4": PS=this.AM.getComponent(Shops).find(10,"A362","",0) ; n=4;
         break
-        case "A345": PS=this.AM.getComponent(Shops).find(10,"A361") ; n=5;
+        case "A345": PS=this.AM.getComponent(Shops).find(10,"A361","",0) ; n=5;
         break
     
-        case "A1422": PS=this.AM.getComponent(Shops).find(10,"A1462") ; n=10;
+        case "A1422": PS=this.AM.getComponent(Shops).find(10,"A1462","",0) ; n=10;
         break
     
         case "A580": switch(this.i){
     
     
-            case 1:dll=2+GeZiManager.free+"气,A581";PS=this.AM.getComponent(Shops).find(10,"A581");n=2
+            case 1:dll=2+GeZiManager.free+"气,A581";PS=this.AM.getComponent(Shops).find(10,"A581","",0);n=2
              break;
         
-            case 2:dll=2+GeZiManager.free+"气,A582";PS=this.AM.getComponent(Shops).find(10,"A582");n=2
+            case 2:dll=2+GeZiManager.free+"气,A582";PS=this.AM.getComponent(Shops).find(10,"A582","",0);n=2
             break;
          }
        
@@ -752,10 +794,10 @@ export default class shopUI extends ComponentBase {
          case "A581":switch(this.i){
     
     
-            case 1:dll=4+GeZiManager.free+"气,A581P1";PS=this.AM.getComponent(Shops).find(10,"A581P1");n=4
+            case 1:dll=4+GeZiManager.free+"气,A581P1";PS=this.AM.getComponent(Shops).find(10,"A581P1","",0);n=4
              break;
         
-            case 2:dll=4+GeZiManager.free+"气,A581P2";PS=this.AM.getComponent(Shops).find(10,"A581P2");n=4
+            case 2:dll=4+GeZiManager.free+"气,A581P2";PS=this.AM.getComponent(Shops).find(10,"A581P2","",0);n=4
             break;
          }
              break;
@@ -763,30 +805,43 @@ export default class shopUI extends ComponentBase {
              case "A582":switch(this.i){
     
     
-                case 1:dll=4+GeZiManager.free+"气,A581";PS=this.AM.getComponent(Shops).find(10,"A582P1");n=4
+                case 1:dll=4+GeZiManager.free+"气,A581";PS=this.AM.getComponent(Shops).find(10,"A582P1","",0);n=4
                  break;
             
-                case 2:dll=3+GeZiManager.free+"气,A583";PS=this.AM.getComponent(Shops).find(10,"A582P2");n=3
+                case 2:dll=3+GeZiManager.free+"气,A583";PS=this.AM.getComponent(Shops).find(10,"A582P2","",0);n=3
                 break;
              }
     
-             case "A583":dll=2+GeZiManager.free+"气,A583P";PS=this.AM.getComponent(Shops).find(10,"A583P");n=3
+             case "A583":dll=2+GeZiManager.free+"气,A583P";PS=this.AM.getComponent(Shops).find(10,"A583P","",0);n=3
              break;
     
     
-    case "A583P":dll=2+GeZiManager.free+"气,A583P";PS=this.AM.getComponent(Shops).find(10,"A583P");n=3
+    case "A583P":dll=2+GeZiManager.free+"气,A583P";PS=this.AM.getComponent(Shops).find(10,"A583P","",0);n=3
              break;
       
        
         case "A503":switch(this.i){
-            case 1:          dll=2+GeZiManager.free+"气,"+(GeZiManager.PCP.getComponent(S03).MZ+1)+"级法杖";n=2
+            case 1:          dll=2+GeZiManager.free+"气,"+(GeZiManager.PCP.getComponent(S03).MZ+1)+"级法杖";PS=this.AM.getComponent(Shops).find(10,"A503-A","",0);n=2
             break;
-            case 2:          dll=2+GeZiManager.free+"气,"+(GeZiManager.PCP.getComponent(S03).MZ+1)+"级法杖";n=3
+            case 2:          dll=2+GeZiManager.free+"气,"+(GeZiManager.PCP.getComponent(S03).MZ+1)+"级法杖";PS=this.AM.getComponent(Shops).find(10,"A503-B","",0);n=3
             break;}
         break;
         case "A509":dll=4+GeZiManager.free+"气,"+(GeZiManager.PCP.weapon.getComponent(A509).MZ+1)+"级攻击环";n=4
+PS=PS=this.AM.getComponent(Shops).find(10,"A509","",0);
+        
         break;
-        case "A504":dll=2+GeZiManager.free+"气";PS=this.AM.getComponent(Shops).find(10,"A110");n=2
+
+                case "A509-1":dll=4+GeZiManager.free+"气,"+(GeZiManager.PCP.weapon.getComponent(A509).MZ+1)+"级攻击环";n=4
+PS=PS=this.AM.getComponent(Shops).find(10,"A509-2","",0);
+
+        
+        break;
+                        case "A509-2":dll=4+GeZiManager.free+"气,"+(GeZiManager.PCP.weapon.getComponent(A509).MZ+1)+"级攻击环";n=4
+PS=PS=this.AM.getComponent(Shops).find(10,"A509-3","",0);
+
+        
+        break;
+        case "A504":dll=2+GeZiManager.free+"气";PS=this.AM.getComponent(Shops).find(10,"A110","",0);n=2
         break;
     }      
     
@@ -951,59 +1006,18 @@ console.log(PS.name)
 
             jsonFilePath: string = 'EQW'; // JSON 文件路径（相对于 resources 文件夹）
         
-            start() {
-                this.loadJsonData();
-            }
-        
-            /**
-             * 加载 JSON 文件并查找对应的 name 属性
-             * @param id 要查找的 id
-             * @returns 对应的 name 属性或 null
-             */
-            findNameById(id: string): string | null {
-                if (!this._jsonData) {
-                    console.error("JSON data is not loaded.");
-                    return null;
-                }
-        
-                // 确保 _jsonData 是数组类型
-                if (!Array.isArray(this._jsonData)) {
-                    console.error("JSON data is not an array.");
-                    return null;
-                }
-        
-                const item = this._jsonData.find((item: any) => item.id === id);
-                return item ? item.name : null;
-            }
-        
-            private _jsonData: any[] = []; // 用于存储加载的 JSON 数据
-         // 用于存储加载的 JSON 数据
-        
-            /**
-             * 加载 JSON 文件
-             */
-            private loadJsonData() {
-                resources.load(this.jsonFilePath, JsonAsset, (err, jsonAsset) => {
-                    if (err) {
-                        console.error("Failed to load JSON file:", err);
-                        return;
-                    }
-        
-                    // 确保加载的数据是数组类型
-                    if (!Array.isArray(jsonAsset.json)) {
-                        console.error("Loaded JSON data is not an array.");
-                        return;
-                    }
-        
-                    this._jsonData = jsonAsset.json;
-                    console.log("JSON data loaded successfully:", this._jsonData);
-                });
-            }
-        
+      findNameById(n:string){
 
 
 
 
+
+
+return GeZiManager.skillDataMap[n]?.name
+
+
+
+      }
 
 
 

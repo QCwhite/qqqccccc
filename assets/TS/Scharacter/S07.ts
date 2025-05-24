@@ -213,8 +213,8 @@ if (this.target.weapon instanceof Qiang) {
 
 Attack25(at:Character,csh:number): void {
 
-console.log(at.faceIs(this.target.ZB))
-console.log()
+//console.log(at.faceIs(this.target.ZB))
+//console.log()
 
 if(["Blue","Red"].includes(at.color)){
 
@@ -252,7 +252,7 @@ Attack3(an: number[]): void {
 
 
 Move2(arg0:number,Pturn:number,time:number): void {
-  console.log(this.Sge)
+ // console.log(this.Sge)
   if(this.pt!=Pturn&&this.Sge.includes(arg0)){
     switch (Pturn) {
       case 1:GeZiManager.P1.kcd=false;
@@ -285,7 +285,7 @@ Move2(arg0:number,Pturn:number,time:number): void {
 
 Walk2(ZB: number): void {
   this.Sge.push(ZB);
-  console.log(this.Sge)
+ // console.log(this.Sge)
  find("Canvas/thingsManager/AnimalManager").getComponent(AnimalManager).makeGE(ZB,0); 
 
 
@@ -340,9 +340,9 @@ xd1(m:GMessage,n:number): void {
 
     
     if(this.friend.includes(n)&&["attack","turn4","turn6","walk","walkL"].includes(m.SHtype)&&this.getc(n).color!=this.target.color){
-      console.log(m)  
-console.log(this.friend)
-console.log(n)
+ //     console.log(m)  
+//console.log(this.friend)
+//console.log(n)
       MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,this.target.Pturn,m.SHtype)
 
     GeZiManager.shanchu(this.friend,n)

@@ -41,7 +41,7 @@ export default class qizi extends DES {
     MessageCenter.MakeSHMessage("AM",[this.ZB],1,-1,"getF");
     GeZiManager.FgetQin(this.ZB,this.ZB)
               
-    console.log(this.ZB)
+ //   console.log(this.ZB)
    } 
    
     
@@ -310,7 +310,7 @@ export default class qizi extends DES {
     }*/
     
     MessageCenter.MakeSHMessage("AM",[ZB],1,0,"getOne")
-    console.log(GeZiManager.Tcharacter)
+   // console.log(GeZiManager.Tcharacter)
     if(GeZiManager.Tcharacter&&GeZiManager.Tcharacter instanceof Character){
     if(GeZiManager.Tcharacter.color!=this.color&&this.color=="S02"){
               MessageCenter.MakeSHMessage("AM",[GeZiManager.Tcharacter.ZB],2,0,"Qi-")
@@ -334,8 +334,8 @@ export default class qizi extends DES {
     }
     
     ReceiveMessage(message: SHMessage): void {
-        console.log(this.ZB)
-        console.log(message)
+     //   console.log(this.ZB)
+     //   console.log(message)
       if(this.color!="dead") {
         switch (message.SHtype) {
             case "wind":this.node.children[0].getComponent(sp.Skeleton).animation="Wind";this.node.children[1].getComponent(sp.Skeleton).animation="Wind"
@@ -351,8 +351,13 @@ export default class qizi extends DES {
 
 case "getF":if(this.ZB==message.Command[0]){GeZiManager.TF=this}
 
-console.log(this.ZB)
+//.log(this.ZB)
 break;
+
+
+case "getOne":GeZiManager.Tcharacter=this
+    break
+
             default:
                 break;
         }}
@@ -399,7 +404,41 @@ GeZiManager.Tcharacters=[]
 
     }
     
+    To(ZB: number, time: number): void {
+  //    if(this.move2!=null){for(let w of this.move2){w.Move2(ZB,this.Pturn,time);}}
+       //  GeZiManager.shanchu(GeZiManager.BanMove, this.ZB);
+       GeZiManager.shanchu( GeZiManager.aos,this.ZB)
+         const b=this.ZB
+         this.ZB = ZB;
+     
+     
+                GeZiManager.aos.push(ZB)
+       GeZiManager.KCLR()
+     
+      this.FW=[]
+         for (let index = 1; index <= 9; index++) {
+        this.FW.push(this.findGe(index,1))
+        
+    }
+     
+        
+    //  setTimeout(()=>{  GeZiManager.getQin(this.ZB,this.ZB);if(!this.fly){GeZiManager.DLBZ(this.ZB,b,false)}},time*1000+20) 
+     
+     //  console.log(this.ZB)
+     //console.log(b)
+     
+     
+       this.ghost=true;
+     this.setXY(time);
+     //    if (this.WD) { GeZiManager.shanchu(GeZiManager.WD, this.ZB); }
+     
+
+       //  if(this.move3!=null){for(let w of this.move3){w.Move3(this.ZB,this.Pturn);}}
+         this.moveto(time,this.ZB);
     
+
+}
+
     
       
     }

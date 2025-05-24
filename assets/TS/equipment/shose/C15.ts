@@ -21,6 +21,7 @@ start () {
        this.target=this.node.getComponent(Character);
        this.target.turn3.push(this)
 console.log(this.target.turn3)
+   this.changeEP()
 }
 Turn3(N?: number): void {
        this.target.Walk(false)

@@ -19,6 +19,7 @@ export default class A343 extends A322 {
     start () {
        this.node.getComponent(Character).wk+=1;
        this.node.getComponent(Character).mk+=1;
+            this.changeEP()
     }
     remove(): void {
        this.node.getComponent(Character).wk-=1;

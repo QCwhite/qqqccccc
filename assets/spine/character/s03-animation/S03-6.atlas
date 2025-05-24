@@ -1,0 +1,62 @@
+
+S03-6.png
+size: 750,518
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Z
+  rotate: false
+  xy: 2, 16
+  size: 500, 500
+  orig: 500, 500
+  offset: 0, 0
+  index: -1
+arm-B
+  rotate: false
+  xy: 504, 2
+  size: 98, 94
+  orig: 98, 94
+  offset: 0, 0
+  index: -1
+arm-F
+  rotate: false
+  xy: 683, 208
+  size: 65, 127
+  orig: 65, 127
+  offset: 0, 0
+  index: -1
+body
+  rotate: false
+  xy: 649, 109
+  size: 81, 97
+  orig: 81, 97
+  offset: 0, 0
+  index: -1
+hat
+  rotate: false
+  xy: 504, 337
+  size: 203, 179
+  orig: 203, 179
+  offset: 0, 0
+  index: -1
+head
+  rotate: true
+  xy: 604, 5
+  size: 91, 119
+  orig: 91, 119
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: false
+  xy: 504, 242
+  size: 177, 93
+  orig: 177, 93
+  offset: 0, 0
+  index: -1
+skrit
+  rotate: true
+  xy: 504, 98
+  size: 142, 143
+  orig: 142, 143
+  offset: 0, 0
+  index: -1

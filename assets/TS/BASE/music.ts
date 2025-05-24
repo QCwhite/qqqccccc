@@ -42,7 +42,7 @@ export class AudioManager extends Component {
 
     // 资源加载方法
     private async loadAudioResources(): Promise<void> {
-     console.log(this. Bhyp)
+   //  console.log(this. Bhyp)
      
         const loadTasks = [
             this.loadAudioSet('audio/bgm', 'Byp'),
@@ -56,15 +56,15 @@ export class AudioManager extends Component {
 
         try {
             await Promise.all(loadTasks);
-            console.log('所有音频资源加载完成', {
-                Byp: this.Byp.length,
-                Nyp: this.Nyp.length,
-                Ayp: this.Ayp.length,
-                Bhyp: this.Bhyp.length,
-                Myp: this.Myp.length,
-                Uiyp: this.Uiyp.length,
-                Qtyp: this.Qtyp.length
-            });
+       //     console.log('所有音频资源加载完成', {
+         //       Byp: this.Byp.length,
+          //      Nyp: this.Nyp.length,
+          //      Ayp: this.Ayp.length,
+           //     Bhyp: this.Bhyp.length,
+            //    Myp: this.Myp.length,
+             //   Uiyp: this.Uiyp.length,
+             //   Qtyp: this.Qtyp.length
+       //     });
         } catch (error) {
             console.error('音频资源加载失败:', error);
             throw error;
@@ -76,7 +76,7 @@ export class AudioManager extends Component {
     return new Promise((resolve, reject) => {
         resources.loadDir(folderPath, AudioClip, (err, clips) => {
             if (err) {
-                console.error(`[AudioManager] 加载失败: ${folderPath}`, err);
+              //  console.error(`[AudioManager] 加载失败: ${folderPath}`, err);
                 reject(err);
                 return;
             }
@@ -128,23 +128,23 @@ export class AudioManager extends Component {
         const targetArray = this[arrayName as keyof AudioManager] as AudioClip[];
 
         if (!targetArray || targetArray.length === 0) {
-            console.error(`[AudioManager] 无效的音频类型或未加载: ${type}`);
+           // console.error(`[AudioManager] 无效的音频类型或未加载: ${type}`);
             return;
         }
 
         if (index < 0 || index >= targetArray.length) {
-            console.error(`[AudioManager] 无效索引: ${index} (${type} 共 ${targetArray.length} 个)`);
+         //   console.error(`[AudioManager] 无效索引: ${index} (${type} 共 ${targetArray.length} 个)`);
             return;
         }
 
         const clip = targetArray[index];
         if (!clip || !clip.loaded) {
-            console.error(`[AudioManager] 音频未加载: ${type}[${index}]`);
+           // console.error(`[AudioManager] 音频未加载: ${type}[${index}]`);
             return;
         }
 
         this.playAudio(clip, options);
-        console.log("bole")
+       // console.log("bole")
     }
 
     // 核心播放逻辑
@@ -175,7 +175,7 @@ export class AudioManager extends Component {
                 audioSource.play();
             }
         } catch (error) {
-            console.error('[AudioManager] 播放失败:', error);
+           // console.error('[AudioManager] 播放失败:', error);
         }
     }
 

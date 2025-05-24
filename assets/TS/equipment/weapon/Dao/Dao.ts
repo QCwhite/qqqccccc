@@ -18,16 +18,16 @@ Wtype: number=1;
 Ytype: number=1;
     remove(): void {
         let a=this.node.getComponent(Cspine)
-        a.changeSlot(a.spine2,"A1",null,13)
+           a.changeSlot(a.spine2,"A1",null,13)
            a.changeSlot(a.spine4,"A1",null,13)
            a.changeSlot(a.spine6,"A1",null,13)
     }
 changeEP(){
          let a=this.node.getComponent(Cspine)
-
-         a.changeSlot(a.spine2,"A1",this.node.parent.getComponent(Shops).find(2,this.TheNumber,0),0)
-         a.changeSlot(a.spine4,"A1",this.node.parent.getComponent(Shops).find(4,this.TheNumber,2),2)
-         a.changeSlot(a.spine6,"A1",this.node.parent.getComponent(Shops).find(6,this.TheNumber,4),4)
+console.log(this.target)
+        a.changeSlot(a.spine2,"A1",this.node.parent.getComponent(Shops).find(2,this.TheNumber,"A1",this.target.Pturn),2)
+        a.changeSlot(a.spine4,"A1",this.node.parent.getComponent(Shops).find(4,this.TheNumber,"A1",this.target.Pturn),2)
+        a.changeSlot(a.spine6,"A1",this.node.parent.getComponent(Shops).find(6,this.TheNumber,"A1",this.target.Pturn),2)
      }
 }
 

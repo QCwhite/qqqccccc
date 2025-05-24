@@ -59,15 +59,15 @@ BZ(preZB: number): void {
     
 
 
-if (TGManager.TG.includes("蛇")&&GeZiManager.TNJM[turn.round-1]==4) {
-     MessageCenter.MakeSHMessage("AM",[this.ZB],1,0,"getOneC")
-     GeZiManager.Tcharacter.DYL(3)
-}
+//if (TGManager.TG.includes("蛇")&&GeZiManager.TNJM[turn.round-1]==4) {
+ //    MessageCenter.MakeSHMessage("AM",[this.ZB],1,0,"getOneC")
+ //    GeZiManager.Tcharacter.DYL(3)
+//}
 
 }
 }
 JJ(){
-     console.log("k")
+    // console.log("k")
 
 
 }
@@ -86,10 +86,11 @@ if (this.HP>0) {
      
 
      if (turn.DorN=="day") {
-          this.yinxR()
+        
      this.grassQ.node.children[0].getComponent(sp.Skeleton).animation="www"
      this.node.children[1].getComponent(sp.Skeleton).animation="www"
-
+this.grassQ.setXY(0)
+     this.fadeOutAndDisappear(this.grassQ.node,130)
 
      setTimeout(() => {
      this.grassQ.node.children[0].getComponent(sp.Skeleton).animation="idle"
@@ -239,7 +240,7 @@ wind(){
 }
 BKS(){MessageCenter.MakeSHMessage("AM",[this.ZB],1,0,"getOneC")
 
-console.log("BKS"+this.ZB)
+//console.log("BKS"+this.ZB)
      if ( GeZiManager.Tcharacter) {
      GeZiManager.Tcharacter.YS=false
 
@@ -251,7 +252,7 @@ console.log("BKS"+this.ZB)
 yinxR(){ this.grassQ.setXY(0)
      this.fadeOutAndDisappear(this.grassQ.node,130)
 
-     console.log("yinxR"+this.ZB)
+  //   console.log("yinxR"+this.ZB)
 
      MessageCenter.MakeSHMessage("AM",[this.ZB],1,0,"getOneC")
      if(GeZiManager.Tcharacter) {
@@ -266,7 +267,7 @@ ZCL(){
      
 
  
-     console.log("ZCL"+this.grassQ.node.getComponent(UIOpacity).opacity)
+   //  console.log("ZCL"+this.grassQ.node.getComponent(UIOpacity).opacity)
      if ( this.grassQ.node.getComponent(UIOpacity).opacity==0) {
      this.fadeINAndAK(this.grassQ.node,400,190)
 

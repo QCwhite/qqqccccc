@@ -23,7 +23,7 @@ export default class B01 extends BXX {
     start () {
         this.target=this.node.getComponent(Character);
         this.target.behurt222.push(this)
-
+    this.changeEP()
     }
 Behurt222(k:number, arg1: this, arg2: any): void {
       

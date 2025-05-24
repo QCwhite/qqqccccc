@@ -1679,6 +1679,8 @@
       "__id__": 0
     },
     "fileId": "f6ZSnC4wZHWqrizOq6H8n1",
+    "instance": null,
+    "targetOverrides": null,
     "nestedPrefabInstanceRoots": null
   },
   {
@@ -8464,7 +8466,7 @@
       "__id__": 385
     },
     "Toux": {
-      "__uuid__": "d8295f76-3ed4-40a6-8e79-bc6c81b619bd@44375",
+      "__uuid__": "22b08496-c01b-4a4f-8aed-9ef31ae5eeb4@f9941",
       "__expectedType__": "cc.SpriteFrame"
     },
     "skiil1": {

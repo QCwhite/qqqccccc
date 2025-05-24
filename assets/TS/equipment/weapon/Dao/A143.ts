@@ -21,6 +21,20 @@ export default class A143 extends A110 {
     SH: number=1;
     start(){
         this.node.getComponent(Character).attack2.push(this)
+           this.target=this.node.getComponent(Character)
+             this.changeEP()
+               let g=0
+   if (this.target.accessory.TheNumber=="D02") {
+       g++
+   }
+   if (this.target.shose.TheNumber=="C11") {
+       g++
+   }
+   if (this.target.body.TheNumber=="B13") {
+       g++
+   }
+   
+   MessageCenter.MakeSHMessage("AM",[this.target.ZB],g,this.target.Pturn,"Qi+")
     }
  Attack2(an: number[]): void {
         let a =Math.floor(this.node.getComponent(Character).qi/2)

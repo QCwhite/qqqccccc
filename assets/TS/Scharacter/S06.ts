@@ -441,7 +441,7 @@ choseS(n:string): void {
         default:
         break;
         }
-        console.log(n)
+      //  console.log(n)
 }
 NWNA(e:string[],n:number){
 

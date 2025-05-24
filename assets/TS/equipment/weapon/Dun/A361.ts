@@ -29,6 +29,7 @@ export default class A361 extends Dun {
         this.node.getComponent(Character).eqiupment.push(this);
 //  GeZiManager.WindSon.push(this)
 //  this.target.wd1.push(this)
+     this.changeEP()
 AudioManager.instance.ZJP("hit",16)
   }
   

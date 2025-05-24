@@ -154,6 +154,14 @@ for(let a of this.FSM){
 }
 }
 Shop2(A: string, s: boolean): void {
+
+if(!A){
+
+return
+
+
+}
+
 for(let a of this.FSM){
     if (a!=null&&a.node.getComponent(Character).LST!=-1) {
         a.node.getComponent(Character).changeE(A)

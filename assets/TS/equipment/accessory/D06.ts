@@ -27,6 +27,14 @@ GHP:number=0;
          this.target=this.node.getComponent(Character);
         this.target.dead1.push(this)
         this.target.behurt3.push(this)
+
+if(this.color=="Red"){
+   GeZiManager.Rhun+=1
+   
+}else{  GeZiManager.Bhun+=1; }
+GeZiManager.getHUN();
+
+            this.changeEP()
     }
   Behurt3(n: number,killp:realThing){
         this.GHP=n;
@@ -34,7 +42,7 @@ GHP:number=0;
             this.GHP=  this.target.HP+n
         }
 
-        console.log(this.target.HP)
+       // console.log(this.target.HP)
   }
     
     
@@ -69,9 +77,10 @@ remove(){
 changeEP(){
          let a=this.node.getComponent(Cspine)
 
-         a.changeSlot(a.spine2,"KD1",this.node.parent.getComponent(Shops).find(2,this.TheNumber,0),0)
-        a.changeSlot(a.spine4,"KD1",this.node.parent.getComponent(Shops).find(4,this.TheNumber,2),2)
-       a.changeSlot(a.spine6,"KD1",this.node.parent.getComponent(Shops).find(6,this.TheNumber,4),4)
+        a.changeSlot(a.spine2,"KD1",this.node.parent.getComponent(Shops).find(2,this.TheNumber,"KD1",this.target.Pturn),0)
+    
+            a.changeSlot(a.spine4,"KD1",this.node.parent.getComponent(Shops).find(4,this.TheNumber,"KD1",this.target.Pturn),0)
+            a.changeSlot(a.spine6,"KD1",this.node.parent.getComponent(Shops).find(6,this.TheNumber,"KD1",this.target.Pturn),0)
 
  }
 }

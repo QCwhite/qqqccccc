@@ -24,6 +24,7 @@ export default class B14 extends BXX {
         this.target.t3.push(this)
         MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,this.target.Pturn,"MaxHP+")
         MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,this.target.Pturn,"HP+")
+           this.changeEP()
     }
     
     

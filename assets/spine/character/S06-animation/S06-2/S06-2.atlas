@@ -1,0 +1,132 @@
+
+S06-2.png
+size: 738,504
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Z
+  rotate: false
+  xy: 2, 2
+  size: 500, 500
+  orig: 500, 500
+  offset: 0, 0
+  index: -1
+arm1-L
+  rotate: true
+  xy: 504, 124
+  size: 54, 76
+  orig: 85, 98
+  offset: 0, 19
+  index: -1
+arm1-R
+  rotate: true
+  xy: 651, 269
+  size: 66, 82
+  orig: 88, 123
+  offset: 17, 24
+  index: -1
+arm2-L
+  rotate: true
+  xy: 542, 4
+  size: 49, 43
+  orig: 52, 68
+  offset: 3, 21
+  index: -1
+arm2-R
+  rotate: false
+  xy: 542, 55
+  size: 48, 67
+  orig: 48, 70
+  offset: 0, 0
+  index: -1
+belt
+  rotate: true
+  xy: 504, 17
+  size: 105, 36
+  orig: 105, 36
+  offset: 0, 0
+  index: -1
+body
+  rotate: true
+  xy: 504, 359
+  size: 143, 147
+  orig: 152, 160
+  offset: 2, 0
+  index: -1
+face
+  rotate: false
+  xy: 599, 119
+  size: 103, 143
+  orig: 103, 143
+  offset: 0, 0
+  index: -1
+foot-L
+  rotate: false
+  xy: 650, 76
+  size: 34, 41
+  orig: 34, 41
+  offset: 0, 0
+  index: -1
+foot-R
+  rotate: false
+  xy: 587, 11
+  size: 35, 42
+  orig: 35, 42
+  offset: 0, 0
+  index: -1
+hair
+  rotate: false
+  xy: 599, 264
+  size: 50, 93
+  orig: 50, 93
+  offset: 0, 0
+  index: -1
+hand-L
+  rotate: false
+  xy: 653, 337
+  size: 79, 77
+  orig: 79, 77
+  offset: 0, 0
+  index: -1
+hand-R
+  rotate: true
+  xy: 653, 416
+  size: 86, 80
+  orig: 86, 80
+  offset: 0, 0
+  index: -1
+leg1-L
+  rotate: false
+  xy: 592, 58
+  size: 56, 59
+  orig: 59, 65
+  offset: 0, 0
+  index: -1
+leg1-R
+  rotate: false
+  xy: 624, 2
+  size: 59, 54
+  orig: 59, 54
+  offset: 0, 0
+  index: -1
+leg2-L
+  rotate: true
+  xy: 685, 40
+  size: 34, 36
+  orig: 34, 36
+  offset: 0, 0
+  index: -1
+leg2-R
+  rotate: false
+  xy: 704, 230
+  size: 32, 37
+  orig: 32, 38
+  offset: 0, 1
+  index: -1
+shadow
+  rotate: true
+  xy: 504, 180
+  size: 177, 93
+  orig: 177, 93
+  offset: 0, 0
+  index: -1

@@ -24,10 +24,11 @@ export default class D17 extends DXX {
               this.target=this.node.getComponent(Character);
               this.target.attack25.push(this)
              // this.target.Attack1.push(this)
+                 this.changeEP()
           }
       Attack25(at: any, csh: number): void {
         if (at&&at instanceof Character&&csh!=0) {
-          console.log(csh)
+        //  console.log(csh)
           MessageCenter.MakeSHMessage("AM",[at.ZB],1,this.target.Pturn,"HP+") 
           //MessageCenter.MakeSHMessage("AM",[at.ZB],1,this.target.Pturn,"MaxHP-") 
         }
@@ -46,10 +47,10 @@ export default class D17 extends DXX {
       }
       changeEP(){
       let a=this.node.getComponent(Cspine)
-      
-        a.changeSlot(a.spine2,"KD1",this.node.parent.getComponent(Shops).find(2,this.TheNumber,0),0)
-        a.changeSlot(a.spine4,"KD1",this.node.parent.getComponent(Shops).find(4,this.TheNumber,2),2)
-       a.changeSlot(a.spine6,"KD1",this.node.parent.getComponent(Shops).find(6,this.TheNumber,4),4)
+       let c=this.target.Pturn
+        a.changeSlot(a.spine2,"KD1",this.node.parent.getComponent(Shops).find(2,this.TheNumber,"KD1",c),0)
+        a.changeSlot(a.spine4,"KD1",this.node.parent.getComponent(Shops).find(4,this.TheNumber,"KD1",c),2)
+       a.changeSlot(a.spine6,"KD1",this.node.parent.getComponent(Shops).find(6,this.TheNumber,"KD1",c),4)
         
        }
       }

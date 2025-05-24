@@ -174,8 +174,8 @@ export default class S05 extends SXX {
                        let b=this.SZR
                        let c=0
                        let j=[2,4,6,8]
-                       console.log(this.LDF)
-                       console.log(this.target.faceIs(a.ZB))
+                  //     console.log(this.LDF)
+                    //   console.log(this.target.faceIs(a.ZB))
                        if (this.LDF==this.target.faceIs(a.ZB)) {
                         j=[this.LDF]
                        }else{     GeZiManager.shanchu(j,this.LDF)}
@@ -205,17 +205,17 @@ export default class S05 extends SXX {
                             let b=this.SZR
                             let c=0
                             let j=[2,4,6,8]
-                            console.log(this.LDF)
-                            console.log(this.target.faceIs(a.ZB))
+                        //    console.log(this.LDF)
+                        //    console.log(this.target.faceIs(a.ZB))
                             if (this.LDF==this.target.getc(this.BPN).faceIs(a.ZB)) {
                              j=[this.LDF]
                             }else{     GeZiManager.shanchu(j,this.LDF)}
                        
                          
-                            console.log(j)
+                          //  console.log(j)
                                   for (let index = 1; index <10; index++) {
                                      if(d.getdis(a.findGe(index,1))==b&&j.includes(index)){b=d.getdis(a.findGe(index,1));c=index}
-                                     console.log(d.getdis(a.findGe(index,1))==b)
+                                  //   console.log(d.getdis(a.findGe(index,1))==b)
                                     
                                   }   this.kj=false
                                      MessageCenter.MakeSHMessage("AM", [this.node.getComponent(Character).getc(this.PN).ZB],[c,0.8],this.BPN,"move")
@@ -229,9 +229,9 @@ export default class S05 extends SXX {
           
                 //此时的move2为牛仔的
                 if ( this.SZR!=0) { this.SZA.change_rope()}
-    console.log(this.BPN)
+   // console.log(this.BPN)
             if(this.node.getComponent(Character).getc(this.BPN).getdis(this.node.getComponent(Character).getc(this.PN).ZB)>this.SZR){ 
-                console.log(this.BPN)
+          //      console.log(this.BPN)
                 this.SZA.shan();
                 GeZiManager.shanchu(this.node.getComponent(Character).getc(this.BPN).move2,this)
                 GeZiManager.shanchu(this.node.getComponent(Character).getc(this.BPN).move3,this)

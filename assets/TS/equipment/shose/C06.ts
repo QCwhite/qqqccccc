@@ -73,6 +73,69 @@ export default class C06 extends CXX {
        
        
        }
+
+    MessageCenter.MakeSHMessage("AM",[65],1,this.target.Pturn,"getOneCs");
+
+ for (let c of GeZiManager.Tcharacters) {
+    
+        let k= c.PfaceFinal(c.faceTo,[2])[0]
+        let j=this.target.faceIs(c.ZB)
+        let Y
+        switch (k) {
+        case 6:if ([7,8,9].includes(j)) {
+        Y="turn6"
+        }else if ([1,2,3].includes(j)) {
+        Y="turn4"
+        }else if (j==4) {
+        Y="turn8"
+        }
+
+        break;
+        case 8:if ([7,4,1].includes(j)) {
+        Y="turn6"
+        }else if ([3,6,9].includes(j)) {
+        Y="turn4"
+        }else if (j==2) {
+        Y="turn8"
+        }
+
+        break;
+
+        case 4:if ([1,2,3].includes(j)) {
+        Y="turn6"
+        }else if ([7,8,9].includes(j)) {
+        Y="turn4"
+        }else if (j==6) {
+        Y="turn8"
+        }
+
+        break;
+
+
+
+        case 2:if ([3,6,9].includes(j)) {
+        Y="turn6"
+        }else if ([1,4,7].includes(j)) {
+        Y="turn4"
+        }else if (j==8) {
+        Y="turn8"
+        }
+
+        break;
+        default:
+        break;
+        }
+        if (j!=k) {
+        MessageCenter.MakeSHMessage("AM",[c.ZB],1,this.target.Pturn,Y);
+
+        }
+        }
+
+
+
+
+
+          this.changeEP()
     }
   
   

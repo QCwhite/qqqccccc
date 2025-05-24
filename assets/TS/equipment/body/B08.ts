@@ -29,6 +29,7 @@ TheNumber: string="B08";
         
        this.node.getComponent(Character).behurt2.push(this);
 //this.node.getComponent(Character).behurt3.push(this);
+   this.changeEP()
     }
 Behurt2(m: SHMessage, BeHC: any, HC: any): void {
 //  被攻击者的面向与攻击者在被攻击者的方位相对 例如：1对9 9对1
@@ -71,13 +72,13 @@ Behurt2(m: SHMessage, BeHC: any, HC: any): void {
 }
    changeEP(){
              let a=this.node.getComponent(Cspine)
-             
-               a.changeSlot(a.spine2,"KB-F",this.node.parent.getComponent(Shops).find(2,this.TheNumber,0),0)
-               a.changeSlot(a.spine2,"KB-B",this.node.parent.getComponent(Shops).find(2,this.TheNumber+"-B",1),1)
-               a.changeSlot(a.spine6,"KB-F",this.node.parent.getComponent(Shops).find(6,this.TheNumber,2),2)
-               a.changeSlot(a.spine6,"KB-B",this.node.parent.getComponent(Shops).find(6,this.TheNumber+"-B",3),3)
-               a.changeSlot(a.spine4,"KB-F",this.node.parent.getComponent(Shops).find(4,this.TheNumber,4),4)
-               a.changeSlot(a.spine4,"KB-B",this.node.parent.getComponent(Shops).find(4,this.TheNumber+"-B",5),5)
+             let c=this.target.Pturn
+               a.changeSlot(a.spine2,"KB-F",this.node.parent.getComponent(Shops).find(2,this.TheNumber,"KB-F",c),0)
+               a.changeSlot(a.spine2,"KB-B",this.node.parent.getComponent(Shops).find(2,this.TheNumber+"-B","KB-B",c),1)
+               a.changeSlot(a.spine6,"KB-F",this.node.parent.getComponent(Shops).find(6,this.TheNumber,"KB-F",c),2)
+               a.changeSlot(a.spine6,"KB-B",this.node.parent.getComponent(Shops).find(6,this.TheNumber+"-B","KB-B",c),3)
+               a.changeSlot(a.spine4,"KB-F",this.node.parent.getComponent(Shops).find(4,this.TheNumber,"KB-F",c),4)
+               a.changeSlot(a.spine4,"KB-B",this.node.parent.getComponent(Shops).find(4,this.TheNumber+"-B","KB-B",c),5)
               }
 }
 

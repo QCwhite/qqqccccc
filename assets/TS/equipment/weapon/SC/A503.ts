@@ -49,6 +49,7 @@ levelup(n: string): void {
 start(): void {
         this.target=this.node.getComponent(Character)
         this.target.magic1.push(this)
+                this.target.magic2.push(this)
         this.SC=this.target.node.getComponent(SXX)
 }
       levelupB(){ 
@@ -65,6 +66,14 @@ start(): void {
         GeZiManager.free-=this.BL
 
             }
+
+
+                 Magic2(){
+    
+
+        GeZiManager.free-=this.BL
+console.log(GeZiManager.free)
+            }
           
           remove(){
         GeZiManager.shanchu(this.target.magic1,this);
@@ -72,7 +81,7 @@ start(): void {
                 }
                
             
-            
+          
             
             
             

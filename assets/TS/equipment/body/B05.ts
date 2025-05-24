@@ -38,6 +38,20 @@ export default class B05 extends BXX {
            GeZiManager.P6.behurt3.push(this)
            
            GeZiManager.shanchu(this.target.behurt3,this)
+               this.changeEP()
+
+
+let p=9999
+let g=null
+for (let c of [GeZiManager.P1,GeZiManager.P2,GeZiManager.P3,GeZiManager.P4,GeZiManager.P5,GeZiManager.P6]) {
+    if (c.color==this.target.color&&c.HP<p) {
+      p=c.HP,g=c
+    }
+  
+}
+        MessageCenter.MakeSHMessage("AM", [g.ZB], 1,this.node.getComponent(Character).Pturn, "HP+");
+
+
         }
     
     Behurt3(n: number, killp: any, k: number,bD:number): void {
@@ -70,11 +84,13 @@ export default class B05 extends BXX {
       if (this.node.getComponent(Character).color="Red") {
        K="-R" 
       }
-                 a.changeSlot(a.spine2,"KB-F",this.node.parent.getComponent(Shops).find(2,this.TheNumber+K,0),0)
+
+          let c=this.target.Pturn       
+                 a.changeSlot(a.spine2,"KB-F",this.node.parent.getComponent(Shops).find(2,this.TheNumber+K,"KB-F",c),0)
               
-                 a.changeSlot(a.spine6,"KB-F",this.node.parent.getComponent(Shops).find(6,this.TheNumber+K,2),2)
+                 a.changeSlot(a.spine6,"KB-F",this.node.parent.getComponent(Shops).find(6,this.TheNumber+K,"KB-F",c),2)
             
-                 a.changeSlot(a.spine4,"KB-F",this.node.parent.getComponent(Shops).find(4,this.TheNumber+K,4),4)
+                 a.changeSlot(a.spine4,"KB-F",this.node.parent.getComponent(Shops).find(4,this.TheNumber+K,"KB-F",c),4)
              
                 }
     }

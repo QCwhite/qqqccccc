@@ -26,6 +26,7 @@ start(){
        this.node.getComponent(Character).eqiupment.push(this);
        GeZiManager.WindSon.push(this)
        this.target.wd1.push(this)
+            this.changeEP()
 }
  WDT(){
 

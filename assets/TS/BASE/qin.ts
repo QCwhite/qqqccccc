@@ -67,16 +67,16 @@ if ( GeZiManager.Tcharacter==null) {
 
         
 
-        console.log(GeZiManager.Tcharacter.ZB)
-        console.log(this.node.getComponent(UIOpacity).opacity)
+       // console.log(GeZiManager.Tcharacter.ZB)
+       // console.log(this.node.getComponent(UIOpacity).opacity)
 
         MessageCenter.MakeSHMessage('AM',[this.ZB],this.type,0,"qin+")
         MessageCenter.MakeSHMessage('AM',[this.ZB],1,0,"TNS")
         this.tu=GeZiManager.Tcharacter.getComponentInChildren(MTX).FuG
         this.tu.timeArray=[56,34,45,45,56,56,56,56,56,34,45,45,56,56,56,56,56,34,45,45,56,56,56,56,56,34,45,45,56,56,56,56,56,34,45,45,56,56,56,56]
         find("Canvas/DituManager/New Node/AnimalManager").getComponent(QinManager).last=GeZiManager.PCP.ColortoN(GeZiManager.Tcharacter.color);
-        console.log(GeZiManager.Tcharacter.color);
-        console.log(GeZiManager.PCP.ColortoN(GeZiManager.Tcharacter.color))
+      //  console.log(GeZiManager.Tcharacter.color);
+      //  console.log(GeZiManager.PCP.ColortoN(GeZiManager.Tcharacter.color))
         GeZiManager.shanchuALL(GeZiManager.qin,this);
         GeZiManager.shanchuALL(turn.Roo,this);
         GeZiManager.shanchuALL(GeZiManager.qins,this.ZB);//效果触发后将符删除
@@ -129,7 +129,7 @@ if ( GeZiManager.Tcharacter==null) {
         
         
         
-        console.log(  GeZiManager.TF)
+      //  console.log(  GeZiManager.TF)
         
                 GeZiManager.TF=null
                  
@@ -137,11 +137,11 @@ if ( GeZiManager.Tcharacter==null) {
                
                  if (this.CX&&GeZiManager.TF) {
         
-                  console.log(  GeZiManager.TF)
+            //      console.log(  GeZiManager.TF)
                 
         
              
-                console.log(this.node.getComponent(UIOpacity).opacity)
+           //     console.log(this.node.getComponent(UIOpacity).opacity)
        
                 this.tu=GeZiManager.TF.getComponentInChildren(MTX).FuG
                 this.tu.timeArray=[56,34,45,45,56,56,56,56,56,34,45,45,56,56,56,56,56,34,45,45,56,56,56,56,56,34,45,45,56,56,56,56,56,34,45,45,56,56,56,56]
@@ -231,7 +231,7 @@ CXX(){
         this.node.getChildByName("LC").active=false
        
         this.node.getChildByName("ll").getComponent(gif1).moveToNextFrame(12,21,1);
-        console.log(this.ZB)
+      //  console.log(this.ZB)
         this.zyx=2
         GeZiManager.FgetQin(this.ZB,this.ZB)
         GeZiManager.getQin(this.ZB,this.ZB)
@@ -240,7 +240,7 @@ CXX(){
         tween(this.node.getComponent(UIOpacity)).to(0.2,{opacity:255}, { easing: "sineInOut" })
         setTimeout(()=>{
         //this.node.getChildByName("FU").getComponent(gif1).setMaterialToSprite("falsh")
-        console.log(this.node.getChildByName("FU").getComponent(UIOpacity).opacity)
+       // console.log(this.node.getChildByName("FU").getComponent(UIOpacity).opacity)
      tween(this.node.getChildByName("FU").getComponent(UIOpacity)).to(0.6,{opacity:255})
     
      
@@ -271,7 +271,7 @@ CXX(){
 
 }
 roundPass(): void {
-        console.log(this.ZB)
+    //    console.log(this.ZB)
         this.nn--
         tween(this.node.getChildByName("LC").getComponent(UIOpacity))
         .to(1, { opacity:0 })

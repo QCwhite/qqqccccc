@@ -138,9 +138,9 @@ GeZiManager.boxs.push(this.ZB)
           let g=[]
           for (let a of GeZiManager.AllObstacles) {
               if (a instanceof DL&&b.includes(a.ZB)) {
-                  console.log(a.ZB)   
+              //    console.log(a.ZB)   
                   a.DBZ();
-                console.log(b);console.log(a.ZB)
+              //  console.log(b);console.log(a.ZB)
                 for(let c of b){if(c!=0){this.ZHA(c,b.indexOf(c))};}
              g.push(a.ZB);
               }
@@ -208,7 +208,7 @@ GeZiManager.boxs.push(this.ZB)
                 break;
           }*/
 
-                console.log(3+GeZiManager.dm)
+             //   console.log(3+GeZiManager.dm)
                 MessageCenter.MakeSHMessage("AM",[this.ZB],2+GeZiManager.dm,null,"wuli") ;this.fadeOutAndDisappear(this.node,2500)
                // setTimeout(()=>{   this.node.children[2].active=false;},500) 
             

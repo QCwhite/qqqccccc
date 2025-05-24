@@ -17,16 +17,16 @@ import Dao from "./Dao";
 export default class A102 extends Dao {
     QD(an:number[]){
 
-       console.log(this.node.getComponent(Character).Pturn)
+      // console.log(this.node.getComponent(Character).Pturn)
        if(this.node.getComponent(Character).attack2!=null){for(let a of this.node.getComponent(Character).attack2){a.Attack2(an);}}
        MessageCenter.MakeSHMessage("AM", an, this.SH,this.node.getComponent(Character).Pturn, "mofa")
        MessageCenter.MakeSHMessage("AM",[this.node.getComponent(Character).ZB],this.getTNC(3)+this.TNJ,this.node.getComponent(Character).Pturn,"TN-")
 
        if(this.node.getComponent(Character).attack3!=null){for(let a of this.node.getComponent(Character).attack3){a.Attack3(an);}}
-       console.log(this.getTNC(3)+this.TNJ)
-       console.log(this.getTNC(3))
-       console.log(GeZiManager.PCP.TNJJ[3])
-       console.log(this.node.getComponent(Character).TNJJ[3])
+     //  console.log(this.getTNC(3)+this.TNJ)
+     //  console.log(this.getTNC(3))
+     //  console.log(GeZiManager.PCP.TNJJ[3])
+      // console.log(this.node.getComponent(Character).TNJJ[3])
 
        GeZiManager.PCP.TNC(GeZiManager.PCP.TN);
        GeZiManager.TNC[3]=4

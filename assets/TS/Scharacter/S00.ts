@@ -195,8 +195,8 @@ Qi2(n:number,Pturn:number){
         let s=[] ;
         for(let y of asd){if(y>=qa){s.push(y)}}
         if(this.JZ){if(s.length>1||qa<5){
-        console.log(qa)
-        console.log(s)
+   //     console.log(qa)
+   //     console.log(s)
         this.buJin()}}else{
         if(s.length<=1&&qa>=5){
         this.toJin();}
@@ -305,11 +305,11 @@ toJin(){
 
         this.target.Fus(-10)
        
-        console.log(   this.target.FU)
+       // console.log(   this.target.FU)
         this.node.parent.getComponent(JNUM).JNF("S金猪靶罢",this.target.ZB)
 
 
-        console.log(this.target.TNJJ[0])
+     //   console.log(this.target.TNJJ[0])
 
 
         //this.getJNF(this.target.FU);

@@ -49,10 +49,10 @@ AudioManager.instance.ZJP("attack",0)
 
        changeEP(){
               let a=this.node.getComponent(Cspine)
-       
-              a.changeSlot(a.spine2,"A3",this.node.parent.getComponent(Shops).find(2,this.TheNumber,0),0)
-              a.changeSlot(a.spine4,"A3",this.node.parent.getComponent(Shops).find(2,this.TheNumber,0),0)
-              a.changeSlot(a.spine6,"A3",this.node.parent.getComponent(Shops).find(2,this.TheNumber,0),0)
+       let c=this.target.Pturn
+              a.changeSlot(a.spine2,"A3-F",this.node.parent.getComponent(Shops).find(2,this.TheNumber,"A3-F",c),0)
+              a.changeSlot(a.spine4,"A3-F",this.node.parent.getComponent(Shops).find(4,this.TheNumber,"A3-F",c),0)
+              a.changeSlot(a.spine6,"A3-F",this.node.parent.getComponent(Shops).find(6,this.TheNumber,"A3-F",c),0)
             }
 }
 

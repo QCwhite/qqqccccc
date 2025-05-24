@@ -228,13 +228,13 @@ start(): void {
         case 'ice':     this.XZ(4,false,false)
         break;
         case 'TP':
-                this.XZ(5,false,true)
+                this.XZ(5,false,false)
         break;
         case 'thunder':
                 this.XZ(5,false,false)
                 break;
         case 'banana':
-                this.XZ(4,true,true)
+                this.XZ(4,false,false)
                 break;
         case "KB":
                 this.XZ(3,false,false)
@@ -254,6 +254,12 @@ start(): void {
 
 
         break;
+
+
+
+        case "tui":   let g=Math.floor(GeZiManager.PCP.qi/2)
+                 this.XZ(g+1,false,false)
+            break;
       
         default:
                 this.XZ(4,false,false)

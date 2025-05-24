@@ -20,7 +20,7 @@ export class TUJ extends qizi {
         this.rond = turn.round;
      //   if (turn.round%12==2||turn.round%12==7) { turn.round+=1  }
         this.turn = turn.turn;
-        this.node.children[0].getComponent(Label).string=this.turn.toString()
+       // this.node.children[0].getComponent(Label).string=this.turn.toString()
       
     }
 
@@ -40,7 +40,7 @@ JR(ZB: number): void {
 turnPass() {
  //   if (!(turn.round%12==2||turn.round%12==7)) {    
 if(turn.round==this.rond+2&&turn.turn==this.turn){
-console.log("fd")
+//console.log("fd")
 this.dead()
 //}
     }

@@ -34,7 +34,7 @@ export default class yesno extends ComponentBase {
         yes(){
                 switch (state.ST) {
                     case 0: 
-                    console.log()
+                //    console.log()
                     
                     MessageCenter.MakeGMessage("AM",[GeZiManager.GeZi],turn.turn,turn.turn,"TP")
                     MessageCenter.MakeMessage("UIManager","change",0)
@@ -53,8 +53,8 @@ export default class yesno extends ComponentBase {
                 
                         break;
                         case 0.5: 
-                        console.log(GeZiManager.Tcharacter.Pturn)
-                        console.log(GeZiManager.Tcharacter)
+                      //  console.log(GeZiManager.Tcharacter.Pturn)
+                     //   console.log(GeZiManager.Tcharacter)
                         MessageCenter.MakeGMessage("AM",[GeZiManager.GeZi,GeZiManager.Tcharacter.Pturn],66,GeZiManager.PCP.Pturn,"FTP");
                       //GeZiManager.Tcharacter.FH(GeZiManager.GeZi)
                         MessageCenter.MakeMessage("UIManager","change",1)
@@ -64,7 +64,7 @@ export default class yesno extends ComponentBase {
                     
                         
                        
-                        console.log(GeZiManager.Tcharacter)
+                      //  console.log(GeZiManager.Tcharacter)
                        
                     
                     
@@ -119,7 +119,7 @@ export default class yesno extends ComponentBase {
                 case 9:
                     MessageCenter.MakeGMessage("JN",[GeZiManager.GeZi],GeZiManager.GeZi,GeZiManager.PCP.Pturn,""+GeZiManager.DLLM)
                 
-                  console.log(GeZiManager.GeZi)
+                 // console.log(GeZiManager.GeZi)
                 MessageCenter.MakeMessage("UIManager","change",1)
                  break;
                 
@@ -153,7 +153,7 @@ export default class yesno extends ComponentBase {
                 
                 delei(){
                    GeZiManager.DL.push([GeZiManager.GeZi,3])
-                console.log(GeZiManager.DL);
+                //.log(GeZiManager.DL);
                 }
                 
                 start(): void {

@@ -27,6 +27,7 @@ export default class B02 extends BXX {
         this.target=this.node.getComponent(Character);
        
         this.target.mk+=1;
+            this.changeEP()
     }
     Behurt2(m:SHMessage){
       //  if(m.SHtype=="mofa"&&m.from!=this.target.Pturn){MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,this.target.Pturn,"Qi+")} 
