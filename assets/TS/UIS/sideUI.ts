@@ -24,6 +24,7 @@ import { resources, JsonAsset } from 'cc';
 import SXX from '../Scharacter/SXX';
 import { Widget, UITransform, view } from 'cc';
 import { Sprite } from 'cc';
+import { log } from 'console';
 interface SkillData {
     id: string; // 技能ID
     name: string; // 技能名称
@@ -57,11 +58,11 @@ export default class sideUI extends ComponentBase {
      
      
      GeZiManager.sideUI.push(this);
-     
+     this.PC=GeZiManager.getc(this.pturn)
      this.node.getChildByName("TN").getComponent(CustomButton).disableButton()
-   //  console.log(GeZiManager.sideUI)
-  
- 
+    console.log(  this.PC)
+    this.PC.sideUI=this
+    
      }
      
 
@@ -191,7 +192,10 @@ SEEEQD(){
      this.setQi();
      
      
-         }}
+         }
+      this.PC.sideUI=this  
+        
+        }
      
      
          setHP(){
@@ -418,4 +422,40 @@ setJN2(){
 
 
  }
+
+
+setZT(){
+console.log(this.PC.ZT)
+for (let c of this.node.getChildByName("ZT").children) {
+
+c.active=false
+
+
+}
+
+for (let c of this.PC.ZT) {
+this.node.getChildByName("ZT").getChildByName(c).active=true
+  if (c=="KB") {
+    this.node.getChildByName("ZT").getChildByName(c).children[0].getComponent(Label).string=this.PC.KB+""
+  } 
+  
+  if (c=="ICE") {
+    this.node.getChildByName("ZT").getChildByName(c).children[0].getComponent(Label).string=this.PC.ice+""
+  } 
+
+if (c=="DY") {
+    this.node.getChildByName("ZT").getChildByName(c).children[0].getComponent(Label).string=this.PC.KB+""
+  } 
+
+  
+}
+
+
+}
+
+
+
+
+
+
 }

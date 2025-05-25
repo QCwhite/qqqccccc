@@ -65,10 +65,15 @@ tishi:gif1=null
         this.turn6(AF);
 
         }
-
+        let g=[]
+        for(let c of [GeZiManager.P1,GeZiManager.P2,GeZiManager.P3,GeZiManager.P4,GeZiManager.P5,GeZiManager.P6]){
+                if (c.color==this.target.color) {
+                      g.push(c.ZB)  
+                }
+        }
         let j =GeZiManager.BanMove.filter(item => ( !GeZiManager.BDZD.includes(item)))
-
-
+           
+j =j.filter(item => ( !g.includes(item)))
         AudioManager.instance.ZJP("ui",1)
    
 

@@ -32,6 +32,10 @@ bottom:number=10
 protected start(): void {
   GeZiManager.UIm.push(this)
   this.setupUIBounds()
+
+
+  console.log(find("Canvas/Main Camera/UIManager/CUIManager/yesno").position)
+  console.log(find("Canvas/Main Camera/UIManager/CUIManager/yesno").active)
 }
    setupUIBounds() {
         // 获取正交相机参数

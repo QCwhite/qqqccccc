@@ -71,7 +71,7 @@ import Time from "../UIS/else/time";
 
 @ccclass
 export default class Character extends realThing {
- 
+ sideUI:sideUI=null
 FHCS:number=1
    t:number =1  ;//转身次数
    MaxT:number=1;
@@ -84,7 +84,7 @@ TNS:number=0;
 TNJJ:number[]=[0,0,0,0,0,0];
 tt: string="human"
 sex:string="man"
-
+ZT:string[]=[]//0KB,1DY,2ICE,3CZ,4
 FJTN=0;
 color:string='Blue'
 FMXG:any[][]=[]
@@ -2108,7 +2108,7 @@ for(let a of this. XD2){a.xd2(message)}
                      
                   }
                   break;
-               case "wuli":console.log(message.Content+GeZiManager.dm-this.wk); if (this.LST == -1||this.gui) { } 
+               case "wuli":console.log(message.Content+GeZiManager.dm-this.wk); if (this.LST == -1||this.gui||(this.getc(message.from)&&this.getc(message.from).color==this.color)) { } 
                else { GeZiManager.dlU=message.Content;
                   if(this.getc(message.from)!=null)
 {
@@ -2979,6 +2979,8 @@ KBL(n:number){
    }
    
    this.KB+=n
+   this.ZT.push("KB")
+   this.sideUI.setZT()
 }
    }
    
@@ -2990,7 +2992,8 @@ KBL(n:number){
    }
    
 }
-   
+     this.ZT.push("DY")
+        this.sideUI.setZT()
    }
    
    
@@ -3005,6 +3008,9 @@ KBL(n:number){
    this.MZ+=1
    
    }
+   
+     this.ZT.push("MZ")
+        this.sideUI.setZT()
 }
    
    ICEL(){
@@ -3017,6 +3023,9 @@ KBL(n:number){
         this.TNJJ[0]+=1
         this.TNJJ[1]+=1
         this.TNJJ[3]+=1
+
+        this.ZT.push("ICE")
+           this.sideUI.setZT()
          }
    
          if (this.DiXing=="water") {
@@ -3061,6 +3070,8 @@ KBL(n:number){
            if (this.KB==0) {
               this.sh-=1
               this.wk-=1
+                   GeZiManager.shanchu(this.ZT,"KB")
+                      this.sideUI.setZT()
            }
         }
      }
@@ -3076,7 +3087,10 @@ KBL(n:number){
            }else{     MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],1,this.Pturn,"HP-");  }
            
         }
-     
+     if (this.DY==0) {
+        GeZiManager.shanchu(this.ZT,"DY")
+           this.sideUI.setZT()
+     }  
      }
      
      
@@ -3086,10 +3100,11 @@ KBL(n:number){
         if (this.MZ>0) {
            this.MZ-=1
            if (this.MZ==0) {
-           
+               GeZiManager.shanchu(this.ZT,"MZ")
+                  this.sideUI.setZT()
             this.wk-=1
            }
-           
+        
         }
      
      }
@@ -3116,10 +3131,15 @@ KBL(n:number){
         this.TNJJ[1]-=oo
         this.TNJJ[3]-=oo
             
-            this.node.getChildByName("MTX").getComponent(MTX).playFrameAnimation1("iceN");this.ST();}
+            this.node.getChildByName("MTX").getComponent(MTX).playFrameAnimation1("iceN");this.ST();
+         
+         
+         GeZiManager.shanchu(this.ZT,"ICE")
+            this.sideUI.setZT()
+         }
         }
         
-     
+   
      }
     
     

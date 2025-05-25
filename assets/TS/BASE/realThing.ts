@@ -1304,6 +1304,9 @@ Mjia(n:number){
                  
               }
            
+
+
+
            }
            
 QXL(){

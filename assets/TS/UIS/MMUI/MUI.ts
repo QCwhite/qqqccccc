@@ -53,7 +53,7 @@ export default class MUI extends ComponentBase {
         QD: boolean = false;
         @property(Number)  
         CC: number = 0;
-        MCD:number[]=[0,0,0,0,0,0,0,0,0,0,7,0,0,0,0,0,0]
+        MCD:number[]=[0,0,0,0,0,3,5,0,0,0,7,0,0,0,0,0,0]
         DMAG:number=0;
         fashu: number[] = [1,2,6,14];
         BLfas:number[]=[10,3,4];
@@ -536,7 +536,7 @@ let k=0
         
           find("Canvas/Main Camera/UIManager/magicUI").getComponent(MUI).DZLM=false    
         
-    
+    this.MCD[5]=3
        for(let a of GeZiManager.PCP.magic3){a.Magic3(GeZiManager.PCP.ZB);}
        AudioManager.instance.ZJP("magic",5)
     }

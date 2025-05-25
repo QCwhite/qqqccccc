@@ -616,7 +616,7 @@ makeBanan(ZB:number){
         banana.setParent(this.node)
         banana.getComponent(realThing).ghost=true;
         banana.getComponent(realThing).ZB=ZB;
-        banana.getComponent(realThing).setXY(0.8);
+        banana.getComponent(realThing).setXY(0);
         banana.getComponent(realThing).moveto(0,ZB)
         GeZiManager.AllObstacles.push(banana.getComponent(DES))
         GeZiManager.aos.push(ZB)

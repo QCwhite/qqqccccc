@@ -216,8 +216,12 @@ ReceiveMessage(message: Message) {
      case "mofaT": if (message.Content[1]!="DZ") {
      this.dead()
      }
-
-
+break;
+ case "HP+":
+   if (!GeZiManager.BanMove.includes(this.ZB)) {
+     this.dead(); MessageCenter.MakeGMessage("AM",[this.ZB],1,1,"FTP");
+   }  
+     break
 
      }
 

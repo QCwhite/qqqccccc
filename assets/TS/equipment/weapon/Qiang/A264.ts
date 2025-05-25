@@ -112,9 +112,21 @@ export default class A264 extends Qiang {
      
            
     QD(an: number[]): void {
-        let A1=GeZiManager.line(this.node.getComponent(Character).ZB,1,this.turn8([this.node.getComponent(Character).faceIs(an[0])])[0],GeZiManager.BanMove);
-        let A2=GeZiManager.line(this.node.getComponent(Character).ZB,1,this.turn8([this.node.getComponent(Character).faceIs(an[1])])[0],GeZiManager.BanMove);
-        let A3=GeZiManager.line(this.node.getComponent(Character).ZB,1,this.turn8([this.node.getComponent(Character).faceIs(an[2])])[0],GeZiManager.BanMove);
+      
+      
+        let g=[]
+              for(let c of [GeZiManager.P1,GeZiManager.P2,GeZiManager.P3,GeZiManager.P4,GeZiManager.P5,GeZiManager.P6]){
+                      if (c.color==this.target.color) {
+                            g.push (c.ZB) 
+                      }
+              }
+              let j =GeZiManager.BanMove.filter(item => ( !GeZiManager.BDZD.includes(item)))
+                 
+      j =j.filter(item => ( !g.includes(item)))
+      
+      let A1=GeZiManager.line(this.node.getComponent(Character).ZB,1,this.turn8([this.node.getComponent(Character).faceIs(an[0])])[0],j);
+        let A2=GeZiManager.line(this.node.getComponent(Character).ZB,1,this.turn8([this.node.getComponent(Character).faceIs(an[1])])[0],j);
+        let A3=GeZiManager.line(this.node.getComponent(Character).ZB,1,this.turn8([this.node.getComponent(Character).faceIs(an[2])])[0],j);
     
     console.log(this.mArr1Arr2(A1,A2,A3))
         if(this.node.getComponent(Character).attack2!=null){for(let a of this.node.getComponent(Character).attack2){a.Attack2(an);}}

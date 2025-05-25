@@ -29,9 +29,17 @@ TheNumber: string="A581P1";
   if (this.target.MZ!=0) { MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.target.Pturn,"Qi-");
         }
 
+ let g=[]
+              for(let c of [GeZiManager.P1,GeZiManager.P2,GeZiManager.P3,GeZiManager.P4,GeZiManager.P5,GeZiManager.P6]){
+                      if (c.color==this.target.color) {
+                            g.push (c.ZB) 
+                      }
+              }
+              let j =GeZiManager.BanMove.filter(item => ( !GeZiManager.BDZD.includes(item)))
+                 
+      j =j.filter(item => ( !g.includes(item)))
 
-
-      let A2 = GeZiManager.line(this.node.getComponent(Character).ZB,1,this.turn8([this.node.getComponent(Character).faceIs(an[0])])[0],GeZiManager.BanMove);
+      let A2 = GeZiManager.line(this.node.getComponent(Character).ZB,1,this.turn8([this.node.getComponent(Character).faceIs(an[0])])[0],j);
 AudioManager.instance.ZJP("attack",this.Ytype)
       if(this.node.getComponent(Character).attack2!=null){for(let a of this.node.getComponent(Character).attack2){a.Attack2(an);}}
       MessageCenter.MakeSHMessage("AM", A2, this.SH,this.node.getComponent(Character).Pturn, "wuli")
