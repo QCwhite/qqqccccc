@@ -11,8 +11,13 @@ export class Apple extends banana {
       {       AudioManager.instance.ZJP("hit",11);
         MessageCenter.MakeSHMessage("AM",[this.ZB],1,0,"HP+")
      //   this.playFrameAnimation1("BZ",0,0)
-        GeZiManager.shanchu(GeZiManager.aos,this)
+        this.fadeOutAndDisappear(this.node,200);
+    // this.ObstacleClear()
+        GeZiManager.shanchu(GeZiManager.aos,this.ZB)
       }
+
+
+      
 }
 
 

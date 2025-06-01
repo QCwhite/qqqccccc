@@ -21,6 +21,7 @@ import NWshopM from '../../TS/UIS/shop/NWshopM';
 import { Sprite } from 'cc';
 import { Color } from 'cc';
 import { AudioManager } from '../../TS/BASE/music';
+import MTX from '../../pictures/TX/MTX/MTX';
 
 
 @ccclass('NG')
@@ -183,6 +184,9 @@ GeZiManager.boxs.push(this.ZB)
           }
         }
         this.BZ(this.ZB)
+
+
+              this.node.getChildByName("MTX").getComponent(MTX).playFrameAnimation1("BZ");
       }
       
       

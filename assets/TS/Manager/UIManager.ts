@@ -13,6 +13,8 @@ import state from '../game/time/state';
 import KHD2 from '../Message/KHD2';
 import { Vec3 } from 'cc';
 import { v3 } from 'cc';
+import { start } from 'repl';
+import GeZiManager from './GeZiManager';
 
 @ccclass('UIManager')
 export default class UIManager extends ManagerBase{
@@ -64,12 +66,19 @@ export default class UIManager extends ManagerBase{
                     find("Canvas/thingsManager/Day").active=false;
                     break;
                     
-                    case 2:BUIM.getChildByName("BUI").active=false; CUI.getChildByName("yesno").children[0].active=true;
+                    case 2:
+                      
+                    CUI.getChildByName("yesno").children[0].active=true;
+                    BUIM.getChildByName("BUI").active=false; CUI.getChildByName("yesno").children[0].active=true;
                     if (state.ST==0) {
             CUI.getChildByName("yesno").children[1].active=false; 
           }  else{  CUI.getChildByName("yesno").children[1].active=true; }
           this.GUI.active=true;SUI1.position=v3(0,-5000,0);SUI2.active=false;WF.active=false;
                     find("Canvas/thingsManager/Day").active=false;
+
+
+                      console.log(  CUI.getChildByName("yesno").children[0].active)
+                           console.log(  CUI.getChildByName("yesno").children[0].position)
                     break;
                     case 2.5:BUIM.getChildByName("BUI").active=false; CUI.getChildByName("yesno").children[0].active=true;CUI.getChildByName("yesno").children[1].active=true;this.GUI.active=false;SUI1.position=v3(0,-5000,0);SUI2.active=false;WF.active=true;
                     find("Canvas/thingsManager/Day").active=false;

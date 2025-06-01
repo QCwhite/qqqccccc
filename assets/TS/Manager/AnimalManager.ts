@@ -608,6 +608,7 @@ makeBanan(ZB:number){
         } else{banana.active =false}
 
      }
+           this.node.getComponent(AnimalManager).YuanGong.push(banana.getComponent(realThing))
      console.log(ZB)
      console.log(banana)
      }
@@ -748,15 +749,15 @@ if (c=="Red") {
 
 start(): void {
 this.addck();
-setTimeout(()=>{AudioManager.instance.ZJP("bgm",4, {loop: true,
-    volume: 0.7,
+setTimeout(()=>{AudioManager.instance.ZJP("bgm",2, {loop: true,
+    volume: 0.15,
     fadeIn: 2})
 
     AudioManager.instance.ZJP("nature",0, {loop: true,
-        volume: 0.8,
+        volume: 0.4,
         fadeIn: 2});
     AudioManager.instance.ZJP("nature",1, {loop: true,
-        volume: 0.8,
+        volume: 0.4,
         fadeIn: 2})},200)
 
 

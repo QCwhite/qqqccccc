@@ -219,7 +219,7 @@ ReceiveMessage(message: Message) {
 break;
  case "HP+":
    if (!GeZiManager.BanMove.includes(this.ZB)) {
-     this.dead(); MessageCenter.MakeGMessage("AM",[this.ZB],1,1,"FTP");
+     this.dead(); MessageCenter.MakeSHMessage("AM",[this.ZB],1,1,"FTP");
    }  
      break
 

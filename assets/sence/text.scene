@@ -125452,7 +125452,7 @@
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 807.3473333333336,
+      "x": 1747.3473333333338,
       "y": 121.255,
       "z": 0
     },
@@ -126035,7 +126035,7 @@
     "edgeWidget": null,
     "top": 10,
     "left": 10,
-    "right": 1200,
+    "right": 260,
     "bottom": 300,
     "_id": "9apCUPYWdJMolvR636wGi4"
   },
@@ -126054,7 +126054,7 @@
       "__id__": 2
     },
     "_left": 0,
-    "_right": 1200,
+    "_right": 260,
     "_top": 0,
     "_bottom": 336.96700000000004,
     "_horizontalCenter": 0,

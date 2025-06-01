@@ -8,9 +8,7 @@
 import { _decorator, Sprite, SpriteAtlas, Color, Material, tween, Node, UIOpacity, MeshRenderer, resources,CCFloat  } from 'cc';
 const { property, ccclass } = _decorator;
 import { Vec3 } from 'cc';
-import CustomButton from '../CButton';
- import { flog } from 'db://assets/resources/shader/flog';
-import GeZiManager from '../../Manager/GeZiManager';
+
 import { find } from 'cc';
 import AnimalManager from '../../Manager/AnimalManager';
 @ccclass('gif1')

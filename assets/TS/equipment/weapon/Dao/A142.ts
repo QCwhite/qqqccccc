@@ -30,7 +30,7 @@ start(): void {
     let p=9999
     let g=null
     for (let c of [GeZiManager.P1,GeZiManager.P2,GeZiManager.P3,GeZiManager.P4,GeZiManager.P5,GeZiManager.P6]) {
-        if (c.color!=this.target.color&&c.HP<p) {
+        if (c.color!=this.target.color&&c.HP<p&&c.LST!=-1) {
           p=c.HP,g=c
         }
       

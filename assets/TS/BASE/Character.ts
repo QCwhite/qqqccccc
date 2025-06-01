@@ -730,7 +730,14 @@ ZBW(T:boolean,n:number){
   
    console.log(n)
    if (n==0) {
-      if(this.walkWay!=0&&this.walkWay!=2){AudioManager.instance.ZJP("hit",0)}
+      if(this.walkWay!=0&&this.walkWay!=2){
+AudioManager.instance.ZJP("hit",0,{
+        volume: 0.5,
+       })
+         setTimeout(()=>{AudioManager.instance.ZJP("hit",0,{
+        volume: 0.5,
+       })},600)
+      }
 this.Walk(T)
    }
 else{
@@ -744,7 +751,13 @@ if (n!=0&&n!=2) {
     setTimeout(() => {
      this.node.getComponent(Cspine).idle()
     }, 800);
-    AudioManager.instance.ZJP("hit",0)
+  AudioManager.instance.ZJP("hit",0,{
+        volume: 0.5,
+       })
+
+         setTimeout(()=>{AudioManager.instance.ZJP("hit",0,{
+        volume: 0.5,
+       })},600)
 }
   
  
@@ -1675,8 +1688,9 @@ BFUs(ch:number){
                }
               }
  if(tu==0){
- MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"MaxHP-")
+
       MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"HP-")
+       MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"MaxHP-")
  }
               if(tu==1){
               
@@ -1737,8 +1751,10 @@ BFUs(ch:number){
         
            
            case -1: 
-            if(tu==0){ MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"MaxHP-")
-      MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"HP-")}
+            if(tu==0){
+      MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"HP-")
+    MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"MaxHP-")
+   }
            
            if(tu==1){
            
@@ -2851,7 +2867,7 @@ let j=0
   GeZiManager.getQin(this.ZB,this.ZB)
 
 
-
+       this.node.getChildByName("MTX").getComponent(MTX).playFrameAnimation1("FH");
 
 endGame.endGame(9)
 
@@ -2891,7 +2907,7 @@ let j=0
 
 
 
-
+   this.node.getChildByName("MTX").getComponent(MTX).playFrameAnimation1("FH");
 endGame.endGame(9)
 
 
@@ -3142,8 +3158,18 @@ KBL(n:number){
    
      }
     
-    
-   
+    WDL(){
+
+
+
+    }
+   WDJS(){
+
+
+
+
+      
+   }
 
 
 }

@@ -97,6 +97,7 @@ DBZ(){
 //  // this.playFrameAnimation1("DBZ",0,0)
      let b=[this.findGe(2,1),this.findGe(4,1),this.findGe(6,1),this.findGe(8,1),this.findGe(2,2),this.findGe(4,2),this.findGe(6,2),this.findGe(8,2)]
      MessageCenter.MakeSHMessage("AM",b,2,null,"wuli");
+            this.node.getChildByName("MTX").getComponent(MTX).playFrameAnimation1("BZ");
 //  // this.BZ(this.ZB)
 }
 ZHA(k,v:number){
@@ -281,9 +282,9 @@ ReceiveMessage(message: Message) {
 
      break;
 
-
-     case "getOne":GeZiManager.Tcharacter=this;
-     break;
+case "getOne":if(message.Command.includes(this.ZB)){GeZiManager.Tcharacter=this}
+    break
+   
      case "ice":
      this.iceL=true;
      GeZiManager.shanchu(GeZiManager.BanMove,this.ZB);

@@ -17,6 +17,7 @@ import GeZiManager from "../../Manager/GeZiManager";
 import MessageCenter from "../../Message/MessageCenter";
 import { SHMessage } from "../../Message/SHMessage";
 import { AudioManager } from '../../BASE/music';
+import MTX from 'db://assets/pictures/TX/MTX/MTX';
 
 
 @ccclass('Weapon')
@@ -97,7 +98,13 @@ QD(an:number[]){
 if(this.node.getComponent(Character).attack2!=null){for(let a of this.node.getComponent(Character).attack2){a.Attack2(an);}}
   MessageCenter.MakeSHMessage("AM", an, this.SH,this.node.getComponent(Character).Pturn, "wuli")
   MessageCenter.MakeSHMessage("AM",[this.node.getComponent(Character).ZB],this.getTNC(3)+this.TNJ,this.node.getComponent(Character).Pturn,"TN-")
-AudioManager.instance.ZJP("attack",this.Ytype,{volume:0.8})
+
+
+  AudioManager.instance.ZJP("attack",this.Ytype,{volume:0.8})
+     this.target.node.getChildByName("MTX").getComponent(MTX).playFrameAnimation1("AT0_"+this.target.faceTo);
+         
+
+
 
   if(this.node.getComponent(Character).attack3!=null){for(let a of this.node.getComponent(Character).attack3){a.Attack3(an);}}
 

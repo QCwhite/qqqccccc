@@ -107,9 +107,8 @@ export default class NWshopM extends ComponentBase {
             
             break;
         default:
-            let o=NWshopM.getRA(shopM.Witch6,5)
-        p1=o[0];p2=o[1];p3=o[2];p4=o[3];p5=o[4];
-            break;
+          p1=NWshopM.getRA(shopM.Witch6,1);p2=NWshopM.getRA(shopM.Witch6,1);p3=NWshopM.getRA(shopM.Witch6,1);p4=NWshopM.getRA(shopM.Witch6,1);p5=NWshopM.getRA(shopM.Witch6,1);
+            
     }
     
     for (let index = 0; index < n; index++) {

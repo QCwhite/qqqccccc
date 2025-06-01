@@ -189,10 +189,10 @@ Shop2(A:string,b:boolean){
         if (A&&A[0]=="A") {
         if (b) {
         switch (this.wn) {
-        case 1:this.weapon1=A;  this.node.getChildByName("WQ1").children[0].getComponent(Sprite).spriteFrame= this.node.parent.getComponent(Shops).find(10,A)
+        case 1:this.weapon1=A;  this.node.getChildByName("WQ1").children[0].getComponent(Sprite).spriteFrame= this.node.parent.getComponent(Shops).find(10,A,"",0)
         break;
 
-        default:this.weapon2=A;  this.node.getChildByName("WQ2").children[0].getComponent(Sprite).spriteFrame= this.node.parent.getComponent(Shops).find(10,A)
+        default:this.weapon2=A;  this.node.getChildByName("WQ2").children[0].getComponent(Sprite).spriteFrame= this.node.parent.getComponent(Shops).find(10,A,"",0)
         break;
         }
 

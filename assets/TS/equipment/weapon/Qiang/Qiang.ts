@@ -17,6 +17,7 @@ import MessageCenter from "../../../Message/MessageCenter";
 import Shops from "../../../UIS/shop/shops";
 import weapon from "../weapon";
 import { AudioManager } from '../../../BASE/music';
+import MTX from 'db://assets/pictures/TX/MTX/MTX';
 
 
 @ccclass('Qiang')
@@ -125,6 +126,34 @@ changeEP(){
         a.changeSlot(a.spine2,"A2",this.node.parent.getComponent(Shops).find(2,this.TheNumber,"A2",c),0)
         a.changeSlot(a.spine4,"A2",this.node.parent.getComponent(Shops).find(4,this.TheNumber,"A2",c),2)
         a.changeSlot(a.spine6,"A2",this.node.parent.getComponent(Shops).find(6,this.TheNumber,"A2",c),4)
+     }
+
+
+     QD(an:number[]){
+     
+     //console.log(this.node.getComponent(Character).Pturn)
+     if(this.node.getComponent(Character).attack2!=null){for(let a of this.node.getComponent(Character).attack2){a.Attack2(an);}}
+       MessageCenter.MakeSHMessage("AM", an, this.SH,this.node.getComponent(Character).Pturn, "wuli")
+       MessageCenter.MakeSHMessage("AM",[this.node.getComponent(Character).ZB],this.getTNC(3)+this.TNJ,this.node.getComponent(Character).Pturn,"TN-")
+     
+     
+       AudioManager.instance.ZJP("attack",this.Ytype,{volume:0.8})
+      setTimeout(()=>{ this.target.node.getChildByName("MTX").getComponent(MTX).playFrameAnimation1("AT2k"+this.SH+"_"+this.target.faceTo);},130)   
+              
+     
+     
+     
+       if(this.node.getComponent(Character).attack3!=null){for(let a of this.node.getComponent(Character).attack3){a.Attack3(an);}}
+     
+     
+     GeZiManager.PCP.TNC(GeZiManager.PCP.TN);
+     GeZiManager.TNC[3]=4
+     GeZiManager.Bu.push(2);
+     
+     
+     
+     GeZiManager.PCP.ST()
+     
      }
 }//GeZiManager.line这个方法是判断直线上目标的
 

@@ -824,7 +824,7 @@ default:n = a
         break;
       case 21: point = new Vec3(1465, 436,1);
         break;
-      case 22: point = new Vec3(1724, 436,1);
+      case 22: point = new Vec3(1700, 436,1);
         break;
       case 23: point = new Vec3(1940, 436,1);
         break;
@@ -1012,7 +1012,7 @@ this.deadgif();
            case "getQin":
            
            break;
-           case "getOne"://GeZiManager.Tcharacter=this
+           case "getOne":GeZiManager.Tcharacter=this
            
            break;
             case "water": 

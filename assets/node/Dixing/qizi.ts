@@ -355,7 +355,7 @@ case "getF":if(this.ZB==message.Command[0]){GeZiManager.TF=this}
 break;
 
 
-case "getOne":GeZiManager.Tcharacter=this
+case "getOne":if(message.Command.includes(this.ZB))GeZiManager.Tcharacter=this
     break
 
             default:
@@ -393,7 +393,7 @@ switch (n) {
   this.node.getChildByName("FU").getComponent(gif1).changeF(D,1)
   
   for(let o of GeZiManager.Tcharacters){
-if (o instanceof Character) {
+if (o instanceof Character&&o.color==this.color) {
     o.Fus(n) 
 }
 GeZiManager.Tcharacters=[]

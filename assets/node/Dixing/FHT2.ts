@@ -32,7 +32,7 @@ ghost: Boolean=true;
 start() {
            AudioManager.instance.ZJP("ui",10)
         turn.Too.push(this);
-        this.round = turn.round+3;
+        this.round = turn.round+1;
 //   if (turn.round%12==2||turn.round%12==7) { turn.round+=1  }
 //   this.turn = turn.turn;
         if (   this.turn%2==0) {

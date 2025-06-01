@@ -77,7 +77,10 @@ export default class DL extends DES {
   playFrameAnimation1(n: string, loop: number, p: number): void {
        switch (n) {
        case "BZ":
+
+       
        this.node.active=true
+
 
        this.node.children[0].getComponent(gif1).moveToNextFrame(7,31,0);
 
@@ -120,7 +123,8 @@ ReceiveMessage(message: Message) {
 
      case "getOne":GeZiManager.Tcharacter=this;
      break;
-    
+     case "Banan":this.fadeINAndA(this.node.getChildByName("Bn"),300)
+     break;
       case "mofaT":if (message.Content[1]=="DZ") {
           this.BZ(this.ZB)
       }

@@ -119,7 +119,7 @@ export default class shopUI extends ComponentBase {
        }
     shopX(){
         MessageCenter.MakeMessage("UIManager","change",1);
-      AudioManager.instance.ZJP("ui",3,{volume:0.9})
+      AudioManager.instance.ZJP("ui",3,{volume:0.7})
         for(let m of GeZiManager.PCP.shop3){m.Shop3();}
     GeZiManager.PCP.ST();
     }

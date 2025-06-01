@@ -17,7 +17,7 @@ const { ccclass, property } = _decorator;
 @ccclass('TGManager')
 export class TGManager extends ComponentBase {
   
-    static TG:string[]=["鼬","马"]
+    static TG:string[]=["马"]
     static QQ1:number[]=[10,11,12,18,19,20,26,27,28]
     static QQ2:number[]=[13,14,15,21,22,23,29,30,31]
     static  QQ3:number[]=[34,35,36,42,43,44,50,51,52]
@@ -484,6 +484,7 @@ for (let index = 0; index < TGManager.TG.length; index++) {
          // this.Ybox()
           //this.YYY();
          // TGManager.TGM()
+         TGManager.MAKE()
           console.log(turn.round)
         }
         

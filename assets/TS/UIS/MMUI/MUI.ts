@@ -33,6 +33,7 @@ import SXX from '../../Scharacter/SXX';
 import { SubtitleManager } from '../baom';
 import Shops from '../shop/shops';
 import { Sprite } from 'cc';
+import DL from '../../Ditu/des/DL';
 // /*
  //1  火球(fireball)【2】{2}：施法者指定以自身为中心的4格范围内的任意一格引导火球，在下一次轮到施法者的回合时，该指定格火球降下，对该格单位造成2点魔法伤害，若命中地雷会直接将其引爆
  //5  闪现(flash)【3】{3}：施法者立即位移至面朝方向的的第二格上，可以越过任意单位（若面朝方向第二格上已有单位则无法使用）
@@ -55,7 +56,7 @@ export default class MUI extends ComponentBase {
         CC: number = 0;
         MCD:number[]=[0,0,0,0,0,3,5,0,0,0,7,0,0,0,0,0,0]
         DMAG:number=0;
-        fashu: number[] = [1,2,6,14];
+        fashu: number[] = [1,2,7,14];
         BLfas:number[]=[10,3,4];
         RLfas:number[]=[9,8,5];
        son:MAG[]=[];
@@ -403,6 +404,7 @@ if (Br&&manager.getFarH(n+GeZiManager.JL)) {
     MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],o,null,"Qi-")
         MessageCenter.MakeSHMessage("AM",[n],1,GeZiManager.PCP.Pturn,"getOne")
 console.log( GeZiManager.Tcharacter)
+ GeZiManager.Tcharacter.node.getChildByName("MTX").getComponent(MTX).playFrameAnimation1("KB");
     GeZiManager.Tcharacter.KBL(1)
      GeZiManager.Tcharacter.ZBW(false,1)
 console.log( GeZiManager.Tcharacter)
@@ -745,16 +747,16 @@ GeZiManager.Tcharacter=null
             MessageCenter.MakeSHMessage("AM",[n],1,null,"getOne")
          if ( GeZiManager.Tcharacter) {
         
-         let    g=   GeZiManager.PCP.ZB
+         let   g=  GeZiManager.PCP.ZB
              
          GeZiManager.PCP.ZB=0
            GeZiManager.shanchu(GeZiManager.BanMove, g);
              GeZiManager.Tcharacter.To(g,0)
-            
+             GeZiManager.Tcharacter.node.getChildByName("MTX").getComponent(MTX).playFrameAnimation1("TP");
                   
          }   
          GeZiManager.PCP.To(n,0)
-       
+       GeZiManager.PCP.node.getChildByName("MTX").getComponent(MTX).playFrameAnimation1("TP");
             for(let a of GeZiManager.PCP.magic3){a.Magic3(n);}
    AudioManager.instance.ZJP("magic",7)
 
@@ -775,7 +777,7 @@ GeZiManager.Tcharacter=null
         
         Dbanana(n:number){
             for(let a of GeZiManager.PCP.magic2){a.Magic2();}
-                  let o=3+GeZiManager.free
+                  let o=2+GeZiManager.free
             if (o<1) {
                 o=1
             }
@@ -789,11 +791,25 @@ GeZiManager.Tcharacter=null
 
             }else  if (GeZiManager.aos.includes(n)) {
         
+             let b=new SHMessage("AM",[n],1,turn.turn,"Banan")
+               let a=find("Canvas/DituManager/New Node/AnimalManager").getComponent(AnimalManager).YuanGong;
+                for(let manager of a) {
             
+            if(manager instanceof DL){manager.ReceiveMessage(b);}
+            
+               }
                 GeZiManager.DLBZ(n,n,false,"DL")
             }else{  MessageCenter.MakeSHMessage("AM",[n],7,GeZiManager.PCP.Pturn,"FTP");}
 
-            for(let a of GeZiManager.PCP.magic3){a.Magic3(n);}
+          
+       
+        GeZiManager.Tcharacter=null
+        MessageCenter.MakeSHMessage("AM",[n],1,GeZiManager.PCP.Pturn,"getOne")
+    if ( GeZiManager.Tcharacter) {
+        console.log(  GeZiManager.Tcharacter)
+          GeZiManager.Tcharacter.node.getChildByName("MTX").getComponent(MTX).playFrameAnimation1("Banan");
+         
+    }   for(let a of GeZiManager.PCP.magic3){a.Magic3(n);}
         }
     
     
@@ -916,9 +932,22 @@ if(o.Pturn<=C){C=o.Pturn}
     if (o<1) {
         o=1
     }
+        GeZiManager.Tcharacter=null
+        MessageCenter.MakeSHMessage("AM",[n],1,GeZiManager.PCP.Pturn,"getOne")
+    if ( GeZiManager.Tcharacter) {
+          GeZiManager.Tcharacter.node.getChildByName("MTX").getComponent(MTX).playFrameAnimation1("Tui");
+         
+    }
     MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],o,null,"Qi-")
         MessageCenter.MakeSHMessage("AM",[n],o/2,GeZiManager.PCP.Pturn,"Qi+")
-        MessageCenter.MakeSHMessage("AM",[n],[GeZiManager.PCP.turn8([GeZiManager.PCP.faceIs(n)])[0],0.3],GeZiManager.PCP.Pturn,"move")
+
+if (GeZiManager.Tcharacter&&GeZiManager.Tcharacter.M!="沉甸甸") {
+      MessageCenter.MakeSHMessage("AM",[n],[GeZiManager.PCP.turn8([GeZiManager.PCP.faceIs(n)])[0],0.3],GeZiManager.PCP.Pturn,"move")
+}
+      
+
+
+          
         console.log(GeZiManager.PCP.faceIs(n))
         for(let a of GeZiManager.PCP.magic3){a.Magic3(n);}
     

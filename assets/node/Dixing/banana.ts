@@ -15,6 +15,8 @@ import MessageCenter from "../../TS/Message/MessageCenter";
 import { FDUI } from "../../TS/UIS/else/FDUI";
 import turn from "../../TS/game/time/turn";
 import { AudioManager } from '../../TS/BASE/music';
+import { Message } from '../../TS/Message/Message';
+import { SHMessage } from '../../TS/Message/SHMessage';
 
 @ccclass('Banana')
 export default class banana extends DES {
@@ -37,6 +39,27 @@ export default class banana extends DES {
   
   
   
+  ReceiveMessage(message: Message) {
+       if (message instanceof SHMessage) {
+  
+       if (message.Command.includes(this.ZB) || message.Command[0] == 65) {
+  
+       switch (message.SHtype) {
+      
+  
+       case "getOne":GeZiManager.Tcharacter=this;
+       break;
+      
+       
+
+  
+  }}}
+  
+  
+  
+  
+    
+  }
   
   
   
