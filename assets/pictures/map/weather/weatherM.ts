@@ -9,7 +9,7 @@ import { _decorator, Node, Camera } from 'cc';
 const {ccclass, property} = _decorator;
 
 import ComponentBase from "../../../TS/BASE/ComponentBase";
-import { gif1 } from "../../../TS/BASE/spineANDgif/gif";
+import  gif1  from "../../../TS/BASE/spineANDgif/gif";
 import { v3 } from 'cc';
 
 @ccclass('WeatherM')

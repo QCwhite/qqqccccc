@@ -17,6 +17,7 @@ import { AudioManager } from '../BASE/music';
 import { WebSocketManager } from '../Message/websocket';
 import MessageCenter from '../Message/MessageCenter';
 import { director } from 'cc';
+import { Label } from 'cc';
 
 
 
@@ -93,12 +94,21 @@ export default class endGame extends ComponentBase {
                 break;
         }
         
+
+
+
+
+find("Canvas/DituManager/New Node/endGame").children[0].getComponent(Label).string=endGame.blue.toString()
+find("Canvas/DituManager/New Node/endGame").children[1].getComponent(Label).string=endGame.red.toString()
+
+
+        
         /*
         if ((endGame.blue==3||endGame.red==3)&&turn.turn==KHD.PT) {
             KHD.Gammer.emit("gameEnd",[endGame.blue,endGame.red])
         }*/
         
-        if ((endGame.blue==3||endGame.red==3)){
+        if ((endGame.blue==4||endGame.red==4)){
         
               
                 let node=find("Canvas/Main Camera/UIManager/endgame")

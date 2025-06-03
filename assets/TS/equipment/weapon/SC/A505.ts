@@ -16,6 +16,9 @@ import MessageCenter from "../../../Message/MessageCenter";
 import S05 from "../../../Scharacter/S05";
 import SXX from "../../../Scharacter/SXX";
 import A210 from "../Qiang/A210";
+import { instantiate } from 'cc';
+import  gif1  from '../../../BASE/spineANDgif/gif';
+import Shops from '../../../UIS/shop/shops';
 
 @ccclass('A2505')
 export default class A2505 extends A210 {
@@ -24,8 +27,12 @@ BTS: number=0;
 
     start(){
        // this.node.getComponent(Character).attack25.push(this)
+       this.target=this.node.getComponent(Character)
         this.node.getComponent(Character).behurt3.push(this)
-        super.start();
+  let QUI=instantiate(this.node.parent.getComponent(Shops).tishi)
+        QUI.setParent(this.node)
+        this.tishi=QUI.getComponent(gif1)
+        this.ZD()
     }
 
     Behurt3(n: number, killp: any, k: number): void {

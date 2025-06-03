@@ -141,7 +141,7 @@
     "_id": ""
   },
   {
-    "__type__": "cc.Sprite",
+    "__type__": "cc.UIOpacity",
     "_name": "",
     "_objFlags": 0,
     "__editorExtras__": {},
@@ -152,10 +152,54 @@
     "__prefab": {
       "__id__": 4
     },
-    "_customMaterial": {
-      "__uuid__": "fda095cb-831d-4601-ad94-846013963de8",
-      "__expectedType__": "cc.Material"
+    "_opacity": 255,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.CompPrefabInfo",
+    "fileId": "861XG9fq9AT5S3XItt98dc"
+  },
+  {
+    "__type__": "cc.UITransform",
+    "_name": "",
+    "_objFlags": 0,
+    "__editorExtras__": {},
+    "node": {
+      "__id__": 2
     },
+    "_enabled": true,
+    "__prefab": {
+      "__id__": 6
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 196,
+      "height": 172
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_id": ""
+  },
+  {
+    "__type__": "cc.CompPrefabInfo",
+    "fileId": "abyaYM9x1N1p1ujnyeayDO"
+  },
+  {
+    "__type__": "39c04Oz6mlLNJm3+OqU8cng",
+    "_name": "",
+    "_objFlags": 0,
+    "__editorExtras__": {},
+    "node": {
+      "__id__": 2
+    },
+    "_enabled": true,
+    "__prefab": {
+      "__id__": 8
+    },
+    "_customMaterial": null,
     "_srcBlendFactor": 2,
     "_dstBlendFactor": 4,
     "_color": {
@@ -185,58 +229,39 @@
       "__uuid__": "bf2e4381-969f-487a-8c97-dbc7ec061bcd",
       "__expectedType__": "cc.SpriteAtlas"
     },
+    "atlas1": {
+      "__uuid__": "bf2e4381-969f-487a-8c97-dbc7ec061bcd",
+      "__expectedType__": "cc.SpriteAtlas"
+    },
+    "atlas2": null,
+    "atlas3": null,
+    "Bname": "",
+    "scX": 1,
+    "emissionColor": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "bloomColor": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 204,
+      "b": 128,
+      "a": 255
+    },
+    "emissionPower": 1,
+    "bloomIntensity": 1,
+    "bloomRadius": 0.02,
+    "brightness": 1,
+    "saturation": 1,
+    "contrast": 1,
     "_id": ""
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "16KA5mciRCdoejc/FlZgDd"
-  },
-  {
-    "__type__": "cc.UIOpacity",
-    "_name": "",
-    "_objFlags": 0,
-    "__editorExtras__": {},
-    "node": {
-      "__id__": 2
-    },
-    "_enabled": true,
-    "__prefab": {
-      "__id__": 6
-    },
-    "_opacity": 255,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.CompPrefabInfo",
-    "fileId": "861XG9fq9AT5S3XItt98dc"
-  },
-  {
-    "__type__": "cc.UITransform",
-    "_name": "",
-    "_objFlags": 0,
-    "__editorExtras__": {},
-    "node": {
-      "__id__": 2
-    },
-    "_enabled": true,
-    "__prefab": {
-      "__id__": 8
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 196,
-      "height": 172
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_id": ""
-  },
-  {
-    "__type__": "cc.CompPrefabInfo",
-    "fileId": "abyaYM9x1N1p1ujnyeayDO"
+    "fileId": "61YkF2N/NO4oEFk6XRlXwK"
   },
   {
     "__type__": "cc.PrefabInfo",

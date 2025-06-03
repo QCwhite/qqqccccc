@@ -16,7 +16,7 @@ import MessageCenter from "../../TS/Message/MessageCenter";
 import { SHMessage } from "../../TS/Message/SHMessage";
 import SXX from "../../TS/Scharacter/SXX";
 import { FDUI } from "../../TS/UIS/else/FDUI";
-import { gif1 } from '../../TS/BASE/spineANDgif/gif';
+import  gif1  from '../../TS/BASE/spineANDgif/gif';
 import { AudioManager } from '../../TS/BASE/music';
 
 @ccclass('Qizi')

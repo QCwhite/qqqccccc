@@ -13,7 +13,7 @@ import ComponentBase from "../BASE/ComponentBase";
 import Qin from "../BASE/qin";
 import realThing from "../BASE/realThing";
 import Cspine from "../BASE/spineANDgif/Cspine";
-import { gif1 } from "../BASE/spineANDgif/gif";
+import  gif1  from "../BASE/spineANDgif/gif";
 import AnimalManager from "../Manager/AnimalManager";
 import turn from "../game/time/turn";
 import { UIOPACITY } from '../../../extensions/plugin-import-2x/creator/components/UIOpacity';

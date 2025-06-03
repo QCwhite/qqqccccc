@@ -12,7 +12,7 @@ import { Vec3 } from 'cc';
 import { find } from 'cc';
 import AnimalManager from '../../Manager/AnimalManager';
 @ccclass('gif1')
-export class gif1 extends Sprite {
+export default class gif1 extends Sprite {
     @property({ type: SpriteAtlas })
     atlas1: SpriteAtlas | null = null;
 
@@ -142,7 +142,7 @@ if (this.ooo) {
 
     moveToNextFrame(currentIndex: number, endIndex: number, m: number) {
 
-        
+        console.log(this.node.name)
         if (currentIndex <= endIndex) {
             this.scheduleOnce(() => {
                 this.timer = 0;
@@ -150,7 +150,7 @@ if (this.ooo) {
                 this.moveToNextFrame(currentIndex + 1, endIndex, m);
             }, this.timeArray[currentIndex] / 1000);
         } else if (m==1) {
-         //   console.log(this.node.worldPosition.z)
+          console.log(this.node.worldPosition.z)
             this.setEmptyFrame();
         }
   
@@ -340,7 +340,17 @@ if (material) {
 
 
 
+falsh(){
 
+     this.customMaterial.setProperty('brightness', 1.5);
+  setTimeout(() => {
+      this.customMaterial.setProperty('brightness', this.brightness);
+  },100); 
+
+
+
+
+}
 
 
       Cget(){

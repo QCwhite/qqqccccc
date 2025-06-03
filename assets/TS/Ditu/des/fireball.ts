@@ -14,7 +14,7 @@ import { Message } from "../../Message/Message";
 import MessageCenter from "../../Message/MessageCenter";
 import turn from "../../game/time/turn";
 import player from "../../game/player";
-import { gif1 } from "../../BASE/spineANDgif/gif";
+import  gif1  from "../../BASE/spineANDgif/gif";
 import DL from "./DL";
 import { AudioManager } from '../../BASE/music';
 

@@ -1,5 +1,5 @@
 import { _decorator, Component, Node } from 'cc';
-import { gif1 } from './spineANDgif/gif';
+import  gif1  from './spineANDgif/gif';
 import { Vec3, tween } from 'cc';
 const { ccclass, property } = _decorator;
 

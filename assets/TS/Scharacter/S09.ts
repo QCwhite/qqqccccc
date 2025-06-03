@@ -8,7 +8,7 @@
 import { _decorator, find, Label } from 'cc';
 const {ccclass, property} = _decorator;
 
-import MTX from "../../pictures/TX/MTX/MTX";
+import MTX from "../BASE/MTX";
 import Character from "../BASE/Character";
 import GeZiManager from "../Manager/GeZiManager";
 import MessageCenter from "../Message/MessageCenter";

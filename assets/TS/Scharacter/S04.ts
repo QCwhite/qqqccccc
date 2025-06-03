@@ -16,7 +16,7 @@ import SXX from "./SXX";
 import turn from "../game/time/turn";
 import Character from "../BASE/Character";
 import Cspine from "../BASE/spineANDgif/Cspine";
-import { gif1 } from "../BASE/spineANDgif/gif";
+import  gif1  from "../BASE/spineANDgif/gif";
 import state from "../game/time/state";
 import { Message } from "../Message/Message";
 import JNUM from "../UIS/else/JNUmanager";
@@ -101,7 +101,7 @@ export default class S04 extends SXX {
     if (this.JX&&at!=null) {
        let a  = GeZiManager.PCP.findGe(GeZiManager.PCP.faceTo,2)
        if(GeZiManager.BanMove.includes(a)){}else{
-           GeZiManager.PCP.To(a,0.1);
+           GeZiManager.PCP.To(a,0.3);
     }
     this.node.parent.getComponent(JNUM).JNF("S瞬斩",a)  
       }

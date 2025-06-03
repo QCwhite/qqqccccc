@@ -34,7 +34,7 @@ import state from "../game/time/state";
 import Obstacles from "../BASE/ Obstacles";
 import qizi from "../../node/Dixing/qizi";
 import Qin from "../BASE/qin";
-import { gif1 } from "../BASE/spineANDgif/gif";
+import  gif1  from "../BASE/spineANDgif/gif";
 import shopM from "../UIS/shop/ShopM";
 import S05 from "../Scharacter/S05";
 import fireball from "../Ditu/des/fireball";
@@ -86,7 +86,7 @@ P1SN:number=0;
  P4SN:number=0;
  P5SN:number=0;
  P6SN:number=0;
-juese:string[]=["SXX","S01","S02","S08","S00","S09","S04"];
+juese:string[]=["SXX","S04","S02","S00","S08","S09","S05"];
 @property(Prefab)
  s00:Prefab=null;
  @property(Prefab)
@@ -191,8 +191,18 @@ tuj2:Prefab=null;
 TouX:SpriteAtlas=null;
 @property(Material)
  NB:Material=null
-
-
+@property(Material)
+KB:Material=null
+@property(Material)
+DY:Material=null
+@property(Material)
+WFD:Material=null
+@property(Material)
+ice:Material=null
+@property(Material)
+ghost:Material=null
+@property(Material)
+fire:Material=null
  @property(Prefab)
  tooltipPrefab:Prefab=null;
 makeDL(ZB:number){
@@ -477,10 +487,7 @@ makeFH(ZB:number,sh:number){
     fireball1.getComponent(FHT).turn=sh;
     fireball1.getComponent(FHT).FT=turn.turn;
 let j=0
-    if (sh%2==1) {
-        j=GeZiManager.Bhun;  GeZiManager.Bhun=0;
-       }else { j= GeZiManager.Rhun;   GeZiManager.Rhun=0}
-       GeZiManager.getHUN()
+  
        fireball1.getComponent(FHT).HP=j
 GeZiManager.clean();
 

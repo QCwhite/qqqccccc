@@ -9,12 +9,12 @@ import { _decorator, Label, Sprite, tween, UIOpacity, Vec3 } from 'cc';
 const {ccclass, property} = _decorator;
 
 import ComponentBase from "../../BASE/ComponentBase";
-import { gif1 } from "../../BASE/spineANDgif/gif";
+import  gif1  from "../../BASE/spineANDgif/gif";
 
 @ccclass('JNU')
 export default class JNU extends ComponentBase {
-        @property(gif1)
-        g:gif1= null;
+      //  @property(gif1)
+      //  g:gif1= null;
     
         @property(Label)
         text:Label =null;

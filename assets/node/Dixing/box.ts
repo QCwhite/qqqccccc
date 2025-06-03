@@ -8,9 +8,9 @@
 import { _decorator, Vec3 } from 'cc';
 const {ccclass, property} = _decorator;
 
-import MTX from "../../pictures/TX/MTX/MTX";
+import MTX from "../../TS/BASE/MTX";
 import realThing from "../../TS/BASE/realThing";
-import { gif1 } from "../../TS/BASE/spineANDgif/gif";
+import  gif1  from "../../TS/BASE/spineANDgif/gif";
 import DL from "../../TS/Ditu/des/DL";
 import GeZiManager from "../../TS/Manager/GeZiManager";
 import { Message } from "../../TS/Message/Message";
@@ -22,12 +22,13 @@ import { threadId } from 'worker_threads';
 import AnimalManager from '../../TS/Manager/AnimalManager';
 import turn from '../../TS/game/time/turn';
 import { AudioManager } from '../../TS/BASE/music';
+import { find, Camera } from 'cc';
 
 @ccclass('Box')
 export default class box extends realThing {
 tt:string="box"
 type:string="qi"
-k:string[]=["A164","A164","A164","A127","A127","A125","A142","A321","A122"]
+k:string[]=["A127","A127","A125","A142","A321","A122"]
 k2:string[]=[]
 HP: number=3;
 iceL:boolean=false
@@ -262,7 +263,7 @@ ReceiveMessage(message: Message) {
      break;
 
 
-     case "wuli":          AudioManager.instance.ZJP("hit",2);    if(this.getc(message.from)!=null)
+     case "wuli":   this.node.getComponentInChildren(gif1).falsh();    this.shakeCameraAndNode(find("Canvas/Main Camera").getComponent(Camera),this.node,30,150);     AudioManager.instance.ZJP("hit",2);    if(this.getc(message.from)!=null)
      { for(let m of this.getc(message.from).attack25){m.Attack25(this,message.Content);}
      let k=(message.Content+GeZiManager.dm+GeZiManager.ms);if (k>0) {
      this.HP-=k}
@@ -274,8 +275,8 @@ ReceiveMessage(message: Message) {
 
      break;
      case "mofa":if(this.tt=="qin"||this.tt=="fireball"){}else{ this.HP -= message.Content;  this.ST();if (this.HP <= 0) {this.dead(this.getc(message.from)) ; }}
-
-
+  this.shakeCameraAndNode(find("Canvas/Main Camera").getComponent(Camera),this.node,30,150);
+ this.node.getComponentInChildren(gif1).falsh(); 
      break;
      case "mofaT":if(this.tt=="qin"||this.tt=="fireball"){}else{ this.HP -= message.Content[0];  this.ST();if (this.HP <= 0) {this.dead(this.getc(message.from)) ; }}
 

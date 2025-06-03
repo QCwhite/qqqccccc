@@ -25,7 +25,7 @@
   ],
   "_props": [
     {
-      "grayPercent": 0.12,
+      "grayPercent": 0.16,
       "u_strength": 0.7,
       "u_radius": 0.82,
       "u_softness": 0.7,
@@ -35,7 +35,7 @@
         "__type__": "cc.Vec4",
         "x": 0.27,
         "y": 0.25,
-        "z": 0.35,
+        "z": 0.31,
         "w": 0.23
       },
       "lensPower": 0,

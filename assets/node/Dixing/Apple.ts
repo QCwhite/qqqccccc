@@ -12,8 +12,8 @@ export class Apple extends banana {
         MessageCenter.MakeSHMessage("AM",[this.ZB],1,0,"HP+")
      //   this.playFrameAnimation1("BZ",0,0)
         this.fadeOutAndDisappear(this.node,200);
-    // this.ObstacleClear()
-        GeZiManager.shanchu(GeZiManager.aos,this.ZB)
+    this.ObstacleClear()
+       // GeZiManager.shanchu(GeZiManager.aos,this.ZB)
       }
 
 

@@ -11,7 +11,7 @@ const {ccclass, property} = _decorator;
 import Obstacles from "../../BASE/ Obstacles";
 import ComponentBase from "../../BASE/ComponentBase";
 import realThing from "../../BASE/realThing";
-import { gif1 } from "../../BASE/spineANDgif/gif";
+import  gif1  from "../../BASE/spineANDgif/gif";
 import GeZiManager from "../../Manager/GeZiManager";
 import MessageCenter from "../../Message/MessageCenter";
 

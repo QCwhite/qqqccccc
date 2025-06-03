@@ -161,7 +161,10 @@ export default class Pchange extends Component {
           
           }
           MCD1(){ find("Canvas/Main Camera/UIManager/magicUI").getComponent(MUI).MCD=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-           
+           for (let A of [GeZiManager.P1,GeZiManager.P2,GeZiManager.P3,GeZiManager.P4,GeZiManager.P5,GeZiManager.P6]) {
+         A.fadeINAndA(A.node,200)
+            
+           }
             find("Canvas/Main Camera/UIManager/magicUI").getComponent(MUI).ST();
             MessageCenter.MakeMessage("UIManager","change",-1)
             for(let mannger of GeZiManager.YuanGong){

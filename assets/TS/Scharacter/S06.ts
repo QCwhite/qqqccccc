@@ -10,7 +10,7 @@ const {ccclass, property} = _decorator;
 
 import Character from "../BASE/Character";
 
-import { gif1 } from "../BASE/spineANDgif/gif";
+import  gif1  from "../BASE/spineANDgif/gif";
 import GeZiManager from "../Manager/GeZiManager";
 import { Message } from "../Message/Message";
 import MessageCenter from "../Message/MessageCenter";

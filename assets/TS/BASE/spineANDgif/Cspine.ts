@@ -1,7 +1,7 @@
 import { _decorator, Component, Node, Vec3,Skeleton,sp, AnimationState, tween, Tween, find, Color, Texture2D,  Rect, SpriteFrame, UIOpacity, UITransform, Vec2, color } from 'cc';
 
 
-import MTX from "../../../pictures/TX/MTX/MTX";
+import MTX from "../MTX";
 import SXX from "../../Scharacter/SXX";
 import JJ from "../../UIS/else/JJ";
 import shopM from "../../UIS/shop/ShopM";
@@ -10,7 +10,7 @@ import weapon from "../../equipment/weapon/weapon";
 import Character from "../Character";
 import ComponentBase from "../ComponentBase";
 
-import { gif1 } from './gif';
+import  gif1  from './gif';
 import { ImageAsset } from 'cc';
 import { gfx } from 'cc';
 import { Sprite } from 'cc';
@@ -39,14 +39,14 @@ export default class Cspine extends ComponentBase {
     @property(Number)
     i: number = -1;
 
-    @property(gif1)
-    tx: gif1 = null;
+  //  @property(gif1)
+  //  tx: gif1 = null;
 
-    @property(gif1)
-    shadow: gif1 = null;
+   // @property(gif1)
+  //  shadow: gif1 = null;
 
-    @property(gif1)
-    atx: gif1 = null;
+   // @property(gif1)
+   // atx: gif1 = null;
 
     yanci: number[] = [200, 200, 200, 200, 200, 200, 200, 200];
     an: number = 0; // 某些动作的使用次数，如拳击手

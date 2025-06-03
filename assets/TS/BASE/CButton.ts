@@ -8,7 +8,7 @@ import ComponentBase from "./ComponentBase";
 
 import { EventHandler } from 'cc';
 
-import { gif1 } from './spineANDgif/gif';
+import  gif1  from './spineANDgif/gif';
 import { input } from 'cc';
 import { find } from 'cc';
 import { AudioManager } from './music';

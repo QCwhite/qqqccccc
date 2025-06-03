@@ -10,7 +10,7 @@ const {ccclass, property} = _decorator;
 
 import CustomButton from "../../BASE/CButton";
 import ComponentBase from "../../BASE/ComponentBase";
-import { gif1 } from "../../BASE/spineANDgif/gif";
+import  gif1  from "../../BASE/spineANDgif/gif";
 import GeZiManager from "../../Manager/GeZiManager";
 import MUI from "./MUI";
 import A503 from '../../equipment/weapon/SC/A503';

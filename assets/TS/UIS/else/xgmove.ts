@@ -4,7 +4,7 @@
     import { _decorator, Component, Vec3, tween, Node, UIOpacity } from 'cc';
     import ComponentBase from '../../BASE/ComponentBase';
 import { SpriteFrame, Prefab, instantiate, RichText } from 'cc';
-import { gif1 } from '../../BASE/spineANDgif/gif';
+import  gif1  from '../../BASE/spineANDgif/gif';
 import GeZiManager from '../../Manager/GeZiManager';
 import turn from '../../game/time/turn';
 

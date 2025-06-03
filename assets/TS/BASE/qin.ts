@@ -1,7 +1,7 @@
 import { _decorator, find, Label } from 'cc';
 const { ccclass, property } = _decorator;
 
-import MTX from "../../pictures/TX/MTX/MTX";
+import MTX from "./MTX";
 import turn from "../game/time/turn";
 import GeZiManager from "../Manager/GeZiManager";
 import QinManager from "../Manager/QinManager";
@@ -9,7 +9,7 @@ import { Message } from "../Message/Message";
 import MessageCenter from "../Message/MessageCenter";
 import CHF from "./CHF";
 import realThing from "./realThing";
-import { gif1 } from "./spineANDgif/gif";
+import  gif1  from "./spineANDgif/gif";
 import { UIOpacity } from 'cc';
 import { tween } from 'cc';
 import label from '../UIS/label';

@@ -18,7 +18,7 @@ export class HoverTooltip extends Component {
 
     private tooltipInstance: Node | null = null;
     private isHovering: boolean = false;
-    private hoverDelay: number = 0.3;
+    private hoverDelay: number = 0.1;
 
     onLoad() {
         this.node.on(Node.EventType.MOUSE_ENTER, this.onMouseEnter, this);
@@ -86,7 +86,7 @@ export class HoverTooltip extends Component {
 
         // 创建新实例
         this.tooltipInstance = instantiate(prefab);
-        this.tooltipInstance.setParent(find("Canvas/baom"));
+        this.tooltipInstance.setParent(find("Canvas/BAOm"));
 
         // === 新增关键代码 ===
         // 1. 禁用碰撞检测

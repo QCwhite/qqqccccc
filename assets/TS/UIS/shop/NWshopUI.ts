@@ -25,7 +25,7 @@ import KOG from "../KOG";
 import NWshopM from "./NWshopM";
 import shopM from "./ShopM";
 import Shops from "./shops";
-import { gif1 } from '../../BASE/spineANDgif/gif';
+import  gif1  from '../../BASE/spineANDgif/gif';
 import { resources, JsonAsset } from 'cc';
 import { AudioManager } from '../../BASE/music';
 

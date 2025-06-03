@@ -11,13 +11,13 @@ const { ccclass, property } = _decorator;
 
 import Character from "../../../BASE/Character";
 import Cspine from "../../../BASE/spineANDgif/Cspine";
-import { gif1 } from "../../../BASE/spineANDgif/gif";
+import  gif1  from "../../../BASE/spineANDgif/gif";
 import GeZiManager from "../../../Manager/GeZiManager";
 import MessageCenter from "../../../Message/MessageCenter";
 import Shops from "../../../UIS/shop/shops";
 import weapon from "../weapon";
 import { AudioManager } from '../../../BASE/music';
-import MTX from 'db://assets/pictures/TX/MTX/MTX';
+import MTX from 'db://assets/TS/BASE/MTX';
 
 
 @ccclass('Qiang')

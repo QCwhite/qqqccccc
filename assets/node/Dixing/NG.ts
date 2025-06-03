@@ -9,7 +9,7 @@ import { _decorator, Label } from 'cc';
 const {ccclass, property} = _decorator;
 
 import realThing from "../../TS/BASE/realThing";
-import { gif1 } from "../../TS/BASE/spineANDgif/gif";
+import  gif1  from "../../TS/BASE/spineANDgif/gif";
 import DL from "../../TS/Ditu/des/DL";
 import GeZiManager from "../../TS/Manager/GeZiManager";
 import MessageCenter from "../../TS/Message/MessageCenter";
@@ -21,7 +21,7 @@ import NWshopM from '../../TS/UIS/shop/NWshopM';
 import { Sprite } from 'cc';
 import { Color } from 'cc';
 import { AudioManager } from '../../TS/BASE/music';
-import MTX from '../../pictures/TX/MTX/MTX';
+import MTX from '../../TS/BASE/MTX';
 
 
 @ccclass('NG')

@@ -11,7 +11,8 @@
     "combinations": [
       {
         "USE_INSTANCING": [
-          true
+          true,
+          false
         ]
       }
     ]

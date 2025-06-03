@@ -8,7 +8,7 @@
 import { _decorator, Camera, find, Node, tween, v2, v3, Vec3 } from 'cc';
 const {ccclass, property} = _decorator;
 
-import MTX from "../../../pictures/TX/MTX/MTX";
+import MTX from "../../BASE/MTX";
 import weatherM from "../../../pictures/map/weather/weatherM";
 
 import ComponentBase from "../../BASE/ComponentBase";
@@ -56,8 +56,8 @@ export default class MUI extends ComponentBase {
         CC: number = 0;
         MCD:number[]=[0,0,0,0,0,3,5,0,0,0,7,0,0,0,0,0,0]
         DMAG:number=0;
-        fashu: number[] = [1,2,7,14];
-        BLfas:number[]=[10,3,4];
+        fashu: number[] = [1,2,3,14];
+        BLfas:number[]=[10,4,6];
         RLfas:number[]=[9,8,5];
        son:MAG[]=[];
        @property(Node)  

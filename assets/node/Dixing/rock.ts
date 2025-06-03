@@ -9,7 +9,7 @@ import { _decorator } from 'cc';
 const {ccclass, property} = _decorator;
 
 import realThing from "../../TS/BASE/realThing";
-import { gif1 } from "../../TS/BASE/spineANDgif/gif";
+import  gif1  from "../../TS/BASE/spineANDgif/gif";
 import GeZiManager from "../../TS/Manager/GeZiManager";
 import { Message } from "../../TS/Message/Message";
 import { SHMessage } from "../../TS/Message/SHMessage";
@@ -18,6 +18,7 @@ import { find } from 'cc';
 import tree from './tree';
 import KHD2 from '../../TS/Message/KHD2';
 import { AudioManager } from '../../TS/BASE/music';
+import { Camera } from 'cc';
 
 @ccclass('Rock')
 export default class rock extends realThing {
@@ -34,7 +35,7 @@ ReceiveMessage(message: Message) {
      break;
 
 
-     case "wuli":  AudioManager.instance.ZJP("hit",3); if (this.getc(message.from)) {
+     case "wuli":  AudioManager.instance.ZJP("hit",3); this.node.getComponent(gif1).falsh();      this.shakeCameraAndNode(find("Canvas/Main Camera").getComponent(Camera),this.node,25,150); if (this.getc(message.from)) {
      for(let m of this.getc(message.from).attack25){m.Attack25(this,message.Content);}
      let k=message.Content+GeZiManager.dm+GeZiManager.ms
      if (k<0) {
@@ -44,7 +45,7 @@ ReceiveMessage(message: Message) {
 
      }
      break;
-     case "mofa": this.HP -= message.Content; this.playFrameAnimation1("hit",0,this.HP) ;if (this.HP <= 0) {this.dead() ; }
+     case "mofa": this.HP -= message.Content; this.playFrameAnimation1("hit",0,this.HP) ; this.node.getComponent(gif1).falsh();   this.shakeCameraAndNode(find("Canvas/Main Camera").getComponent(Camera),this.node,25,150);if (this.HP <= 0) {this.dead() ; }
      break;
      case "mofaT": this.HP -= message.Content[0]; this.playFrameAnimation1("hit",0,this.HP) ;if (this.HP <= 0) {this.dead() ; }
      break;

@@ -17,7 +17,7 @@ import GeZiManager from "../../Manager/GeZiManager";
 import MessageCenter from "../../Message/MessageCenter";
 import { SHMessage } from "../../Message/SHMessage";
 import { AudioManager } from '../../BASE/music';
-import MTX from 'db://assets/pictures/TX/MTX/MTX';
+import MTX from 'db://assets/TS/BASE/MTX';
 
 
 @ccclass('Weapon')

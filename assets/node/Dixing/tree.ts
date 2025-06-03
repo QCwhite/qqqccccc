@@ -9,7 +9,7 @@ import { _decorator } from 'cc';
 const {ccclass, property} = _decorator;
 
 import realThing from "../../TS/BASE/realThing";
-import { gif1 } from "../../TS/BASE/spineANDgif/gif";
+import  gif1  from "../../TS/BASE/spineANDgif/gif";
 import GeZiManager from "../../TS/Manager/GeZiManager";
 import { Message } from "../../TS/Message/Message";
 import MessageCenter from "../../TS/Message/MessageCenter";
@@ -22,6 +22,7 @@ import { Vec4 } from 'cc';
 import { Color } from 'cc';
 import { log } from 'node:console';
 import { AudioManager } from '../../TS/BASE/music';
+import { find, Camera } from 'cc';
 
 @ccclass('Tree')
 export default class tree extends realThing {
@@ -179,10 +180,11 @@ ReceiveMessage(message: Message) {
 
 
        }GeZiManager.dm=0; this.playFrameAnimation1("hit",0,this.HP)  ;if (this.HP <= 0) {this.dead(this.getc(message.from)) ;}
-
-
+this.node.getComponent(gif1).falsh()
+  this.shakeCameraAndNode(find("Canvas/Main Camera").getComponent(Camera),this.node,30,180);
        break;
        case "mofa": this.HP -= message.Content; this.playFrameAnimation1("hit",0,this.HP) ;if (this.HP <= 0) {this.dead(this.getc(message.from)) ; }
+         this.shakeCameraAndNode(find("Canvas/Main Camera").getComponent(Camera),this.node,30,180);
        break;
        case "mofaT": this.HP -= message.Content[0]; this.playFrameAnimation1("hit",0,this.HP) ;if (this.HP <= 0) {this.dead(this.getc(message.from)) ; }
        break;

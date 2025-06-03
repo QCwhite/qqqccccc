@@ -6,7 +6,7 @@
 // //  - https://docs.cocos.com/creator/2.4/manual/en/scripting/life-cycle-callbacks.html
 import { _decorator, Component, Node, Camera, UIOpacity, Vec3, tween } from 'cc';
 const {ccclass, property} = _decorator;
-import MTX from "../../pictures/TX/MTX/MTX";
+import MTX from "./MTX";
 import DXX from "../equipment/accessory/DXX";
 import BXX from "../equipment/body/BXX";
 import CXX from "../equipment/shose/CXX";
@@ -19,11 +19,12 @@ import { Message } from "../Message/Message";
 import MessageCenter from "../Message/MessageCenter";
 import { SHMessage } from "../Message/SHMessage";
 import ComponentBase from "./ComponentBase";
-import { gif1 } from "./spineANDgif/gif";
+import  gif1  from "./spineANDgif/gif";
 import { Sprite } from 'cc';
 import { Color } from 'cc';
 import HUI from '../UIS/HUI';
 import { AudioManager } from './music';
+import { find } from 'cc';
 
 @ccclass
 export default class realThing extends ComponentBase{
@@ -327,9 +328,9 @@ k=false
           const b=this.ZB
       
             this.ZB = this.findGe(face, 1)
-       
+   
             if (this.tt == "box") { GeZiManager.boxs.push(this.ZB)}
-
+    this.setXY(0.8);
 if (this.tt=="human"||this.tt=="pig") {
   GeZiManager.getQin(this.ZB,this.ZB);
 }
@@ -369,7 +370,7 @@ if(!this.fly){          GeZiManager.DLBZ(this.ZB,b,c)}
 
  
 this.kcd=true;
-this.setXY(0.8);
+
 if(this.move3!=null){for(let w of this.move3){w.Move3(this.ZB,this.Pturn);}}
 
 
@@ -985,10 +986,13 @@ this.deadgif();
               k=0
             }
             this.HP-=k;  if(this.HP <= 0){this.dead(this.getc(message.from));}GeZiManager.dm=0;GeZiManager.ms=0;
+          
+          
+           this.shakeCameraAndNode(find("Canvas/Main Camera").getComponent(Camera),this.node,40,150)
           }   
             
             break;
-          case "mofa":if(this.tt=="qin"||this.tt=="fireball"){}else{ this.HP -= message.Content;   if(this.HP <= 0){this.dead(this.getc(message.from)); }}
+          case "mofa":if(this.tt=="qin"||this.tt=="fireball"){}else{ this.HP -= message.Content;   if(this.HP <= 0){this.dead(this.getc(message.from));       this.shakeCameraAndNode(find("Canvas/Main Camera").getComponent(Camera),this.node,40,150) }}
             break;
           case "wind": 
           

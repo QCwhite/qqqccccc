@@ -1610,7 +1610,7 @@
       "__uuid__": "e531ba22-b90e-4962-bdad-81b8d9d23028",
       "__expectedType__": "sp.SkeletonData"
     },
-    "defaultSkin": "default",
+    "defaultSkin": "",
     "defaultAnimation": "",
     "_premultipliedAlpha": false,
     "_timeScale": 1,
@@ -1768,7 +1768,7 @@
       "__uuid__": "60a3cc17-c918-4174-bac6-6c7553c92e17",
       "__expectedType__": "sp.SkeletonData"
     },
-    "defaultSkin": "default",
+    "defaultSkin": "",
     "defaultAnimation": "",
     "_premultipliedAlpha": false,
     "_timeScale": 1,
@@ -1926,7 +1926,7 @@
       "__uuid__": "fb947ab4-c5d2-4480-9b55-37ebcd9d2338",
       "__expectedType__": "sp.SkeletonData"
     },
-    "defaultSkin": "default",
+    "defaultSkin": "",
     "defaultAnimation": "",
     "_premultipliedAlpha": false,
     "_timeScale": 1,
@@ -5285,9 +5285,6 @@
       "__id__": 77
     },
     "i": -1,
-    "tx": null,
-    "shadow": null,
-    "atx": null,
     "_id": ""
   },
   {

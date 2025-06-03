@@ -11,7 +11,7 @@ const {ccclass, property} = _decorator;
 
 import CustomButton from "../../BASE/CButton";
 import ComponentBase from "../../BASE/ComponentBase";
-import { gif1 } from "../../BASE/spineANDgif/gif";
+import  gif1  from "../../BASE/spineANDgif/gif";
 import AnimalManager from "../../Manager/AnimalManager";
 import GeZiManager from "../../Manager/GeZiManager";
 import { Message } from "../../Message/Message";
@@ -595,20 +595,20 @@ export default class shopUI extends ComponentBase {
     
     
     
-    if (!GeZiManager.PCP.getComponent(SXX).ZZ.includes("human")&&!GeZiManager.PCP.getComponent(SXX).ZZ.includes("EM")) {
-        this.A1.getComponent(CustomButton).disableButton();
-        this.A2.getComponent(CustomButton).disableButton();
-        this.A3.getComponent(CustomButton).disableButton();
+  //  if (!GeZiManager.PCP.getComponent(SXX).ZZ.includes("human")&&!GeZiManager.PCP.getComponent(SXX).ZZ.includes("EM")) {
+   //     this.A1.getComponent(CustomButton).disableButton();
+     //   this.A2.getComponent(CustomButton).disableButton();
+      //  this.A3.getComponent(CustomButton).disableButton();
     
-        if (shopM.A4n&&shopM.A4n[0]!="D") {
-            this.A4.getComponent(CustomButton).disableButton();
-        }
+     //   if (shopM.A4n&&shopM.A4n[0]!="D") {
+     //       this.A4.getComponent(CustomButton).disableButton();
+     //   }
     
-        if (shopM.A5n&&shopM.A5n[0]!="D") {
-            this.A5.getComponent(CustomButton).disableButton();
-        }
+    //    if (shopM.A5n&&shopM.A5n[0]!="D") {
+    //        this.A5.getComponent(CustomButton).disableButton();
+     //   }
     
-    }else{
+   // }else{
   /*  switch (GeZiManager.PCP.getComponent(SXX).Snumber) {
         case "S04":  
         
@@ -662,7 +662,7 @@ export default class shopUI extends ComponentBase {
             break;
     }
     */
-    }
+    //}
     if (GeZiManager.PCP.color=="Red") {
         if (GeZiManager.Rhun<3) {
           //  this.MU.getComponent(CustomButton).disableButton();

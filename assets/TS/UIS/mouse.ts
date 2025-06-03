@@ -11,7 +11,7 @@ const { ccclass, property } = _decorator;
 import CustomButton from "../BASE/CButton";
 import ComponentBase from "../BASE/ComponentBase";
 import Cspine from "../BASE/spineANDgif/Cspine";
-import { gif1 } from "../BASE/spineANDgif/gif";
+import  gif1  from "../BASE/spineANDgif/gif";
 import { BlockInputEvents } from 'cc';
 import { input } from 'cc';
 

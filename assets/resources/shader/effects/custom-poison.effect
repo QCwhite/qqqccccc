@@ -69,21 +69,22 @@ CCProgram unlit-fs %{
   in vec2 uv0;
   #pragma builtin(local)
   layout(set = 2, binding = 12) uniform sampler2D cc_spriteTexture;
-  vec4 frag () {
-    vec4 c = vec4(1.);
+ vec4 frag () {
 
-    #if USE_EMBEDDED_ALPHA
-      c *= vec4(texture(cc_spriteTexture, uv0).rgb, texture(cc_spriteTexture, uv0 + vec2(0.0, 0.5)).r);
+    vec4 c = vec4(1, 1, 1, 1);
+    #if TWO_COLORED
+      vec4 texColor = vec4(1, 1, 1, 1);
+
+      texColor *= texture(cc_spriteTexture, uv0);
+ 	    c.a = texColor.a * v_light.a;
+      c.rgb = ((texColor.a - 1.0) * v_dark.a + 1.0 - texColor.rgb) * v_dark.rgb + texColor.rgb * v_light.rgb;
     #else
       c *= texture(cc_spriteTexture, uv0);
+      c *= v_light;
     #endif
-    
-    c.r *= 0.8;
-    c.r += 0.08 * c.a;
-    c.g *= 0.8;
-    c.b *= 0.8;
-    c.g += 0.2 * c.a;
 
-    return c;
+    float bri = (c.r + c.g + c.b) * (1. / 3.);
+    float gray = 1.5 * bri;
+    return  vec4(gray*0.1+c.r*0.6, gray*0.1+c.g*0.6, gray*0.1+c.b*0.6, c.a) * vec4(0.6, 1.5, 1.0, 1);
   }
 }%

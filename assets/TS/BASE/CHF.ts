@@ -8,7 +8,7 @@
 import { _decorator, find, instantiate } from 'cc';
 const {ccclass, property} = _decorator;
 
-import MTX from "../../pictures/TX/MTX/MTX";
+import MTX from "./MTX";
 import AnimalManager from "../Manager/AnimalManager";
 import GeZiManager from "../Manager/GeZiManager";
 import GMessage from "../Message/GMessage";
@@ -25,7 +25,7 @@ import Character from "./Character";
 import realThing from "./realThing";
 import Cspine from "./spineANDgif/Cspine";
 
-import { gif1 } from './spineANDgif/gif';
+import  gif1  from './spineANDgif/gif';
     
 @ccclass('CHF')
 export default class CHF extends Character {

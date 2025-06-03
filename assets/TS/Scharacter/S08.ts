@@ -12,7 +12,7 @@ import { _decorator, Prefab, instantiate, find } from 'cc';
 import Character from "../BASE/Character";
 import realThing from "../BASE/realThing";
 import Cspine from "../BASE/spineANDgif/Cspine";
-import { gif1 } from "../BASE/spineANDgif/gif";
+import  gif1  from "../BASE/spineANDgif/gif";
     import GeZiManager from "../Manager/GeZiManager";
 import { Message } from "../Message/Message";
     import MessageCenter from "../Message/MessageCenter";

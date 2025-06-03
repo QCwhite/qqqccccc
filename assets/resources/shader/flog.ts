@@ -1,5 +1,5 @@
 import { _decorator, Component, Material, Color, Vec3, MeshRenderer, tween } from 'cc';
-import { gif1 } from '../../TS/BASE/spineANDgif/gif';
+
 import { Sprite, find } from 'cc';
 import AnimalManager from '../../TS/Manager/AnimalManager';
 

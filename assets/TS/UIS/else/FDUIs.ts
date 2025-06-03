@@ -11,7 +11,7 @@ const {ccclass, property} = _decorator;
 import Character from "../../BASE/Character";
 import ComponentBase from "../../BASE/ComponentBase";
 import realThing from "../../BASE/realThing";
-import { gif1 } from "../../BASE/spineANDgif/gif";
+import  gif1  from "../../BASE/spineANDgif/gif";
 import SXX from "../../Scharacter/SXX";
 import mouse from "../mouse";
 import { JNFU } from "./JNFU";
@@ -208,11 +208,11 @@ export default class FDUIs extends ComponentBase {
             let o=find("Canvas/DituManager/New Node/AnimalManager")
           
             if (this.target instanceof Character) {
-                this.node.getChildByName("EQM").getChildByName("New Node").getComponent(gif1).spriteFrame=o.getComponent(Shops).find(10,this.target.weapon.TheNumber)
-               this.node.getChildByName("EQM").getChildByName("AXX").getChildByName("EQ").getComponent(gif1).spriteFrame=o.getComponent(Shops).find(10,this.target.weapon.TheNumber)
-               this.node.getChildByName("EQM").getChildByName("BXX").getChildByName("EQ").getComponent(gif1).spriteFrame=o.getComponent(Shops).find(10,this.target.body.TheNumber)
-               this.node.getChildByName("EQM").getChildByName("CXX").getChildByName("EQ").getComponent(gif1).spriteFrame=o.getComponent(Shops).find(10,this.target.shose.TheNumber)
-               this.node.getChildByName("EQM").getChildByName("DXX").getChildByName("EQ").getComponent(gif1).spriteFrame=o.getComponent(Shops).find(10,this.target.accessory.TheNumber)
+                this.node.getChildByName("EQM").getChildByName("New Node").getComponent(gif1).spriteFrame=o.getComponent(Shops).find(10,this.target.weapon.TheNumber,"",0)
+               this.node.getChildByName("EQM").getChildByName("AXX").getChildByName("EQ").getComponent(gif1).spriteFrame=o.getComponent(Shops).find(10,this.target.weapon.TheNumber,"",0)
+               this.node.getChildByName("EQM").getChildByName("BXX").getChildByName("EQ").getComponent(gif1).spriteFrame=o.getComponent(Shops).find(10,this.target.body.TheNumber,"",0)
+               this.node.getChildByName("EQM").getChildByName("CXX").getChildByName("EQ").getComponent(gif1).spriteFrame=o.getComponent(Shops).find(10,this.target.shose.TheNumber,"",0)
+               this.node.getChildByName("EQM").getChildByName("DXX").getChildByName("EQ").getComponent(gif1).spriteFrame=o.getComponent(Shops).find(10,this.target.accessory.TheNumber,"",0)
                this.node.getChildByName("EQM").getChildByName("WQFW").getChildByName("New Node").getComponent(gif1).changeF(this.target.weapon.RN,1)
                this.node.getChildByName("EQM").getChildByName("Label").getComponent(Label).string=this.skillDataMap[this.target.weapon.TheNumber]?.name;
                this.node.getChildByName("EQM").getChildByName("description").getComponent(Label).string=this.skillDataMap[this.target.weapon.TheNumber]?.effect;
@@ -238,26 +238,26 @@ export default class FDUIs extends ComponentBase {
 
 dA(){ 
     let o=find("Canvas/DituManager/New Node/AnimalManager")
-    this.node.getChildByName("EQM").getChildByName("New Node").getComponent(gif1).spriteFrame=o.getComponent(Shops).find(10,this.target.weapon.TheNumber)
+    this.node.getChildByName("EQM").getChildByName("New Node").getComponent(gif1).spriteFrame=o.getComponent(Shops).find(10,this.target.weapon.TheNumber,"",0)
     this.node.getChildByName("EQM").getChildByName("Label").getComponent(Label).string=this.skillDataMap[this.target.weapon.TheNumber]?.name;
                this.node.getChildByName("EQM").getChildByName("description").getComponent(Label).string=this.skillDataMap[this.target.weapon.TheNumber]?.effect; 
 }
 dB(){
     let o=find("Canvas/DituManager/New Node/AnimalManager")
-    this.node.getChildByName("EQM").getChildByName("New Node").getComponent(gif1).spriteFrame=o.getComponent(Shops).find(10,this.target.body.TheNumber)
+    this.node.getChildByName("EQM").getChildByName("New Node").getComponent(gif1).spriteFrame=o.getComponent(Shops).find(10,this.target.body.TheNumber,"",0)
     this.node.getChildByName("EQM").getChildByName("Label").getComponent(Label).string=this.skillDataMap[this.target.body.TheNumber]?.name;
                this.node.getChildByName("EQM").getChildByName("description").getComponent(Label).string=this.skillDataMap[this.target.body.TheNumber]?.effect; 
 }
 
 dC(){
     let o=find("Canvas/DituManager/New Node/AnimalManager")
-    this.node.getChildByName("EQM").getChildByName("New Node").getComponent(gif1).spriteFrame=o.getComponent(Shops).find(10,this.target.shose.TheNumber)
+    this.node.getChildByName("EQM").getChildByName("New Node").getComponent(gif1).spriteFrame=o.getComponent(Shops).find(10,this.target.shose.TheNumber,"",0)
     this.node.getChildByName("EQM").getChildByName("Label").getComponent(Label).string=this.skillDataMap[this.target.shose.TheNumber]?.name;
                this.node.getChildByName("EQM").getChildByName("description").getComponent(Label).string=this.skillDataMap[this.target.shose.TheNumber]?.effect; 
 }
 dD(){
     let o=find("Canvas/DituManager/New Node/AnimalManager")
-    this.node.getChildByName("EQM").getChildByName("New Node").getComponent(gif1).spriteFrame=o.getComponent(Shops).find(10,this.target.accessory.TheNumber)
+    this.node.getChildByName("EQM").getChildByName("New Node").getComponent(gif1).spriteFrame=o.getComponent(Shops).find(10,this.target.accessory.TheNumber,"",0)
     this.node.getChildByName("EQM").getChildByName("Label").getComponent(Label).string=this.skillDataMap[this.target.accessory.TheNumber]?.name;
                this.node.getChildByName("EQM").getChildByName("description").getComponent(Label).string=this.skillDataMap[this.target.accessory.TheNumber]?.effect; 
 }

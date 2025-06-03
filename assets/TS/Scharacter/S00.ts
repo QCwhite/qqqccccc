@@ -23,7 +23,7 @@ import SXX from "./SXX";
 import BUI from "../UIS/BUI";
 import { SpriteFrame } from 'cc';
 import sideUI from '../UIS/sideUI';
-import { gif1 } from '../BASE/spineANDgif/gif';
+import  gif1  from '../BASE/spineANDgif/gif';
 import DXX from '../equipment/accessory/DXX';
 import { SubtitleManager } from '../UIS/baom';
 import Shops from '../UIS/shop/shops';

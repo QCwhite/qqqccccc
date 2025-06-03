@@ -8,7 +8,7 @@
 import { _decorator } from 'cc';
 const {ccclass, property} = _decorator;
 
-import { gif1 } from "../../TS/BASE/spineANDgif/gif";
+import  gif1  from "../../TS/BASE/spineANDgif/gif";
 import DES from "../../TS/Ditu/des/DES";
 import GeZiManager from "../../TS/Manager/GeZiManager";
 import MessageCenter from "../../TS/Message/MessageCenter";

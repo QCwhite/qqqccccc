@@ -12,7 +12,7 @@ import Character from "../../../TS/BASE/Character";
 import ComponentBase from "../../../TS/BASE/ComponentBase";
 
 import GeZiManager from "../../../TS/Manager/GeZiManager";
-import { gif1 } from 'db://assets/TS/BASE/spineANDgif/gif';
+import  gif1  from 'db://assets/TS/BASE/spineANDgif/gif';
 
 @ccclass('WaterPP')
 export default class waterPp extends ComponentBase {

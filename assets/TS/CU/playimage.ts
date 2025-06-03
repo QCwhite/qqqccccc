@@ -2,7 +2,7 @@ import { _decorator, SpriteAtlas, Sprite, color, Label, find, CCFloat } from 'cc
 const { ccclass, property } = _decorator;
 
 import ComponentBase from "../BASE/ComponentBase";
-import { gif1 } from "../BASE/spineANDgif/gif";
+import  gif1  from "../BASE/spineANDgif/gif";
 import Choose from "./choose";
 import GeZiManager from '../Manager/GeZiManager';
   

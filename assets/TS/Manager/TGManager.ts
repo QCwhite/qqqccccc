@@ -169,11 +169,18 @@ for (let  o of TGManager.TG) {
 
 
       case "马":
-      
+       TGManager.G1=[]
+       TGManager.G2=[]
+       TGManager.G3=[]
+       TGManager.G4=[]
           TGManager.G1.push("sWater");
           TGManager.G2.push("sWater") ;
           TGManager.G3.push("sWater");
           TGManager.G4.push("sWater") ;
+          TGManager.G1.push("Hun");
+          TGManager.G2.push("Hun") ;
+          TGManager.G3.push("Hun");
+          TGManager.G4.push("Hun") ;
              
       break;
 

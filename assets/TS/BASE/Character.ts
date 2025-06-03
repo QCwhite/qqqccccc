@@ -25,10 +25,10 @@ import realThing from "../BASE/realThing";
 import Obstacles from "./ Obstacles";
 //import CHF from "../CHF";
 import moveUI from "../UIS/BASEUI/moveUI";
-import { gif1 } from "./spineANDgif/gif";
+import  gif1  from "./spineANDgif/gif";
 import MUI from "../UIS/MMUI/MUI";
 import Cspine from "./spineANDgif/Cspine";
-import MTX from "../../pictures/TX/MTX/MTX";
+import MTX from "./MTX";
 import shops from "../UIS/shop/shops";
 import shopM from "../UIS/shop/ShopM";
 import waterPp from "../../node/UI/HUI/waterPP";
@@ -132,7 +132,7 @@ Pturn: number = 1;//玩家序号，轮次
    wk: number = 0;//物抗
    GD:number=0//格挡
 Bu:number[]=[]//本回合操作了什么
-
+WFD:number=0
    ice:number=0;
 teammates:Character[]=[];//队友
 //CHF:character[]=[];
@@ -451,7 +451,13 @@ AudioManager.instance.ZJP("hit",4);
 
 
    getHurt(sh: number,killp:realThing,k:number) {
-    let c=-1
+
+
+if (!this.WFD) {
+
+
+
+      let c=-1
       if (killp) {
 c=killp.Pturn
      }
@@ -475,7 +481,20 @@ c=killp.Pturn
      let iceReduction = Math.min(remainingDamage,this.ice);
 let ic=this.ice
       remainingDamage -= iceReduction;
-     this.ice -= iceReduction;if(this.ice<=0&&ic>0){this.ice=0;this.node.getChildByName("MTX").getComponent(MTX).playFrameAnimation1("iceN");this.ST();}else{}
+     this.ice -= iceReduction;if(this.ice<=0&&ic>0){
+      this.ice=0;this.node.getChildByName("MTX").getComponent(MTX).playFrameAnimation1("iceN");this.ST();
+   
+            
+       
+            this.TNJJ[0]-=ic
+        this.TNJJ[1]-=ic
+        this.TNJJ[3]-=ic
+              this.setMaterialToSprite("")
+         
+         GeZiManager.shanchu(this.ZT,"ICE")
+            this.sideUI.setZT()
+         
+   }else{}
       let gdReduction = Math.min(remainingDamage, this.GD);
       console.log(gdReduction)
       remainingDamage -= gdReduction;
@@ -506,10 +525,10 @@ let ic=this.ice
       if(this.LST>0&&this.LST!=10){this.killp=killp;this.dead()}
       if (this.HP<= 0&&this.LST==10) { this.HP = 0; this.Bdead(killp); }
   
-    
+         this.shakeCameraAndNode(find("Canvas/Main Camera").getComponent(Camera),this.node,25,150);
    
       this.PFUI("HP-",Math.max(0,remainingDamage));
-   }, 200);
+   }, 200);}
    }//受到伤害
 
 
@@ -526,6 +545,10 @@ let ic=this.ice
 
 
     TP(ZB:number) {
+
+
+//this.setMaterialToSprite("DY")
+
        AudioManager.instance.ZJP("hit",27)
 
     
@@ -1160,7 +1183,10 @@ getTG(N:string){
 
    switch (N) {
      case "sWater":  MessageCenter.MakeSHMessage("AM",[this.ZB],1,-1,"HP+")
-       
+       if(this.color=="Red"){
+         GeZiManager.Rhun+=1
+      }else{  GeZiManager.Bhun+=1}
+      GeZiManager.getHUN();
        break;
        case "Hun": if(this.color=="Red"){
          GeZiManager.Rhun+=1
@@ -2630,13 +2656,13 @@ Tstart(){
    }  }else{
        find("Canvas/DituManager/New Node/time").getComponent(Time).reset()
       find("Canvas/DituManager/New Node/time").getComponent(Time).startCountdown()
-
- if (KHD2.PT.includes(this.Pturn)) {
-   this.shakeCameraAndNode(find("Canvas/Main Camera").getComponent(Camera),find("Canvas/DituManager/New Node/AnimalManager/QP"),10,100)
- }    
-    if (!this.YS) {
+  if (!this.YS) {
       find("Canvas/Main Camera").getComponent(JJ).JJ(this.node,1)
     }  
+ if (KHD2.PT.includes(this.Pturn)) {
+   this.shakeCameraAndNode(find("Canvas/Main Camera").getComponent(Camera),find("Canvas/DituManager/New Node/AnimalManager/QP"),40,150)
+ }    
+  
       for(let m of GeZiManager.PCP.t0){m.T0(turn.turn)}
       if (turn.round%12==2||turn.round%12==7) {
         // find("Canvas/UIManager/NWshop").getComponent(NWshopUI).TOUI(this.TNF)
@@ -2682,6 +2708,7 @@ GeZiManager.PCP.DYJS()
 GeZiManager.PCP.MZJS()
 GeZiManager.PCP.CZJS()
 GeZiManager.PCP.ICEJS()
+GeZiManager.PCP.WFDJS()
    this.UIchange(null); 
    if (!(turn.round%12==2||turn.round%12==7)) {   
    if(this.DiXing=="water"&&!GeZiManager.boxs.includes(this.ZB)){GeZiManager.PCP.WAT-=1;this.node.getChildByName("water").getComponent(waterPp).PO(1)}}
@@ -2708,6 +2735,10 @@ GeZiManager.PCP.ICEJS()
 
 roundPass(): void {
   this.QXJS()
+
+
+
+
 }
 
 
@@ -2844,7 +2875,7 @@ let j=0
    this.ZB=i;
    this.ghost=false;
   this.faceTo=this.getc(FT).faceTo
-
+this.WFDL()
    this.moveto(0,this.ZB);
    this.move(5,1);
 
@@ -2883,7 +2914,7 @@ let j=0
    this.ZB=i;
    this.ghost=false;
   this.faceTo=this.getc(FT).faceTo
-
+this.WFDL()
    this.moveto(0,this.ZB);
    this.move(5,1);
 
@@ -2996,6 +3027,7 @@ KBL(n:number){
    
    this.KB+=n
    this.ZT.push("KB")
+         this.setMaterialToSprite("KB")
    this.sideUI.setZT()
 }
    }
@@ -3006,9 +3038,10 @@ KBL(n:number){
    if (this.DY>3) {
       this.DY=3
    }
-   
+
 }
      this.ZT.push("DY")
+           this.setMaterialToSprite("DY")
         this.sideUI.setZT()
    }
    
@@ -3042,6 +3075,7 @@ KBL(n:number){
 
         this.ZT.push("ICE")
            this.sideUI.setZT()
+              this.setMaterialToSprite("ice")
          }
    
          if (this.DiXing=="water") {
@@ -3087,6 +3121,7 @@ KBL(n:number){
               this.sh-=1
               this.wk-=1
                    GeZiManager.shanchu(this.ZT,"KB")
+                         this.setMaterialToSprite("")
                       this.sideUI.setZT()
            }
         }
@@ -3105,6 +3140,7 @@ KBL(n:number){
         }
      if (this.DY==0) {
         GeZiManager.shanchu(this.ZT,"DY")
+             this.setMaterialToSprite("")
            this.sideUI.setZT()
      }  
      }
@@ -3117,6 +3153,7 @@ KBL(n:number){
            this.MZ-=1
            if (this.MZ==0) {
                GeZiManager.shanchu(this.ZT,"MZ")
+                    this.setMaterialToSprite("")
                   this.sideUI.setZT()
             this.wk-=1
            }
@@ -3142,34 +3179,108 @@ KBL(n:number){
         
            if(this.ice==0){
             
-            
+            console.log("ice="+oo)
             this.TNJJ[0]-=oo
         this.TNJJ[1]-=oo
         this.TNJJ[3]-=oo
             
             this.node.getChildByName("MTX").getComponent(MTX).playFrameAnimation1("iceN");this.ST();
-         
+              this.setMaterialToSprite("")
          
          GeZiManager.shanchu(this.ZT,"ICE")
             this.sideUI.setZT()
          }
         }
         
-   
+
      }
     
-    WDL(){
+    WFDL(){
+
+   
+   this.WFD+=1
+   
+   this.turnBan[3]+=1
+   
+     this.ZT.push("YS")
+        this.sideUI.setZT()
+this.setMaterialToSprite("WFD")
+
+}
+   WFDJS(){
+
+ if ( this.WFD>0) {
+           this.WFD=0
+          
+         
+                   GeZiManager.shanchu(this.ZT,"YS")
+                   this.setMaterialToSprite("")
+                      this.sideUI.setZT()
+           
+        }
 
 
 
-    }
-   WDJS(){
-
-
-
-
-      
    }
 
+setMaterialToSprite( materialName: string) {
+        // 查找目标精灵节点
+        const targetSpriteNode = this.node
+        if (!targetSpriteNode) {
+        //    console.error(`未找到名称为 的节点`);
+            return;
+        }
+      
+        // 获取目标精灵组件
+        const targetSprite =this.node.getComponent(Cspine);
+        let g=[targetSprite.spine2,targetSprite.spine4,targetSprite.spine6,targetSprite.spine8]
+    for (let a of g) {
+        // 加载材质资源
+
+        let material
+        switch (materialName) {
+            case "KB": material=find("Canvas/DituManager/New Node/AnimalManager").getComponent(AnimalManager).KB
+                break;
+         case "DY": material=find("Canvas/DituManager/New Node/AnimalManager").getComponent(AnimalManager).DY
+                break;
+                 case "WFD": material=find("Canvas/DituManager/New Node/AnimalManager").getComponent(AnimalManager).WFD
+                break;
+                 case "fire": material=find("Canvas/DituManager/New Node/AnimalManager").getComponent(AnimalManager).fire
+                break;
+                 case "ice": material=find("Canvas/DituManager/New Node/AnimalManager").getComponent(AnimalManager).ice
+                break;
+            default:   a.customMaterial = null
+                break;
+        }
+       
+        
+  
+    
+  
+            // 设置材质
+if (material) {
+    
+
+          
+
+        
+              a.customMaterial = material
+         
+         
+      
+           //    this.materialInstance.push(a.customMaterial)
+            
+           
+        //    console.log(`成功将材质 "${materialName}" 设置到节点 "" 的 Sprite 组件上`);
+
+
+          //  material.setProperty('contrast', this.contrast);
+        
+           // material.setProperty('brightness', 1);
+      
+        }
+      }
+
+ }
 
 }

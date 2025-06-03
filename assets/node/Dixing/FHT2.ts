@@ -9,7 +9,7 @@ import { _decorator, Sprite, SpriteFrame } from 'cc';
 const {ccclass, property} = _decorator;
 
 import realThing from "../../TS/BASE/realThing";
-import { gif1 } from "../../TS/BASE/spineANDgif/gif";
+import  gif1  from "../../TS/BASE/spineANDgif/gif";
 import DL from "../../TS/Ditu/des/DL";
 import turn from "../../TS/game/time/turn";
 import GeZiManager from "../../TS/Manager/GeZiManager";

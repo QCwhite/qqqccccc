@@ -18,7 +18,7 @@ import { SHMessage } from "../Message/SHMessage";
 import turn from "../game/time/turn";
 import Character from "./Character";
 import Cspine from "./spineANDgif/Cspine";
-import { gif1 } from "./spineANDgif/gif";
+import  gif1  from "./spineANDgif/gif";
 import realThing from './realThing';
 import { truncate } from 'fs';
 
