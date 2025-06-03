@@ -18,7 +18,7 @@ import turn from "../game/time/turn";
 import SXX from "./SXX";
 import realThing from "../BASE/realThing";
 import Cspine from "../BASE/spineANDgif/Cspine";
-import {gif1 } from "../BASE/spineANDgif/gif";
+import gif1  from "../BASE/spineANDgif/gif";
 import JNUM from "../UIS/else/JNUmanager";
 import { SubtitleManager } from '../UIS/baom';
 

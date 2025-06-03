@@ -12,6 +12,7 @@ import  gif1  from './spineANDgif/gif';
 import { input } from 'cc';
 import { find } from 'cc';
 import { AudioManager } from './music';
+import { flog } from '../../resources/shader/flog';
 
 
 @ccclass('CButton')
@@ -160,6 +161,8 @@ if (this.o) {
     disableButton() {
      if(this.zt!=-1)  {
         this.zt =-1;
+
+        
         this.gif.getComponent(gif1).setBrightness(-0.3)
 
         this.node.off(Node.EventType.MOUSE_ENTER, this.onHover, this);
@@ -167,7 +170,7 @@ if (this.o) {
         this.node.off(Node.EventType.TOUCH_START, this.onPressDown, this);
         this.node.off(Node.EventType.TOUCH_END, this.onClick, this);
        
-       
+
        
        
         if(this.fw==7){ this.gif.getComponent(gif1).setBrightness(0.3)
@@ -175,13 +178,26 @@ if (this.o) {
       //  console.log(this.node.name+" disableButton")
     }
 
-
+       if (this.node.getComponentsInChildren(flog).length>0) {
+    for (let g of this.node.getComponentsInChildren(flog)) {
+       g.stop()
+        
+    }
+}
 
 }
     enableButton() {
       
         this.zt = 0;
+        
+               if (this.node.getComponentsInChildren(flog).length>0) {
+    for (let g of this.node.getComponentsInChildren(flog)) {
+       g.resume()
+        
+    }
+}
         this.gif.getComponent(gif1).setBrightness()
+
         this.node.on(Node.EventType.MOUSE_ENTER, this.onHover, this);
         this.node.on(Node.EventType.MOUSE_LEAVE, this.onLeave, this);
   

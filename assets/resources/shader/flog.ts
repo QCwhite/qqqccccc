@@ -1,7 +1,7 @@
-import { _decorator, Component, Material, Color, Vec3, MeshRenderer, tween } from 'cc';
-
+import { _decorator, Component, Material, Vec3, tween, Vec4 } from 'cc';
 import { Sprite, find } from 'cc';
 import AnimalManager from '../../TS/Manager/AnimalManager';
+import gif1 from '../../TS/BASE/spineANDgif/gif';
 
 const { ccclass, property, executeInEditMode } = _decorator;
 
@@ -19,44 +19,46 @@ export class flog extends Component {
     @property({ tooltip: "浮动高度" })
     floatHeight: number = 35;
 
-   
     floatDuration: number = 3;
 
     // ---------- 闪烁效果参数 ----------
     @property(Material)
     public sharedMaterial: Material | null = null;
 
-  
     public flashMode: FlashMode = FlashMode.SUSTAIN;
 
-  
     public totalDuration: number = 3.0;
 
- @property(Number)
+    @property(Number)
     public maxEmissionPower: number = 0.3;
 
     // ---------- 内部状态 ----------
-     materialInstance: Material[]=[]
+    materialInstance: Material[] = [];
     private _timeAccumulator: number = 0;
     private _originalPos: Vec3 = new Vec3();
+    
+    // 暂停状态变量
+    private _isPaused: boolean = false;
+    private _pausedPosition: Vec3 = new Vec3();
+    private _pausedEmissionPower: number = 0;
+    private _pausedFloatTime: number = 0;
+    private _currentTween: any = null;
 
     onLoad() {
-        Vec3.copy(this._originalPos, this.node.position); // 确保在节点加载后捕获位置
+        Vec3.copy(this._originalPos, this.node.position);
     }
+
     start() {
-        // 初始化浮动动画
-
-        setTimeout(()=>{this.setMaterialToSprite("m")
-        this.initFloating();},300)
-       
-
-    
+        setTimeout(() => {
+            this.setMaterialToSprite("m");
+            this.initFloating();
+        }, 300);
     }
 
     update(deltaTime: number) {
-      //  console.log(this.materialInstance)
-        
-        if (this.materialInstance.length==0){return;}
+        if (this._isPaused || this.materialInstance.length == 0) { 
+            return;
+        }
 
         this._timeAccumulator += deltaTime;
         this._timeAccumulator %= this.totalDuration;
@@ -75,51 +77,120 @@ export class flog extends Component {
                 break;
         }
 
-        // 更新材质属性
-       // console.log(emissionPower)
-     
-        for (let c of this.materialInstance) {
-            if (!c || c instanceof Material === false) { // 检查有效性
-                console.error("无效的材质实例:", c);
-                continue;
-            }
-            //c.setProperty("emissionPower",emissionPower);
-            const pass = c.passes[0]; // 获取指定 Pass
-            pass.setUniform(pass.getHandle("emissionPower"), emissionPower); // 直接操作 Pass 的 Uniform
-        }
-     
+        this.setEmissionPower(emissionPower);
     }
-   
-    
 
     // ---------- 浮动动画 ----------
     private initFloating() {
-     
-     if (this.floatHeight!=0) {
-        
-    
-     
-     
-        Vec3.copy(this._originalPos, this.node.position);
+        if (this.floatHeight != 0) {
+            Vec3.copy(this._originalPos, this.node.position);
+            this.startFloating();
+        }
+    }
 
-  this.ak() ;   } 
+    private startFloating() {
+      if (!this._isPaused) {
+        
+      
+      
+      
+        if (this._currentTween) {
+            this._currentTween.stop();
+        }
+
+        this._currentTween = tween(this.node)
+            .to(this.floatDuration / 2, 
+                { position: new Vec3(this._originalPos.x, this._originalPos.y + this.floatHeight, this._originalPos.z) }, 
+                { easing: 'cubicOut' }
+            )
+            .to(this.floatDuration / 2, 
+                { position: new Vec3(this._originalPos.x, this._originalPos.y, this._originalPos.z) }, 
+                { easing: 'cubicIn' }
+            )
+            .call(() => this.startFloating())
+            .start();}
     }
-    ak(){
+
+    // ---------- 停止与恢复方法 ----------
+    stop() {
+        // 记录当前状态
+        this._isPaused = true;
+        Vec3.copy(this._pausedPosition, this.node.position);
+        this._pausedEmissionPower = this.getCurrentEmissionPower();
+        this._pausedFloatTime = this._timeAccumulator;
+        
+        // 停止浮动动画
+        if (this._currentTween) {
+            this._currentTween.stop();
+            this._currentTween = null;
+        }
+        
+        // 回到默认位置
         tween(this.node)
-        .to(this.floatDuration / 2, 
-            { position: new Vec3(this._originalPos.x, this._originalPos.y + this.floatHeight, this._originalPos.z) }, 
-            { easing: 'cubicOut' }
-        )
-        .to(this.floatDuration / 2, 
-            { position: new Vec3(this._originalPos.x, this._originalPos.y , this._originalPos.z) }, 
-            { easing: 'cubicIn' }
-        )
-        .call(() => {
-           this.ak()
-           },this.floatDuration)
-        .start()
+            .to(0.5, { position: this._originalPos })
+            .call(() => {
+                // 设置材质为默认状态
+                this.setEmissionPower(0);
+            })
+            .start();
+            console.log( this.node.name+":"+this._isPaused )
     }
-    // ---------- 闪烁效果计算（保持原有逻辑） ----------
+    
+    resume() {
+        if (!this._isPaused) return;
+        
+        this._isPaused = false;
+        
+        // 恢复位置
+        if (!Vec3.equals(this.node.position, this._pausedPosition)) {
+            tween(this.node)
+                .to(0.5, { position: this._pausedPosition })
+                .call(() => {
+                    // 恢复浮动动画
+                    this.startFloating();
+                    
+                    // 恢复闪烁状态
+                    this._timeAccumulator = this._pausedFloatTime;
+                    this.setEmissionPower(this._pausedEmissionPower);
+                })
+                .start();
+        } else {
+            // 如果已经在暂停位置，直接恢复
+            this.startFloating();
+            this._timeAccumulator = this._pausedFloatTime;
+            this.setEmissionPower(this._pausedEmissionPower);
+        }
+    }
+    
+    // ---------- 辅助方法 ----------
+    private getCurrentEmissionPower(): number {
+        if (this.materialInstance.length === 0) return 0;
+        
+        const material = this.materialInstance[0];
+        if (material && material instanceof Material) {
+            const pass = material.passes[0];
+            const handle = pass.getHandle("emissionPower");
+            
+            // 使用 Vec4 接收结果
+            const out = new Vec4();
+            pass.getUniform(handle, out);
+            
+            // 返回 x 分量（标量值）
+            return out.x;
+        }
+        return 0;
+    }
+    
+    private setEmissionPower(power: number) {
+        for (const material of this.materialInstance) {
+            if (material && material instanceof Material) {
+                const pass = material.passes[0];
+                pass.setUniform(pass.getHandle("emissionPower"), power);
+            }
+        }
+    }
+
+    // ---------- 闪烁效果计算 ----------
     private calculateSteady(t: number): number {
         return this.maxEmissionPower;
     }
@@ -149,66 +220,30 @@ export class flog extends Component {
         return this.maxEmissionPower * (firstPeak + decayRate * secondPeak);
     }
 
-
-
-
-
-setMaterialToSprite( materialName: string) {
-        // 查找目标精灵节点
-        const targetSpriteNode = this.node
-        if (!targetSpriteNode) {
-        //    console.error(`未找到名称为 的节点`);
-            return;
-        }
+    setMaterialToSprite(materialName: string) {
+        const targetSpriteNode = this.node;
+        if (!targetSpriteNode) return;
       
-        // 获取目标精灵组件
-        const targetSprite =this.node.getComponent(Sprite);
-        if (!targetSprite) {
-      //      console.error(`节点 " 上未找到 Sprite 组件`);
-            return;
-        }
+        const targetSprite = this.node.getComponent(Sprite);
+        if (!targetSprite) return;
       
-        // 加载材质资源
-
-        let material
-        
+        let material;
         if (find("Canvas/DituManager/New Node/AnimalManager")) {
-            material=find("Canvas/DituManager/New Node/AnimalManager").getComponent(AnimalManager).NB
-        }else{material=this.node.getComponent(Sprite).customMaterial}
-        
-  
-    
-  
-            // 设置材质
-if (material) {
-    
-
-          
-
-            const newMaterial = new Material();
-            newMaterial.initialize({ effectName: material.effectName }); // 显式初始化
-            newMaterial.copy(material); // 复制属性
-            targetSprite.customMaterial = newMaterial;
-         
-         
-      
-               this.materialInstance.push(targetSprite.customMaterial)
-            
-           
-        //    console.log(`成功将材质 "${materialName}" 设置到节点 "" 的 Sprite 组件上`);
-
-
-          //  material.setProperty('contrast', this.contrast);
-        
-           // material.setProperty('brightness', 1);
-      
+            material = find("Canvas/DituManager/New Node/AnimalManager").getComponent(AnimalManager).NB;
+        } else {
+            material = this.node.getComponent(Sprite).customMaterial;
         }
-      }
+  
+        if (material) {
+            const newMaterial = new Material();
+            newMaterial.initialize({ effectName: material.effectName });
+            newMaterial.copy(material);
+            targetSprite.customMaterial = newMaterial;
+            this.materialInstance.push(targetSprite.customMaterial);
+        }
 
-
-
-
-
-
+        if (this.node.getComponent(gif1)) {
+            this.node.getComponent(gif1).Cget();
+        }
+    }
 }
-

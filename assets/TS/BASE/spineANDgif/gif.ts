@@ -44,7 +44,7 @@ export default class gif1 extends Sprite {
     private endIndex: number = 0;
     loop: number = 0; // 0: 停留在最后一帧, 1: 循环播放, 其他值: 正常播放
 @property(Boolean)
-ooo:false
+ooo:Boolean=false
     // 颜色相关
     @property({ type: Color, tooltip: "自发光颜色" })
     emissionColor: Color = Color.WHITE;
@@ -224,9 +224,11 @@ tween(this.node)
         } else {
             this.brightness += value;
         }
+if (this.customMaterial) {
+    this.customMaterial.setProperty('brightness', this.brightness);
+}
 
-
-        this.updateMaterialProperties()
+       // this.updateMaterialProperties()
     }
 
 

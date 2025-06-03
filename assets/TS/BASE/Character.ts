@@ -2660,7 +2660,7 @@ Tstart(){
       find("Canvas/Main Camera").getComponent(JJ).JJ(this.node,1)
     }  
  if (KHD2.PT.includes(this.Pturn)) {
-   this.shakeCameraAndNode(find("Canvas/Main Camera").getComponent(Camera),find("Canvas/DituManager/New Node/AnimalManager/QP"),40,150)
+   this.shakeCameraAndNode(find("Canvas/Main Camera").getComponent(Camera),find("Canvas"),30,150)
  }    
   
       for(let m of GeZiManager.PCP.t0){m.T0(turn.turn)}

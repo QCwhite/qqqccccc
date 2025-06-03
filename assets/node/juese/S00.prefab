@@ -771,6 +771,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -785,8 +786,8 @@
       "b": 128,
       "a": 255
     },
-    "emissionPower": 1,
-    "bloomIntensity": 1,
+    "emissionPower": 0,
+    "bloomIntensity": 0,
     "bloomRadius": 0.02,
     "brightness": 1,
     "saturation": 1,
@@ -1278,6 +1279,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -3123,6 +3125,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -3306,6 +3309,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -3489,6 +3493,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -3672,6 +3677,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -3855,6 +3861,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -4038,6 +4045,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -4598,9 +4606,6 @@
       "__id__": 80
     },
     "i": 0,
-    "tx": null,
-    "shadow": null,
-    "atx": null,
     "_id": ""
   },
   {
@@ -4651,6 +4656,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,

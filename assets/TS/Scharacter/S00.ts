@@ -197,7 +197,10 @@ Qi2(n:number,Pturn:number){
         if(this.JZ){if(s.length>1||qa<5){
    //     console.log(qa)
    //     console.log(s)
-        this.buJin()}}else{
+   if (this.JZ) {
+  this.buJin()
+   }
+      }}else{
         if(s.length<=1&&qa>=5){
         this.toJin();}
 

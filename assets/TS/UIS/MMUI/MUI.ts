@@ -604,7 +604,7 @@ let k=0
           if (o<1) {
               o=1
           }
-          MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],o,null,"Qi-")
+        
 
 
         MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],o,null,"Qi-")
