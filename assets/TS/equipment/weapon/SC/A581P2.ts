@@ -88,7 +88,7 @@ QD(an: number[]): void {
 
 }
 start(): void {
-
+this.target=this.node.getComponent(Character)
                 super.start()
                 this.tishi.node.setScale(0.8,0.8)
                 

@@ -144,7 +144,7 @@ find("Canvas/DituManager/New Node/endGame").children[1].getComponent(Label).stri
         }
         
         switch (KHD2.PT[0]%2) {
-            case 0:if(endGame.red==3){
+            case 0:if(endGame.red==4){
                find("Canvas/Main Camera/UIManager/endgame/win").active=true
            endGame.jsl=true
         AudioManager.instance.ZJP("other",0)
@@ -157,7 +157,7 @@ find("Canvas/DituManager/New Node/endGame").children[1].getComponent(Label).stri
                 
                 break;
         
-            default:if(endGame.blue==3){
+            default:if(endGame.blue==4){
                find("Canvas/Main Camera/UIManager/endgame/win").active=true
                 endGame.jsl=true
             }else{find("Canvas/Main Camera/UIManager/endgame/lose").active=true}

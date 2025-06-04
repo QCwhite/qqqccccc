@@ -14,13 +14,28 @@ import weapon from "../weapon";
 import Character from '../../../BASE/Character';
 
 @ccclass('A504')
-export default class A504 extends A110 {
+export default class A504 extends Dao {
     TheNumber: string="A110";
+      SH=2;
+ 
+  level:number=1
+
+Wtype: number=1;
     start(): void {
        
        this.target=this.node.getComponent(Character)
       
     }
+
+ 
+    constructor(){
+
+        super();
+        // console.log( this.TheNumber)
+      }
+
+
+
 }
 
 

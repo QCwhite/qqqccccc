@@ -83,18 +83,16 @@ export default class CHF extends Character {
         }
         changeE(pre:string): void {
            console.log(pre)
-          if (pre[0]=='A') {
+          if (pre[0]=='A'&&pre[2]=="8") {
         
           
         
          //  this.weapon=this.node.getComponent(weapon) 
               // this.node.removeComponent(""+this.weapon.TheNumber)
               this.weapon.remove();
-              console.log(pre)
+         
                 this.node.addComponent(pre);
-                this.weapon.remove();
-                console.log(pre)
-                  this.node.addComponent(pre);
+            
                 let  k=this.node.getComponent(pre)
                   if (k instanceof weapon) {
                     this.weapon=k}

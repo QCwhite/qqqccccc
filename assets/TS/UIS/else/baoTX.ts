@@ -9,7 +9,7 @@ import { _decorator } from 'cc';
 const {ccclass, property} = _decorator;
 
 import ComponentBase from "../../BASE/ComponentBase";
-import {  gif1 } from "../../BASE/spineANDgif/gif";
+import   gif1  from "../../BASE/spineANDgif/gif";
 import GeZiManager from "../../Manager/GeZiManager";
 import SXX from "../../Scharacter/SXX";
 

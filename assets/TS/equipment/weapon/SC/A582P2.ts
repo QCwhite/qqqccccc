@@ -35,6 +35,7 @@ AudioManager.instance.ZJP("attack",this.Ytype)
 
   }
 start(): void {
+this.target=this.node.getComponent(Character)
        if (this.node.getComponent(S08).king) {
        let QUI=instantiate(this.node.parent.getComponent(Shops).tishi)
        QUI.setParent(this.node)
@@ -44,7 +45,7 @@ start(): void {
        
 }
   yy(){ 
-  MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.target.Pturn,"Qi-");
+ // MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.target.Pturn,"Qi-");
         
        MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],this.getTNC(3)+this.TNJ,this.node.getComponent(Character).Pturn,"TN-")
        GeZiManager.PCP.TNC(GeZiManager.PCP.TN);

@@ -480,9 +480,9 @@ export default class shopUI extends ComponentBase {
     console.log(GeZiManager.PCP.qi<shopM.A1n[0]+GeZiManager.free||shopM.A1n[1]==0)
     
      console.log(GeZiManager.PCP.qi<shopM.A1n[0]+GeZiManager.free||shopM.A1n[1]==0)
-        if(GeZiManager.PCP.qi<shopM.A1n[0]+GeZiManager.free){this.A1.getComponent(CustomButton).disableButton()}else{this.A1.getComponent(CustomButton).enableButton();}
-        if(GeZiManager.PCP.qi<shopM.A2n[0]+GeZiManager.free){this.A2.getComponent(CustomButton).disableButton()}else{this.A2.getComponent(CustomButton).enableButton();}
-        if(GeZiManager.PCP.qi<shopM.A3n[0]+GeZiManager.free){this.A3.getComponent(CustomButton).disableButton()}else{this.A3.getComponent(CustomButton).enableButton();}
+        if(GeZiManager.PCP.qi<shopM.A1n[0]+GeZiManager.free||shopM.A1n[1]==0){this.A1.getComponent(CustomButton).disableButton()}else{this.A1.getComponent(CustomButton).enableButton();}
+        if(GeZiManager.PCP.qi<shopM.A2n[0]+GeZiManager.free||shopM.A2n[1]==0){this.A2.getComponent(CustomButton).disableButton()}else{this.A2.getComponent(CustomButton).enableButton();}
+        if(GeZiManager.PCP.qi<shopM.A3n[0]+GeZiManager.free||shopM.A3n[1]==0){this.A3.getComponent(CustomButton).disableButton()}else{this.A3.getComponent(CustomButton).enableButton();}
     
         let k=1
        
