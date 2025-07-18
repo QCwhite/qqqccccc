@@ -166,7 +166,7 @@ GeZiManager.boxs.push(this.ZB)
       DBZ(){
            AudioManager.instance.ZJP("hit",25,{volume:0.6});
         this.playFrameAnimation1("DBZ",0,0)
-        let b=[this.findGe(2,1),this.findGe(4,1),this.findGe(6,1),this.findGe(8,1),this.findGe(2,2),this.findGe(4,2),this.findGe(6,2),this.findGe(8,2)]
+        let b=[this.findGe(2,1),this.findGe(4,1),this.findGe(6,1),this.findGe(8,1)]//,this.findGe(2,2),this.findGe(4,2),this.findGe(6,2),this.findGe(8,2)
            if (this.DJ>2) {
           b=this.getNIGno5(this.ZB)
         }
@@ -178,12 +178,12 @@ GeZiManager.boxs.push(this.ZB)
           k=3
         }
         MessageCenter.MakeSHMessage("AM",b,k,null,"wuli");
-        if (this.DJ>2) {
+          this.BZ(this.ZB)
           for(let j of b){
             MessageCenter.MakeSHMessage("AM",[j],[this.turn8([this.faceIs(j)])[0],0.4],null,"move");
           }
-        }
-        this.BZ(this.ZB)
+        
+   
 
 
               this.node.getChildByName("MTX").getComponent(MTX).playFrameAnimation1("BZ");

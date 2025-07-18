@@ -39,7 +39,16 @@ start() {
         this.node.getComponent(Sprite).spriteFrame=this.R
         }else {  this.node.getComponent(Sprite).spriteFrame=this.B}
 
+
+for (let g of GeZiManager.FHTs) {
+   if (g.turn==this.turn) {
+        g.ot()
+   }
         
+}
+
+
+        GeZiManager.FHTs.push(this)
         this.node.children[1].getComponent(gif1).changeF(this.turn-1,1)
 }
 BZ() {
@@ -63,6 +72,31 @@ this.HP=3
 
         GeZiManager.shanchu(turn.Too,this)
 } 
+
+
+ot() {
+
+this.HP=3
+        GeZiManager.Tcharacter=this.getc(this.turn)
+           AudioManager.instance.ZJP("hit",23);
+      
+           if (this.turn%2==1) {
+          // endGame.blue-=1
+              }else {     //endGame.red-=1
+
+              }
+        this.node.children[0].getComponent(gif1).moveToNextFrame(0,11,0);
+      // this.getc(this.turn).FH(this.ZB,this.turn,this.HP)
+
+        GeZiManager.shanchu(GeZiManager.BDZD,this.ZB)
+
+
+        this.fadeOutAndDisappear(this.node,1200)
+
+        GeZiManager.shanchu(turn.Too,this)
+} 
+
+
 turnPass() {
 ////if (!(turn.round%12==2||turn.round%12==7)) {    
         if(turn.round>=this.round&&turn.turn==this.turn&&!GeZiManager.BanMove.includes(this.ZB)){

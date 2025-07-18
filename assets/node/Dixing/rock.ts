@@ -19,6 +19,7 @@ import tree from './tree';
 import KHD2 from '../../TS/Message/KHD2';
 import { AudioManager } from '../../TS/BASE/music';
 import { Camera } from 'cc';
+import AnimalManager from '../../TS/Manager/AnimalManager';
 
 @ccclass('Rock')
 export default class rock extends realThing {
@@ -35,17 +36,19 @@ ReceiveMessage(message: Message) {
      break;
 
 
-     case "wuli":  AudioManager.instance.ZJP("hit",3); this.node.getComponent(gif1).falsh();      this.shakeCameraAndNode(find("Canvas/Main Camera").getComponent(Camera),this.node,25,150); if (this.getc(message.from)) {
-     for(let m of this.getc(message.from).attack25){m.Attack25(this,message.Content);}
+     case "wuli": this.node.children[0].getComponent(gif1).falsh();  if (message.from!=-1) {
+            this.shakeCameraAndNode(find("Canvas/Main Camera").getComponent(Camera),this.node.children[0],25,150);
+     }   AudioManager.instance.ZJP("hit",3);  if (this.getc(message.from)) {
+     for(let m of this.getc(message.from).attack25){m.Attack25(this,message.Content);}}
      let k=message.Content+GeZiManager.dm+GeZiManager.ms
      if (k<0) {
      k=0
      }
      this.HP-=k; if (this.HP <= 0) {this.dead() ;}GeZiManager.dm=0;GeZiManager.ms=0; this.playFrameAnimation1("hit",0,this.HP)  ;if (this.HP <= 0) {this.dead() ;}
 
-     }
+     
      break;
-     case "mofa": this.HP -= message.Content; this.playFrameAnimation1("hit",0,this.HP) ; this.node.getComponent(gif1).falsh();   this.shakeCameraAndNode(find("Canvas/Main Camera").getComponent(Camera),this.node,25,150);if (this.HP <= 0) {this.dead() ; }
+     case "mofa": this.HP -= message.Content; this.playFrameAnimation1("hit",0,this.HP) ; this.node.children[0].getComponent(gif1).falsh();   this.shakeCameraAndNode(find("Canvas/Main Camera").getComponent(Camera),this.node.children[0],25,150);if (this.HP <= 0) {this.dead() ; }
      break;
      case "mofaT": this.HP -= message.Content[0]; this.playFrameAnimation1("hit",0,this.HP) ;if (this.HP <= 0) {this.dead() ; }
      break;
@@ -72,7 +75,7 @@ case "getOne":GeZiManager.Tcharacter=this
   }
    
   onLoad(): void {
-     this.gif=this.node.getComponent(gif1)
+     this.gif=this.node.children[0].getComponent(gif1)
      if(this.gif!=null){this.gif.timeArray=this.timeArray}
      this.tname=this.tt
   }
@@ -85,20 +88,31 @@ dead(): void {
      GeZiManager.shanchu(GeZiManager.rock,this.ZB)
 
 
+let g= find("Canvas/DituManager/New Node/AnimalManager").getComponent(AnimalManager).YuanGong
+GeZiManager.shanchu(g,this)
      GeZiManager.shanchu(GeZiManager.BanMove, this.ZB);
-     GeZiManager.shanchu(GeZiManager.WD, this.ZB);
+     GeZiManager.shanchuALL(GeZiManager.WD, this.ZB);
      this.deadgif();
     
 
 }
 playFrameAnimation1(n:string,loop:number,p:number) {
      switch (n) {
-     case "dead":this.gif.moveToNextFrame(0,8,0);this.node.children[1].active=false;//console.log(this.gif.spriteFrame.name)
+     case "dead":
+          
+     
+     this.gif.moveToNextFrame(0,8,0);
+     this.fadeOutAndDisappear( this.node,1200)
+
+  //   this.node.children[0].active=false;
+     
+     
+     //console.log(this.gif.spriteFrame.name)
 
      break;
-     case "hit":this.node.children[0].getComponent(gif1).moveToNextFrame(14,18,1);this.node.children[1].getComponent(gif1).changeF(p+8,1)
+     case "hit":this.node.children[1].getComponent(gif1).moveToNextFrame(14,18,1);this.node.children[2].getComponent(gif1).changeF(p+8,1)
      break;
-     case "HP":this.node.children[1].getComponent(gif1).changeF(p+8,1)
+     case "HP":this.node.children[2].getComponent(gif1).changeF(p+8,1)
 
 
      break;
@@ -130,7 +144,6 @@ for(let a of find("Canvas/DituManager/New Node/AnimalManager").getComponentsInCh
      this.dead()
 
 }
-
 
 
 

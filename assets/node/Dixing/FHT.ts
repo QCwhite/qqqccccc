@@ -28,7 +28,12 @@ B:SpriteFrame | null=null
 @property(SpriteFrame)
 R:SpriteFrame | null=null
 DZD:boolean=false
+ghost: Boolean=true;
 start() {
+
+ 
+
+
            AudioManager.instance.ZJP("ui",10)
         turn.Too.push(this);
         this.round = turn.round;
@@ -38,10 +43,41 @@ start() {
         this.node.getComponent(Sprite).spriteFrame=this.R
         }else {  this.node.getComponent(Sprite).spriteFrame=this.B}
 
-        GeZiManager.BDZD.push(this.ZB)
+for (let g of GeZiManager.FHTs) {
+   if (g.turn==this.turn) {
+        g.ot()
+   }
+        
+}
+        GeZiManager.FHTs.push(this)
         this.node.children[1].getComponent(gif1).changeF(this.turn-1,1)
 }
 BZ() {
+
+
+        GeZiManager.Tcharacter=this.getc(this.turn)
+           AudioManager.instance.ZJP("hit",23);
+      
+           if (this.turn%2==1) {
+         //  endGame.blue-=1
+              }else {    // endGame.red-=1
+
+              }
+
+
+
+
+
+
+        this.node.children[0].getComponent(gif1).moveToNextFrame(0,11,0);
+        GeZiManager.Tcharacter.FH(this.ZB,this.FT,3)
+
+        GeZiManager.shanchu(GeZiManager.BDZD,this.ZB)
+
+
+        this.fadeOutAndDisappear(this.node,1200)
+} 
+ot() {
 
 
         GeZiManager.Tcharacter=this.getc(this.turn)
@@ -60,6 +96,11 @@ BZ() {
 
         this.fadeOutAndDisappear(this.node,1200)
 } 
+
+
+
+
+
 turnPass() {
 ////if (!(turn.round%12==2||turn.round%12==7)) {    
         if(turn.round==this.round+1&&turn.turn==this.FT){

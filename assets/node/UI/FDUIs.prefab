@@ -193,6 +193,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -4529,7 +4530,7 @@
         "__id__": 453
       }
     ],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 484
@@ -4609,8 +4610,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -120.536,
-      "y": 106.021,
+      "x": -67.304,
+      "y": 100.584,
       "z": 0
     },
     "_lrot": {
@@ -4730,6 +4731,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -4841,6 +4843,7 @@
     "DonClick": {
       "__id__": 230
     },
+    "o": false,
     "_id": ""
   },
   {
@@ -4920,6 +4923,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -5042,8 +5046,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -17.469,
-      "y": 107.086,
+      "x": 57.211,
+      "y": 103.27,
       "z": 0
     },
     "_lrot": {
@@ -5163,6 +5167,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -5274,6 +5279,7 @@
     "DonClick": {
       "__id__": 251
     },
+    "o": false,
     "_id": ""
   },
   {
@@ -5353,6 +5359,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -5475,8 +5482,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 82.312,
-      "y": 106.003,
+      "x": 134.097,
+      "y": 6.519,
       "z": 0
     },
     "_lrot": {
@@ -5596,6 +5603,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -5707,6 +5715,7 @@
     "DonClick": {
       "__id__": 272
     },
+    "o": false,
     "_id": ""
   },
   {
@@ -5786,6 +5795,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -5914,8 +5924,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -134.88,
-      "y": 27.738,
+      "x": -132.155,
+      "y": -4.968,
       "z": 0
     },
     "_lrot": {
@@ -6035,6 +6045,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -6311,8 +6322,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 107.749,
-      "y": 1.842,
+      "x": 7.176,
+      "y": -46.128,
       "z": 0
     },
     "_lrot": {
@@ -6397,7 +6408,7 @@
       "__id__": 303
     },
     "_lineHeight": 20,
-    "_string": "<color=#00ff00>Rich</c><color=#0fffff>Text</color>",
+    "_string": "",
     "_horizontalAlign": 0,
     "_verticalAlign": 0,
     "_fontSize": 23,
@@ -6513,6 +6524,7 @@
     "DonClick": {
       "__id__": 311
     },
+    "o": false,
     "_id": ""
   },
   {
@@ -6592,6 +6604,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -6720,8 +6733,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -137.543,
-      "y": -43.274,
+      "x": -0.993,
+      "y": -106.506,
       "z": 0
     },
     "_lrot": {
@@ -6841,6 +6854,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -7203,7 +7217,7 @@
       "__id__": 342
     },
     "_lineHeight": 20,
-    "_string": "<color=#00ff00>Rich</c><color=#0fffff>Text</color>",
+    "_string": "",
     "_horizontalAlign": 0,
     "_verticalAlign": 0,
     "_fontSize": 23,
@@ -7319,6 +7333,7 @@
     "DonClick": {
       "__id__": 350
     },
+    "o": false,
     "_id": ""
   },
   {
@@ -7398,6 +7413,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -7523,8 +7539,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -136.655,
-      "y": -114.286,
+      "x": 3.751,
+      "y": 2.244,
       "z": 0
     },
     "_lrot": {
@@ -7644,6 +7660,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -7759,8 +7776,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 107.749,
-      "y": 1.842,
+      "x": 144.816,
+      "y": -42.039,
       "z": 0
     },
     "_lrot": {
@@ -7845,7 +7862,7 @@
       "__id__": 373
     },
     "_lineHeight": 20,
-    "_string": "<color=#00ff00>Rich</c><color=#0fffff>Text</color>",
+    "_string": "",
     "_horizontalAlign": 0,
     "_verticalAlign": 0,
     "_fontSize": 23,
@@ -7961,6 +7978,7 @@
     "DonClick": {
       "__id__": 381
     },
+    "o": false,
     "_id": ""
   },
   {
@@ -8040,6 +8058,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -8142,7 +8161,7 @@
         "__id__": 400
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 410
@@ -8286,6 +8305,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -8603,6 +8623,7 @@
     "DonClick": {
       "__id__": 412
     },
+    "o": false,
     "_id": ""
   },
   {
@@ -8682,6 +8703,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -8784,7 +8806,7 @@
         "__id__": 431
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 441
@@ -8928,6 +8950,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -9245,6 +9268,7 @@
     "DonClick": {
       "__id__": 443
     },
+    "o": false,
     "_id": ""
   },
   {
@@ -9324,6 +9348,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -9426,7 +9451,7 @@
         "__id__": 462
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 472
@@ -9570,6 +9595,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -9887,6 +9913,7 @@
     "DonClick": {
       "__id__": 474
     },
+    "o": false,
     "_id": ""
   },
   {
@@ -9966,6 +9993,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -10096,6 +10124,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -10360,7 +10389,7 @@
       "__id__": 496
     },
     "_lineHeight": 40,
-    "_string": "<color=#00ff00>Rich</c><color=#0fffff>Text</color>",
+    "_string": "技能",
     "_horizontalAlign": 0,
     "_verticalAlign": 0,
     "_fontSize": 40,
@@ -10908,7 +10937,7 @@
         "__id__": 664
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 670
@@ -11046,6 +11075,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -11451,6 +11481,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -11969,6 +12000,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -12127,6 +12159,7 @@
     "DonClick": {
       "__id__": 579
     },
+    "o": false,
     "_id": ""
   },
   {
@@ -12193,6 +12226,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -12553,6 +12587,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -12711,6 +12746,7 @@
     "DonClick": {
       "__id__": 606
     },
+    "o": false,
     "_id": ""
   },
   {
@@ -12777,6 +12813,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -13137,6 +13174,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -13295,6 +13333,7 @@
     "DonClick": {
       "__id__": 633
     },
+    "o": false,
     "_id": ""
   },
   {
@@ -13361,6 +13400,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -13721,6 +13761,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -13879,6 +13920,7 @@
     "DonClick": {
       "__id__": 660
     },
+    "o": false,
     "_id": ""
   },
   {
@@ -13945,6 +13987,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -14332,6 +14375,7 @@
     "DonClick": {
       "__id__": 680
     },
+    "o": false,
     "_id": ""
   },
   {
@@ -14395,6 +14439,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -14562,6 +14607,7 @@
     "DonClick": {
       "__id__": 691
     },
+    "o": false,
     "_id": ""
   },
   {
@@ -14622,6 +14668,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -14789,6 +14836,7 @@
     "DonClick": {
       "__id__": 702
     },
+    "o": false,
     "_id": ""
   },
   {
@@ -14849,6 +14897,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,

@@ -89,7 +89,7 @@ for (let c of GeZiManager.Tcharacters) {
 
      }
 this.ZB=0
-     this.fadeOutAndDisappear(this.node,200)
+     this.fadeOutAndDisappear(this.node,1200)
     // console.log(this.type)
      GeZiManager.shanchu(this.node.parent.getComponent(AnimalManager).YuanGong,this)
 
@@ -314,9 +314,33 @@ case "getOne":if(message.Command.includes(this.ZB)){GeZiManager.Tcharacter=this}
      }
 
 
+
+case "wind": if (GeZiManager.Ban.includes(this.ZB)) { } else {
+                        switch (this.M) {
+                       
+                           case "正常": this.move(message.Content,1); this.CMget(); this.moveto(1.5, this.ZB);
+
+                              break;
+                           case "轻飘飘": this.move(message.Content,2); this.CMget(); this.moveto(1.5, this.ZB);
+
+                              break;
+                      
+                           default:
+                              break;
+                        }
+                     }
+
+
+
+
      default:
      break;
      }
+
+
+
+
+
 
 }}}
 ST(){

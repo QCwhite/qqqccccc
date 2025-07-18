@@ -10,9 +10,10 @@ export class Apple extends banana {
       BZ(preZB:number)
       {       AudioManager.instance.ZJP("hit",11);
         MessageCenter.MakeSHMessage("AM",[this.ZB],1,0,"HP+")
-     //   this.playFrameAnimation1("BZ",0,0)
-        this.fadeOutAndDisappear(this.node,200);
+       this.playFrameAnimation1("BZ",0,0)
+   
     this.ObstacleClear()
+         this.fadeOutAndDisappear(this.node,200);
        // GeZiManager.shanchu(GeZiManager.aos,this.ZB)
       }
 

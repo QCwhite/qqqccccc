@@ -386,6 +386,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 237,
@@ -725,6 +726,7 @@
       "__id__": 32
     },
     "floatHeight": 15,
+    "floatDuration": 3,
     "sharedMaterial": {
       "__uuid__": "5c68dd6e-f035-4afd-b822-1abaa3133034",
       "__expectedType__": "cc.Material"
@@ -783,6 +785,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 237,
@@ -797,9 +800,9 @@
       "b": 225,
       "a": 255
     },
-    "emissionPower": 1,
-    "bloomIntensity": 1,
-    "bloomRadius": 0.05,
+    "emissionPower": 0.187,
+    "bloomIntensity": 0.123,
+    "bloomRadius": 0.104,
     "brightness": 1,
     "saturation": 1,
     "contrast": 1,
@@ -947,6 +950,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 237,
@@ -998,7 +1002,7 @@
     "__prefab": {
       "__id__": 43
     },
-    "zyx": 0,
+    "zyx": -2,
     "type": 0,
     "_id": ""
   },

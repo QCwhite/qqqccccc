@@ -48,11 +48,11 @@ export default class qizi extends DES {
     
     
     switch (this.color) {
-        case "Blue":this.node.children[1].active=true;//for(let a of this.getNIG(this.ZB)){  GeZiManager.redM.push(a)}
+        case "Blue":this.node.children[1].active=true;for(let a of this.getNIG(this.ZB)){  GeZiManager.redM.push(a)}
       
             
             break;
-            case "Red":this.node.children[0].active=true;//for(let a of this.getNIG(this.ZB)){  GeZiManager.blueM.push(a)}
+            case "Red":this.node.children[0].active=true;for(let a of this.getNIG(this.ZB)){  GeZiManager.blueM.push(a)}
             
             break;
             case "S02":this.node.children[2].active=true
@@ -355,9 +355,48 @@ case "getF":if(this.ZB==message.Command[0]){GeZiManager.TF=this}
 break;
 
 
-case "getOne":if(message.Command.includes(this.ZB))GeZiManager.Tcharacter=this
+case "getOne":if(message.Command.includes(this.ZB)&&!GeZiManager.BanMove.includes(this.ZB))GeZiManager.Tcharacter=this
     break
+case "HP+": 
+if (message.from>=0) {
 
+GeZiManager.Tcharacters=[]
+MessageCenter.MakeSHMessage("AM",this.getNIGno5(this.ZB),1,GeZiManager.PCP.Pturn,"getOneCs");
+for (let g of GeZiManager.Tcharacters) {
+  if (g.color==this.color) {
+        MessageCenter.MakeSHMessage("AM",[g.ZB],1,GeZiManager.PCP.Pturn,"HP+");
+  }
+
+}}
+    break
+case "Qi+": 
+if (message.from>=0) {
+    
+
+
+GeZiManager.Tcharacters=[]
+MessageCenter.MakeSHMessage("AM",this.getNIGno5(this.ZB),1,GeZiManager.PCP.Pturn,"getOneCs");
+for (let g of GeZiManager.Tcharacters) {
+  if (g.color==this.color) {
+        MessageCenter.MakeSHMessage("AM",[g.ZB],1,-1,"Qi+");
+  }
+
+}}
+    break
+case "TN+": 
+if (message.from>=0) {
+    
+
+
+GeZiManager.Tcharacters=[]
+MessageCenter.MakeSHMessage("AM",this.getNIGno5(this.ZB),1,GeZiManager.PCP.Pturn,"getOneCs");
+for (let g of GeZiManager.Tcharacters) {
+  if (g.color==this.color) {
+        MessageCenter.MakeSHMessage("AM",[g.ZB],1,-1,"TN+");
+  }
+
+}}
+    break
             default:
                 break;
         }}
@@ -440,6 +479,65 @@ GeZiManager.Tcharacters=[]
 }
 
     
+
+
+MU(n:string){
+let g=[this.findGe(1,1),this.findGe(2,1),this.findGe(3,1),this.findGe(4,1),this.findGe(6,1),this.findGe(7,1),this.findGe(8,1),this.findGe(9,1)]
+
+    switch (n) {
+   
+
+            case 'cure':
+            
+            break;
+            case 'wind'://this.Dwind(message.Content);n="大风吹";l="FASHU2-8"//if(this.PPC()){this.MCD[4]+=4};
+            
+            break;
+            case 'ice'://this.Dice(message.Content);n="冰冻";l="FASHU2-10"//if(this.PPC()){this.MCD[5]+=4}
+            
+            break;
+            case 'earthquake'://this.Dearthquake();n="地震";l="FASHU2-7"//if(this.PPC()){this.MCD[6]+=5}
+            
+            break;
+            case 'TP'://this.DTP(message.Content);n="传送";l="FASHU2-9"//if(this.PPC()){this.MCD[7]+=5}
+            
+            break;
+            case 'thunder'://this.Dthunder(message.Content);n="雷霆万钧";l="FASHU2-12"//if(this.PPC()){this.MCD[8]+=5}
+            
+            break;
+            case 'banana'://this.Dbanana(message.Content);n="香蕉";l="FASHU2-11"//if(this.PPC()){this.MCD[9]+=3}
+            
+            break;
+            case 'KB'://this.DKB(message.Content);n="激怒";l="FASHU2-6"//if(this.PPC()){this.MCD[1]+=4}
+            
+            break;
+            case 'BZ'://this.DBZ2(message.Content);n="魔法矩阵";l="FASHU2-14"//if(this.PPC()){this.MCD[1]+=4}
+            
+            break;
+            case 'tree'://this.Dtree(message.Content);n="通灵召唤";l="FASHU2-13"//if(this.PPC()){this.MCD[1]+=4}
+            
+            break;
+            case 'pig'://this.Dpig();n="光阴似箭";l="FASHU2-15"//if(this.PPC()){this.MCD[1]+=4}
+            
+            break;
+            case 'tui'://this.Dtui(message.Content);n="推";l="FASHU2-16"//if(this.PPC()){this.MCD[1]+=4}
+            
+            break;
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
       
     }
-    
+}

@@ -49,13 +49,18 @@ MK:boolean=false
        if (this.app==true) {
              // console.log(this.app)
        
-              MessageCenter.MakeSHMessage("AM",[this.ZB],7.1,GeZiManager.PCP.Pturn,"FTP");}
+          //    MessageCenter.MakeSHMessage("AM",[this.ZB],7.1,GeZiManager.PCP.Pturn,"FTP");
+          }
 
+
+                 this.WD=false;
+       GeZiManager.shanchu(GeZiManager.BanMove,this.ZB);
+        console.log(GeZiManager.WD)
+       GeZiManager.shanchuALL(GeZiManager.WD, this.ZB);
        GeZiManager.shanchu(GeZiManager.trees,this.ZB)
 
-       this.deadgif();
-       GeZiManager.shanchu(GeZiManager.BanMove,this.ZB);
-       GeZiManager.shanchu(GeZiManager.WD, this.ZB);
+     console.log(this.ZB)
+     console.log(GeZiManager.WD)
 
        if (k) {
        if ( this.getdis(k.ZB)<=1) {
@@ -78,7 +83,7 @@ MK:boolean=false
 console.log(this.app)
 
 
-
+  this.deadgif();
 
 
     }
@@ -168,18 +173,16 @@ ReceiveMessage(message: Message) {
 
 
        case "wuli":   if(this.getc(message.from)!=null)
-       { for(let m of this.getc(message.from).attack25){m.Attack25(this,message.Content);}
+       { for(let m of this.getc(message.from).attack25){m.Attack25(this,message.Content);}}
        let k=(message.Content+GeZiManager.dm+GeZiManager.ms);if (k>0) {
        this.HP-=k
        }
 
        if (this.HP <= 0) {this.HP = 0;this.dead(this.getc(message.from));}GeZiManager.dm=0;GeZiManager.ms=0
-       }else{   let k=(message.Content+GeZiManager.dm+GeZiManager.ms);if (k>0) {
-       this.HP-=k
-       }
+      
 
-
-       }GeZiManager.dm=0; this.playFrameAnimation1("hit",0,this.HP)  ;if (this.HP <= 0) {this.dead(this.getc(message.from)) ;}
+       
+     ;this.playFrameAnimation1("hit",0,this.HP)  ;
 this.node.getComponent(gif1).falsh()
   this.shakeCameraAndNode(find("Canvas/Main Camera").getComponent(Camera),this.node,30,180);
        break;

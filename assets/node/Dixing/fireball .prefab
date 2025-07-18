@@ -41,10 +41,13 @@
       },
       {
         "__id__": 26
+      },
+      {
+        "__id__": 28
       }
     ],
     "_prefab": {
-      "__id__": 28
+      "__id__": 30
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -360,9 +363,29 @@
     },
     "atlas2": null,
     "atlas3": null,
-    "parent": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
+    "emissionColor": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "bloomColor": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 204,
+      "b": 128,
+      "a": 255
+    },
+    "emissionPower": 1,
+    "bloomIntensity": 1,
+    "bloomRadius": 0.02,
+    "brightness": 1,
+    "saturation": 1,
+    "contrast": 1,
     "_id": ""
   },
   {
@@ -494,9 +517,29 @@
     },
     "atlas2": null,
     "atlas3": null,
-    "parent": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
+    "emissionColor": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "bloomColor": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 204,
+      "b": 128,
+      "a": 255
+    },
+    "emissionPower": 1,
+    "bloomIntensity": 1,
+    "bloomRadius": 0.02,
+    "brightness": 1,
+    "saturation": 1,
+    "contrast": 1,
     "_id": ""
   },
   {
@@ -544,7 +587,7 @@
     "__prefab": {
       "__id__": 25
     },
-    "_opacity": 158,
+    "_opacity": 200,
     "_id": ""
   },
   {
@@ -578,6 +621,28 @@
   {
     "__type__": "cc.CompPrefabInfo",
     "fileId": "06Tdo55a9FdKPwa/rMjy/4"
+  },
+  {
+    "__type__": "febd698pOlKW6W45gwehn44",
+    "_name": "",
+    "_objFlags": 0,
+    "__editorExtras__": {},
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "__prefab": {
+      "__id__": 29
+    },
+    "floatHeight": 0,
+    "floatDuration": 3,
+    "sharedMaterial": null,
+    "maxEmissionPower": 0.3,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.CompPrefabInfo",
+    "fileId": "7a5ZHniMBJAav+K82WBZ7q"
   },
   {
     "__type__": "cc.PrefabInfo",

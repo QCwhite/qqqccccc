@@ -107,10 +107,13 @@
       },
       {
         "__id__": 227
+      },
+      {
+        "__id__": 229
       }
     ],
     "_prefab": {
-      "__id__": 229
+      "__id__": 231
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -777,6 +780,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -863,6 +867,7 @@
       "__id__": 34
     },
     "floatHeight": 35,
+    "floatDuration": 3,
     "sharedMaterial": null,
     "maxEmissionPower": 0.3,
     "_id": ""
@@ -987,6 +992,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -1358,6 +1364,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -3197,6 +3204,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -3380,6 +3388,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -3563,6 +3572,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -3746,6 +3756,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -4674,9 +4685,6 @@
       "__id__": 80
     },
     "i": 0,
-    "tx": null,
-    "shadow": null,
-    "atx": null,
     "_id": ""
   },
   {
@@ -4727,6 +4735,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -4843,6 +4852,24 @@
   {
     "__type__": "cc.CompPrefabInfo",
     "fileId": "39EjNoQhpILJHgiVxHl+37"
+  },
+  {
+    "__type__": "7ca348OZUNHsYN/87LIRL4t",
+    "_name": "",
+    "_objFlags": 0,
+    "__editorExtras__": {},
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "__prefab": {
+      "__id__": 230
+    },
+    "_id": ""
+  },
+  {
+    "__type__": "cc.CompPrefabInfo",
+    "fileId": "f26LkWSH5D+YHBELLNnzWB"
   },
   {
     "__type__": "cc.PrefabInfo",

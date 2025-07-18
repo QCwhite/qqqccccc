@@ -7,6 +7,7 @@ import { AudioManager } from '../../TS/BASE/music';
 import turn from '../../TS/game/time/turn';
 import MessageCenter from '../../TS/Message/MessageCenter';
 import { SHMessage } from '../../TS/Message/SHMessage';
+import { log } from 'console';
 const { ccclass, property } = _decorator;
 
 @ccclass('TUJ')
@@ -58,7 +59,8 @@ this.color=GeZiManager.PCP.color
             break;
     }
 
-
+    console.log(GeZiManager.BQ)
+     console.log(GeZiManager.RQ)
     
 }
 
@@ -66,13 +68,22 @@ this.color=GeZiManager.PCP.color
 
 dead(): void {
     switch (this.color) {
-        case "Blue":GeZiManager.shanchu(GeZiManager.RQ,this.getNIG(this.ZB));for(let a of this.getNIG(this.ZB)){GeZiManager.shanchu( GeZiManager.redM,a) }
+        case "Blue":
+            console.log(GeZiManager.RQ.indexOf(this.getNIG(this.ZB)))
+        
+        
+        GeZiManager.deleteSubArray(GeZiManager.RQ,this.getNIG(this.ZB));for(let a of this.getNIG(this.ZB)){GeZiManager.shanchu( GeZiManager.redM,a) }
             
             break;
     
-        default:GeZiManager.shanchu(GeZiManager.BQ,this.getNIG(this.ZB));for(let a of this.getNIG(this.ZB)){GeZiManager.shanchu( GeZiManager.blueM,a) }
+        default:GeZiManager.deleteSubArray(GeZiManager.BQ,this.getNIG(this.ZB));for(let a of this.getNIG(this.ZB)){GeZiManager.shanchu( GeZiManager.blueM,a) }
             break;
     }
+
+
+console.log(this.color)
+    console.log(GeZiManager.BQ)
+     console.log(GeZiManager.RQ)
 this.node.active=false
 this.node1.active=false
 }

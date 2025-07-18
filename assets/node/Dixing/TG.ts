@@ -29,6 +29,11 @@ export default class TG extends realThing {
    sWater:SpriteFrame | null=null
    @property(SpriteFrame)
   Hun:SpriteFrame | null=null
+
+    @property(SpriteFrame)
+ Qi:SpriteFrame | null=null
+   @property(SpriteFrame)
+ TN:SpriteFrame | null=null
     start() {
      turn.Roo.push(this);
 
@@ -43,8 +48,13 @@ k(){ switch (this.N) {
      case "Hun":this.node.getComponent(gif1).spriteFrame=this.Hun
 
      break;
+ case "TN":this.node.getComponent(gif1).spriteFrame=this.TN
 
-   
+     break;
+
+    case "Qi":this.node.getComponent(gif1).spriteFrame=this.Qi
+
+     break;
      default:this.node.getComponent(gif1).spriteFrame=this.TP
      break;
   }}
