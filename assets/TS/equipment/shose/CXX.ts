@@ -39,6 +39,17 @@ export default class CXX extends equipment {
 //             a.changeSlot(a.spine6,"CH",this.node.parent.getComponent(Shops).find(2,this.TheNumber+"-L"))
 //             a.changeSlot(a.spine6,"CQ",this.node.parent.getComponent(Shops).find(2,this.TheNumber+"-R"))
             }
+            getWY(){
+            
+            
+            
+           // return []
+          
+            
+            
+            
+            }
+            
 }
 
 

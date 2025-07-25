@@ -24,6 +24,9 @@ import { truncate } from 'fs';
 
 @ccclass('ComponentBase')
 export default class ComponentBase extends Component {
+   Hurt1(Pturn: number, arg1: number) {
+  
+   }
   x: number;
   y: number;
     WDT() {
@@ -92,7 +95,7 @@ export default class ComponentBase extends Component {
   ObstaclesName: string;
   color: string;
   tt: string;
-  BZ(preZB:number,zi:boolean)
+  BZ(preZB:number,zi?:boolean)
   {}
  LK(ZB:number){}
  JR(ZB:number){}
@@ -157,7 +160,7 @@ findGe(face: number,i:number,ZB:number) {
 let n = 0;
 let a = ZB;
 let x:number;
-
+console.log(ZB)
 let y:number;
 if(ZB % 8 == 0) {x = 8 } else {x = ZB % 8; }
 y = Math.ceil(ZB / 8)
@@ -195,13 +198,18 @@ return n;
 }
 getNIG(n:number){
 let NK:number[]=[];
+console.log(n)
 for (let index = 1; index <= 9; index++) {
   
  NK.push(this.findGe(index,1,n))
 }
+console.log(NK)
 return NK;
 }
+getNIG9(n:number){
 
+
+}
 
 getNIGno5(n:number){
 let NK:number[]=[];
@@ -581,10 +589,10 @@ function getR(banR:number[]):number[] {
         case 1:k.push(28,29,36,37);
             
             break;
-            case 2:k.push(19,20,21,22,30,38,46,45,44,43,35,27)
+            case 2:k.push(19,20,21,30,38,46,45,44,35,27)
             
             break;
-            case 3:k.push(10,11,12,13,14,15,23,31,39,47,55,54,53,52,51,50,42,34,26,18)
+            case 3:k.push(10,11,12,13,14,15,23,31,39,55,54,53,52,51,50,42,34,26)
             
             break;
     
@@ -890,8 +898,38 @@ getCurrentPosition(o) {
 }
 
 
+bounceToOrigin(
+    node: Node,
+    targetPosition: Vec3,
+    durationMs: number,
+   
+): any {
+    if (!node || !node.isValid||!targetPosition) {
+      //  console.error("无效的节点");
+        return null;
+    }
 
-
+    // 保存原始位置
+   const originalPosition = this.getpos(this.ZB)
+    
+    // 计算中点位置
+    const midPosition = new Vec3();
+    Vec3.add(midPosition, originalPosition, targetPosition);
+    Vec3.multiplyScalar(midPosition, midPosition, 0.5);
+    
+    // 创建动画序列
+    const tweenInstance = tween(node)
+        .to(durationMs / 1000, { position: midPosition } )
+        .to(durationMs / 1000, { position: originalPosition } )
+    
+    // 设置循环（如果需要）
+    
+    
+    // 启动动画
+    tweenInstance.start();
+    
+    return tweenInstance;
+}
 
 
 

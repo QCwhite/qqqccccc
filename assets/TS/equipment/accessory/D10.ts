@@ -51,7 +51,7 @@ FW:number[]=[]
 
 if (  GeZiManager.Tcharacter&&this.target.HP>0&&GeZiManager.Tcharacter.color!=this.target.color) {
     MessageCenter.MakeSHMessage("AM",[ZB],1,this.target.Pturn,"HP-") 
-    MessageCenter.MakeSHMessage("AM",[ZB],2,this.target.Pturn,"Qi-") 
+    MessageCenter.MakeSHMessage("AM",[ZB],1,this.target.Pturn,"Qi-") 
 }
     
 
@@ -64,7 +64,7 @@ if (  GeZiManager.Tcharacter&&this.target.HP>0&&GeZiManager.Tcharacter.color!=th
 
 if (  GeZiManager.Tcharacter&&this.target.HP>0&&GeZiManager.Tcharacter.color!=this.target.color) {
         MessageCenter.MakeSHMessage("AM",[ZB],1,this.target.Pturn,"HP-") 
-        MessageCenter.MakeSHMessage("AM",[ZB],2,this.target.Pturn,"Qi-") 
+        MessageCenter.MakeSHMessage("AM",[ZB],1,this.target.Pturn,"Qi-") 
     }
         
    }

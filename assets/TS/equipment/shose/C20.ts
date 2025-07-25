@@ -81,6 +81,11 @@ Magic3(ZB: number): void {
 //                 a.changeSlot(a.spine6,"CH",this.node.parent.getComponent(Shops).find(2,this.TheNumber+"-L"))
 //                 a.changeSlot(a.spine6,"CQ",this.node.parent.getComponent(Shops).find(2,this.TheNumber+"-R"))
                 }
+
+
+
+
+                
 }
 
 

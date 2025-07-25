@@ -560,6 +560,7 @@ NWNA(e:string[],n:number){
    
       if (sumArray(n)>=4){
           this.JX=true
+                 this.node.getComponent(Cspine).currentSpine.animation="EX"
         }else{        this.JX=false}//蓝毒兽
       
     

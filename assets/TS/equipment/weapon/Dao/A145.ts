@@ -15,9 +15,10 @@ import A131 from "./A131";
 import A132 from "./A132";
 import Dao from "./Dao";
 import { AudioManager } from '../../../BASE/music';
+import A110 from './A110';
 
 @ccclass('A145')
-export default class A145 extends A132 {
+export default class A145 extends A110 {
     SH=1;
  Aface: number[]=[2];
     level:number=1
@@ -30,7 +31,7 @@ gj:number=1
         super();
        console.log( this.TheNumber)
         }
-        QD(an:number[]){
+        QD1(an:number[]){
 
        console.log(this.node.getComponent(Character).Pturn)
        if(this.node.getComponent(Character).attack2!=null){for(let a of this.node.getComponent(Character).attack2){a.Attack2(an);}}
@@ -51,6 +52,23 @@ AudioManager.instance.ZJP("attack",this.Ytype)
        this.gj*=-1
 
       }
+
+
+start(): void {
+  super.start()
+  this.target.magic3.push(this)
+
+}
+
+
+
+Magic3(ZB: number): void {
+  this.attack()
+}
+
+
+
+
 }
 
 

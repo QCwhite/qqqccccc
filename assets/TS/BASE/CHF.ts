@@ -342,16 +342,22 @@ export default class CHF extends Character {
             {
                
                for(let m of this.behurt2){m.Behurt2(message,this,this.getc(message.from));}//被打
+         if (this.getc(message.from)) {
             for(let m of this.getc(message.from).attack25){m.Attack25(this,message.Content);}//打人
+         }   
                let k=message.Content+GeZiManager.dm;
                k-=this.wk;
               
-               k-=this.DunDefenceSH(this.weapon,this.getc(message.from),this.getc(message.from).getComponent(weapon))
+           if (this.getc(message.from)) {
+            k-=this.DunDefenceSH(this.weapon,this.getc(message.from),this.getc(message.from).getComponent(weapon))
+           }    
                
                
             
                               GeZiManager.un=k; 
-                              this.getc(message.from).weapon.getComponent(weapon).GF(k,message.from);
+                        if (this.getc(message.from)) {
+                            this.getc(message.from).weapon.getComponent(weapon).GF(k,message.from);
+                        }     
                               let n=k+GeZiManager.ms;
                if (n < 0) { n = 0; } this.getHurt(n,this.getc(message.from),k);}else{let n = message.Content;if (n < 0) { n = 0; } this.getHurt(n,this.getc(message.from),GeZiManager.un);}
                                  GeZiManager.BOL=false;

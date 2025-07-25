@@ -19,10 +19,11 @@ export default class A144 extends A110 {
     TheNumber: string ="A144";
     Aface: number[] = [2];
     SH: number=2;
+   TNJ: number=-1;
     start(){
       this.node.getComponent(Character).attack35.push(this)
          this.target=this.node.getComponent(Character)
-              MessageCenter.MakeSHMessage("AM", [this.target.ZB], 1,this.node.getComponent(Character).Pturn, "HP+");
+            MessageCenter.MakeSHMessage("AM", [this.target.ZB], 1,this.node.getComponent(Character).Pturn, "HP+");
            this.changeEP()
     }
 Attack35(an: any, kn: number): void {

@@ -20,6 +20,7 @@ SH: number=99
 level: number = 6
 TheNumber: string ="A162";
 Ytype: number=15;
+TNJ=-4
 start(){
        this.node.getComponent(Character).kill3.push(this)
 AudioManager.instance.ZJP("attack",this.Ytype)
@@ -30,7 +31,7 @@ AudioManager.instance.ZJP("attack",this.Ytype)
       
    }else{ c= GeZiManager.Bhun; }
    
-          MessageCenter.MakeSHMessage("AM",[this.node.getComponent(Character).ZB],c,this.node.getComponent(Character).Pturn,"HP+")
+  //        MessageCenter.MakeSHMessage("AM",[this.node.getComponent(Character).ZB],c,this.node.getComponent(Character).Pturn,"HP+")
      this.changeEP()
 }
 Kill3(): void {

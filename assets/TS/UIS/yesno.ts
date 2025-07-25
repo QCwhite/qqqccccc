@@ -32,6 +32,11 @@ export default class yesno extends ComponentBase {
    
    
         yes(){
+
+
+
+console.log(state.ST)
+
                 switch (state.ST) {
                     case 0: 
                 //    console.log()
@@ -55,16 +60,15 @@ export default class yesno extends ComponentBase {
                         case 0.5: 
                       //  console.log(GeZiManager.Tcharacter.Pturn)
                      //   console.log(GeZiManager.Tcharacter)
-                        MessageCenter.MakeGMessage("AM",[GeZiManager.GeZi,GeZiManager.Tcharacter.Pturn],66,GeZiManager.PCP.Pturn,"FTP");
-                      //GeZiManager.Tcharacter.FH(GeZiManager.GeZi)
-                        MessageCenter.MakeMessage("UIManager","change",1)
-                   
-                        state.ST=1
+                      MessageCenter.MakeGMessage("AM",[GeZiManager.GeZi],GeZiManager.GeZi,GeZiManager.PCP.Pturn,"FH");
+              
+                             
+                             //state.ST=1
                     
                     
                         
                        
-                      //  console.log(GeZiManager.Tcharacter)
+                    
                        
                     
                     
@@ -95,7 +99,7 @@ export default class yesno extends ComponentBase {
                 
                 //////////////移动
                 case 1:  
-                if(GeZiManager.PCP.walk2!=null){for(let w of GeZiManager.PCP.walk2){w.Walk2(GeZiManager.GeZi);}}  
+                     if(GeZiManager.PCP.walk2!=null){for(let w of GeZiManager.PCP.walk2){w.Walk2(GeZiManager.GeZi);}}  
                 GeZiManager.PCP.To(GeZiManager.GeZi,0.6);MessageCenter.MakeMessage("UIManager","change",1);
                 GeZiManager.TNC[1]=3;GeZiManager.PCP.Bu.push(1);GeZiManager.PCP.ST()
                 MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],GeZiManager.TNC[1]+GeZiManager.PCP.TNJJ[1],GeZiManager.PCP.Pturn,"TN-");  
@@ -149,6 +153,10 @@ export default class yesno extends ComponentBase {
                     MessageCenter.MakeMessage("UIManager","change",1)
                 GeZiManager.qing();
                 
+
+                if (state.ST==0.5) {
+                            MessageCenter.MakeGMessage("AM",[0], turn.turn+1, turn.turn,"PASS");
+                }
                    }
                 
                 delei(){

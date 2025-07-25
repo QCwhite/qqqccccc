@@ -30,7 +30,7 @@ export default class S02 extends SXX {
      cType: string ="human"
      qz:number=0;
      langmu:number=1
-JX1: string[]=["S02-劫掠","S02-劫掠P","S02-开箱","S02-海盗旗","S02-幽灵船长"];
+JX1: string[]=["S02-1","S02-2","S02-3","S02-4","S02-5","S02-6"];
 BL:number[]=[0,0,0,0,0,0,0,0,0,0,0]
 GZN:realThing=null
 RtoRelive:number=99;
@@ -41,7 +41,8 @@ RtoRelive:number=99;
        GeZiManager.Tcharacter=null
        MessageCenter.MakeSHMessage("AM",an,1,null,"getOne")
        if(GeZiManager.Tcharacter!=null&&!GeZiManager.Tcharacter.gui){
-
+ this.node.parent.getComponent(JNUM).JNF("S劫掠",this.target.ZB,400)
+       this.node.parent.getComponent(JNUM).JNF("S劫掠",GeZiManager.Tcharacter.ZB,400)
        let c=this.node.getComponent(Character).qi
    //    console.log(c)
 
@@ -62,8 +63,7 @@ RtoRelive:number=99;
 
   
 
-       this.node.parent.getComponent(JNUM).JNF("S劫掠",this.target.ZB,400)
-       this.node.parent.getComponent(JNUM).JNF("S劫掠",GeZiManager.Tcharacter.ZB,400)
+      
        }
 
 
@@ -234,7 +234,7 @@ Move2(ZB: number,p:number,time:number): void {
        MessageCenter.MakeSHMessage("AM",[this.target.findGe(this.target.faceTo,2)],1,null,"getOne")
        if (GeZiManager.Tcharacter) {
       
-       MessageCenter.MakeSHMessage("AM",[this.target.ZB],2,this.target.Pturn,"TN-")
+       //MessageCenter.MakeSHMessage("AM",[this.target.ZB],2,this.target.Pturn,"TN-")
        if (GeZiManager.Tcharacter.qi<this.target.qi) {
        MessageCenter.MakeSHMessage("AM",[this.target.ZB],[this.target.turn8([this.target.faceIs(GeZiManager.Tcharacter.ZB)])[0],0.3],this.target.Pturn,"move")
        }else{  MessageCenter.MakeSHMessage("AM",[GeZiManager.Tcharacter.ZB],[this.target.turn8([GeZiManager.Tcharacter.faceIs(this.target.ZB)])[0],0.3],this.target.Pturn,"move")}

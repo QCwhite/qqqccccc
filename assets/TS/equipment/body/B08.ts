@@ -26,7 +26,7 @@ TheNumber: string="B08";
     
     Cname:string="刺猬壳"
     start () {
-        
+         this.target=  this.node.getComponent(Character)
        this.node.getComponent(Character).behurt2.push(this);
 //this.node.getComponent(Character).behurt3.push(this);
    this.changeEP()
@@ -43,9 +43,10 @@ Behurt2(m: SHMessage, BeHC: any, HC: any): void {
 
        if(a.getc(m.from)!=null&&c.includes(a.getc(m.from).faceIs(a.ZB))){
        GeZiManager.dm-=1;
-       let d=[a.findGe(c[0],1),a.findGe(c[1],1),a.findGe(c[2],1)]
-       MessageCenter.MakeSHMessage("AM",d,1,this.node.getComponent(Character).Pturn,"wuli")
+     
        }
+         let d=[a.findGe(c[0],1),a.findGe(c[1],1),a.findGe(c[2],1)]
+       MessageCenter.MakeSHMessage("AM",d,1,this.node.getComponent(Character).Pturn,"wuli")
  }
         
    Behurt3(n: number, killp: any, k: number): void {

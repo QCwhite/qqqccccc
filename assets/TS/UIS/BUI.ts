@@ -38,6 +38,7 @@ import S01 from '../Scharacter/S01';
 import S08 from '../Scharacter/S08';
 import S04 from '../Scharacter/S04';
 import S05 from '../Scharacter/S05';
+import { DGZ2 } from '../Ditu/Gezi/DGZ2';
 
 @ccclass('BUI')
 export default class BUI extends ComponentBase {
@@ -156,13 +157,33 @@ export default class BUI extends ComponentBase {
     if ( GeZiManager.PCP.LST==10) {
        
         let Skill =this.node.children[1]
-        let Skill1=Skill.children[0].children[0]
-        let Skill2=Skill.children[1].children[0]
-        let Skill3=Skill.children[2].children[0]
-        let Skill4=Skill.children[3].children[0]
-    
-    
-    
+            let qi=Skill.children[0].children[0]
+        let magic=Skill.children[1].children[0]
+            let shop=Skill.children[2].children[0]
+        let Skill1=Skill.children[3].children[0]
+        let Skill2=Skill.children[4].children[0]
+        let Skill3=Skill.children[5].children[0]
+        let Skill4=Skill.children[6].children[0]
+   /*         let NWshop=Skill.children[7].children[0]
+            let attack=Skill.children[8].children[0]
+        qi. children[3].children[0].getComponent(Label).string="X"
+        qi. children[2].getComponent(gif1).changeF(GeZiManager.PCP.getTN(2)-1,1)
+
+          attack. children[3].children[0].getComponent(Label).string="X"
+        attack. children[2].getComponent(gif1).changeF(GeZiManager.PCP.getTN(3)-1,1)
+              attack.parent.getComponent(CustomButton).enableButton()
+      if (GeZiManager.PCP.TN>=GeZiManager.PCP.getTN(2)) {
+             qi.parent.getComponent(CustomButton).enableButton()
+      } else{   qi.parent.getComponent(CustomButton).disableButton()}
+        shop. children[3].children[0].getComponent(Label).string="X"
+        shop. children[2].getComponent(gif1).changeF(GeZiManager.PCP.getTN(5)-1,1)
+    shop.parent.getComponent(CustomButton).enableButton()
+
+      
+    NWshop.parent.getComponent(CustomButton).enableButton()
+      magic.children[3].children[0].getComponent(Label).string="X"
+        magic.children[2].getComponent(gif1).changeF(GeZiManager.PCP.getTN(4)-1,1)
+       magic.parent.getComponent(CustomButton).enableButton()*/
         Skill1.active=true
         Skill2.active=true
         Skill3.active=true
@@ -175,6 +196,18 @@ export default class BUI extends ComponentBase {
         Skill2.parent.getComponent(CustomButton).enableButton()
         Skill3.parent.getComponent(CustomButton).enableButton()
         Skill4.parent.getComponent(CustomButton).enableButton()
+
+
+if (turn.DorN=="day") {
+    //    shop.parent.active=true
+   //   NWshop.parent.active=false
+}else{   
+ //  NWshop.parent.active=true
+ //   shop.parent.active=false
+    }
+
+
+
     switch (
      
       
@@ -262,10 +295,10 @@ export default class BUI extends ComponentBase {
        Skill1.children[3].active=true
       
        Skill2.children[2].active=true
-       Skill2.children[2].getComponent(gif1).changeF(1,1)//体能
+       Skill2.children[2].getComponent(gif1).setEmptyFrame()
        Skill2.children[3].children[0].getComponent(Label).string=2+""
        Skill2.children[3].active=true
-      
+           Skill1.active=false
        Skill3.active=false
        Skill4.active=false
         break;
@@ -424,7 +457,7 @@ if (GeZiManager.PCP.getComponent(SXX).JX) {
             Skill1.children[2].active=true
             Skill1.children[2].getComponent(gif1).changeF(2-o,1)//体能
             Skill1.children[3].children[0].getComponent(Label).string=""
-            Skill1.children[3].active=true
+            Skill1.children[3].active=false
         
         
         if (GeZiManager.PCP.TN<3-o||GeZiManager.PCP.qi<1) {
@@ -583,9 +616,9 @@ if (GeZiManager.PCP.getComponent(SXX).JX) {
     attack(){
     
       
+     
     
-    
-      if(GeZiManager.PCP.weapon.DT){if(this.PPC()){GeZiManager.PCP.weapon.attack()}}else{
+      if(GeZiManager.PCP.weapon.DT){if(this.PPC()){ GeZiManager.PCP.weapon.attack()}}else{
         MessageCenter.MakeGMessage("AM",[GeZiManager.PCP.ZB],null,GeZiManager.PCP.Pturn,"attack");}
         this.DW=0
      
@@ -595,9 +628,7 @@ if (GeZiManager.PCP.getComponent(SXX).JX) {
     magic(){  
      
         MessageCenter.MakeMessage("UIManager","change",4);
-    
-    for(let a of GeZiManager.PCP.magic1){a.Magic1()}
-    
+
     
     }
     
@@ -605,7 +636,7 @@ if (GeZiManager.PCP.getComponent(SXX).JX) {
     
     
     PASS(){
-      
+      GeZiManager.hf()
     find("Canvas/Main Camera/UIManager/BUIManager/BUI/BaseChoose/walk").getComponent(moveUI).bi()
         MessageCenter.MakeGMessage("GM",[0], turn.turn+1, turn.turn,"PASS"); 
     }
@@ -750,6 +781,23 @@ if (GeZiManager.PCP.getComponent(SXX).JX) {
     }
     
     
-    
+
+
+
+ZTAttack(){
+
+   GeZiManager.PCP.node.getComponent(DGZ2).ToZT2()
+
+
+}
+
+
+
+
+
+
+
+
+
     
     }

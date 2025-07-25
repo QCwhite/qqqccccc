@@ -17,6 +17,8 @@ import player from "../../game/player";
 import  gif1  from "../../BASE/spineANDgif/gif";
 import DL from "./DL";
 import { AudioManager } from '../../BASE/music';
+import S03 from '../../Scharacter/S03';
+import YSgod from '../../BASE/YSgod';
 
 
   
@@ -44,6 +46,10 @@ export default class Fireball extends realThing {
      //   if (turn.round%12==2||turn.round%12==7) { turn.round+=1  }
         this.turn = turn.turn;
         this.node.children[0].getComponent(Label).string=this.turn.toString()
+
+      if ( GeZiManager.getc(turn.turn).node.getComponent(YSgod).FW3[0]>0) {
+        this.BZ()
+      } 
        // console.log(this.SH);
     }
 
@@ -78,6 +84,10 @@ if(turn.round==this.rond+1&&turn.turn==this.turn){
 console.log("fd")
 this.BZ();
 //}
+
+
+
+
     }
     }
 

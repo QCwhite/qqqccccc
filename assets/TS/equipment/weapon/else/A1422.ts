@@ -12,12 +12,53 @@ import Character from "../../../BASE/Character";
 import GeZiManager from "../../../Manager/GeZiManager";
 import MessageCenter from "../../../Message/MessageCenter";
 import Qiang from "../Qiang/Qiang";
+import { AudioManager } from '../../../BASE/music';
 
 @ccclass('A1422')
 export default class A1422 extends Qiang {
     TheNumber:string = 'A1422';
 BT: boolean=false;
 SH: number=0;
+
+
+ attack2() {
+        let AF = [].concat(this.Aface);
+        let i = 0;
+        switch (this.node.getComponent(Character).faceTo) {
+        case 6: i = 1;
+        break;
+        case 8: i = 2;
+        break;
+        case 4: i = 3;
+        break;
+        }
+
+
+        for (let n = 1; n <= i; n++) {
+        this.turn6(AF);
+
+        }
+        let g=[]
+        for(let c of [GeZiManager.P1,GeZiManager.P2,GeZiManager.P3,GeZiManager.P4,GeZiManager.P5,GeZiManager.P6]){
+                if (c.color==this.target.color) {
+                      g.push(c.ZB)  
+                }
+        }
+      
+        AudioManager.instance.ZJP("ui",1)
+   
+
+
+
+
+        let A2 = GeZiManager.line(this.node.getComponent(Character).ZB, this.ptr, AF[0], GeZiManager.BanMove);
+        this.BTS--
+        this.QD(A2);
+        this.ZD()
+
+  }
+
+
     QD(an:number[]){
 
         console.log(this.node.getComponent(Character).Pturn)

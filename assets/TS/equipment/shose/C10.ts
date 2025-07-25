@@ -24,11 +24,12 @@ export default class C10 extends CXX {
        this.target=this.node.getComponent(Character);
        this.target.t1.push(this);
        this.target.t3.push(this)
-       
+          this.node.getComponent(Character).move2.push(this);
+                    this.node.getComponent(Character).move3.push(this);
    this.changeEP()
     }
   remove(){
-
+ GeZiManager.shanchuALL(GeZiManager.boxs,this.target.ZB)
        GeZiManager.shanchu(this.target.t1,this)
        GeZiManager.shanchu(this.target.t3,this)
   }
@@ -61,6 +62,15 @@ T3(): void {
 //                a.changeSlot(a.spine4,"CQ",this.node.parent.getComponent(Shops).find(2,this.TheNumber+"-R"))
 //                a.changeSlot(a.spine6,"CH",this.node.parent.getComponent(Shops).find(2,this.TheNumber+"-L"))
 //                a.changeSlot(a.spine6,"CQ",this.node.parent.getComponent(Shops).find(2,this.TheNumber+"-R"))
+                }
+
+                Move2(ZB: number, Pturn: number, time: number): void {
+                    GeZiManager.shanchuALL(GeZiManager.boxs,this.target.ZB)
+                }
+                
+                
+                Move3(ZB: number, Pturn: number): void {
+                  GeZiManager.boxs.push(this.target.ZB)
                 }
 }
 

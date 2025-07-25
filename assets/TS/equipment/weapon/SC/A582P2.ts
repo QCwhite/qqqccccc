@@ -35,13 +35,24 @@ AudioManager.instance.ZJP("attack",this.Ytype)
 
   }
 start(): void {
-this.target=this.node.getComponent(Character)
-       if (this.node.getComponent(S08).king) {
-       let QUI=instantiate(this.node.parent.getComponent(Shops).tishi)
-       QUI.setParent(this.node)
-       this.tishi=QUI.getComponent(gif1)
-       this.tishi.node.setScale(0.8,0.8)
-       }
+ this.tishi=null
+    this.BTS=1
+ 
+    
+    
+    
+      this.target=this.node.getComponent(Character)
+    if (!this.tishi) {
+           let QUI=instantiate(this.node.parent.getComponent(Shops).tishi)
+                    QUI.setParent(this.node)
+                    this.tishi=QUI.getComponent(gif1)
+           
+           
+                    this.tishi.node.setScale(0.8,0.8)   
+    }
+          
+            
+    this.ZD()
        
 }
   yy(){ 
@@ -51,15 +62,40 @@ this.target=this.node.getComponent(Character)
        GeZiManager.PCP.TNC(GeZiManager.PCP.TN);
        GeZiManager.TNC[3]=4
     GeZiManager.Bu.push(3);}
-    remove(): void {
-       if (this.node&&this.node.getComponent(S08).king){this.tishi.node.destroy()}
-//    this.destroy();
-//   this.node.removeComponent(this)
-    }
+  
    
   changeEP(): void {
          
   }
+
+    ZD(){  
+         
+     if (!this.tishi) {
+         this.tishi=this.node.getChildByName("qiangUI") .getComponent(gif1) 
+     }
+                  
+           
+          this.tishi.changeF(14,2)
+     
+         
+             }
+  
+  remove(): void {
+
+
+        this.BTS=1
+  
+           this.tishi.changeF(-1,1)
+                  this.tishi.node.destroy()
+           this.tishi=null
+
+
+
+               
+        
+//   this.destroy();
+//   this.node.removeComponent(this)
+      }
 }
 
 

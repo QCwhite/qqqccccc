@@ -20,20 +20,25 @@ import SXX from "./SXX";
 @ccclass('S03')
 export default class  S03 extends SXX  {
   Snumber="S03"
-  JX:boolean=false;
+  JX:boolean=true;
   cType: string ="human"
  MZ:number=1;
  MT:number=1
 JX1:string[]=["S魔力源流","S魔抗"];
 JX2:string[]=["S魔导师","S换法"];
 mkl:boolean=false
+TNJ:number=0
+
+F:number=0
+
+
 start(): void {
   //this.node.getChildByName("name").getComponent(cc.Label).string="法师"      
 //this.node.getComponent(Character).qin=99;
 this.target=this.node.getComponent(Character);
 
 this.target.magic3.push(this)
-///this.target.magic2.push(this)
+this.target.magic1.push(this)
 this.target.mk+=1
 //this.node.getComponent(Character).qi2.push(this);
 //this.node.getComponent(Character).changeE("A503");
@@ -155,7 +160,7 @@ Magic3(ZB:number): void {
 
 
 
-  let o=  GeZiManager.getF(ZB,tu+1)
+  let o=  Math.floor(huo/2)
 
 
 
@@ -165,10 +170,12 @@ Magic3(ZB:number): void {
 
 
 
+if (o>0) {
+ // MessageCenter.MakeSHMessage("AM",[ZB],o,this.target.Pturn,"mofa")
+}
+//this.target.TNJJ[4]+=shui
+//MessageCenter.MakeSHMessage("AM",o,feng,this.target.Pturn,"jitu")
 
-MessageCenter.MakeSHMessage("AM",o,huo,this.target.Pturn,"mofa")
-MessageCenter.MakeSHMessage("AM",o,feng,this.target.Pturn,"jitu")
-MessageCenter.MakeSHMessage("AM",[this.target.ZB],shui,this.target.Pturn,"TN+")
 }
 
 QDS(n:number){
@@ -181,8 +188,8 @@ this.MT*=-1
 
 changM(){
   if (this.MT==1) {
-      return [1,2,3,4,5,6]
-  }else return[7,8,9,10,11,12]
+      return [1,2,3,4,5,6,7]
+  }else return[8,9,10,11,12,13,14]
 }
 skill1(){
   GeZiManager.DLLM="S03"
@@ -274,10 +281,92 @@ return[k,a[1],a[2]]
      
    
    
-      if (this.getFUn()>=3){
-          this.JX=true
-        }else{   this.JX=false}//大魔法师
+     // if (this.getFUn()>=3){
+    //      this.JX=true
+      //  }else{   this.JX=false}//大魔法师
       
     
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+magicYS(n:number){
+/*
+let huo=0
+let tu=0
+let shui=0
+let feng=0
+
+for (let o of this.target.FU) {
+   if (o==10||o==-10) {
+      huo+=1
+      tu+=1
+      shui+=1
+      feng+=1
+
+   }
+   if (o==0||o==0.5) {
+      huo+=1
+      
+
+   }
+   if (o==1||o==-1) {
+     
+      tu+=1
+     
+
+   }
+   if (o==2||o==-2) {
+      
+      shui+=1
+     
+
+   }
+   if (o==3||o==-3) {
+      
+      feng+=1
+     
+
+   }
+}
+let j=GeZiManager.Bhun
+if (this.target.color=="Red") {
+  j=GeZiManager.Rhun
+}
+
+let o=[0,2,4]
+
+if(n==0.5&&o[huo]<=j){       
+this.target.Fus(n)
+  }
+if(n==-1&&o[tu]<=j){       
+this.target.Fus(n)
+  }
+  if(n==-2&&o[shui]<=j){       
+this.target.Fus(n)
+  }
+  if(n==-3&&o[feng]<=j){       
+this.target.Fus(n)
+  }*/
+this.target.Fus(n)
+}
+
+
+
+
+
+
+
+
 }

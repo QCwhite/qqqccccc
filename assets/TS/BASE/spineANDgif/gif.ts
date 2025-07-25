@@ -344,9 +344,9 @@ if (material) {
 
 falsh(){
 
-     this.customMaterial.setProperty('brightness', 1.5);
-  setTimeout(() => {
-      this.customMaterial.setProperty('brightness', this.brightness);
+     this.customMaterial.setProperty('brightness', 1.2);
+  setTimeout(() => {   if ( this.customMaterial) {
+      this.customMaterial.setProperty('brightness', this.brightness);}
   },100); 
 
 
@@ -355,6 +355,19 @@ falsh(){
 }
 
 
+falsh2(){
+
+     this.customMaterial.setProperty('brightness', 3.5);
+  setTimeout(() => {
+   if ( this.customMaterial) {
+     this.customMaterial.setProperty('brightness', this.brightness);
+   }  
+  },1100); 
+
+
+
+
+}
       Cget(){
         this.customMaterial.setProperty('brightness', this.brightness);
         this.customMaterial.setProperty('saturation', this.saturation);

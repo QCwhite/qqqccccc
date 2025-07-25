@@ -219,14 +219,16 @@ export default class BUIManager extends ManagerBase {
            break;
            case 1.8:move.BAN("walk8")
            break;
+              case 10:BaseChoose.getChildByName("walk").getComponent(CustomButton).not()
+            break;
             case 2:BaseChoose.getChildByName("qi").getComponent(CustomButton).disableButton()
             break;
             case 3:BaseChoose.getChildByName("attack").getComponent(CustomButton).disableButton()
           
             break;
-            case 4:BaseChoose.getChildByName("magic").getComponent(CustomButton).disableButton()
+            case 4:BaseChoose.getChildByName("magic").getComponent(CustomButton).not()
             break;
-            case 5:BaseChoose.getChildByName("shop").getComponent(CustomButton).disableButton();BaseChoose.getChildByName("NWshop").getComponent(CustomButton).disableButton()
+            case 5:BaseChoose.getChildByName("shop").getComponent(CustomButton).not();BaseChoose.getChildByName("NWshop").getComponent(CustomButton).not()
             break;
           
          
@@ -250,5 +252,17 @@ export default class BUIManager extends ManagerBase {
   }
     
         }
+
+
+
+
+
+
+
+
+
+
+
+        
   }
   

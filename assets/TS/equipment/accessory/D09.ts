@@ -28,16 +28,16 @@ export default class D09 extends DXX {
     }
    
     Qi2(n: number, pn: number,m:SHMessage): void {
-        if (m.from!=this.target.Pturn&&n>0) {
-        MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,this.target.Pturn,"Qi+")
+        if (n>0&&m.from!=-1) {
+        MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,-1,"Qi+")
         }
 
 //       MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,this.target.Pturn,"MaxHP+") 
 
     }
     HPM2(n: number,fo:number,wo:number): void {
-      if (wo!=this.target.Pturn&&n>0) {
-        MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,this.target.Pturn,"HP+")
+      if (n>0&&fo!=-1) {
+        MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,-1,"HP+")
       }
 
     }

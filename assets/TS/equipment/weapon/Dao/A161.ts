@@ -39,7 +39,7 @@ if(this.color=="Red"){
     }
     Attack25(at:realThing,csh: number): void {
        MessageCenter.MakeSHMessage("AM",[this.node.getComponent(Character).ZB],1,this.node.getComponent(Character).Pturn,"TN+")
-AudioManager.instance.ZJP("hit",16)
+       AudioManager.instance.ZJP("hit",16)
     }
 remove(): void {
        GeZiManager.shanchu(this.node.getComponent(Character).attack25,this)

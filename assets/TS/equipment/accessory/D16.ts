@@ -23,7 +23,7 @@ export default class D16 extends DXX {
     TheNumber:string = 'D16';
     Cname:string="命运之轮"
 k:number=-1
-j:number=0
+j:number=-1
     start () {
       this.target=this.node.getComponent(Character);
       this.target.t1.push(this)
@@ -33,7 +33,7 @@ j:number=0
  
 T1(turn1: number): void {
       if (this.k!=-1) {
-      this.target.TNJJ[this.k]-=1
+      this.target.TNJJ[this.k]-=2
 
       } if (this.j!=-1) {
       this.target.TNJJ[this.j]+=2
@@ -57,6 +57,8 @@ T1(turn1: number): void {
 
       case 5:this.k=0//转身
       break;
+
+      
       default:this.k=-1//转身
       break
 

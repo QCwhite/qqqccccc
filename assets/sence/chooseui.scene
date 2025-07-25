@@ -9678,6 +9678,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -9831,6 +9832,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -9984,6 +9986,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -10137,6 +10140,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -10290,6 +10294,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -10443,6 +10448,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -22029,6 +22035,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -22736,6 +22743,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -23443,6 +23451,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -25087,6 +25096,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -25794,6 +25804,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -26501,6 +26512,7 @@
     "atlas3": null,
     "Bname": "",
     "scX": 1,
+    "ooo": false,
     "emissionColor": {
       "__type__": "cc.Color",
       "r": 255,

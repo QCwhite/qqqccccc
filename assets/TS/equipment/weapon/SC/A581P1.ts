@@ -14,9 +14,10 @@ import MessageCenter from "../../../Message/MessageCenter";
 import S08 from "../../../Scharacter/S08";
 import A581 from "./A581";
 import { AudioManager } from '../../../BASE/music';
+import gif1 from '../../../BASE/spineANDgif/gif';
 
 @ccclass('A581P1')
-export default class A581P2 extends  A581 {
+export default class A581P1 extends  A581 {
 CJ: number=1;
 BTS: number=99;
 TheNumber: string="A581P1";
@@ -47,8 +48,8 @@ AudioManager.instance.ZJP("attack",this.Ytype)
       if(this.node.getComponent(S08).king){this.yy()}
       for(let a of this.node.getComponent(S08).FSM){
 
-      if ( a.node.getComponent(A581)!=null) {
-      a.node.getComponent(A581).ac(this.turn8([this.node.getComponent(Character).faceIs(an[0])])[0])}
+      if ( a.node.getComponent(A581P1)!=null) {
+      a.node.getComponent(A581P1).ac(this.turn8([this.node.getComponent(Character).faceIs(an[0])])[0])}
 
       }
 //     this.BTS--;
@@ -64,6 +65,41 @@ AudioManager.instance.ZJP("attack",this.Ytype)
       
   changeEP(): void {
          
+  }
+
+
+  ZD(){
+  if (!this.tishi) {
+      this.tishi=this.node.getChildByName("qiangUI") .getComponent(gif1) 
+  }
+               
+          this.tishi.changeF(8,2)
+  
+  }
+
+  ac(k: number): void {
+          if (this.node!=null&&this.node.getComponent(Character).HP>0&&this.target) {
+  
+                   let g=[]
+                for(let c of [GeZiManager.P1,GeZiManager.P2,GeZiManager.P3,GeZiManager.P4,GeZiManager.P5,GeZiManager.P6]){
+                        if (c.color==this.target.color) {
+                              g.push (c.ZB) 
+                        }
+                }
+                let j =GeZiManager.BanMove.filter(item => ( !GeZiManager.BDZD.includes(item)))
+                   
+        j =j.filter(item => ( !g.includes(item)))
+          let A2 = GeZiManager.line(this.node.getComponent(Character).ZB, this.ptr,k,j);
+  
+  
+  
+          MessageCenter.MakeSHMessage("AM", A2, this.SH,this.node.getComponent(Character).Pturn, "wuli")
+        
+             
+  
+          this.ZD()
+          }
+  
   }
 }
 

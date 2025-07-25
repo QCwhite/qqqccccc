@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Vec3,Skeleton,sp, AnimationState, tween, Tween, find, Color, Texture2D,  Rect, SpriteFrame, UIOpacity, UITransform, Vec2, color } from 'cc';
+
 
 
 import MTX from "../MTX";
@@ -15,13 +15,15 @@ import { ImageAsset } from 'cc';
 import { gfx } from 'cc';
 import { Sprite } from 'cc';
 import GeZiManager from '../../Manager/GeZiManager';
+import { _decorator, sp, color, find, Vec3, UIOpacity, UITransform, Vec2, tween, Texture2D, SpriteFrame,Node } from "cc";
+import { Tween } from "cc";
 
 const { property, ccclass } = _decorator;
 
 @ccclass('Cspine')
 export default class Cspine extends ComponentBase {
 
-  
+   private myTween: Tween<any> | null = null;
         @property({ type:sp.Skeleton })
     spine2: sp.Skeleton = null; // 正面朝向的Spine动画
 
@@ -145,6 +147,9 @@ this.spine8.setCompleteListener((trackEntry:sp.spine.TrackEntry) => {
         if (this.currentSpine) {
             this.currentSpine.node.active = false; // 隐藏当前Spine
         }
+
+
+
         switch (direction) {
             case 2:
                 this.currentSpine = this.spine2;
@@ -167,6 +172,12 @@ this.spine8.setCompleteListener((trackEntry:sp.spine.TrackEntry) => {
             this.currentSpine.node.active = true; // 显示新的Spine
             this.currentSpine.animation="Idle" 
         }
+
+if (this.node.getComponent(Character).LST<10&&this.node.getComponent(Character).LST>-1) {
+     this.Bdie()
+}
+
+
   if (this.i!=-1) {
     this.changeXT(this.i)
   } 
@@ -211,7 +222,9 @@ this.spine8.setCompleteListener((trackEntry:sp.spine.TrackEntry) => {
               case 82:this.currentSpine.animation="A1H2"; 
               
               break;
-      
+        case 83:this.currentSpine.animation="A1H"; 
+              
+              break;
           default:
               break;
       }
@@ -245,10 +258,13 @@ this.spine8.setCompleteListener((trackEntry:sp.spine.TrackEntry) => {
 
     // 延迟 500ms 后启动缓动动画
     setTimeout(() => {
-        tween(this.node)
-            .to(7.5, { position: new Vec3(this.node.position.x, this.node.position.y + 2000, this.node.position.z) })
+      this.myTween=  tween(this.node)
+            .to(6.5, { position: new Vec3(this.node.position.x, this.node.position.y + 2000, this.node.position.z) })
             .start();
     }, 500)
+
+
+
       }
       
       idle() {
@@ -345,9 +361,10 @@ this.spine8.setCompleteListener((trackEntry:sp.spine.TrackEntry) => {
         this.node.getChildByName("to4").active=false
         this.node.getChildByName("to6").active=false
         this.node.getComponent(gif1).stop()
+           this.myTween.stop()
        this.changeDirection(this.node.getComponent(Character).faceTo)
         
-       
+    
         setTimeout(()=>{this.node.getComponent(gif1).spriteFrame =null},200)
       }
       setBrightness(value?: number) {
@@ -506,7 +523,7 @@ this.spine8.setCompleteListener((trackEntry:sp.spine.TrackEntry) => {
          
     
          
-  changeSlot(sk: sp.Skeleton, slotName: string, Sprite1: SpriteFrame, o: number) {
+  changeSlot(sk: sp.Skeleton, slotName: string, Sprite1: any, o: number) {
   
 
 

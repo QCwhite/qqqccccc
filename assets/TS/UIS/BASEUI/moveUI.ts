@@ -13,6 +13,7 @@ import  gif1  from "../../BASE/spineANDgif/gif";
 import GeZiManager from "../../Manager/GeZiManager";
 import TorW from "./TorW";
 import { v3 } from 'cc';
+import MessageCenter from '../../Message/MessageCenter';
 
 @ccclass('MoveUI')
 export default class moveUI extends ComponentBase {
@@ -54,6 +55,13 @@ export default class moveUI extends ComponentBase {
         
         
           }
+
+
+          if((GeZiManager.PCP.TN<GeZiManager.PCP.TNJJ[1]+GeZiManager.TNC[1])&&(GeZiManager.PCP.TN<GeZiManager.PCP.TNJJ[0]+GeZiManager.TNC[0]||GeZiManager.PCP.t==0)){
+
+      
+      MessageCenter.MakeMessage("BUI", [10], "Ban");}
+
         }
           
           
@@ -61,7 +69,7 @@ export default class moveUI extends ComponentBase {
           kai(){
            
           
-            for(let a of this.node.parent.children){a.getComponent(CustomButton).toN()}
+            for(let a of this.node.parent.children){a.getComponent(CustomButton).toN(0.06)}
          
             this.node.children[0].getComponent(gif1).changeF(8,1) 
            
@@ -75,7 +83,7 @@ export default class moveUI extends ComponentBase {
         GeZiManager.PCP.UIC();
         this.node.getComponent(CustomButton).disableButton()
         this.node.position=v3( this.node.position.x,160,0)
-         this.node.scale=v3(1.4,1.4,1)
+         this.node.scale=v3(1.5,1.5,1)
         }
                   
         

@@ -73,7 +73,7 @@ for (let index = 0; index < GeZiManager.getc(this.pturn).getComponent(SXX).JNs; 
   
 }
 
- this.node.getChildByName("Toux").getChildByName("gif").getComponent(Sprite).spriteFrame=GeZiManager.getc(this.pturn).getComponent(SXX).Toux
+ this.node.getChildByName("toux").getChildByName("gif").getComponent(Sprite).spriteFrame=GeZiManager.getc(this.pturn).getComponent(SXX).Toux
 
 }
 

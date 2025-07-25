@@ -58,6 +58,7 @@ import S00 from "../Scharacter/S00";
 import { SubtitleManager } from "../UIS/baom";
 import { AudioManager } from "./music";
 import Time from "../UIS/else/time";
+import qizi from "../../node/Dixing/qizi";
 
 
 
@@ -166,6 +167,7 @@ teammates:Character[]=[];//队友
    behurt2: ComponentBase[] = [];
    behurt222: ComponentBase[] = [];
    behurt3: ComponentBase[] = [];
+   
    hurt1: ComponentBase[] = [];
    hurt2: ComponentBase[] = [];
    hurt3: ComponentBase[] = [];
@@ -326,7 +328,7 @@ if (this.LST!=-1) {
       MessageCenter.MakeSHMessage("AM",[this.ZB],0,this.Pturn,"Qi=")
 
     if (this.DiXing!="water") {
-          MessageCenter.MakeSHMessage("AM",[this.ZB,this.Pturn],29,GeZiManager.PCP.Pturn,"FTP");
+       //   MessageCenter.MakeSHMessage("AM",[this.ZB,this.Pturn],29,GeZiManager.PCP.Pturn,"FTP");
     }  
 
 console.log(this.LST)
@@ -334,7 +336,7 @@ console.log(this.LST)
     //  GeZiManager.shanchu(this.node.parent.getComponent(AnimalManager).YuanGong,this)
       GeZiManager.shanchu(GeZiManager.BanMove,this.ZB)
       console.log(GeZiManager.BanMove.includes(this.ZB))
-      endGame.endGame(this.Pturn%2);
+   //   endGame.endGame(this.Pturn%2);
     
       ///变鬼了
       for(let a of this.node.children){a.active=false;}
@@ -356,6 +358,10 @@ console.log(this.LST)
     //  this.UI.push(ghost.getComponent(ghostUI))
 
       if (turn.turn==this.Pturn&&(KHD2.PT.includes(turn.turn)||MessageCenter.Text)) {
+      
+      
+      
+      
          MessageCenter.MakeGMessage("AM",[0], turn.turn+1, turn.turn,"PASS");
       }
 
@@ -376,11 +382,11 @@ console.log(this.LST)
 for(let c of this.teammates){
  
 
-   MessageCenter.MakeSHMessage("AM",[c.ZB],2-this.teammates.length,this.Pturn,"Qi+")
+  // MessageCenter.MakeSHMessage("AM",[c.ZB],2-this.teammates.length,this.Pturn,"Qi+")
 }
 
 if (this.killp) {
-   MessageCenter.MakeSHMessage("AM",[this.killp.ZB],2-this.teammates.length,this.Pturn,"Qi+")
+ //  MessageCenter.MakeSHMessage("AM",[this.killp.ZB],2-this.teammates.length,this.Pturn,"Qi+")
 }
 
 if(this.color=="Red"){
@@ -388,6 +394,7 @@ if(this.color=="Red"){
    
 }else{  GeZiManager.Bhun+=1; }
 GeZiManager.getHUN();
+endGame.siw(this.Pturn)
   SubtitleManager.show(
                 {
                     bgSprite:this.color,
@@ -399,7 +406,7 @@ GeZiManager.getHUN();
                 }
                )
 
-    
+    this.ZB=0
 }
    
 
@@ -463,21 +470,10 @@ c=killp.Pturn
      }
      
       if(this.HPm2!=null){for(let w of this.HPm2){w.HPM2(-sh,c,this.Pturn);}}
-    setTimeout(() => {
-      
-  
-    
-    
-      this.node.getChildByName("shadow").getComponent(gif1).moveToNextFrame(13,15,0)
-      setTimeout(() => {
-         this.node.getChildByName("shadow").getComponent(gif1).changeF(5,1)
-      }, 800);
-      
-      
-      this.node.getComponent(Cspine).Bhit();
-     console.log(sh)
-    
-      let remainingDamage = Math.max(0,sh);
+
+
+
+         let remainingDamage = Math.max(0,sh);
      let iceReduction = Math.min(remainingDamage,this.ice);
 let ic=this.ice
       remainingDamage -= iceReduction;
@@ -506,7 +502,32 @@ let ic=this.ice
          AudioManager.instance.ZJP("hit",6);
       }
    this.HP-=Math.max(0,remainingDamage);
+  GeZiManager.dm=0;
 
+if (killp) {
+     for(let a of killp.hurt1){a.Hurt1(this.Pturn,Math.max(0,remainingDamage))}
+}
+ 
+      for(let a of this.behurt3){a.Behurt3(sh,killp,k,this.Pturn)}
+      if(this.HPm3!=null){for(let w of this.HPm3){w.HPM3();}}
+      if(this.LST>0&&this.LST!=10){this.killp=killp;this.dead()}
+      if (this.HP<= 0&&this.LST==10) { this.HP = 0; this.Bdead(killp); }
+  
+    setTimeout(() => {
+      
+  
+    
+    
+      this.node.getChildByName("shadow").getComponent(gif1).moveToNextFrame(13,15,0)
+      setTimeout(() => {
+         this.node.getChildByName("shadow").getComponent(gif1).changeF(5,1)
+      }, 800);
+      
+      
+      this.node.getComponent(Cspine).Bhit();
+     console.log(sh)
+    
+   
 //console.log(killp.ZB)
 
       for (let mannger of this.UI) {
@@ -519,13 +540,12 @@ let ic=this.ice
          }
 
       }
-      GeZiManager.dm=0;
-      for(let a of this.behurt3){a.Behurt3(sh,killp,k,this.Pturn)}
-      if(this.HPm3!=null){for(let w of this.HPm3){w.HPM3();}}
-      if(this.LST>0&&this.LST!=10){this.killp=killp;this.dead()}
-      if (this.HP<= 0&&this.LST==10) { this.HP = 0; this.Bdead(killp); }
-  
-         this.shakeCameraAndNode(find("Canvas/Main Camera").getComponent(Camera),this.node,25,150);
+    if (killp) {
+
+
+       this.shakeCameraAndNode(find("Canvas/Main Camera").getComponent(Camera),this.node.getComponent(Cspine).currentSpine.node,25,150);
+    }
+        
    
       this.PFUI("HP-",Math.max(0,remainingDamage));
    }, 200);}
@@ -879,7 +899,7 @@ if (n!=0&&n!=2) {
 
 
 Walk(T:boolean){
-
+ this.ST();
  this.node.getComponent(Cspine).changeDirection(this.faceTo)
    this.node.getComponent(Cspine).currentSpine.animation="Walk"
   this.node.getChildByName("shadow").getComponent(gif1).moveToNextFrame(5,8,0)
@@ -1125,7 +1145,15 @@ MessageCenter.MakeGMessage("AM",[this.ZB],-k,this.node.getComponent(Character).P
 }
 
 
+getTN(n:number){
 
+
+
+
+   
+return this.TNJJ[n]+GeZiManager.TNC[n]
+   
+}
 
 TNT(){
   
@@ -1139,7 +1167,18 @@ TNT(){
    if(this.TN<this.TNJJ[2]+GeZiManager.TNC[2]){MessageCenter.MakeMessage("BUI", [2], "Ban");}
    if(this.TN<this.TNJJ[1]+GeZiManager.TNC[1]){MessageCenter.MakeMessage("BUI", [1], "Ban");}
    if(this.TN<this.TNJJ[0]+GeZiManager.TNC[0]){MessageCenter.MakeMessage("BUI", [0], "Ban");}
+  
+   if(this.TN<this.TNJJ[4]+GeZiManager.TNC[4]){MessageCenter.MakeMessage("BUI", [4], "Ban");}
+   if(this.TN<this.TNJJ[5]+GeZiManager.TNC[5]){MessageCenter.MakeMessage("BUI", [5], "Ban");}
+
+ 
+
+console.log(this.t)
+  console.log(this.TNJJ[1]+GeZiManager.TNC[1])
+     console.log(this.TN<this.TNJJ[0]+GeZiManager.TNC[0])  
+
    find("Canvas/Main Camera/UIManager/BUIManager/BUI").getComponent(BUI).TNST();
+
    }
    
    TNC(n:number){
@@ -1183,17 +1222,26 @@ getTG(N:string){
 
    switch (N) {
      case "sWater":  MessageCenter.MakeSHMessage("AM",[this.ZB],1,-1,"HP+")
-       if(this.color=="Red"){
-         GeZiManager.Rhun+=1
-      }else{  GeZiManager.Bhun+=1}
-      GeZiManager.getHUN();
+      this.node.getChildByName("MTX").getComponent(MTX).playFrameAnimation1("cure");
        break;
        case "Hun": if(this.color=="Red"){
          GeZiManager.Rhun+=1
       }else{  GeZiManager.Bhun+=1}
       GeZiManager.getHUN();
-       
+           this.node.getChildByName("MTX").getComponent(MTX).playFrameAnimation1("FH");
        break;
+
+   case "Qi":
+       MessageCenter.MakeSHMessage("AM",[this.ZB],2,-1,"Qi+")
+              this.node.getChildByName("MTX").getComponent(MTX).playFrameAnimation1("xuqi");
+       break;
+
+ case "TN":
+       MessageCenter.MakeSHMessage("AM",[this.ZB],2,-1,"TN+")
+       this.node.getChildByName("MTX").getComponent(MTX).playFrameAnimation1("TN");
+       break;
+
+
 case "EQ":shopM.getEQ(this.ZB);
 break;
 
@@ -1243,6 +1291,7 @@ this.lastZB=this.ZB
   }
    
    }
+
 
 
 
@@ -1358,21 +1407,44 @@ this.node.getChildByName("FU").children[index].getComponent(gif1).spriteFrame= t
     
     
     
-        case 0:if (huo>1) {
-      this.sh+=1
-      if (huo==4) {
-         this.node.getComponent(YSgod).FW[0]=1
-      }
+        case 0:
+              if (huo==1) {
+      this.TNJJ[3]-=1
+    
      }
+        
+        if (huo==2) {
+      this.sh+=1
+    
+     }
+  if (huo==3) {
+       this.node.getComponent(YSgod).FW3[0]=1
+    
+     }
+
+       if (huo==4) {
+         this.node.getComponent(YSgod).Kill()
+      }
      break;
      
-     case 0.5:if (huo>1) {
-      this.sh+=1
-
-      if (huo==4) {
-         this.node.getComponent(YSgod).FW[0]=1
-      }
+     case 0.5:   
+     if (huo==1) {
+      this.TNJJ[3]-=1
+    
      }
+        
+        if (huo==2) {
+      this.sh+=1
+    
+     }
+  if (huo==3) {
+       this.node.getComponent(YSgod).FW3[0]=1
+    
+     }
+
+       if (huo==4) {
+         this.node.getComponent(YSgod).Kill()
+      }
      break;
      
      //火
@@ -1419,7 +1491,8 @@ this.mk+=1;
 this.wk+=1;
 }
 else if(tu==4){
-this.node.getComponent(YSgod).FW[1]=1;//TN+1
+
+this.node.getComponent(YSgod).FW4[1]=1;//TN+1
 }
      break;
 
@@ -1431,26 +1504,50 @@ this.node.getComponent(YSgod).FW[1]=1;//TN+1
      
      case 3:
      
-     if (feng>1) {
+     if (feng==1) {
       
      
       this.TNJJ[1]-=1
       
-      if (feng==4) {
-       this.node.getComponent(YSgod).FW[3]=1
-      }}
+      }
+     
+     if (feng==2) {
+      
+     
+      this.MaxT+=1
+      this.t+=1
+      }
+if (feng==3) {
+      this.node.getComponent(YSgod).FW3[3]=1
+       this.fly=true
+      }
+if (feng==4) {
+       this.node.getComponent(YSgod).FW4[3]=1
+      }
+
       break;
      
      case -3:
-     
-     if (feng>1) {
+   if (feng==1) {
       
      
       this.TNJJ[1]-=1
       
-      if (feng==4) {
-       this.node.getComponent(YSgod).FW[3]=1
-      }}
+      }
+     
+     if (feng==2) {
+      
+     
+      this.MaxT+=1
+      this.t+=1
+      }
+if (feng==3) {
+      this.node.getComponent(YSgod).FW3[3]=1
+       this.fly=true
+      }
+if (feng==4) {
+       this.node.getComponent(YSgod).FW4[3]=1
+      }
       break;
      
      //风
@@ -1462,62 +1559,124 @@ this.node.getComponent(YSgod).FW[1]=1;//TN+1
     
      case 2:
      
-     if (shui>1) {
+     if (shui==1) {
+      this.TNJJ[4]-=1
+      
+     }
+ if (shui==2) {
       this.addTN+=1
       
+     }
+ if (shui==4) {
+       this.node.getComponent(YSgod).FW3[2]=1
+      }
       if (shui==4) {
-       this.node.getComponent(YSgod).FW[2]=1
-      }}
+       this.node.getComponent(YSgod).FW4[2]=1
+      }
      break;
      case -2:
      
-     if (shui>1) {
+      if (shui==1) {
+      this.TNJJ[4]-=1
+      
+     }
+ if (shui==2) {
       this.addTN+=1
       
+     }
+ if (shui==4) {
+       this.node.getComponent(YSgod).FW3[2]=1
+      }
       if (shui==4) {
-       this.node.getComponent(YSgod).FW[2]=1
-      }}  
+       this.node.getComponent(YSgod).FW4[2]=1
+      }
       break
      //水 
      
      
-     case 10:if (huo>1) {
-      this.sh+=1
-      if (huo==4) {
-         this.node.getComponent(YSgod).FW[0]=1
-      }
+     case 10:  
+//////////////    
+     if (huo==1) {
+      this.TNJJ[3]-=1
+    
      }
+        
+        if (huo==2) {
+      this.sh+=1
+    
+     }
+  if (huo==3) {
+       this.node.getComponent(YSgod).FW3[0]=1
+    
+     }
+
+       if (huo==4) {
+         this.node.getComponent(YSgod).Kill()
+      }
+//////////////////全能火
+
+///////////////////////////////////////////////////////////////////////
    if(tu==1){      MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"MaxHP+")
 MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"HP+")}
      if(tu==2){
 
-this.Mjia(+1);//质量+1
+this.Mjia(+1);
 }
 else if(tu==3){
-//格挡+1
+
 this.mk+=1;
 this.wk+=1;
 }
 else if(tu==4){
-this.node.getComponent(YSgod).FW[1]=1;//TN+1
+this.node.getComponent(YSgod).FW4[1]=1;
 }
+//////////////////全能土
+/////////////////////////////////////////////////
+   if (feng==1) {
+      
+     
+      this.TNJJ[1]-=1
+      
+      }
+     
+     if (feng==2) {
+      
+     
+      this.MaxT+=1
+      this.t+=1
+      }
+if (feng==3) {
+      this.node.getComponent(YSgod).FW3[3]=1
+       this.fly=true
+      }
+if (feng==4) {
+       this.node.getComponent(YSgod).FW4[3]=1
+      }
+ 
+
+//////////////////全能风
 
 
-if (feng>1) {
-   
-  
-   this.TNJJ[1]-=1
-   
-   if (feng==4) {
-    this.node.getComponent(YSgod).FW[3]=1
-   }}
-
-   if (shui>1) {
+///////////////////////////////////////
+      if (shui==1) {
+      this.TNJJ[4]-=1
+      
+     }
+ if (shui==2) {
       this.addTN+=1
       
+     }
+ if (shui==4) {
+       this.node.getComponent(YSgod).FW3[2]=1
+      }
       if (shui==4) {
-       this.node.getComponent(YSgod).FW[2]=1
-      }}
+       this.node.getComponent(YSgod).FW4[2]=1
+      }
+
+
+//////////////////全能水
+
+
 
 
 
@@ -1526,54 +1685,85 @@ break;
 
     
      
-     case -10:if (huo>1) {
-      this.sh+=1
-
-      if (huo==4) {
-         this.node.getComponent(YSgod).FW[0]=1
-      }
+     case -10:   if (huo==1) {
+      this.TNJJ[3]-=1
+    
      }
+        
+        if (huo==2) {
+      this.sh+=1
+    
+     }
+  if (huo==3) {
+       this.node.getComponent(YSgod).FW3[0]=1
+    
+     }
+
+       if (huo==4) {
+         this.node.getComponent(YSgod).Kill()
+      }
+//////////////////全能火
+
+///////////////////////////////////////////////////////////////////////
    if(tu==1){      MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"MaxHP+")
 MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"HP+")}
      if(tu==2){
 
-this.Mjia(+1);//质量+1
+this.Mjia(+1);
 }
 else if(tu==3){
-//格挡+1
 
 this.mk+=1;
 this.wk+=1;
 }
 else if(tu==4){
-
-this.node.getComponent(YSgod).FW[1]=1;//TN+1
+this.node.getComponent(YSgod).FW4[1]=1;
 }
+//////////////////全能土
+/////////////////////////////////////////////////
+   if (feng==1) {
+      
+     
+      this.TNJJ[1]-=1
+      
+      }
+     
+     if (feng==2) {
+      
+     
+      this.MaxT+=1
+      this.t+=1
+      }
+if (feng==3) {
+      this.node.getComponent(YSgod).FW3[3]=1
+       this.fly=true
+      }
+if (feng==4) {
+       this.node.getComponent(YSgod).FW4[3]=1
+      }
+ 
+
+//////////////////全能风
 
 
-if (feng>1) {
-   
-  
-   this.TNJJ[1]-=1
-   
-   if (feng==4) {
-    this.node.getComponent(YSgod).FW[3]=1
-   }}
-
-
-   if (shui>1) {
+///////////////////////////////////////
+      if (shui==1) {
+      this.TNJJ[4]-=1
+      
+     }
+ if (shui==2) {
       this.addTN+=1
       
+     }
+ if (shui==4) {
+       this.node.getComponent(YSgod).FW3[2]=1
+      }
       if (shui==4) {
-       this.node.getComponent(YSgod).FW[2]=1
-      }}
+       this.node.getComponent(YSgod).FW4[2]=1
+      }
 
 
-     break;
- 
- 
-     
-     
+//////////////////全能水
      
      
 }
@@ -1581,6 +1771,8 @@ if (feng>1) {
 
 
 this.node.getComponent(SXX).getJNF(this.FU)
+console.log(this.FU)
+
 this.UIchange(null)
 
 
@@ -1706,13 +1898,24 @@ BFUs(ch:number){
          
            
               
-              case -10:if (huo>0) {
-               this.sh-=1
-         
-               if (huo<4) {
-                  this.node.getComponent(YSgod).FW[0]=0
+              case -10:
+               if (huo==0) {
+              this.TNJJ[3]+=1    
                }
+              
+              
+              if (huo==1) {
+               this.sh-=1
+   
               }
+ if (huo==2) {
+                  this.node.getComponent(YSgod).FW3[0]=0
+               }
+ if (huo==3) {
+                  this.node.getComponent(YSgod).FW4[0]=0
+               }
+
+////////////////////
  if(tu==0){
 
       MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"HP-")
@@ -1722,52 +1925,75 @@ BFUs(ch:number){
               
          this.Mjia(-1);//质量+1
          }
-         else if(tu==2){
+      if(tu==2){
          //格挡+1
  
          this.mk-=1;
          this.wk-=1;
          }
-         else if(tu==3){
+        if(tu==3){
            
-         this.node.getComponent(YSgod).FW[1]=0;//TN+1
+         this.node.getComponent(YSgod).FW4[1]=0;//TN+1
          }
 
-
-         if (feng>0) {
+/////////////////////////////////////////
+         if (feng==0) {
             
            
             this.TNJJ[1]+=1
             
-            if (feng==3) {
-             this.node.getComponent(YSgod).FW[3]=0
-            }}
+          }
+           if (feng==1) {
+            
+           
+            this.MaxT--
+            
+          }
+           if (feng==2) {
+             this.node.getComponent(YSgod).FW3[3]=0
+            }
+  if (feng==3) {
+             this.node.getComponent(YSgod).FW4[3]=0
+            }
 
-
-            if (shui>0) {
+     ///////////////////////////////////////      
+                if (shui==0) {
+               this.TNJJ[4]+=1
+               }
+                 if (shui==1) {
                this.addTN-=1
-               
-               if (shui==4) {
-                this.node.getComponent(YSgod).FW[2]=1
-               }}
+               }
+                if (shui==2) {
+                this.node.getComponent(YSgod).FW3[2]=1
+               }
+               if (shui==3) {
+                this.node.getComponent(YSgod).FW4[2]=1
+               }
            
             break;
         
              
          
            
-           case 0.5:if (huo>0) {
-            this.sh-=1
-      
-            if (huo<4) {
-               this.node.getComponent(YSgod).FW[0]=0
-            }
-           }
-           break;
-           
+           case 0.5:    if (huo==0) {
+              this.TNJJ[3]+=1    
+               }
+              
+              
+              if (huo==1) {
+               this.sh-=1
+   
+              }
+ if (huo==2) {
+                  this.node.getComponent(YSgod).FW3[0]=0
+               }
+ if (huo==3) {
+                  this.node.getComponent(YSgod).FW4[0]=0
+               }
+
            //火
       
-      
+      break;
       
       
       
@@ -1794,7 +2020,7 @@ BFUs(ch:number){
       }
       else if(tu==3){
  
-      this.node.getComponent(YSgod).FW[1]=0;//TN+1
+      this.node.getComponent(YSgod).FW4[1]=0;//TN+1
       }
            break;
       
@@ -1806,32 +2032,46 @@ BFUs(ch:number){
            
            case -3:
            
-           if (feng>0) {
+           if (feng==0) {
             
            
             this.TNJJ[1]+=1
             
-            if (feng==3) {
-             this.node.getComponent(YSgod).FW[3]=0
-            }}
-            break;
+          }
+           if (feng==1) {
+            
            
+            this.MaxT--
+            
+          }
+           if (feng==2) {
+             this.node.getComponent(YSgod).FW3[3]=0
+            }
+  if (feng==3) {
+             this.node.getComponent(YSgod).FW4[3]=0
+            }
            //风
            
        
            
           
-           
+           break;
          
            
            case -2:
            
-           if (shui>1) {
-            this.addTN-=1
-            
-            if (shui==4) {
-             this.node.getComponent(YSgod).FW[2]=1
-            }}  
+             if (shui==0) {
+               this.TNJJ[4]+=1
+               }
+                 if (shui==1) {
+               this.addTN-=1
+               }
+                if (shui==2) {
+                this.node.getComponent(YSgod).FW3[2]=1
+               }
+               if (shui==3) {
+                this.node.getComponent(YSgod).FW4[2]=1
+               }
            //水 
            break;
            
@@ -1850,7 +2090,6 @@ BFUs(ch:number){
 
 
 }
-
 
 
 
@@ -2121,10 +2360,7 @@ for(let a of this. XD2){a.xd2(message)}
         
                            
                case "move": 
-              if (message.from!=this.Pturn) {
-               for(let a of this.wd1){a.WD1()}
-              }
-               if (!this.WD) {this.move(message.Content[0],1);this.moveto(message.Content[1],this.ZB); if (this.ZB == 8) { this.dead(); }} 
+        this.move(message.Content[0],1,false);this.moveto(message.Content[1],this.ZB); if (this.ZB == 8) { this.dead(); } 
                   
                this.WD=false
                break;
@@ -2265,12 +2501,13 @@ this.PFUI("HP+",message.Content);
                   case "MaxHP+": if (this.LST == -1) { } else {
                      this.MaxHP+=message.Content;
                      //this.HP+=message.Content;
-                  GeZiManager.shanchu(this.UI,this.node.getChildByName("HUI").getComponent(HUI))
-                 let c=this.node.getChildByName("HUI").position
-                  this.node.getChildByName("HUI").destroy();
-                     let HUI1 = instantiate(this.HUI)
-                     HUI1.setParent(this.node)
-                     HUI1.position=c
+              //    GeZiManager.shanchu(this.UI,this.node.getChildByName("HUI").getComponent(HUI))
+                // let c=this.node.getChildByName("HUI").position
+           //    this.node.getChildByName("HUI").destroy();
+                 //    let HUI1 = instantiate(this.HUI)
+                  //   HUI1.setParent(this.node)
+                  //   HUI1.position=c
+                               //   this.node.getChildByName("HUI").destroy();
                      for (let m of this.UI){
 if(m instanceof sideUI) {
  // GeZiManager.shanchu(this.UI,m)
@@ -2281,14 +2518,20 @@ m.setHP()
   break;
 }
                      }
-                        
-                    setTimeout(() => {
-                     for (let mannger of this.UI) {
+         for (let mannger of this.UI) {
                         if (mannger instanceof HUI) {
-                           mannger.setHP()
+                           mannger.setMaxHP()
                         }
-                     }
-                    }, 100);
+                     }               
+                     
+
+              
+                    // for (let mannger of this.UI) {
+                    //    if (mannger instanceof HUI) {
+                    //       mannger.setHP()
+                    //    }
+                  //   }
+            
                      
                     
                       
@@ -2297,15 +2540,18 @@ m.setHP()
 
                      case "MaxHP-": if (this.LST == -1) { } else {
                         this.MaxHP-=message.Content;
+                             let c=this.node.getChildByName("HUI").position
+                    console.log(this.HP)         
                        if(this.MaxHP<this.HP) {this.HP-=message.Content;}
+                       console.log(this.HP)  
                        if (this.MaxHP==0) {
                         this.Bdead(this.getc(message.from))
                        }
-                     GeZiManager.shanchu(this.UI,this.node.getChildByName("HUI").getComponent(HUI))
-                       this.node.getChildByName("HUI").destroy();
-                        let HUI1 = instantiate(this.HUI)
-                        HUI1.setParent(this.node)
-                        
+                 //    GeZiManager.shanchu(this.UI,this.node.getChildByName("HUI").getComponent(HUI))
+                     //  this.node.getChildByName("HUI").destroy();
+                     //   let HUI1 = instantiate(this.HUI)
+                      //  HUI1.setParent(this.node)
+                        //     HUI1.position=c
                         for (let m of this.UI){
    if(m instanceof sideUI) {
      GeZiManager.shanchu(this.UI,m)
@@ -2316,14 +2562,14 @@ m.setHP()
    }
                         }
                            
-                       
-                        setTimeout(() => {
-                           for (let mannger of this.UI) {
-                              if (mannger instanceof HUI) {
-                                 mannger.setHP()
-                              }
-                           }
-                          }, 100);
+                     for (let mannger of this.UI) {
+                        if (mannger instanceof HUI) {
+                           mannger.setMaxHP()
+                        }
+                     }   
+                 
+                        
+                  
                          if (this.HP <= 0) { this.Bdead(this.getc(message.from)); }
                      }
 
@@ -2351,6 +2597,8 @@ break;
                   case "getOne":GeZiManager.Tcharacter=this;
                   break;
                   case "getOneC":GeZiManager.Tcharacter=this;
+                  break;
+                    case "getOneCST":GeZiManager.STTcharacter=this;
                   break;
                   case "getOnes":GeZiManager.Tcharacters.push(this)
                   break;
@@ -2525,12 +2773,13 @@ baoMA(message:SHMessage){
    if(this.Pturn==turn.turn) {
      
       this.walkWay=this.MwalkWay
+            GeZiManager.STTcharacter=null
+MessageCenter.MakeSHMessage("AM",[this.findGe(this.faceTo, 1)],1,-1,"getOneCST")
+      if (this.KB>0||(GeZiManager.boxs.includes(this.findGe(this.faceTo, 1))&&this.walkWay==1)||(GeZiManager.STTcharacter&&GeZiManager.STTcharacter.BANAN>0&&this.walkWay==1)) { this.walkWay = 0.5;}
 
-      if (this.CZ>0||(GeZiManager.boxs.includes(this.findGe(this.faceTo, 1))&&this.walkWay==1&&!GeZiManager.waterPool.includes(this.findGe(this.faceTo, 1)))) { this.walkWay = 0.5;}
-      
 switch (this.walkWay) {
   
-case 0.5 : if (GeZiManager.BanMove.includes(this.findGe(this.faceTo,2))||this.TN<GeZiManager.TNC[1]+this.TNJJ[1]+1){
+case 0.5 : if (this.TN<GeZiManager.TNC[1]+this.TNJJ[1]+1){
     MessageCenter.MakeMessage("BUI", [1], "Ban")
    MessageCenter.MakeMessage("BUI", [0.5], "Ban");
    }
@@ -2587,7 +2836,10 @@ find("Canvas/Main Camera/UIManager/magicUI").getComponent(MUI).ST();
 
 
 
-     
+        if((this.TN<this.TNJJ[1]+GeZiManager.TNC[1])&&(this.TN<this.TNJJ[0]+GeZiManager.TNC[0]||this.t==0)){
+      console.log(this.TN<this.TNJJ[1]+GeZiManager.TNC[1]&&this.TN<this.TNJJ[0]+GeZiManager.TNC[0])
+      
+      MessageCenter.MakeMessage("BUI", [10], "Ban");}
 
 }
 
@@ -2651,8 +2903,21 @@ Tstart(){
 
    this.node.getChildByName("shadow")
 
-   if(this.LST!=10&&this.TheShy==false&&endGame.jsl==false){ MessageCenter.MakeMessage("UIManager", "change", 0);   if (turn.turn==this.Pturn&&(KHD2.PT.includes(turn.turn)||MessageCenter.Text)) {
-      MessageCenter.MakeGMessage("GM",[0], turn.turn+1, turn.turn,"PASS");   
+   if(this.LST!=10&&this.TheShy==false&&endGame.jsl==false){
+     //  MessageCenter.MakeMessage("UIManager", "change", 0);   
+       if (turn.turn==this.Pturn&&(KHD2.PT.includes(turn.turn)||MessageCenter.Text)) {
+let c=GeZiManager.Bhun
+if (this.color=="Red") {
+   c=GeZiManager.Rhun
+}
+       if (this.LST==-1&&(c>=3||this.body.TheNumber=="B09")) {
+          
+            
+         this.YFH()
+     
+         console.log(state.ST)
+   }else{   MessageCenter.MakeGMessage("AM",[0], turn.turn+1, turn.turn,"PASS");}
+        
    }  }else{
        find("Canvas/DituManager/New Node/time").getComponent(Time).reset()
       find("Canvas/DituManager/New Node/time").getComponent(Time).startCountdown()
@@ -2696,6 +2961,7 @@ this.node.parent.getComponent(TNManager).TN();
    if(this.DLN==0){this.DLN+=1}
 
 }
+
 }
 Tend(){
 
@@ -2709,6 +2975,7 @@ GeZiManager.PCP.MZJS()
 GeZiManager.PCP.CZJS()
 GeZiManager.PCP.ICEJS()
 GeZiManager.PCP.WFDJS()
+GeZiManager.PCP.BanaJS()
    this.UIchange(null); 
    if (!(turn.round%12==2||turn.round%12==7)) {   
    if(this.DiXing=="water"&&!GeZiManager.boxs.includes(this.ZB)){GeZiManager.PCP.WAT-=1;this.node.getChildByName("water").getComponent(waterPp).PO(1)}}
@@ -2760,9 +3027,13 @@ roundPass(): void {
             break;
 
 
+ case -1: MessageCenter.MakeMessage("BUI", [ 2, 3, 4, 5], "Use"); this.Tstart();
+            break;
 
-
-         default: MessageCenter.MakeMessage("UIManager", "change", 0); if (turn.turn == this.Pturn) { MessageCenter.MakeMessage("AM",turn.turn,"getC");  
+         default: 
+         
+         MessageCenter.MakeMessage("UIManager", "change", 0); 
+         if (turn.turn == this.Pturn) { MessageCenter.MakeMessage("AM",turn.turn,"getC");  
          MessageCenter.MakeSHMessage("AM",[0], turn.turn+1, turn.turn,"PASS"); }
             state.ST = 1;
             break;
@@ -2874,11 +3145,25 @@ let j=0
    console.log(this.HP)
    this.ZB=i;
    this.ghost=false;
-  this.faceTo=this.getc(FT).faceTo
+ 
 this.WFDL()
    this.moveto(0,this.ZB);
    this.move(5,1);
-
+  this.setXY(0);
+  switch (this.ZB) {
+   case 18:this.faceTo=6
+      
+      break;
+ case 43:this.faceTo=2
+      
+      break;
+      case 47:this.faceTo=4
+      break;
+       case 22:this.faceTo=8
+      break;
+   default:
+      break;
+}
    this.faceChange();
  
    this.node.active=true;
@@ -2886,20 +3171,27 @@ this.WFDL()
    MessageCenter.MakeSHMessage("AM",[this.ZB],2,this.Pturn,"Qi+")
    for(let a of this.node.children){a.active=true;}
    this.node.getComponent(Cspine).FH();
+
+
+  
    this.node.getComponent(Cspine).changeDirection(this.faceTo)
    this.node.getComponent(gif1).stop()
    MessageCenter.MakeSHMessage("AM",[this.ZB],0,this.Pturn,"HP+")
  
    if (state.ST==0.5) {
-      state.ST=1 
+    //  state.ST=1 
    }
-   this.setXY(0.8);
+ 
 
   GeZiManager.getQin(this.ZB,this.ZB)
 
 
        this.node.getChildByName("MTX").getComponent(MTX).playFrameAnimation1("FH");
+if (this.color=="Red") {
+   GeZiManager.Rhun-=3
+}else{  GeZiManager.Bhun-=3}
 
+GeZiManager.getHUN()
 endGame.endGame(9)
 
 }
@@ -2914,10 +3206,23 @@ let j=0
    this.ZB=i;
    this.ghost=false;
   this.faceTo=this.getc(FT).faceTo
-this.WFDL()
+//this.WFDL()
    this.moveto(0,this.ZB);
    this.move(5,1);
-
+  switch (this.ZB) {
+   case 18:this.faceTo=6
+      
+      break;
+ case 43:this.faceTo=2
+      
+      break;
+      case 47:this.faceTo=4
+      break;
+       case 22:this.faceTo=8
+      break;
+   default:
+      break;
+}
    this.faceChange();
  
    this.node.active=true;
@@ -2929,11 +3234,15 @@ this.WFDL()
    this.node.getComponent(gif1).stop()
    MessageCenter.MakeSHMessage("AM",[this.ZB],0,this.Pturn,"HP+")
  
-   if (state.ST==0.5) {
-      state.ST=1 
-   }
-   this.setXY(0.8);
+  // if (state.ST==0.5) {
+    //  state.ST=1 
+   //}
+   this.setXY(0);
+if (this.color=="Red") {
+   GeZiManager.Rhun-=3
+}else{  GeZiManager.Bhun-=3}
 
+GeZiManager.getHUN()
   GeZiManager.getQin(this.ZB,this.ZB)
 
 
@@ -2942,7 +3251,6 @@ this.WFDL()
 endGame.endGame(9)
 
 
-console.log(   this.node.getComponent(Cspine).currentSpine)
 
 }
 getZDSX(n:string){
@@ -3023,6 +3331,7 @@ KBL(n:number){
    if (this.KB==0) {
      this.sh+=1
      this.wk+=1
+            this.TNJJ[0]+=1
    }
    
    this.KB+=n
@@ -3072,7 +3381,7 @@ KBL(n:number){
         this.TNJJ[0]+=1
         this.TNJJ[1]+=1
         this.TNJJ[3]+=1
-
+        MessageCenter.MakeSHMessage("AM",[this.ZB],this.qi,this.Pturn,"Qi-");  
         this.ZT.push("ICE")
            this.sideUI.setZT()
               this.setMaterialToSprite("ice")
@@ -3104,8 +3413,24 @@ KBL(n:number){
       }
    }
    
-   
-   
+      BanaL(){
+            this.setMaterialToSprite("WFD")
+         this.BANAN+=1
+     //   this.ZT.push("BA")
+      //  this.sideUI.setZT()
+      }
+  
+  
+      BanaJS(){
+
+
+        
+      this.BANAN=0
+                    this.setMaterialToSprite("")
+     
+  //this.ZT.push("BA")
+      //  this.sideUI.setZT()
+      }
    
    
    
@@ -3116,10 +3441,11 @@ KBL(n:number){
      
         if (this.KB>0) {
            this.KB-=1
-           this.ZBW(false,1)
+       //    this.ZBW(false,1)
            if (this.KB==0) {
               this.sh-=1
               this.wk-=1
+              this.TNJJ[0]-=1
                    GeZiManager.shanchu(this.ZT,"KB")
                          this.setMaterialToSprite("")
                       this.sideUI.setZT()
@@ -3183,7 +3509,7 @@ KBL(n:number){
             this.TNJJ[0]-=oo
         this.TNJJ[1]-=oo
         this.TNJJ[3]-=oo
-            
+                  MessageCenter.MakeSHMessage("AM",[this.ZB],2,this.Pturn,"Qi+");  
             this.node.getChildByName("MTX").getComponent(MTX).playFrameAnimation1("iceN");this.ST();
               this.setMaterialToSprite("")
          
@@ -3282,5 +3608,129 @@ if (material) {
       }
 
  }
+
+YFH(){
+
+   setTimeout(()=>{
+    state.ST=0.5
+ GeZiManager.Tcharacter=this
+        MessageCenter.MakeMessage("UIManager","change",-1);
+    
+        for(let manager of GeZiManager.YuanGong){
+    let a=new Message("",[65],-1)
+            manager.ReceiveMessage(a) ;   
+    }
+    MessageCenter.MakeMessage("AM",turn.turn,"getZB")
+    
+
+/*
+let N=[]
+for (let  c of [GeZiManager.P1,GeZiManager.P2,GeZiManager.P3,GeZiManager.P4,GeZiManager.P5,GeZiManager.P6]) {
+if (c.color==this.color) {
+   N=N.concat(GeZiManager.getF(c.ZB,3))
+}
+   
+}
+for (let  c of GeZiManager.AllObstacles) {
+if (c.color==this.color&&c instanceof qizi) {
+   N=N.concat(c.FW)
+}
+   
+}
+
+    GeZiManager.GeZis =N*/
+   GeZiManager.GeZis=GeZiManager.getFHZB()   
+   let c1=GeZiManager.GeZis
+   if (this.body.TheNumber=="B09") {
+      c1=[65]
+   }
+    let c=new Message("",c1,1);
+    for (let m of GeZiManager.YuanGong) {
+    
+    
+     
+       // manager.getFar(n+GeZiManager.JL);
+            
+                m.red();
+            
+               m.ReceiveMessage(c);
+          
+    if(GeZiManager.BanMove.includes(m.ZB)){
+    m.red();
+    m.out();
+
+}
+
+
+    }
+    
+      
+     state.ST=0.5
+     console.log(  state.ST)
+    console.log(GeZiManager.Tcharacter)
+    },200)
+    }
+
+
+
+
+
+
+getNM(n:number){
+
+
+switch (n) {
+   case 1: 
+   
+  if (this.TN<GeZiManager.TNC[1]+this.TNJJ[1]) {
+   return [this.findGe(this.faceTo,1)]
+  } 
+   
+   switch (this.walkWay) {
+  
+case 0.5 : if (GeZiManager.BanMove.includes(this.findGe(this.faceTo,2))||this.TN<GeZiManager.TNC[1]+this.TNJJ[1]+1){
+return [this.findGe(this.faceTo,1)]
+   }else{return []}
+break;//MessageCenter.MakeMessage("BUI", [1], "change0.5");if(this.qi<=10){ MessageCenter.MakeMessage("BUI", [1], "Ban")} 
+
+
+case 2 : if (GeZiManager.BanMove.includes(this.findGe(this.faceTo, 2))||GeZiManager.BanMove.includes(this.findGe(this.faceTo, 1))){return [this.findGe(this.faceTo,2)]}
+break;
+
+case -1 : if (GeZiManager.BanMove.includes(this.findGe(this.turn8([this.faceTo])[0],1))){return [this.findGe(this.turn8([this.faceTo])[0],1)]}
+break;
+
+case 0:   //MessageCenter.MakeMessage("BUI", [1], "Use");
+   break;
+default:  if (this.GX(this.faceTo)&&!(GeZiManager.waterPool.includes(this.findGe(this.faceTo, 1))&&GeZiManager.boxs.includes(this.findGe(this.faceTo, 1)))&&!this.ghost) {
+            
+  return [this.findGe(this.faceTo,1)]
+}
+     
+  return []
+}
+
+
+
+break;
+
+case 0:
+
+   
+
+
+
+
+break;
+
+
+}
+      
+    
+}
+  
+
+
+
 
 }

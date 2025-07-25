@@ -19,7 +19,7 @@ export default class A142 extends Dao {
     TheNumber: string = "A142";
     Aface: number[] = [2];
     SH: number=3;
-    CJ:number=1
+   // CJ:number=1
     Ytype: number=11;
 
 
@@ -27,15 +27,15 @@ export default class A142 extends Dao {
 start(): void {
    super.start()
    
-    let p=9999
-    let g=null
-    for (let c of [GeZiManager.P1,GeZiManager.P2,GeZiManager.P3,GeZiManager.P4,GeZiManager.P5,GeZiManager.P6]) {
-        if (c.color!=this.target.color&&c.HP<p&&c.LST!=-1) {
-          p=c.HP,g=c
-        }
+  //  let p=9999
+  //  let g=null
+ //   for (let c of [GeZiManager.P1,GeZiManager.P2,GeZiManager.P3,GeZiManager.P4,GeZiManager.P5,GeZiManager.P6]) {
+  //      if (c.color!=this.target.color&&c.HP<p&&c.LST!=-1) {
+   //       p=c.HP,g=c
+   //     }
       
-    }
-            MessageCenter.MakeSHMessage("AM", [g.ZB], 1,this.node.getComponent(Character).Pturn, "HP-");
+   // }
+         //   MessageCenter.MakeSHMessage("AM", [g.ZB], 1,this.node.getComponent(Character).Pturn, "HP-");
 }
 
 

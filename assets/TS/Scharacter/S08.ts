@@ -23,6 +23,7 @@ import state from "../game/time/state";
 import turn from "../game/time/turn";
     import SXX from "./SXX";
 import { SubtitleManager } from '../UIS/baom';
+import MTX from '../BASE/MTX';
 
 
     @ccclass
@@ -164,17 +165,42 @@ return
 
 for(let a of this.FSM){
     if (a!=null&&a.node.getComponent(Character).LST!=-1) {
-        a.node.getComponent(Character).changeE(A)
-        console.log(A)
+       console.log(a.node.getComponent(Character).weapon.TheNumber)
+    
+        console.log(a.king+":"+A)
+    if ( a.node.getComponent(Character).weapon.TheNumber!=A) {
+           a.node.getComponent(Character).changeE(A) 
+    }
+      
     }
     }
 }
 
+Shop222(A: string, a: any): void {
 
+if(!A){
+
+return
+
+
+}
+
+
+    if (a!=null&&a.getComponent(Character).LST!=-1) {
+       
+    
+   
+    if ( a.getComponent(Character).weapon.TheNumber!=A) {
+           a.getComponent(Character).changeE(A) 
+    }
+      
+    }
+    
+}
 
 HPM3(): void {
 
-if (this.BL[3]>0) {
+if (this.JX) {
 if(this.king){  for(let a of this.FSM){
     a.target.MaxHP=this.target.MaxHP
 a.target.HP=this.target.HP
@@ -264,10 +290,10 @@ this.node.parent.getComponent(JNUM).JNF("S分身术",this.target.ZB,600)
     this.fenShen1.getComponent(CHF).MaxHP=2
     this.fenShen1.getComponent(CHF).HP=2
     this.fenShen1.getComponent(CHF).color=this.fenShen1.getComponent(CHF).FC.color
-
-    console.log(parseInt(this.node.getComponent(Character).Pturn+""+this.FCn,10))
+//
+ //   console.log(parseInt(this.node.getComponent(Character).Pturn+""+this.FCn,10))
     // this.fenShen1.getComponent(CHF).SHC=["turn4","turn6","att
-console.log(this.fenShen1.getComponent(CHF).Pturn)
+//console.log(this.fenShen1.getComponent(CHF).Pturn)
    // this.fenShen1.getComponent(CHF).SHC=["turn4","turn6","attack"]
     this.node.getComponent(S08).FSM.push(this.fenShen1.getComponent(S08)) 
     if(flag) 
@@ -281,7 +307,9 @@ console.log(this.fenShen1.getComponent(CHF).Pturn)
             }
         }else f=false}//判断是否有物品在分身的位置
         //非越界和物品占位生成分身
-        this.fenShen1.getComponent(Character).changeE(this.node.getComponent(Character).weapon.TheNumber)
+
+        
+  //   this.fenShen1.getComponent(Character).changeE(this.node.getComponent(Character).weapon.TheNumber)
         if(x<=64&&f) this.fenShen1.getComponent(CHF).TP(x)
     }
     else 
@@ -296,7 +324,7 @@ console.log(this.fenShen1.getComponent(CHF).Pturn)
         }else f=false}
         if((x<=8||x<=16||x<=24||x<=32||x<=40||x<=48||x<=56||x<=64)&&f){
         this.fenShen1.getComponent(CHF).TP(x);
-      this.fenShen1.getComponent(Character).changeE(this.node.getComponent(Character).weapon.TheNumber)
+  // this.fenShen1.getComponent(Character).changeE(this.node.getComponent(Character).weapon.TheNumber)
        // this.fenShen1.getComponent(CHF).changeE("A580"); 
         }else{ this.fenShen1.getComponent(CHF).dead()}
   
@@ -317,7 +345,7 @@ console.log(this.fenShen1.getComponent(CHF).Pturn)
     this.fenShen2.getComponent(CHF).HP=2
     this.fenShen2.getComponent(CHF).color=this.fenShen2.getComponent(CHF).FC.color
 
-console.log(this.fenShen2.getComponent(CHF).weapon.TheNumber)
+//console.log(this.fenShen2.getComponent(CHF).weapon.TheNumber)
    // this.fenShen1.getComponent(CHF).SHC=["turn4","turn6","attack"]
     this.node.getComponent(S08).FSM.push(this.fenShen2.getComponent(S08)) 
     if(flag) 
@@ -330,7 +358,9 @@ console.log(this.fenShen2.getComponent(CHF).weapon.TheNumber)
                 f=false
             }
         }else f=false}
-        if(x>=0&&f) {this.fenShen2.getComponent(CHF).TP(x); this.fenShen2.getComponent(Character).changeE(this.node.getComponent(Character).weapon.TheNumber)}
+        if(x>=0&&f) {this.fenShen2.getComponent(CHF).TP(x);
+        //   this.fenShen2.getComponent(Character).changeE(this.node.getComponent(Character).weapon.TheNumber)
+            }
     }
     else 
     {
@@ -344,8 +374,8 @@ console.log(this.fenShen2.getComponent(CHF).weapon.TheNumber)
         }else f=false}
         if((x>=1||x>=9||x>=17||x>=25||x>=33||x>=41||x>=49||x>=57)&&f){
           this.fenShen2.getComponent(CHF).TP(x);
-        this.fenShen2.getComponent(Character).changeE(this.node.getComponent(Character).weapon.TheNumber)
-        console.log( this.fenShen2.getComponent(CHF).weapon)
+    // this.fenShen2.getComponent(Character).changeE(this.node.getComponent(Character).weapon.TheNumber)
+     //   console.log( this.fenShen2.getComponent(CHF).weapon)
         }else{ this.fenShen2.getComponent(CHF).dead()}
     }
     //this.fenShen1.getComponent(CHF).changeE(this.node.getComponent(Character).weapon.TheNumber)
@@ -356,7 +386,7 @@ setTimeout(() => {
 console.log(this.node.getComponent(Character).weapon.TheNumber)
 this.Shop2(this.node.getComponent(Character).weapon.TheNumber,true)
 }, 200);*/
-setTimeout(()=>{  for(let m of GeZiManager.PCP.shop2){m.Shop2(GeZiManager.PCP.weapon.TheNumber,true);}},200)  
+setTimeout(()=>{this.Shop222(GeZiManager.PCP.weapon.TheNumber,this.fenShen1); this.Shop222(GeZiManager.PCP.weapon.TheNumber,this.fenShen2);},200)  
 console.log(GeZiManager.PCP.weapon.TheNumber)
 }, 700);
   console.log(this.node.getComponent(Character).CHF)
@@ -398,7 +428,7 @@ let o=this.target.getdis(wz)
       if (!this.JX) {
         GeZiManager.shanchu(this.FSM,a)
 this.node.parent.getComponent(JNUM).JNF("S移形换影",a.ZB,600)
-        a.weapon.remove();
+       // a.weapon.remove();
           a.dead();
       } else{a.ZB=a.FC.ZB;setTimeout(()=>{a.To(a.ZB,0)},500)
       this.node.parent.getComponent(JNUM).JNF("S移形换影",this.target.ZB,600)  
@@ -554,20 +584,31 @@ console.log(a)
        
     
         
-        if (this.getFUn()>=3) {
-          this.JX=true
-           SubtitleManager.show(
-                          {
-                              bgSprite:this.target.color,
-                              image1:this.Toux,
-                              text1: "这个家伙觉醒啦",
-                              image2: this.skiil3,
-                              text2: "",
-                              duration: 5
-                          }
-                         )
-        }else{ this.JX=false}//幻灭
-       
+          if (this.getFUn()>=3 &&this.JX==false) {
+               
+                  this.JX=true
+                          this.node.getComponent(Cspine).currentSpine.animation="EX"
+                              this.node.getComponentInChildren(MTX).playFrameAnimation1("TN")
+                  SubtitleManager.show(
+                                  {
+                                      bgSprite:this.target.color,
+                                      image1:this.Toux,
+                                      text1: "这个家伙觉醒啦",
+                                      image2: this.skiil4,
+                                      text2: "",
+                                      duration: 5
+                                  }
+                                 )
+                                 this.HPM3()
+          }else{  
+                  
+          if ( this.JX) {
+                  
+          
+                  this.JX=false
+          
+             }
+          }
         
         
     

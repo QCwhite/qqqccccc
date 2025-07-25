@@ -28,6 +28,8 @@ import Shops from "./shops";
 import  gif1  from '../../BASE/spineANDgif/gif';
 import { resources, JsonAsset } from 'cc';
 import { AudioManager } from '../../BASE/music';
+import label from '../label';
+import { color } from 'cc';
 
 @ccclass('NWshopUI')
 export default class NWshopUI extends ComponentBase {
@@ -161,28 +163,20 @@ DXJ(){
     
      
     
-    NWshopM.NWN=NWshopM.get5(5)
+    NWshopM.NWN=NWshopM.getNM()
     console.log(NWshopM.NWN[0])
     console.log( this.AM.getComponent(Shops))
-        this.A1.children[0].getComponent(Sprite).spriteFrame= this.AM.getComponent(Shops).find(10,NWshopM.NWN[0].toString(),"",0)
-        KOG.DSP( this.A1.children[0],NWshopM.NWN[0].toString())
-        this.A2.children[0].getComponent(Sprite).spriteFrame= this.AM.getComponent(Shops).find(10,NWshopM.NWN[1].toString(),"",0)
-        KOG.DSP( this.A2.children[0],NWshopM.NWN[1].toString())
-        this.A3.children[0].getComponent(Sprite).spriteFrame= this.AM.getComponent(Shops).find(10,NWshopM.NWN[2].toString(),"",0)
-        KOG.DSP( this.A3.children[0],NWshopM.NWN[2].toString())
-        this.A4.children[0].getComponent(Sprite).spriteFrame= this.AM.getComponent(Shops).find(10,NWshopM.NWN[3].toString(),"",0)
-        KOG.DSP( this.A4.children[0],NWshopM.NWN[3].toString())
-        this.A5.children[0].getComponent(Sprite).spriteFrame= this.AM.getComponent(Shops).find(10,NWshopM.NWN[4].toString(),"",0)
-        KOG.DSP( this.A5.children[0],NWshopM.NWN[4].toString())
-        this.A1.getChildByName("Xlabel").getComponent(Label).string=""+this.findNameById(NWshopM.NWN[0])
-        this.A2.getChildByName("Xlabel").getComponent(Label).string=""+this.findNameById(NWshopM.NWN[1])
-        this.A3.getChildByName("Xlabel").getComponent(Label).string=""+this.findNameById(NWshopM.NWN[2])
-        this.A4.getChildByName("Xlabel").getComponent(Label).string=""+this.findNameById(NWshopM.NWN[3])
-        this.A5.getChildByName("Xlabel").getComponent(Label).string=""+this.findNameById(NWshopM.NWN[4])
+     
     
-        MessageCenter.MakeGMessage("NWSU",[GeZiManager.PCP.ZB],NWshopM.NWN[4],GeZiManager.PCP.Pturn,"NW")
+//        MessageCenter.MakeGMessage("NWSU",[GeZiManager.PCP.ZB],NWshopM.NWN[4],GeZiManager.PCP.Pturn,"NW")
    NWshopM.NWDJ=true;
         this.ST();
+
+ MessageCenter.MakeGMessage("NWSU",[GeZiManager.PCP.ZB],[NWshopM.NWN[0],NWshopM.NWN[1],NWshopM.NWN[2],NWshopM.NWN[3],NWshopM.NWN[4]],GeZiManager.PCP.Pturn,"NW")
+
+
+
+
 
     }
     
@@ -325,7 +319,7 @@ DXJ(){
     }
     MessageCenter.MakeMessage("AM",turn.turn,"getZB")
     
-    GeZiManager.GeZis =GeZiManager.getF(GeZiManager.PCP.ZB,3)
+    GeZiManager.GeZis =GeZiManager.getF(GeZiManager.PCP.ZB,4)
     
     let c=new Message("",GeZiManager.GeZis,1);
     for (let m of GeZiManager.YuanGong) {
@@ -387,30 +381,30 @@ DXJ(){
     
     dA1(){
     console.log(NWshopM.NWN[0])
-        MessageCenter.MakeGMessage("NWSU",[GeZiManager.PCP.ZB],NWshopM.NWN[0],GeZiManager.PCP.Pturn,"buy")
+        MessageCenter.MakeGMessage("NWSU",[GeZiManager.PCP.ZB],NWshopM.NWN[0],0,"buy")
     //MessageCenter.MakeMessage("BUI",[3],"Ban");
     
     //GeZiManager.PCP.KTT-=1;
     this.ST();
-    this.QK();
+  //  this.QK();
     MessageCenter.MakeMessage("UIManager","change",1);
     }
     
     
     dA2(){
-        MessageCenter.MakeGMessage("NWSU",[GeZiManager.PCP.ZB],NWshopM.NWN[1],GeZiManager.PCP.Pturn,"buy")
+        MessageCenter.MakeGMessage("NWSU",[GeZiManager.PCP.ZB],NWshopM.NWN[1],1,"buy")
        // GeZiManager.PCP.KTT-=1
         this.ST();
-        this.QK();
+      //  this.QK();
         MessageCenter.MakeMessage("UIManager","change",1);
     
     }
         dA3(){
     
-            MessageCenter.MakeGMessage("NWSU",[GeZiManager.PCP.ZB],NWshopM.NWN[2],GeZiManager.PCP.Pturn,"buy")
+            MessageCenter.MakeGMessage("NWSU",[GeZiManager.PCP.ZB],NWshopM.NWN[2],2,"buy")
           //  GeZiManager.PCP.KTT-=1
             this.ST();
-            this.QK();
+          //  this.QK();
             MessageCenter.MakeMessage("UIManager","change",1);
     
     
@@ -418,10 +412,10 @@ DXJ(){
     
         dA4(){
     
-            MessageCenter.MakeGMessage("NWSU",[GeZiManager.PCP.ZB],NWshopM.NWN[3],GeZiManager.PCP.Pturn,"buy")
+            MessageCenter.MakeGMessage("NWSU",[GeZiManager.PCP.ZB],NWshopM.NWN[3],3,"buy")
            // GeZiManager.PCP.KTT-=1
             this.ST();
-            this.QK();
+         //   this.QK();
             MessageCenter.MakeMessage("UIManager","change",1);
                }
         
@@ -433,10 +427,10 @@ DXJ(){
         
             dTS(){
         
-                MessageCenter.MakeGMessage("NWSU",[GeZiManager.PCP.ZB],NWshopM.NWN[4],GeZiManager.PCP.Pturn,"buy")
+                MessageCenter.MakeGMessage("NWSU",[GeZiManager.PCP.ZB],NWshopM.NWN[4],4,"buy")
             //    GeZiManager.PCP.KTT-=1
             this.ST();
-            this.QK();
+          //  this.QK();
             MessageCenter.MakeMessage("UIManager","change",1);
             }
     
@@ -445,7 +439,7 @@ DXJ(){
     
     
                 ST(){
-
+/*
 if (!NWshopM.NWDJ) {
    find("Canvas/Main Camera/UIManager/NWshop/1L/pu1/New Button").active=false
         find("Canvas/Main Camera/UIManager/NWshop/1L/pu2/New Button").active=false
@@ -458,9 +452,76 @@ if (!NWshopM.NWDJ) {
  find("Canvas/Main Camera/UIManager/NWshop/1L/pu3/New Button").active=true
  find("Canvas/Main Camera/UIManager/NWshop/1L/pu4/New Button").active=true
  find("Canvas/Main Camera/UIManager/NWshop/1L/pu5/New Button").active=true
-}
 
 
+
+
+}/*/
+
+                  NWshopM.getBNWN();
+                  NWshopM.getRNWN();     
+    
+                // let o=GeZiManager
+                  this.NWj.getComponent(Button).interactable=true
+                  this.XJ.children[1].getComponent(CustomButton).enableButton()
+                  
+                  let a=NWshopM.getNW2B()
+                  
+    if (GeZiManager.PCP.color=="Red") {
+        a=NWshopM.getNW2R()
+    }
+a=NWshopM.NWJB
+ find("Canvas/Main Camera/UIManager/NWshop/1L/pu1/New Button/Background/Label").getComponent(Label).string=a.toString()
+  find("Canvas/Main Camera/UIManager/NWshop/1L/pu2/New Button/Background/Label").getComponent(Label).string=a.toString()
+   find("Canvas/Main Camera/UIManager/NWshop/1L/pu3/New Button/Background/Label").getComponent(Label).string=a.toString()
+    find("Canvas/Main Camera/UIManager/NWshop/1L/pu4/New Button/Background/Label").getComponent(Label).string=a.toString()
+ find("Canvas/Main Camera/UIManager/NWshop/1L/pu5/New Button/Background/Label").getComponent(Label).string=a.toString()
+
+  this.A1.children[0].getComponent(Sprite).spriteFrame= this.AM.getComponent(Shops).find(10,NWshopM.NWN[0].toString(),"",0)
+      //  KOG.DSP( this.A1.children[0],NWshopM.NWN[0].toString())
+        this.A2.children[0].getComponent(Sprite).spriteFrame= this.AM.getComponent(Shops).find(10,NWshopM.NWN[1].toString(),"",0)
+       // KOG.DSP( this.A2.children[0],NWshopM.NWN[1].toString())
+        this.A3.children[0].getComponent(Sprite).spriteFrame= this.AM.getComponent(Shops).find(10,NWshopM.NWN[2].toString(),"",0)
+       // KOG.DSP( this.A3.children[0],NWshopM.NWN[2].toString())
+        this.A4.children[0].getComponent(Sprite).spriteFrame= this.AM.getComponent(Shops).find(10,NWshopM.NWN[3].toString(),"",0)
+       // KOG.DSP( this.A4.children[0],NWshopM.NWN[3].toString())
+        this.A5.children[0].getComponent(Sprite).spriteFrame= this.AM.getComponent(Shops).find(10,NWshopM.NWN[4].toString(),"",0)
+      //  KOG.DSP( this.A5.children[0],NWshopM.NWN[4].toString())
+        this.A1.getChildByName("Xlabel").getComponent(Label).string=""+this.findNameById(NWshopM.NWN[0])
+        this.A2.getChildByName("Xlabel").getComponent(Label).string=""+this.findNameById(NWshopM.NWN[1])
+        this.A3.getChildByName("Xlabel").getComponent(Label).string=""+this.findNameById(NWshopM.NWN[2])
+        this.A4.getChildByName("Xlabel").getComponent(Label).string=""+this.findNameById(NWshopM.NWN[3])
+        this.A5.getChildByName("Xlabel").getComponent(Label).string=""+this.findNameById(NWshopM.NWN[4])
+if (NWshopM.NWN[0]=="") {
+     find("Canvas/Main Camera/UIManager/NWshop/1L/pu1/New Button").active=false
+
+
+}else{     find("Canvas/Main Camera/UIManager/NWshop/1L/pu1/New Button").active=true}
+
+if (NWshopM.NWN[1]=="") {
+    
+        find("Canvas/Main Camera/UIManager/NWshop/1L/pu2/New Button").active=false
+        
+          
+}else{find("Canvas/Main Camera/UIManager/NWshop/1L/pu2/New Button").active=true}
+
+if (NWshopM.NWN[2]=="") {
+   
+            find("Canvas/Main Camera/UIManager/NWshop/1L/pu3/New Button").active=false
+     
+              
+}else{     find("Canvas/Main Camera/UIManager/NWshop/1L/pu3/New Button").active=true}
+if (NWshopM.NWN[3]=="") {
+   
+       
+                find("Canvas/Main Camera/UIManager/NWshop/1L/pu4/New Button").active=false
+              
+}else{     find("Canvas/Main Camera/UIManager/NWshop/1L/pu4/New Button").active=true}
+if (NWshopM.NWN[4]=="") {
+    
+                    find("Canvas/Main Camera/UIManager/NWshop/1L/pu5/New Button").active=false
+}else{     find("Canvas/Main Camera/UIManager/NWshop/1L/pu5/New Button").active=true}
+ 
 
 
 
@@ -479,22 +540,55 @@ if (!NWshopM.NWDJ) {
                   //  this.A4.getChildByName("New Sprite").getComponent(Sprite).spriteFrame=this.AM.getComponent(Shops).PM(NWshopM.TS[3]);
             
                   //  this.A5.getChildByName("New Sprite").getComponent(Sprite).spriteFrame=this.AM.getComponent(Shops).PM(NWshopM.TS[4]);
-                  NWshopM.getBNWN();
-                  NWshopM.getRNWN();     
-    
-                // let o=GeZiManager
-                  this.NWj.getComponent(Button).interactable=true
-                  this.XJ.children[1].getComponent(CustomButton).enableButton()
-                  
-                  let a=NWshopM.BNWN
-    if (GeZiManager.PCP.color=="Red") {
-        a=NWshopM.RNWN
-    }
-                    this.NWj.parent.getChildByName("Xlabel").getComponent(Label).string=a.toString()
+
+   let c=NWshopM.NWJB
+                    this.NWj.parent.getChildByName("Xlabel").getComponent(Label).string=c.toString()
                   if (GeZiManager.PCP.qi<a+GeZiManager.free) {
         this.NWj.getComponent(Button).interactable=false
+         find("Canvas/Main Camera/UIManager/NWshop/1L/pu1/New Button").getComponent(CustomButton).disableButton()
+        find("Canvas/Main Camera/UIManager/NWshop/1L/pu2/New Button").getComponent(CustomButton).disableButton()
+         find("Canvas/Main Camera/UIManager/NWshop/1L/pu3/New Button").getComponent(CustomButton).disableButton()
+         find("Canvas/Main Camera/UIManager/NWshop/1L/pu4/New Button").getComponent(CustomButton).disableButton()
+         find("Canvas/Main Camera/UIManager/NWshop/1L/pu5/New Button").getComponent(CustomButton).disableButton()
+
+         find("Canvas/Main Camera/UIManager/NWshop/1L/pu1/New Button").children[0].children[0].getComponent(Label).color= color(255,100,65)
+          find("Canvas/Main Camera/UIManager/NWshop/1L/pu2/New Button").children[0].children[0].getComponent(Label).color= color(255,100,65)
+          find("Canvas/Main Camera/UIManager/NWshop/1L/pu3/New Button").children[0].children[0].getComponent(Label).color= color(255,100,65)
+          find("Canvas/Main Camera/UIManager/NWshop/1L/pu4/New Button").children[0].children[0].getComponent(Label).color= color(255,100,65)
+          find("Canvas/Main Camera/UIManager/NWshop/1L/pu5/New Button").children[0].children[0].getComponent(Label).color= color(255,100,65)
+
+
+    }else{
+
+
+  find("Canvas/Main Camera/UIManager/NWshop/1L/pu1/New Button").getComponent(CustomButton).enableButton()
+        find("Canvas/Main Camera/UIManager/NWshop/1L/pu2/New Button").getComponent(CustomButton).enableButton()
+         find("Canvas/Main Camera/UIManager/NWshop/1L/pu3/New Button").getComponent(CustomButton).enableButton()
+         find("Canvas/Main Camera/UIManager/NWshop/1L/pu4/New Button").getComponent(CustomButton).enableButton()
+         find("Canvas/Main Camera/UIManager/NWshop/1L/pu5/New Button").getComponent(CustomButton).enableButton()
+
+         find("Canvas/Main Camera/UIManager/NWshop/1L/pu1/New Button").children[0].children[0].getComponent(Label).color= color(100,255,255)
+          find("Canvas/Main Camera/UIManager/NWshop/1L/pu2/New Button").children[0].children[0].getComponent(Label).color= color(100,255,255)
+          find("Canvas/Main Camera/UIManager/NWshop/1L/pu3/New Button").children[0].children[0].getComponent(Label).color=  color(100,255,255)
+          find("Canvas/Main Camera/UIManager/NWshop/1L/pu4/New Button").children[0].children[0].getComponent(Label).color=  color(100,255,255)
+          find("Canvas/Main Camera/UIManager/NWshop/1L/pu5/New Button").children[0].children[0].getComponent(Label).color=  color(100,255,255)
+
+
+
+
     }
     
+
+
+
+
+
+
+
+
+
+
+
 
 if (GeZiManager.PCP.color=="Red") {
     if (GeZiManager.Rhun<3) {
@@ -511,16 +605,16 @@ else {
 }
 
 
-    if (GeZiManager.PCP.TN<this.getTNC(5)) {
+    if (GeZiManager.PCP.TN<this.getTNC(5)||GeZiManager.PCP.qi<2) {
         this.NWj.getComponent(Button).interactable=false
         this.XJ.children[1].getComponent(CustomButton).disableButton()
-    }else
+    }else{     this.XJ.children[1].getComponent(CustomButton).enableButton()}
     
     
     if (NWshopM.NGS>3) {
       //  this.XJ.children[1].getComponent(Button).interactable=false
     }
-    this.XJ.getChildByName("Xlabel").getComponent(Label).string=NWshopM.NGS.toString()
+    this.XJ.getChildByName("Xlabel").getComponent(Label).string="2"
     
        /*            let a
                 switch (turn.turn) {
@@ -640,6 +734,10 @@ else {
              * @returns 对应的 name 属性或 null
              */
             findNameById(id: string): string | null {
+              if (id=="") {
+                return "空"
+              }
+              
                 if (!this._jsonData) {
                     console.error("JSON data is not loaded.");
                     return null;

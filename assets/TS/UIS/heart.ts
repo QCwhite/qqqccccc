@@ -11,6 +11,7 @@ const {ccclass, property} = _decorator;
 import ComponentBase from "../BASE/ComponentBase";
 import HUI from "./HUI";
 import sideUI from "./sideUI";
+import gif1 from '../BASE/spineANDgif/gif';
 
 @ccclass('Heart')
 export default class HP extends ComponentBase {
@@ -40,10 +41,11 @@ export default class HP extends ComponentBase {
         to0(){
         switch (this.c) {
           case 1: this.node.getComponent(Sprite).spriteFrame=this.node.parent.getComponent(HUI).Atlas.getSpriteFrame("Bheart");
-            
+            this.node.getComponent(gif1).falsh()
             break;
         
           default: this.node.getComponent(Sprite).spriteFrame=this.node.parent.parent.getComponent(sideUI).Atlas.getSpriteFrame("Bheart");
+                   this.node.getComponent(gif1).falsh()
             break;
         }
          
@@ -54,10 +56,11 @@ export default class HP extends ComponentBase {
         
           switch (this.c) {
             case 1: this.node.getComponent(Sprite).spriteFrame=this.node.parent.getComponent(HUI).Atlas.getSpriteFrame("heart");
-              
+                       this.node.getComponent(gif1).falsh()
               break;
           
             default: this.node.getComponent(Sprite).spriteFrame=this.node.parent.parent.getComponent(sideUI).Atlas.getSpriteFrame("heart");
+                     this.node.getComponent(gif1).falsh()
               break;
           }
         };

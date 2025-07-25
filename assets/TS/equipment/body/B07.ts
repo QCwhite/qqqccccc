@@ -30,14 +30,17 @@ HP:number=3
     start () {
         this.target=this.node.getComponent(Character)
         this.node.getComponent(Character).behurt3.push(this);
+           this.node.getComponent(Character).move2.push(this);
+             this.node.getComponent(Character).move3.push(this);
 //       this.node.getComponent(Character).dead2.push(this);
+GeZiManager.boxs.push(this.target.ZB)
     this.changeEP()
     }
 
   Behurt3(n: number, killp: any, k: number): void {
 
-        this.HP-=n
-        if (this.HP<=0) {
+      //  this.HP-=
+        if(n>=3) {
         MessageCenter.MakeSHMessage("AM",[this.target.findGe(2,1),this.target.findGe(4,1),this.target.findGe(6,1),this.target.findGe(8,1)],2,this.node.getComponent(Character).Pturn,"wuli")
         }
         this.remove()
@@ -48,9 +51,12 @@ HP:number=3
     
 
 remove(){
+GeZiManager.shanchuALL(GeZiManager.boxs,this.target.ZB)
 
          GeZiManager.shanchu(this.target.behurt3,this);
-
+  GeZiManager.shanchuALL(GeZiManager.boxs,this.target.ZB)
+           GeZiManager.shanchu(this.target.move3,this);
+                GeZiManager.shanchu(this.target.move2,this);
         let a=this.node.getComponent(Cspine)
         a.changeSlot(a.spine2,"KB-F",null,13)
         a.changeSlot(a.spine4,"KB-F",null,13)
@@ -67,7 +73,14 @@ remove(){
        
           }}
 }
-  
+Move2(ZB: number, Pturn: number, time: number): void {
+    GeZiManager.shanchuALL(GeZiManager.boxs,this.target.ZB)
+}
+
+
+Move3(ZB: number, Pturn: number): void {
+  GeZiManager.boxs.push(this.target.ZB)
+}
 }
 
 

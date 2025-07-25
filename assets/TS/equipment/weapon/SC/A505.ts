@@ -19,12 +19,13 @@ import A210 from "../Qiang/A210";
 import { instantiate } from 'cc';
 import  gif1  from '../../../BASE/spineANDgif/gif';
 import Shops from '../../../UIS/shop/shops';
+import Qiang from '../Qiang/Qiang';
 
 @ccclass('A2505')
-export default class A2505 extends A210 {
+export default class A2505 extends Qiang {
 TheNumber: string="A2505";
 BTS: number=0;
-
+SH: number=2;
     start(){
        // this.node.getComponent(Character).attack25.push(this)
        this.target=this.node.getComponent(Character)

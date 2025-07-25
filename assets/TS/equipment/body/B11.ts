@@ -38,6 +38,7 @@ this.node.getComponent(Character).bs=false;
 setTimeout(()=>{   this.node.getComponent(Cspine).FH()},100)
 }
 remove(): void {
+        MessageCenter.MakeSHMessage("AM",[this.node.getComponent(Character).ZB] , 2, this.node.getComponent(Character).Pturn, "HP-");
     MessageCenter.MakeSHMessage("AM",[this.node.getComponent(Character).ZB] , 2, this.node.getComponent(Character).Pturn, "MaxHP-");
 GeZiManager.shanchu( this.node.getComponent(Character).dead1,this)
 }

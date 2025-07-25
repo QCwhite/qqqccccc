@@ -66,6 +66,9 @@ Walk3(ZB:number): void {
  for (let index = 0; index < o; index++) {
     MessageCenter.MakeSHMessage("AM",[this.target.findGe(this.target.faceTo,1)],[this.target.faceTo,0.3],this.node.getComponent(Character).Pturn,"move")
     MessageCenter.MakeSHMessage("AM",[this.target.ZB],[this.target.faceTo,0.3],this.node.getComponent(Character).Pturn,"move")
+    if (GeZiManager.BanMove.includes(this.target.findGe(this.target.faceTo,1))) {
+        break;
+    }
     
  }
 

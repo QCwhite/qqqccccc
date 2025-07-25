@@ -21,6 +21,7 @@ import turn from "../game/time/turn";
 import SXX from "./SXX";
 import class_rope from "./class_rope";
 import { SubtitleManager } from '../UIS/baom';
+import MTX from '../BASE/MTX';
 @ccclass('S05')
 export default class S05 extends SXX {
     xjj:number=6
@@ -38,7 +39,7 @@ export default class S05 extends SXX {
     kj:boolean=true
     
         JX1: string[]=["S05-闪电","S05-冰霜","S02-掠夺P","S02-掠夺","S05-闪电","S04-冰霜","S02-掠夺"];
-        
+   YX1:number=1   
        @property(Prefab)
         SZ:Prefab=null
         start(): void {
@@ -52,8 +53,9 @@ export default class S05 extends SXX {
                      this.target=this.node.getComponent(Character);
         
     
-             this.target.walk3.push(this)
-             this.target.attack25.push(this)
+             this.target.qi2.push(this)
+   this.target.TNJJ[0]-=1
+            this.YX1=0
                   //重写weapon的attack
              
                 //  this.node.getComponent(Character).changeE("A505")
@@ -105,7 +107,7 @@ export default class S05 extends SXX {
        QDS(N:number){
        
        GeZiManager.Tcharacter=null;
-       MessageCenter.MakeSHMessage("AM",[N],3,this.PN,"getOne");
+       MessageCenter.MakeSHMessage("AM",[N],3,this.PN,"getOneC");
        if (GeZiManager.Tcharacter!=null) {
         GeZiManager.Tcharacter.move2.push(this)
         GeZiManager.Tcharacter.move3.push(this)
@@ -415,24 +417,55 @@ export default class S05 extends SXX {
        
        
       
-        if (this.getFUn()>=3){
-            this.JX=true
-            SubtitleManager.show(
-                {
-                    bgSprite:this.target.color,
-                    image1:this.Toux,
-                    text1: "这个家伙觉醒啦",
-                    image2: this.skiil4,
-                    text2: "",
-                    duration: 5
-                }
-               )
-          }else{   this.JX=false}//套牛的汉子2
-        
+     if (this.getFUn()>=3 &&this.JX==false) {
+          
+             this.JX=true
+                     this.node.getComponent(Cspine).currentSpine.animation="EX"
+                         this.node.getComponentInChildren(MTX).playFrameAnimation1("TN")
+             SubtitleManager.show(
+                             {
+                                 bgSprite:this.target.color,
+                                 image1:this.Toux,
+                                 text1: "这个家伙觉醒啦",
+                                 image2: this.skiil4,
+                                 text2: "",
+                                 duration: 5
+                             }
+                            )
+     }else{  
+             
+     if ( this.JX) {
+             
+     
+             this.JX=false
+     
+        }
+     }
       
       }
+
     
-    
+
+
+
+
+
+Qi2(n: number, pn: number, m: SHMessage): void {
+        if (this.target.qi<=2&&this.YX1==1) {
+            this.target.TNJJ[1]+=1
+            this.target.TNJJ[0]-=1
+            this.YX1=0
+        }
+
+   if (this.target.qi>2&&this.YX1==0) {
+            this.target.TNJJ[1]-=1
+            this.target.TNJJ[0]+=1
+            this.YX1=1
+        }
+}
+
+
+
     
         }
         

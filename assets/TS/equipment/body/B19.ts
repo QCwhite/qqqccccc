@@ -27,11 +27,16 @@ a:AnimalManager=null
    this.changeEP()
      }
    Behurt3(n: number, killp: any, k: number): void {
-        if (n>=this.target.HP/2) {
+        if (n>=2) {
         let o=[2,4,6,8]
         for (let index = 1; index <= 9; index++) {
         if (o.includes(index)) {
-        MessageCenter.MakeSHMessage("AM",[this.target.findGe(index,1)],[index,0.3],this.target.Pturn,"move")
+
+            if (n>=this.target.HP/2) {
+                 MessageCenter.MakeSHMessage("AM",[this.target.findGe(index,1)],[index,0.3],this.target.Pturn,"move") 
+                         MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,this.target.Pturn,"HP+") 
+            }
+
         }
 
 

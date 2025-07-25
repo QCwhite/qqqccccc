@@ -176,7 +176,9 @@ export default class shopUI extends ComponentBase {
        
        MessageCenter.MakeMessage("UIManager","change",-1);
      
-    
+       let k=GeZiManager.redM;
+            let o=GeZiManager.blueM
+        if(GeZiManager.PCP.color=="Blue"){o=GeZiManager.redM;k=GeZiManager.blueM}
        for(let manager of GeZiManager.YuanGong){
       
       manager.getFar(GeZiManager.JL);
@@ -187,6 +189,9 @@ export default class shopUI extends ComponentBase {
           if(a.ZB==manager.ZB&&!(GeZiManager.grass.includes(a.ZB)&&a.ObstaclesName!="qizi")){manager.red()}
       if(a.tt=="flag"&&a.FW.includes(manager.ZB)&&a.color!=GeZiManager.PCP.color&&a.color!="S02"){manager.red()}
                 if(a.tt=="flag"&&a.FW.includes(manager.ZB)&&a.color==GeZiManager.PCP.color&&a.color!="S02"){manager.green()}
+                if (o.includes(manager.ZB)) {
+    manager.green()
+}
         }}
     }
     
@@ -214,9 +219,8 @@ export default class shopUI extends ComponentBase {
 
 
        
+       
         if(GeZiManager.BanMove.includes(manager.ZB)&&(this.getTeamZB(GeZiManager.PCP.Pturn,manager.ZB)==false)){
-        manager.red()} else
-        if(GeZiManager.BanMove.includes(manager.ZB)){
         manager.red()}
 
 
@@ -225,10 +229,7 @@ export default class shopUI extends ComponentBase {
 
         if(GeZiManager.AllObstacles[0]!=null){ for(let a of GeZiManager.AllObstacles){
         if(a.ZB==manager.ZB&&!(GeZiManager.grass.includes(a.ZB)&&a.ObstaclesName!="qizi")){manager.red()}
-        if((GeZiManager.FTPN==3||GeZiManager.FTPN==3.5)){
-        if(a.tt=="flag"&&a.FW.includes(manager.ZB)&&a.color!=GeZiManager.PCP.color&&a.color!="S02"){manager.red()}
-        if(a.tt=="flag"&&a.FW.includes(manager.ZB)&&a.color==GeZiManager.PCP.color&&a.color!="S02"){manager.green()}
-        }
+      
         }}
         
         }
@@ -361,8 +362,8 @@ export default class shopUI extends ComponentBase {
                 break;
             case "A331":dll=3+GeZiManager.free+"气,A351";PS=this.AM.getComponent(Shops).find(2,"A351","",0);
             break;
-            case "A503":dll=4+GeZiManager.free+"气,"+(GeZiManager.PCP.getComponent(S03).MZ+1)+"级法杖"
-            break;
+          //  case "A503":dll=4+GeZiManager.free+"气,"+(GeZiManager.PCP.getComponent(S03).MZ+1)+"级法杖"
+          //  break;
             case "A509":dll=4+GeZiManager.free+"气,"+(GeZiManager.PCP.weapon.getComponent(A509).MZ+1)+"级攻击环"
             break;
         }      
@@ -401,8 +402,8 @@ export default class shopUI extends ComponentBase {
             ;   
                 
                 
-            case "A503":if(GeZiManager.PCP.qi<4+GeZiManager.free&&GeZiManager.PCP.getComponent(S03).MZ==3){a.push(56)}
-            break; 
+          //  case "A503":if(GeZiManager.PCP.qi<4+GeZiManager.free&&GeZiManager.PCP.getComponent(S03).MZ==3){a.push(56)}
+           // break; 
                  
             case "A509":if(GeZiManager.PCP.qi<4+GeZiManager.free||GeZiManager.PCP.weapon.getComponent(A509).MZ==3){a.push(56)}
             break;     
@@ -811,7 +812,7 @@ export default class shopUI extends ComponentBase {
                 case 2:dll=3+GeZiManager.free+"气,A583";PS=this.AM.getComponent(Shops).find(10,"A582P2","",0);n=3
                 break;
              }
-    
+        break;
              case "A583":dll=2+GeZiManager.free+"气,A583P";PS=this.AM.getComponent(Shops).find(10,"A583P","",0);n=3
              break;
     
@@ -820,12 +821,12 @@ export default class shopUI extends ComponentBase {
              break;
       
        
-        case "A503":switch(this.i){
-            case 1:          dll=2+GeZiManager.free+"气,"+(GeZiManager.PCP.getComponent(S03).MZ+1)+"级法杖";PS=this.AM.getComponent(Shops).find(10,"A503-A","",0);n=2
-            break;
-            case 2:          dll=2+GeZiManager.free+"气,"+(GeZiManager.PCP.getComponent(S03).MZ+1)+"级法杖";PS=this.AM.getComponent(Shops).find(10,"A503-B","",0);n=3
-            break;}
-        break;
+       // case "A503":switch(this.i){
+         //   case 1:          dll=2+GeZiManager.free+"气,"+(GeZiManager.PCP.getComponent(S03).MZ+1)+"级法杖";PS=this.AM.getComponent(Shops).find(10,"A503-A","",0);n=2
+         //   break;
+         //   case 2:          dll=2+GeZiManager.free+"气,"+(GeZiManager.PCP.getComponent(S03).MZ+1)+"级法杖";PS=this.AM.getComponent(Shops).find(10,"A503-B","",0);n=3
+         //   break;}
+     //   break;
         case "A509":dll=4+GeZiManager.free+"气,"+(GeZiManager.PCP.weapon.getComponent(A509).MZ+1)+"级攻击环";n=4
 PS=PS=this.AM.getComponent(Shops).find(10,"A509","",0);
         

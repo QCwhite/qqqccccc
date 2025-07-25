@@ -54,9 +54,9 @@ export default class DL extends DES {
   }
   }
   
-  BZ(preZB:number)
-  {for(let a of GeZiManager.GR)
-       {if(a.ZB==this.ZB){a.dead()}}
+  BZ(preZB:number,zi?:boolean)
+  {//for(let a of GeZiManager.GR)
+      // {if(a.ZB==this.ZB){a.dead()}}
        GeZiManager.Tcharacter=null
        MessageCenter.MakeSHMessage("AM",[this.ZB],1,0,"getOneC")
 

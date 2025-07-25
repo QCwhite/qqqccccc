@@ -36,20 +36,51 @@ export default class fsc extends ComponentBase {
        
            @property
            private maxScrollY: number = 0; // 允许的最大垂直滚动距离
+           chooseJJ=1
+           FASok:boolean=false
+           onLoad(): void {
+                       MessageCenter.addReceive(this);
+                    // MessageCenter.MakeGMessage("FS",[], KHD2.PT, KHD2.PT[0], "chooseJJ"); 
+           }
        start(): void {
-           MessageCenter.addReceive(this);
+   
           // find("Canvas/Main Camera/background/juese background").getComponent(Choose).FAS=this.node
        //this. initScrollView()
-           if (KHD2.PT.includes(6)) {
-               MessageCenter.MakeGMessage("FS",this.CSFG(), KHD2.PT, KHD2.PT[0], "chushifashu");   
+              console.log(MessageCenter.Managers.includes(this))
+              if (KHD2.PT.includes(1)) {
+                if (this.chooseJJ>1) {
+                       MessageCenter.MakeGMessage("FS",this.CSFG(), KHD2.PT, KHD2.PT[0], "chushifashu"); 
+                }else{setTimeout(()=>{this.start()},300)}
+              
+           }else{
+ if (!this.FASok) {
+                    MessageCenter.MakeGMessage("FS",[], KHD2.PT, KHD2.PT[0], "chooseJJ");
+                    setTimeout(()=>{this.start()},300) 
+                }
+
+
+
            }
+      
        }
+
+
+
+
+
        
            ReceiveMessage(message: Message) {
+             console.log(message)
                if (message.Type === "FS" && message instanceof SHMessage) {
-                 
+       if (message.SHtype=="chooseJJ") {
+        this.chooseJJ++
+return
+       }          
        if(message.Command.length==4){this.Gfashu=message.Command;
-           this.GGF()
+         this.FASok=true
+        this.GGF()
+
+           console.log(message.Command)
            return }
        
                  if (message.Content.length!=1) {
@@ -85,6 +116,11 @@ export default class fsc extends ComponentBase {
            }
            
            PD(fc:number) {
+
+if (this.FASok) {
+    
+
+
          let j=find("Canvas/Main Camera/background/fashu background/New ScrollView/view/choose background").children[fc-1].getComponent(fsChoose)
                // 如果已经有了相同的数字
          let o=this.Bfashu
@@ -93,7 +129,7 @@ export default class fsc extends ComponentBase {
           }    
        
        
-       
+          console.log(o)
        
                if (o.includes(fc)) {
                   let index = o.indexOf(fc);
@@ -122,7 +158,10 @@ export default class fsc extends ComponentBase {
            
                    // 如果数组中没有 0，则删除第一个元素，然后在数组末尾添加 this.FC
                    if (!k) {
-                       let g=find("Canvas/Main Camera/background/fashu background/New ScrollView/view/choose background").children[o[0]-1].getComponent(fsChoose)
+                    console.log(o)
+                    console.log(find("Canvas/Main Camera/background/fashu background/New ScrollView/view/choose background").children[o[0]-1])
+                  
+                    let g=find("Canvas/Main Camera/background/fashu background/New ScrollView/view/choose background").children[o[0]-1].getComponent(fsChoose)
                      g.Q=false
                      j.Q=true;
                      j.fixui();
@@ -138,7 +177,7 @@ export default class fsc extends ComponentBase {
        
                MessageCenter.MakeGMessage("FS",o, KHD2.PT, KHD2.PT[0], "chushifashu");
                }
-           }
+           }}
        
           
        

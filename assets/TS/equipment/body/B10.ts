@@ -27,6 +27,7 @@ export default class  B10 extends BXX {
      start () {
             this.target=this.node.getComponent(Character);
          this.node.getComponent(Character).move3.push(this);
+       this.node.getComponent(Character).behurt2.push(this);
          MessageCenter.MakeSHMessage("AM",[this.target.ZB],11,1,"FTP");
             this.changeEP()
      }
@@ -48,18 +49,32 @@ remove(): void {
 Behurt2(m: SHMessage, BeHC: any, HC: any): void {
    //被攻击者的面向与攻击者在被攻击者的方位相对 例如：1对9 9对1
   //console.log(this.node.getComponent(Character).getdis(this.node.getComponent(Character).getc(m.from).ZB))
-  let a=this.node.getComponent(Character)
+  //let a=this.node.getComponent(Character)
  
 
 
 
-if(a.getc(m.from)!=null&&GeZiManager.grass.includes(a.ZB)){
-   GeZiManager.dm-=1;
+//if(a.getc(m.from)!=null&&GeZiManager.grass.includes(a.ZB)){
+ //  GeZiManager.dm-=1;
  
-   }
+  // }
 
+
+if (this.target.HP<=this.target.MaxHP%2) {
+   GeZiManager.dm-=1
 }
 
+
+}
+ Behurt3(n: number, killp: any, k: number): void {
+
+      //  this.HP-=
+
+
+   
+        
+     
+  }    
 Move3(ZB: number){
    
    if(this.target.DZD&&GeZiManager.grass.includes(this.target.ZB)){

@@ -50,6 +50,7 @@ export default class NWshopM extends ComponentBase {
         
        static BNWN:number=2
        static RNWN:number=2
+       static NWJB:number=1
      onLoad(): void {
         NWshopM.NWshopUI=find("Canvas/UIManager/BUIManager/NWshopUI")
         MessageCenter.addReceive(this);
@@ -74,6 +75,8 @@ export default class NWshopM extends ComponentBase {
             
         }
         NWshopM.RNWN=GeZiManager.Rhun+2
+       
+       
         return GeZiManager.Rhun+2
            }  
         static get5(n:number){
@@ -280,18 +283,22 @@ export default class NWshopM extends ComponentBase {
     
     if (message.SHtype=="NW") {
        AudioManager.instance.ZJP("ui",6)
-        MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],GeZiManager.PCP.TNJJ[5]+GeZiManager.TNC[5],GeZiManager.PCP.Pturn,"TN-")
-        GeZiManager.TNC[5]=2
+      //  MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],GeZiManager.PCP.TNJJ[5]+GeZiManager.TNC[5],GeZiManager.PCP.Pturn,"TN-")
+      //  GeZiManager.TNC[5]=2
     
-     
-        if(GeZiManager.PCP.color=="Red"){
+     NWshopM.NWN[0]=message.Content[0]
+         NWshopM.NWN[1]=message.Content[1]
+             NWshopM.NWN[2]=message.Content[2]
+                 NWshopM.NWN[3]=message.Content[3]
+                     NWshopM.NWN[4]=message.Content[4]
+     //   if(GeZiManager.PCP.color=="Red"){
           //  GeZiManager.Rhun+=1
    // NWshopM.getRNWN();
-    MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],NWshopM.RNWN,GeZiManager.PCP.Pturn,"Qi-")
-         }else{  
+   // MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],NWshopM.RNWN,GeZiManager.PCP.Pturn,"Qi-")
+    //     }else{  
             //GeZiManager.Bhun+=1;  NWshopM.getBNWN();
             
-            MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],NWshopM.BNWN,GeZiManager.PCP.Pturn,"Qi-")}
+        //    MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],NWshopM.BNWN,GeZiManager.PCP.Pturn,"Qi-")}
          //GeZiManager.getHUN();
        
       //  GeZiManager.PCP.NWS++
@@ -307,7 +314,22 @@ GeZiManager.getHUN()
 MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],GeZiManager.PCP.TNJJ[5]+GeZiManager.TNC[5],GeZiManager.PCP.Pturn,"TN-")
 
     }else{
-    NWshopM.chose(message.Content)}
+
+
+NWshopM.NWN[message.from]=""
+
+
+
+
+    NWshopM.chose(message.Content)
+  // let b=NWshopM.getNW2B()
+   // if (GeZiManager.PCP.color=="Red") {
+      //  b=NWshopM.getNW2R()
+   // }
+    MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],NWshopM.NWJB,GeZiManager.PCP.Pturn,"Qi-")
+MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],GeZiManager.PCP.TNJJ[5]+GeZiManager.TNC[5],GeZiManager.PCP.Pturn,"TN-")
+
+}
             }
         }
     
@@ -457,16 +479,26 @@ NWshopM.NWDJ=false
     
     
     
+   /* 
+    let g=0
+    
+    for(let c of NWshopM.NWN){
+
+
+if (c=="") {
+    g++
+}
+
+    }
+    
+    if (g>=2) {
+         //   NWshopM.NWJB++;
+       find("Canvas/Main Camera/UIManager/NWshop").getComponent(NWshopUI).NW() 
+    }
     
     
     
-    
-    
-    
-    
-    
-    
-    
+    */
     
     
     
@@ -502,7 +534,128 @@ NWshopM.NWDJ=false
         return result;
     }
     
+
+static getNM(){
+
+let c=NWshopM.NWJB
+ let p1,p2,p3,p4,p5
+    let y=["FU0","FU1","FU2","FU3"]
+ if (c==1) {
+  y=["Hun"]  
+ }
+    if (c>6) {
+        c=6
     }
+    switch (c) {
+          case 1: p1=NWshopM.getRA(shopM.Witch1_A,1);p2=NWshopM.getRA(shopM.Witch1_B,1);p3=NWshopM.getRA(shopM.Witch1_C,1);p4=NWshopM.getRA(shopM.Witch1_D,1);p5=NWshopM.getRA(y,1);
+            
+            break;
+            case 2: p1=NWshopM.getRA(shopM.Witch2_A,1);p2=NWshopM.getRA(shopM.Witch2_B,1);p3=NWshopM.getRA(shopM.Witch2_C,1);p4=NWshopM.getRA(shopM.Witch2_D,1);p5=NWshopM.getRA(y,1);
+            
+            break;
+            case 3:  p1=NWshopM.getRA(shopM.Witch3_A,1);p2=NWshopM.getRA(shopM.Witch3_B,1);p3=NWshopM.getRA(shopM.Witch3_C,1);p4=NWshopM.getRA(shopM.Witch3_D,1);p5=NWshopM.getRA(y,1);
+            
+            break;
+            case 4: p1=NWshopM.getRA(shopM.Witch4_A,1);p2=NWshopM.getRA(shopM.Witch4_B,1);p3=NWshopM.getRA(shopM.Witch4_C,1);p4=NWshopM.getRA(shopM.Witch4_D,1);p5=NWshopM.getRA(y,1);
+            
+            break;
+            case 5: p1=NWshopM.getRA(shopM.Witch5_A,1);p2=NWshopM.getRA(shopM.Witch5_B,1);p3=NWshopM.getRA(shopM.Witch5_C,1);p4=NWshopM.getRA(shopM.Witch5_D,1);p5=["Hun"];
+            
+            break;
+              case 6:  p1=NWshopM.getRA(shopM.Witch6,1);p2=NWshopM.getRA(shopM.Witch6,1);p3=NWshopM.getRA(shopM.Witch6,1);p4=NWshopM.getRA(shopM.Witch6,1);p5=NWshopM.getRA(shopM.Witch6,1);
+            break;
+        default:p1=NWshopM.getRA(shopM.Witch2_A,1);p2=NWshopM.getRA(shopM.Witch2_B,1);p3=NWshopM.getRA(shopM.Witch2_C,1);p4=NWshopM.getRA(shopM.Witch2_D,1);p5=NWshopM.getRA(y,1);
+        
+            
+    }
+    
+ 
+    
+    return GeZiManager.PCP.node.getComponent(SXX).NWNA([p1,p2,p3,p4,p5],c)
+        }
+
+
+
+
+
+
+
+
+
+static SX(){
+//NWshopM.NWJB+=1
+
+NWshopM.getNM()
+
+
+
+}
+
+
+
+
+
+
+
+        static getNWN(){
+      
+    let a=GeZiManager.Bhun+GeZiManager.Rhun+NWshopM.NWJB
+    
+    if (a>6) {
+     a=6   
+    }
+    if (a<2) {
+     a=2   
+    }
+    return  a
+    
+   
+
+
+
+
+
+    }
+
+
+
+
+
+static getNW2R(){
+
+
+let Y=0
+if (GeZiManager.Rhun>GeZiManager.Bhun) {
+    Y=GeZiManager.Rhun-GeZiManager.Bhun
+}
+let C=NWshopM.NWJB-Y
+if (C>6) {
+    C=6
+}
+
+    return C
+}
+
+static getNW2B(){
+
+
+let Y=0
+if (GeZiManager.Bhun>GeZiManager.Rhun) {
+    Y=GeZiManager.Bhun-GeZiManager.Rhun
+}
+
+let C=NWshopM.NWJB-Y
+if (C>6) {
+    C=6
+}
+
+    return C
+}
+
+
+
+
+}
     
     
     

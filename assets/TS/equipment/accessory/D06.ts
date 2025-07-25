@@ -28,7 +28,7 @@ GHP:number=0;
         this.target.dead1.push(this)
         this.target.behurt3.push(this)
 
-if(this.color=="Red"){
+if(this.target.color=="Red"){
    GeZiManager.Rhun+=1
    
 }else{  GeZiManager.Bhun+=1; }

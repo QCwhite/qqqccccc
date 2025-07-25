@@ -10,7 +10,8 @@ import Dao from "./Dao";
 export default class A122 extends Dao {
  
         TheNumber:string = 'A122';
-        SH:number=2;
+        SH:number=1;
+        TNJ: number=-1;
       start() {
         this.node.getComponent(Character).attack25.push(this)
            this.target=this.node.getComponent(Character)

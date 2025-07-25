@@ -26,14 +26,11 @@ export default class QinManager extends ManagerBase {
         
         roundPass(): void {
          if (KHD2.PT.includes(6)||MessageCenter.Text) {
-          if(turn.round%12==2||turn.round%12==5||turn.round%12==9){
-            if (turn.round<=2) {
-                this.generateRandomPosition(1) 
-                this.generateRandomPosition(2) 
-                this.generateRandomPosition(3) 
-                this.generateRandomPosition(4) 
-            }
-            else {
+          if(turn.round%12==2||turn.round%12==5||turn.round%12==8||turn.round%12==11){
+     
+
+            
+          
         
         if (this.last==-1) {
             this.generateRandomPosition(1) ;
@@ -56,7 +53,7 @@ export default class QinManager extends ManagerBase {
             
            
         }
-        }
+        
         
         generateRandomPosition(n:number) {
             let a

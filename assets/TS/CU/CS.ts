@@ -78,7 +78,16 @@ export class TogglePosition extends Component {
     MessageCenter.Text=true
     
     director.loadScene("text", function() {AudioManager.instance.stopAll(1);});}
+  D1(){
+     find("Canvas/Label").getComponent(Label).string="商店里还没有东西在卖"
+find("Canvas/Label").active=true
 
+
+
+setTimeout(()=>{
+find("Canvas/Label").active=false
+
+},900)}
   JC(){
       find("Canvas/Label").getComponent(Label).string="B站搜索“KGT工作室”哦"
 find("Canvas/Label").active=true
@@ -88,7 +97,7 @@ find("Canvas/Label").active=true
 setTimeout(()=>{
 find("Canvas/Label").active=false
 
-},)
+},900)
 
     
   }

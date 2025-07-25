@@ -87,25 +87,19 @@ QD(an: number[]): void {
         this.ZD()
 
 }
-start(): void {
-this.target=this.node.getComponent(Character)
-                super.start()
-                this.tishi.node.setScale(0.8,0.8)
-                
-        this.node.getComponent(Character).attack3.push(this)
-}
+
 ZD(){
         if (this.node&&this.node.getComponent(S08).king) {
 
         }
         switch (this.BTS) {
-        case 1:this.tishi.changeF(5,1)
+        case 2:this.tishi.changeF(9,2)
 
         break;
-        case 2:this.tishi.changeF(6,1)
+        case 3:this.tishi.changeF(10,2)
 
         break;
-        case 3:this.tishi.changeF(7,1)
+        case 1:this.tishi.changeF(11,2)
 
         break;
 

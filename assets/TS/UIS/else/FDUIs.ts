@@ -19,6 +19,8 @@ import shopM from '../shop/ShopM';
 import Shops from '../shop/shops';
 import { resources, JsonAsset } from 'cc';
 import { AudioManager } from '../../BASE/music';
+import { Sprite } from 'cc';
+import GeZiManager from '../../Manager/GeZiManager';
 interface SkillData {
     id: string; // 技能ID
     name: string; // 技能名称
@@ -193,13 +195,24 @@ export default class FDUIs extends ComponentBase {
     
         JNSX() {
             if (this.target instanceof Character) {
-                for (let a of this.node.getChildByName("JNM").children) {
+              
+              
+              for (let index = 0; index < this.target.getComponent(SXX).JX1.length; index++) {
+        this.node.getChildByName("JNM").children[index].children[0].getComponent(RichText).string= this.sarget.JX1[index]
+                      this.node.getChildByName("JNM").children[index].children[1].getComponent(Sprite).spriteFrame= this.target.getComponent(SXX).getJNP(index+1)
+              }
+              
+              
+              
+              
+              
+               // for (let a of this.node.getChildByName("JNM").children) {
                     // a.children[0].getComponent(RichText).string = this.target.getZDSX(a.name);
 
 
                     
-                }
-                this.node.getChildByName("JNJSB").getChildByName("JNFU").getComponent(JNFU).generateRichTextFromJieS("2xFU3+FU1/12xRO");
+              //  }
+              //  this.node.getChildByName("JNJSB").getChildByName("JNFU").getComponent(JNFU).generateRichTextFromJieS("2xFU3+FU1/12xRO");
             }
         }
     
@@ -230,9 +243,9 @@ export default class FDUIs extends ComponentBase {
 
         JND(n: number) {
             this.node.getChildByName("JNJSB").getChildByName("JNFU").getComponent(RichText).string =
-                this.node.getChildByName("JNJSB").getChildByName("JNFU").getComponent(JNFU).skillDataMap[this.sarget.JX1[n]].id;
+           GeZiManager.skillDataMap[this.sarget.JX1[n]].name;
             this.node.getChildByName("JNJSB").getChildByName("des").getComponent(RichText).string =
-                this.node.getChildByName("JNJSB").getChildByName("JNFU").getComponent(JNFU).skillDataMap[this.sarget.JX1[n]].description;
+                          GeZiManager.skillDataMap[this.sarget.JX1[n]].description;
         }
 
 

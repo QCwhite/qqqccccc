@@ -25,6 +25,9 @@ export default class MAG extends ComponentBase {
         TN:number=0
         @property(Node)
         MUI:Node=null;
+
+
+        OX:boolean=false
         onLoad(): void {
            this.MUI. getComponent(MUI).son.push(this);
         }
@@ -56,7 +59,7 @@ export default class MAG extends ComponentBase {
         if (GeZiManager.PCP.weapon instanceof A503) {
          j=GeZiManager.PCP.weapon.BL
         }
-        let o=this.qi-j
+        let o=this.qi+GeZiManager.free
         if (o<=0) {
          o=1
         }

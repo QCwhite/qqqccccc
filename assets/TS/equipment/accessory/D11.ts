@@ -18,7 +18,7 @@ export default class D11 extends DXX {
     target:Character=null;
     TheNumber:string = 'D11';
     Cname:string="亡灵骷髅"
-j:number=0
+//j:number=0
 
 
 start () {
@@ -38,15 +38,15 @@ start () {
 
 Dead2(dead: number): void {
 if (dead!=this.target.Pturn) {
-this.j++
-let o=1
-if (this.color=="Red") {
-  o=1+GeZiManager.Rhun
-}else{  o=1+GeZiManager.Bhun}
+//this.j++
+//let o=1
+//if (this.color=="Red") {
+//  o=1+GeZiManager.Rhun
+//}else{  o=1+GeZiManager.Bhun}
 
-MessageCenter.MakeSHMessage("AM",[this.target.ZB],o,this.target.Pturn,"Qi+")
-MessageCenter.MakeSHMessage("AM",[this.target.ZB],o,this.target.Pturn,"HP+")
-MessageCenter.MakeSHMessage("AM",[this.target.ZB],o,this.target.Pturn,"TN+")
+MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,this.target.Pturn,"Qi+")
+MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,this.target.Pturn,"HP+")
+MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,this.target.Pturn,"TN+")
 }
 
 }

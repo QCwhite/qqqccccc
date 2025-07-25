@@ -88,7 +88,41 @@ remove(){
  // this.target.TNJJ[1]-=1
 }
 
+getWY(){
 
+
+
+
+
+   let AF = [2]
+let i = 0;
+switch (this.node.getComponent(Character).faceTo) {
+  case 6: i = 1;
+    break;
+  case 8: i = 2;
+    break;
+  case 4: i = 3;
+    break;
+}
+
+
+for (let n = 1; n <= i; n++) {
+  this.node.getComponent(Character).turn6(AF);
+
+}
+let an: number[] = [];
+for (let mannger of AF) {
+  an.push(this.node.getComponent(Character).findGe(mannger, 1))
+  an.push(this.node.getComponent(Character).findGe(mannger, 2));
+
+}
+
+
+
+
+     GeZiManager.TomoveTo([this.target.findGe(this.target.faceTo,1)],this.target.getTN(1)+1,0,0,[])
+     GeZiManager.TomoveTo([this.target.findGe(this.target.faceTo,2)],this.target.getTN(1)+1,0,0,[])
+}
 
 
 }

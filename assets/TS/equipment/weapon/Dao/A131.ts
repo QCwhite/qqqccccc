@@ -33,7 +33,7 @@ export default class A131 extends Dao {
   remove(): void {
        GeZiManager.shanchu(this.node.getComponent(Character).attack1,this)
  }
- 
+
 }
 
 

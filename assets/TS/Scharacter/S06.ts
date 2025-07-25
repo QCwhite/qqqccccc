@@ -27,6 +27,7 @@ import { AudioManager } from '../BASE/music';
 import sideUI from '../UIS/sideUI';
 import { SubtitleManager } from '../UIS/baom';
 import Shops from '../UIS/shop/shops';
+import MTX from '../BASE/MTX';
 
 
 @ccclass('S06')
@@ -492,19 +493,30 @@ NWNA(e:string[],n:number){
        
     
         
-        if (this.getFUn()>=3) {
-          this.JX=true
-           SubtitleManager.show(
-                          {
-                              bgSprite:this.target.color,
-                              image1:this.Toux,
-                              text1: "这个家伙觉醒啦",
-                              image2: this.skiil4,
-                              text2: "",
-                              duration: 5
-                          }
-                         )
-        }else{ this.JX=false}//幻灭
+            if (this.getFUn()>=3 &&this.JX==false) {
+                 
+                    this.JX=true
+                            this.node.getComponent(Cspine).currentSpine.animation="EX"
+                                this.node.getComponentInChildren(MTX).playFrameAnimation1("TN")
+                    SubtitleManager.show(
+                                    {
+                                        bgSprite:this.target.color,
+                                        image1:this.Toux,
+                                        text1: "这个家伙觉醒啦",
+                                        image2: this.skiil4,
+                                        text2: "",
+                                        duration: 5
+                                    }
+                                   )
+            }else{  
+                    
+            if ( this.JX) {
+                    
+            
+                    this.JX=false
+            
+               }
+            }
        
         
         

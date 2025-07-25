@@ -20,7 +20,7 @@ import weapon from "../weapon";
 export default class A509 extends weapon {
 an:number[]=[];
 TheNumber:string ='A509';
-Wtype: number=4;
+Wtype: number=0;
  MZ:number=0;  
 Pface: number[]=[1,2,3,4,6,7,8,9]
 AA:number=0
@@ -141,7 +141,7 @@ attack(){
       let c:number[]=[];
       for(let a of this.an) {
       c.push(this.node.getComponent(Character).findGe(a,1))}
-      if(this.node.getComponent(Character).getComponent(S09).BL[2]>0){      this.node.parent.getComponent(JNUM).JNF("S炫舞",this.target.ZB); MessageCenter.MakeSHMessage("AM",c,1+this.AA,this.node.getComponent(Character).Pturn, "HP-")}
+      if(this.node.getComponent(Character).getComponent(S09).JX){      this.node.parent.getComponent(JNUM).JNF("S炫舞",this.target.ZB); MessageCenter.MakeSHMessage("AM",c,1+this.AA,this.node.getComponent(Character).Pturn, "HP-")}
       else{  MessageCenter.MakeSHMessage("AM",c,1+this.AA,this.node.getComponent(Character).Pturn,"wuli")}
 
 

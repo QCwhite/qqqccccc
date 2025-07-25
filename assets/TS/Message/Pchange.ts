@@ -177,7 +177,7 @@ export default class Pchange extends Component {
                 
                 
               let a=""
-             let message=new Message(a,GeZiManager.boxs,5)
+             let message=new Message(a,GeZiManager.WD,5)
               mannger.ReceiveMessage(message)
               
            
@@ -225,7 +225,10 @@ export default class Pchange extends Component {
         texr(){
           KHD2.PT=[3,1,3,5]
           MessageCenter.Text=true
-        
+        for (let g of GeZiManager.sideUI) {
+        g.setJN()
+            
+        }
         
          // state.state=1;
           MessageCenter.MakeGMessage("AM",[AnimalManager.FF[0]],1.1,1,"FTP");
@@ -307,110 +310,176 @@ shopM.BTshop()
     }
 
   
+ generateGroup(retryCount = 0): number[] {
+    if (retryCount > 20) throw new Error("生成失败");
 
-generateGroup(retryCount = 0): number[] {
-      if (retryCount > 20) throw new Error("生成失败，请检查规则可行性");
+    const group: (number | null)[] = new Array(12).fill(null);
+    const counts: Record<number, number> = {0:0, 1:0, 2:0, 3:0, 4:0, 5:0, 7:0};
+    
+    // 1. 放置两个4（前6一个，后6一个）
+    const place4s = () => {
+        // 前6中放置4（位置0-5）
+        const frontCandidates = [0, 1, 2, 3, 4, 5].filter(i => 
+            group[i] === null && 
+            (i === 0 || group[i-1] !== 4) && 
+            (i === 5 || group[i+1] !== 4)
+        );
+        
+        if (frontCandidates.length === 0) return false;
+        const frontPos = frontCandidates[Math.floor(Math.random() * frontCandidates.length)];
+        group[frontPos] = 4;
+        counts[4]++;
 
-      const group: (number | null)[] = new Array(12).fill(null);
-      // 规则配置
-      const rules = {
-          requiredNumbers: [0, 2, 3, 5], // 必须包含的数字（1和4单独处理）
-          countRequirements: { 1: 2, 4: 3 }, // 特殊数字配额
-          quarters: [ // 三个4元素区间
-              { start: 0, end: 3 },
-              { start: 4, end: 7 },
-              { start: 8, end: 11 }
-          ]
-      };
+        // 后6中放置4（位置6-11）
+        const backCandidates = [6, 7, 8, 9, 10, 11].filter(i => 
+            group[i] === null && 
+            (i === 6 || group[i-1] !== 4) && 
+            (i === 11 || group[i+1] !== 4)
+        );
+        
+        if (backCandidates.length === 0) return false;
+        const backPos = backCandidates[Math.floor(Math.random() * backCandidates.length)];
+        group[backPos] = 4;
+        counts[4]++;
+        
+        return true;
+    };
 
-      // 状态跟踪
-      const counts = { 0:0, 1:0, 2:0, 3:0, 4:0, 5:0 };
-      let lastNumber = -1;
+    // 2. 放置前6中的3（位置2或3）
+    const placeFront3 = () => {
+        const candidates = [2, 3].filter(i => 
+            group[i] === null && 
+            (i === 2 || group[1] !== 3) && 
+            (i === 3 || group[4] !== 3)
+        );
+        
+        if (candidates.length === 0) return false;
+        
+        const pos = candidates[Math.floor(Math.random() * candidates.length)];
+        group[pos] = 3;
+        counts[3]++;
+        return true;
+    };
 
-      //=== 阶段1：每个区间强制放置4 ===
-      rules.quarters.forEach(quarter => {
-          // 寻找可放置4的位置（不与相邻4冲突）
-          const candidates = [];
-          for (let i = quarter.start; i <= quarter.end; i++) {
-              if (group[i] === null &&
-                  (i === 0 || group[i-1] !== 4) &&
-                  (i === 11 || group[i+1] !== 4)) {
-                  candidates.push(i);
-              }
-          }
-          
-          if (candidates.length === 0) {
-              //console.warn("区间内无法放置4，重新生成");
-              return this.generateGroup(retryCount + 1);
-          }
-          
-          const pos = candidates[Math.floor(Math.random() * candidates.length)];
-          group[pos] = 4;
-          counts[4]++;
-          lastNumber = 4;
-      });
+    // 3. 放置后6中的3（至少一个）
+    const placeBack3 = () => {
+        const candidates = [6, 7, 8, 9, 10, 11].filter(i => 
+            group[i] === null && 
+            (i === 6 || group[i-1] !== 3) && 
+            (i === 11 || group[i+1] !== 3)
+        );
+        
+        if (candidates.length === 0) return false;
+        
+        const pos = candidates[Math.floor(Math.random() * candidates.length)];
+        group[pos] = 3;
+        counts[3]++;
+        return true;
+    };
 
-      //=== 阶段2：填充特殊数字1 ===
-      while (counts[1] < rules.countRequirements[1]) {
-          const candidates = this.getValidPositions(group, 1, lastNumber);
-          if (candidates.length === 0) break;
+    // 4. 放置特殊数字（1,2,7）
+    const placeSpecialNumbers = () => {
+        const specials = [
+            {num: 1, count: 2},
+            {num: 2, count: 2},
+            {num: 7, count: 1}
+        ];
+        
+        for (const {num, count} of specials) {
+            while (counts[num] < count) {
+                const candidates = this.getValidPositions(group, num, -1);
+                if (candidates.length === 0) return false;
+                
+                const pos = candidates[Math.floor(Math.random() * candidates.length)];
+                group[pos] = num;
+                counts[num]++;
+            }
+        }
+        return true;
+    };
 
-          const pos = candidates[Math.floor(Math.random() * candidates.length)];
-          group[pos] = 1;
-          counts[1]++;
-          lastNumber = 1;
-      }
+    // 5. 放置必需数字（0和5）
+    const placeRequiredNumbers = () => {
+        const required = [0, 5];
+        
+        for (const num of required) {
+            if (counts[num] > 0) continue;
+            
+            const candidates = this.getValidPositions(group, num, -1);
+            if (candidates.length === 0) return false;
+            
+            const pos = candidates[Math.floor(Math.random() * candidates.length)];
+            group[pos] = num;
+            counts[num]++;
+        }
+        return true;
+    };
 
-      //=== 阶段3：填充必需数字0/2/3/5 ===
-      rules.requiredNumbers.forEach(num => {
-          if (counts[num] > 0) return;
-          
-          const candidates = this.getValidPositions(group, num, lastNumber);
-          if (candidates.length === 0) return;
+    // 6. 填充剩余位置
+    const fillRemaining = () => {
+        const allNumbers = [0, 1, 2, 3, 5, 7]; // 4已经放好
+        
+        for (let i = 0; i < group.length; i++) {
+            if (group[i] !== null) continue;
+            
+            // 获取有效数字
+            const validNumbers = allNumbers.filter(n => {
+                // 检查相邻位置
+                const prev = i > 0 ? group[i-1] : null;
+                const next = i < 11 ? group[i+1] : null;
+                
+                return n !== prev && n !== next;
+            });
+            
+            if (validNumbers.length === 0) return false;
+            
+            // 随机选择一个有效数字
+            const num = validNumbers[Math.floor(Math.random() * validNumbers.length)];
+            group[i] = num;
+            counts[num] = (counts[num] || 0) + 1;
+        }
+        return true;
+    };
 
-          const pos = candidates[Math.floor(Math.random() * candidates.length)];
-          group[pos] = num;
-          counts[num]++;
-          lastNumber = num;
-      });
+    // 执行所有步骤
+    if (!place4s() || !placeFront3() || !placeBack3() || 
+        !placeSpecialNumbers() || !placeRequiredNumbers() || !fillRemaining()) {
+        return this.generateGroup(retryCount + 1);
+    }
 
-      //=== 阶段4：填充剩余位置 ===
-      for (let i = 0; i < group.length; i++) {
-          if (group[i] !== null) continue;
+    // 最终校验
+    const isValid = 
+        counts[0] >= 1 && 
+        counts[5] >= 1 && 
+        counts[1] >= 2 && 
+        counts[2] >= 2 && 
+        counts[7] === 1 && 
+        counts[4] === 2 && 
+        counts[3] >= 2 && // 前6一个3 + 后6至少一个3 = 至少两个3
+        group.filter((_, i) => i < 6).slice(2, 4).some(v => v === 3); // 前6位置2或3有一个3
 
-          // 禁止条件
-          const forbidden = [lastNumber];
-          if (i === 0) forbidden.push(2); // 首元素不能为2
+    if (!isValid) {
+        return this.generateGroup(retryCount + 1);
+    }
 
-          // 候选数字（优先补全未达标的必需数字）
-          let candidates = [0,1,2,3,5].filter(n => 
-              !forbidden.includes(n) && 
-              counts[n] < (n === 1 ? 2 : Infinity)
-          );
+    return group as number[];
+}
 
-          // 兜底选项
-          if (candidates.length === 0) candidates = [0,1,2,3,5].filter(n => !forbidden.includes(n));
-
-          const selected = candidates[Math.floor(Math.random() * candidates.length)];
-          group[i] = selected;
-          counts[selected]++;
-          lastNumber = selected;
-      }
-
-      //=== 最终校验 ===
-      const isValid = 
-          rules.requiredNumbers.every(n => counts[n] >= 1) && // 0/2/3/5都存在
-          counts[1] === rules.countRequirements[1] && // 1的数量正确
-          counts[4] === rules.countRequirements[4] && // 4的数量正确
-          !group.some((n, i) => i > 0 && n === group[i-1]); // 无连续重复
-
-      if (!isValid) {
-          console.warn(`校验失败，重新生成（尝试次数：${retryCount+1}）`);
-          return this.generateGroup(retryCount + 1);
-      }
-
-      return group as number[];
-  }
+private static getValidPositions(
+    group: (number | null)[], 
+    num: number, 
+    lastNum: number
+): number[] {
+    return group
+        .map((val, idx) => ({ val, idx }))
+        .filter(item => 
+            item.val === null && // 空位
+            (num !== 2 || item.idx !== 0) && // 首元素不能是2
+            (item.idx === 0 || group[item.idx - 1] !== num) && // 前一位不同
+            (item.idx === group.length - 1 || group[item.idx + 1] !== num) // 后一位不同
+        )
+        .map(item => item.idx);
+}
 
  getValidPositions(
       group: (number | null)[], 

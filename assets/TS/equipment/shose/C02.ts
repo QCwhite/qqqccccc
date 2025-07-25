@@ -12,6 +12,7 @@ import Character from "../../BASE/Character";
 import GeZiManager from "../../Manager/GeZiManager";
 import CXX from "./CXX";
 import MessageCenter from '../../Message/MessageCenter';
+import realThing from '../../BASE/realThing';
 
 @ccclass('C02')
 export default class C02 extends CXX {
@@ -24,14 +25,14 @@ t:number=3;
        this.target=this.node.getComponent(Character);
        this.target.mmc.push(this);
         if (this.target.weapon.Wtype==1) {
-              MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,this.target.Pturn,"TNS")
-                 MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,this.target.Pturn,"HP+")
+           //   MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,this.target.Pturn,"TNS")
+                // MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,this.target.Pturn,"HP+")
        }
        this.changeEP()
 
 }
 mg(m: string): void {
-       if(m=="DZ") {GeZiManager.dm-=1;this.t--;}
+       if(m=="DZ") {GeZiManager.dm-=1;}
 }
 remove(){
        GeZiManager.shanchuALL(this.target.mmc,this)
@@ -40,6 +41,17 @@ remove(){
      
 
 }
+
+ Attack25(at:realThing, csh: number): void {
+    if(at&&at.weapon){
+      if (this.target.weapon.Wtype==1) {
+            GeZiManager.dm+=1;
+        }
+    }}
+
+
+
+
 }
 
 

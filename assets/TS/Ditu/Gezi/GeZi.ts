@@ -12,6 +12,10 @@ import ComponentBase from "../../BASE/ComponentBase";
 import state from "../../game/time/state";
 import GeZiManager from "../../Manager/GeZiManager";
 import { Message } from "../../Message/Message";
+import { Color } from 'cc';
+import gif1 from '../../BASE/spineANDgif/gif';
+import label from '../../UIS/label';
+import { Label } from 'cc';
 
 
 @ccclass('GeZi')
@@ -28,7 +32,7 @@ export default class GeZi extends ComponentBase {
     
         @property
         DiXing: string = "grass";
-    
+    ZT:string=""
         onLoad() {
             GeZiManager.YuanGong.push(this);
         }
@@ -40,7 +44,12 @@ export default class GeZi extends ComponentBase {
         red() { this.setColor(color(255, 12, 12), false, 155); GeZiManager.kxg += 1; }
         green() { this.setColor(color(54, 231, 158), true, 155); }
         black() { this.setColor(color(0, 0, 0), false, 155); GeZiManager.kxg += 1; }
-        null() { this.setColor(null, false, 0); }
+        null() {
+
+this.ToBC(99,null,0,0,0,false,"")
+ this.setColor(null, false, 0); 
+            
+        }
     
 
 
@@ -178,4 +187,108 @@ switch (n) {
             
             
             }
+
+
+
+
+
+ToBC(p:number,color:Color,TN:number,Qi:number,HP:number,DJ:boolean,st:string){
+
+
+this.setColor(color,DJ,255)
+
+
+this.ZT=st
+switch (p) {
+    case 0:this.node.children[0].getChildByName("P").getComponent(gif1).changeF(5,1)
+        
+        break;
+ case 1:this.node.children[0].getChildByName("P").getComponent(gif1).changeF(6,1)
+        
+        break;
+
+         case 2:this.node.children[0].getChildByName("P").getComponent(gif1).changeF(1,1)
+        
+        break;
+         case 3:this.node.children[0].getChildByName("P").getComponent(gif1).changeF(0,1)
+        
+        break;
+         case 4:this.node.children[0].getChildByName("P").getComponent(gif1).changeF(7,1)
+        
+        break;
+         case 5:this.node.children[0].getChildByName("P").getComponent(gif1).changeF(3,1)
+        
+        break;
+
+         case 6:this.node.children[0].getChildByName("P").getComponent(gif1).changeF(5,1)
+        
+        break;
+    default:this.node.children[0].getChildByName("P").getComponent(gif1).spriteFrame=null
+        break;
+}
+
+switch (TN) {
+    case 0:this.node.children[0].getChildByName("TN").getComponent(gif1).spriteFrame=null
+        
+        break;
+ case 1:this.node.children[0].getChildByName("TN").getComponent(gif1).changeF(0,1)
+        
+        break;
+
+         case 2:this.node.children[0].getChildByName("TN").getComponent(gif1).changeF(1,1)
+        
+        break;
+         case 3:this.node.children[0].getChildByName("TN").getComponent(gif1).changeF(2,1)
+        
+        break;
+         case 4:this.node.children[0].getChildByName("TN").getComponent(gif1).changeF(3,1)
+        
+        break;
+         case 5:this.node.children[0].getChildByName("TN").getComponent(gif1).changeF(4,1)
+        
+        break;
+
+         case 6:this.node.children[0].getChildByName("TN").getComponent(gif1).changeF(5,1)
+        
+        break;
+    default:
+        break;
+}
+switch (HP) {
+    case 0:
+     this.node.children[0].getChildByName("heart").active=false
+    this.node.children[0].getChildByName("heart").children[0].getComponent(Label).string=""
+        
+        break;
+
+    
+        
+    default:   this.node.children[0].getChildByName("heart").active=true
+    this.node.children[0].getChildByName("heart").children[0].getComponent(Label).string=""+HP
+        break;
+}
+
+
+switch (Qi) {
+    case 0:
+     this.node.children[0].getChildByName("Qi").active=false
+    this.node.children[0].getChildByName("Qi").children[0].getComponent(Label).string=""
+        
+        break;
+
+    
+        
+    default:   this.node.children[0].getChildByName("Qi").active=true
+    this.node.children[0].getChildByName("Qi").children[0].getComponent(Label).string=""+Qi
+        break;
+}
+
+
+
+}
+
+
+
+
+
     }

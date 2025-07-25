@@ -18,6 +18,7 @@ import state from "../game/time/state";
 import turn from "../game/time/turn";
 import SXX from "./SXX";
 import { SubtitleManager } from '../UIS/baom';
+import Cspine from '../BASE/spineANDgif/Cspine';
 
 @ccclass('S09')
 export default class S09 extends SXX {
@@ -459,19 +460,30 @@ turn6(){
 
 
 
-        if (this.getFUn()>=3) {
-        this.JX=true
-        SubtitleManager.show(
-                {
-                    bgSprite:this.target.color,
-                    image1:this.Toux,
-                    text1: "这个家伙觉醒啦",
-                    image2: this.skiil4,
-                    text2: "",
-                    duration: 5
-                }
-               )
-        }else{  this.JX=false}//炫舞
+           if (this.getFUn()>=3 &&this.JX==false) {
+                
+                   this.JX=true
+                           this.node.getComponent(Cspine).currentSpine.animation="EX"
+                               this.node.getComponentInChildren(MTX).playFrameAnimation1("TN")
+                   SubtitleManager.show(
+                                   {
+                                       bgSprite:this.target.color,
+                                       image1:this.Toux,
+                                       text1: "这个家伙觉醒啦",
+                                       image2: this.skiil4,
+                                       text2: "",
+                                       duration: 5
+                                   }
+                                  )
+           }else{  
+                   
+           if ( this.JX) {
+                   
+           
+                   this.JX=false
+           
+              }
+           }
 
 
 

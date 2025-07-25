@@ -34,6 +34,7 @@ export default class C04 extends CXX {
     
     
     remove(){
+           this.node.getComponent(Character).WD=false;
        GeZiManager.shanchu(this.target.move3,this)
        GeZiManager.shanchu(GeZiManager.WindSon,this)
     }

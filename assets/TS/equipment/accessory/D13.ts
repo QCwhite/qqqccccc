@@ -25,21 +25,22 @@ export default class D13 extends DXX {
     
         start () {
             this.target=this.node.getComponent(Character);
-            this.target.HPm2.push(this)
-            this.HPM2(0,0,0);
+            //this.target.HPm2.push(this)
+                 this.target.t1.push(this)
+          //  this.HPM2(0,0,0);
                 this.changeEP()
 
-                GeZiManager.Tcharacters=[]
-                    MessageCenter.MakeSHMessage("AM",[GeZiManager.line(this.target.ZB,8,this.target.faceTo,GeZiManager.BanMove)],1,this.target.Pturn,"getOneCs");
-                 let j=0
-                 for (let c of GeZiManager.Tcharacters) {
-                if (c.color!=this.color) {
-                    j++
-                }
+              //  GeZiManager.Tcharacters=[]
+             //       MessageCenter.MakeSHMessage("AM",[GeZiManager.line(this.target.ZB,8,this.target.faceTo,GeZiManager.BanMove)],1,this.target.Pturn,"getOneCs");
+             //    let j=0
+             //    for (let c of GeZiManager.Tcharacters) {
+             //   if (c.color!=this.color) {
+             //       j++
+             //   }
                     
-                 }
+              //   }
                  
-                    MessageCenter.MakeSHMessage("AM",[this.target.ZB],j,this.target.Pturn,"TN+");
+              //      MessageCenter.MakeSHMessage("AM",[this.target.ZB],j,this.target.Pturn,"TN+");
                 
         }
      
@@ -76,7 +77,27 @@ export default class D13 extends DXX {
     
     
     
-    
+    T1(turn: number): void {
+        GeZiManager.Tcharacters=[]
+                    MessageCenter.MakeSHMessage("AM",GeZiManager.line(this.target.ZB,8,this.target.faceTo,GeZiManager.BanMove),1,this.target.Pturn,"getOneCs");
+                 let j=0
+                 for (let c of GeZiManager.Tcharacters) {
+                if (c.color!=this.color) {
+                    j++
+                }
+                    
+                 }
+                 if (  j>0||this.target.HP<this.target.MaxHP/2) {
+                    
+                    
+                         this.target.ZBW(false,1)
+                   
+                     
+                    
+              
+                 }
+                  
+    }
     
     
 

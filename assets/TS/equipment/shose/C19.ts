@@ -23,7 +23,7 @@ export default class C19 extends CXX {
        this.target=this.node.getComponent(Character);
        this.target.walk3.push(this)
        if (this.target.HP==1) {
-        this.target.Walk(false);
+      //  this.target.Walk(false);
        }
    this.changeEP()
             }

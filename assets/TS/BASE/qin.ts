@@ -64,23 +64,24 @@ if ( GeZiManager.Tcharacter==null) {
 
          if (this.CX&&GeZiManager.Tcharacter) {
 
-
-        
+let c=GeZiManager.Tcharacter
+       GeZiManager.Tcharacter=null;  
 
        // console.log(GeZiManager.Tcharacter.ZB)
        // console.log(this.node.getComponent(UIOpacity).opacity)
 
         MessageCenter.MakeSHMessage('AM',[this.ZB],this.type,0,"qin+")
         MessageCenter.MakeSHMessage('AM',[this.ZB],1,0,"TNS")
-        this.tu=GeZiManager.Tcharacter.getComponentInChildren(MTX).FuG
+
+        this.tu=c.getComponentInChildren(MTX).FuG
         this.tu.timeArray=[56,34,45,45,56,56,56,56,56,34,45,45,56,56,56,56,56,34,45,45,56,56,56,56,56,34,45,45,56,56,56,56,56,34,45,45,56,56,56,56]
-        find("Canvas/DituManager/New Node/AnimalManager").getComponent(QinManager).last=GeZiManager.PCP.ColortoN(GeZiManager.Tcharacter.color);
+        find("Canvas/DituManager/New Node/AnimalManager").getComponent(QinManager).last=GeZiManager.PCP.ColortoN(c.color);
       //  console.log(GeZiManager.Tcharacter.color);
       //  console.log(GeZiManager.PCP.ColortoN(GeZiManager.Tcharacter.color))
-        GeZiManager.shanchuALL(GeZiManager.qin,this);
-        GeZiManager.shanchuALL(turn.Roo,this);
-        GeZiManager.shanchuALL(GeZiManager.qins,this.ZB);//效果触发后将符删除
-        GeZiManager.Tcharacter=null;
+        GeZiManager.shanchu(GeZiManager.qin,this);
+        GeZiManager.shanchu(turn.Roo,this);
+        GeZiManager.shanchu(GeZiManager.qins,this.ZB);//效果触发后将符删除
+       
    
         setTimeout(()=>{     switch (this.type) {
         case 0:this.tu.moveToNextFrame(0,8,1);
@@ -267,8 +268,8 @@ CXX(){
 
 
        },600)
-       
-
+ this.zyx=0      
+this.setXY(0)
 }
 roundPass(): void {
     //    console.log(this.ZB)

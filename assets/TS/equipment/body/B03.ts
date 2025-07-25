@@ -14,10 +14,10 @@ import { SHMessage } from "../../Message/SHMessage";
 import BXX from "./BXX";
 import SXX from '../../Scharacter/SXX';
 
-@ccclass('B03')
-export default class B03 extends BXX {
+@ccclass('B03P2')
+export default class B03P2 extends BXX {
     target:Character=null;
-    TheNumber:string = 'B03';
+    TheNumber:string = 'B03P2';
     Cname:string="石甲"
     SD=2;
     start () {

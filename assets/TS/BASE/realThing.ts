@@ -36,6 +36,8 @@ MZ:number=0
 CZ:number=0
 DY:number=0
 QX:number=0
+BANAN:number=0
+   hurt1: ComponentBase[] = [];
 fly:boolean=false
 D05:number=1
   UI:ComponentBase[]=[];
@@ -119,7 +121,7 @@ this.tname=this.tt
 
 
   start() {
-    this.setXY(0.6);
+    this.setXY(0);
 this.Pturn=this.ZB*-1
   AudioManager.instance.ZJP("hit",24);
   }
@@ -313,8 +315,10 @@ k=false
           MessageCenter.MakeSHMessage("AM",[this.findGe(face, 1)],[face,0.3],this.Pturn,"move")
         }  
 
-        if ((GeZiManager.BanMove.includes(this.findGe(face,1))==false)&&this.kcd&&this.findGe(face, 1) != 66&&k) {
-         
+        if ((GeZiManager.BanMove.includes(this.findGe(face,1))==false)||face==5) {
+         if (this.kcd&&this.findGe(face, 1) != 66&&k) {
+          
+        
           GeZiManager.shanchu(GeZiManager.BanMove, this.ZB);
           if (this.tt == "rock") { GeZiManager.shanchu(GeZiManager.rock, this.ZB) }
 
@@ -354,7 +358,15 @@ if(!this.fly){          GeZiManager.DLBZ(this.ZB,b,c)}
    
        
      
-         
+         } 
+        }else{
+
+ this.bounceToOrigin(this.node,this.getpos(this.findGe(face,1)),220)
+ MessageCenter.MakeSHMessage("AM", [this.findGe(face,1)], 1,-1, "wuli")
+
+ MessageCenter.MakeSHMessage("AM", [this.ZB],1,-1, "wuli")
+
+          
         }
       
 
@@ -945,10 +957,10 @@ default:n = a
     }
 
 
-if (GeZiManager.waterPool.includes(ZB)&&this.tt!="qin"&&this.DiXing=="water"&&!([1,8].includes(this.x)||[1,8].includes(this.y))) {
-  point.y-=30
+//if (GeZiManager.waterPool.includes(ZB)&&this.tt!="qin"&&this.DiXing=="water"&&!([1,8].includes(this.x)||[1,8].includes(this.y))) {
+ // point.y-=30
   
-}
+//}
 
     tween(this.node)
       .to(time, { position: point })
@@ -1141,7 +1153,7 @@ getYXJ(n:number){
 return this.YXJ
 }
 turn4(arr: number[]): number[] {
-  for(let m of this.turn1){m.Turn1()}
+  
 
 
   const transformationMap = {
@@ -1182,7 +1194,14 @@ turn6(arr: number[]): number[] {
 
   return arr;
 }//逆时针转身
-FH(i:number,FT:number,HP:number){}
+FH(i:number,FT:number,HP:number){
+
+
+
+
+
+  
+}
 
 
 
@@ -1468,6 +1487,648 @@ QXL(){
           return result;
       }
       
+
+
+      BTM(){
+
+this.node.getComponent(UIOpacity).opacity=60
+
+
+
+      }
+
+         NOTM(){
+
+this.node.getComponent(UIOpacity).opacity=255
+
+
+
+      }
       // 示例用法
+/*
+      Fus(ch:number){
+         console.log(this.FU)
+         
+      if (this.FU.length<6) {
+         
+      
+      this.FU.push(ch)
+      
+      
+      
+      for (let j of this.node.getChildByName("FU").children) {
+         j.getComponent(gif1).spriteFrame=null
+         
+      }
+      
+      
+      this.FU=this.rearrangeArray(this.FU)
+      
+      
+      console.log(this.FU)
+      let huo=0
+      let tu=0
+      let shui=0
+      let feng=0
+      
+      for (let o of this.FU) {
+         if (o==10||o==-10) {
+            huo+=1
+            tu+=1
+            shui+=1
+            feng+=1
+      
+         }
+         if (o==0||o==0.5) {
+            huo+=1
+            
+      
+         }
+         if (o==1||o==-1) {
+           
+            tu+=1
+           
+      
+         }
+         if (o==2||o==-2) {
+            
+            shui+=1
+           
+      
+         }
+         if (o==3||o==-3) {
+            
+            feng+=1
+           
+      
+         }
+      }
+      
+      
+      
+      
+      
+      
+      
+       for (let index = 0; index < this.FU.length; index++) {
+      
+      
+      
+         let d
+      switch ( this.FU[index]) {
+         case 0:d="Huo"
+            
+            break;
+            case 0.5:d="Huo"
+            
+            break;
+            case 1:d="Tu"
+            
+            break;
+            case -1:d="Tu"
+            
+            break;
+            case 2:d="Shui"
+            
+            break;
+            case -2:d="Shui"
+            
+            break;
+           case 3:d="Feng"
+            break;   
+            
+            case -3:d="Feng"
+            break;
+         default:d="Wan"
+            break;
+      
+        
+      
+      }
+      
+      this.node.getChildByName("FU").children[index].getComponent(gif1).spriteFrame= this.node.getChildByName("FU").children[index].getComponent(gif1).atlas1.getSpriteFrame(d)
+        
+      
+      }
+      
+      
+         switch(ch){
+         
+            
+          
+          
+          
+              case 0:if (huo>1) {
+            this.sh+=1
+            if (huo==4) {
+               this.node.getComponent(YSgod).FW[0]=1
+            }
+           }
+           break;
+           
+           case 0.5:if (huo>1) {
+            this.sh+=1
+      
+            if (huo==4) {
+               this.node.getComponent(YSgod).FW[0]=1
+            }
+           }
+           break;
+           
+           //火
+      
+      
+      
+      
+      
+      
+       
+           
+       
+      
+      
+           case 1: 
+              if(tu==1){      MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"MaxHP+")
+      MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"HP+")}
+           
+           
+           if(tu==2){
+      
+      this.Mjia(+1);//质量+1
+      }
+      else if(tu==3){
+      //格挡+1
+      this.mk+=1;
+      this.wk+=1;
+      }
+      else if(tu==4){
+      this.node.getComponent(YSgod).FW[1]=1;//TN+1
+      }
+           break;
+           
+           case -1:
+               if(tu==1){      MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"MaxHP+")
+      MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"HP+")}
+           if(tu==2){
+            
+      this.Mjia(+1);//质量+1
+      }
+      else if(tu==3){
+      //格挡+1
+      this.mk+=1;
+      this.wk+=1;
+      }
+      else if(tu==4){
+      
+      this.node.getComponent(YSgod).FW[1]=1;//TN+1
+      }
+           break;
+      
+      
+          //土 
+         
+          
+      
+           
+           case 3:
+           
+           if (feng>1) {
+            
+           
+            this.TNJJ[1]-=1
+            
+            if (feng==4) {
+             this.node.getComponent(YSgod).FW[3]=1
+            }}
+            break;
+           
+           case -3:
+           
+           if (feng>1) {
+            
+           
+            this.TNJJ[1]-=1
+            
+            if (feng==4) {
+             this.node.getComponent(YSgod).FW[3]=1
+            }}
+            break;
+           
+           //风
+           
+          
+           
+      
+           
+          
+           case 2:
+           
+           if (shui>1) {
+            this.addTN+=1
+            
+            if (shui==4) {
+             this.node.getComponent(YSgod).FW[2]=1
+            }}
+           break;
+           case -2:
+           
+           if (shui>1) {
+            this.addTN+=1
+            
+            if (shui==4) {
+             this.node.getComponent(YSgod).FW[2]=1
+            }}  
+            break
+           //水 
+           
+           
+           case 10:if (huo>1) {
+            this.sh+=1
+            if (huo==4) {
+               this.node.getComponent(YSgod).FW[0]=1
+            }
+           }
+         if(tu==1){      MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"MaxHP+")
+      MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"HP+")}
+           if(tu==2){
+      
+      this.Mjia(+1);//质量+1
+      }
+      else if(tu==3){
+      //格挡+1
+      this.mk+=1;
+      this.wk+=1;
+      }
+      else if(tu==4){
+      this.node.getComponent(YSgod).FW[1]=1;//TN+1
+      }
+      
+      
+      if (feng>1) {
+         
+        
+         this.TNJJ[1]-=1
+         
+         if (feng==4) {
+          this.node.getComponent(YSgod).FW[3]=1
+         }}
+      
+         if (shui>1) {
+            this.addTN+=1
+            
+            if (shui==4) {
+             this.node.getComponent(YSgod).FW[2]=1
+            }}
+      
+      
+      
+      break;
+      
+      
+          
+           
+           case -10:if (huo>1) {
+            this.sh+=1
+      
+            if (huo==4) {
+               this.node.getComponent(YSgod).FW[0]=1
+            }
+           }
+         if(tu==1){      MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"MaxHP+")
+      MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"HP+")}
+           if(tu==2){
+      
+      this.Mjia(+1);//质量+1
+      }
+      else if(tu==3){
+      //格挡+1
+      
+      this.mk+=1;
+      this.wk+=1;
+      }
+      else if(tu==4){
+      
+      this.node.getComponent(YSgod).FW[1]=1;//TN+1
+      }
+      
+      
+      if (feng>1) {
+         
+        
+         this.TNJJ[1]-=1
+         
+         if (feng==4) {
+          this.node.getComponent(YSgod).FW[3]=1
+         }}
+      
+      
+         if (shui>1) {
+            this.addTN+=1
+            
+            if (shui==4) {
+             this.node.getComponent(YSgod).FW[2]=1
+            }}
+      
+      
+           break;
+       
+       
+           
+           
+           
+           
+      }
+      
+      
+      
+      this.node.getComponent(SXX).getJNF(this.FU)
+      console.log(this.FU)
+      
+      this.UIchange(null)
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      }
+      
+         }
+      
+      
+      
+      BFUs(ch:number){
+      
+      
+         
+      
+        GeZiManager.shanchu(this.FU,ch)
+            
+            console. log(this.FU)
+      
+            for (let j of this.node.getChildByName("FU").children) {
+               j.getComponent(gif1).spriteFrame=null
+               
+            }
+            
+            
+            this.FU=this.rearrangeArray(this.FU)
+            let huo=0
+            let tu=0
+            let shui=0
+            let feng=0
+            
+            for (let o of this.FU) {
+               if (o==10||o==-10) {
+                  huo+=1
+                  tu+=1
+                  shui+=1
+                  feng+=1
+            
+               }
+               if (o==0||o==0.5) {
+                  huo+=1
+                  
+            
+               }
+               if (o==1||o==-1) {
+                 
+                  tu+=1
+                 
+            
+               }
+               if (o==2||o==-2) {
+                  
+                  shui+=1
+                 
+            
+               }
+               if (o==3||o==-3) {
+                  
+                  feng+=1
+                 
+            
+               }
+            }
+            
+            
+            
+            
+            
+            
+            
+             for (let index = 0; index < this.FU.length; index++) {
+            
+               
+            
+               let d
+            switch ( this.FU[index]) {
+               case 0:d="Huo"
+                  
+                  break;
+                  case 0.5:d="Huo"
+                  
+                  break;
+                  case 1:d="Tu"
+                  
+                  break;
+                  case -1:d="Tu"
+                  
+                  break;
+                  case 2:d="Shui"
+                  
+                  break;
+                  case -2:d="Shui"
+                  
+                  break;
+                 case 3:d="Feng"
+                  break;   
+                  
+                  case -3:d="Feng"
+                  break;
+               default:d="Wan"
+                  break;
+            
+              
+            
+            }
+           
+          this.node.getChildByName("FU").children[index].getComponent(gif1).spriteFrame= this.node.getChildByName("FU").children[index].getComponent(gif1).atlas1.getSpriteFrame(d)
+            
+               }
+            
+            
+              
+               switch(ch){
+               
+                 
+                    
+                    case -10:if (huo>0) {
+                     this.sh-=1
+               
+                     if (huo<4) {
+                        this.node.getComponent(YSgod).FW[0]=0
+                     }
+                    }
+       if(tu==0){
+      
+            MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"HP-")
+             MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"MaxHP-")
+       }
+                    if(tu==1){
+                    
+               this.Mjia(-1);//质量+1
+               }
+               else if(tu==2){
+               //格挡+1
+       
+               this.mk-=1;
+               this.wk-=1;
+               }
+               else if(tu==3){
+                 
+               this.node.getComponent(YSgod).FW[1]=0;//TN+1
+               }
+      
+      
+               if (feng>0) {
+                  
+                 
+                  this.TNJJ[1]+=1
+                  
+                  if (feng==3) {
+                   this.node.getComponent(YSgod).FW[3]=0
+                  }}
+      
+      
+                  if (shui>0) {
+                     this.addTN-=1
+                     
+                     if (shui==4) {
+                      this.node.getComponent(YSgod).FW[2]=1
+                     }}
+                 
+                  break;
+              
+                   
+               
+                 
+                 case 0.5:if (huo>0) {
+                  this.sh-=1
+            
+                  if (huo<4) {
+                     this.node.getComponent(YSgod).FW[0]=0
+                  }
+                 }
+                 break;
+                 
+                 //火
+            
+            
+            
+            
+            
+            
+                 
+                
+              
+                 
+                 case -1: 
+                  if(tu==0){
+            MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"HP-")
+          MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.Pturn,"MaxHP-")
+         }
+                 
+                 if(tu==1){
+                 
+            this.Mjia(-1);//质量+1
+            }
+            else if(tu==2){
+            //格挡+1
+           
+            this.mk-=1;
+            this.wk-=1;
+            }
+            else if(tu==3){
+       
+            this.node.getComponent(YSgod).FW[1]=0;//TN+1
+            }
+                 break;
+            
+            
+                //土 
+               
+                
+               
+                 
+                 case -3:
+                 
+                 if (feng>0) {
+                  
+                 
+                  this.TNJJ[1]+=1
+                  
+                  if (feng==3) {
+                   this.node.getComponent(YSgod).FW[3]=0
+                  }}
+                  break;
+                 
+                 //风
+                 
+             
+                 
+                
+                 
+               
+                 
+                 case -2:
+                 
+                 if (shui>1) {
+                  this.addTN-=1
+                  
+                  if (shui==4) {
+                   this.node.getComponent(YSgod).FW[2]=1
+                  }}  
+                 //水 
+                 break;
+                 
+                 
+                 
+                 
+                 
+                 
+            }
+            
+          
+         
+            this.node.getComponent(SXX).getJNF(this.FU)
+            this.UIchange(null)
+            
+      
+      
+      }
+      */
+      
+      
+      
+        BanaL(){
+         
+       
+      }
+  
+  
+      BanaJS(){
+
+
+      }
+   
+      
+      
    
 }

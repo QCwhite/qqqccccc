@@ -119,7 +119,7 @@ if (this.o) {
                 
               
             } else{
-                if(this.fw!=99){ for(let a of this.node.parent.children){a.getComponent(CustomButton).toN()}}
+                if(this.fw!=99){ for(let a of this.node.parent.children){a.getComponent(CustomButton).toN(0.08)}}
                 this.zt = 2;
                 this.setSprite(this.fw+1,1);
                 
@@ -237,7 +237,7 @@ this.zt=1;
 
     // console.log(  this.zt )
     }
-toN(){if (this.zt !=-1) {
+toN(n:number){if (this.zt !=-1) {
            
  if(this.fw==7){this.node.getComponent(moveUI).bi()}
      this.zt = 0;
@@ -248,6 +248,26 @@ toN(){if (this.zt !=-1) {
      console.log(  this.zt )}
      this.gif.getComponent(gif1).setBrightness();
  }
+
+
+
+not(){
+
+ if (this.node.getComponentsInChildren(flog).length>0) {
+    for (let g of this.node.getComponentsInChildren(flog)) {
+       g.stop()
+        
+    }
+}
+
+
+
+}
+
+
+
+
+
 
 
 }

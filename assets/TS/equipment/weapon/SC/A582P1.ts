@@ -15,10 +15,11 @@ import S08 from "../../../Scharacter/S08";
 import Qiang from "../Qiang/Qiang";
 import A582 from "./A582";
 import { AudioManager } from '../../../BASE/music';
+import gif1 from '../../../BASE/spineANDgif/gif';
 
 @ccclass('A582P1')
-export default class A582P1 extends A582 {
-BTS: number=99;
+export default class A582P1 extends Qiang {
+BTS: number=1;
 TheNumber: string="A582P1";
    Wtype: number=81;
 
@@ -36,25 +37,7 @@ AudioManager.instance.ZJP("attack",this.Ytype)
 
 
 
-       if (this.node.getComponent(S08).king) {
-       console.log(an)
-
-  if (this.target.MZ!=0) { MessageCenter.MakeSHMessage("AM",[this.ZB],1,this.target.Pturn,"Qi-");
-        }
-
-
-       if(an.length==0||this.node.getComponent(Character).getdis(an[0])>1){
-       this.tishi.changeF(-1,1)
-
-       console.log(this.node.getComponent(Character).weapon)
-       for(let a of this.node.getComponent(Character).CHF){
-       a.changeE("A582")
-       }
-       this.node.getComponent(Character).changeE("A582")
-       console.log(this.node.getComponent(Character).weapon)
-       }
-
-       }
+  
        if (a&&a>0&&a<=64) {
        this.node.getComponent(Character).To(a,0.2)
        }
@@ -65,22 +48,50 @@ yy(){
        GeZiManager.PCP.TNC(GeZiManager.PCP.TN);
        GeZiManager.TNC[3]=4
   GeZiManager.Bu.push(3);}
-  ZD(){
-       if(this.node.getComponent(S08).king){if (this.BTS>=1) {
-       this.tishi.changeF(4,1)
-
-       }else{  this.tishi.changeF(-1,1)}}
-
-
-
-
-
-
-
-  }
+   ZD(){  
+        
+    if (!this.tishi) {
+        this.tishi=this.node.getChildByName("qiangUI") .getComponent(gif1) 
+    }
+                 
+            switch (this.BTS) {
+            case 1:this.tishi.changeF(13,2)
+    
+            break;
+           
+            default:if ( this.BTS<=0) {
+            this.node.getComponent(Character).changeE("A582")
+           
+            }else 
+            
+            console.log(this.BTS)
+            break;
+            }
+ 
+ }
   changeEP(): void {
          
   }
+
+
+remove(): void {
+
+
+        this.BTS=1
+  
+           this.tishi.changeF(-1,1)
+                  this.tishi.node.destroy()
+           this.tishi=null
+
+
+
+               
+        
+//   this.destroy();
+//   this.node.removeComponent(this)
+      }
+
+
 }
 
 

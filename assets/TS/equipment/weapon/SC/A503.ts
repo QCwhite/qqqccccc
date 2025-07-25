@@ -49,7 +49,7 @@ levelup(n: string): void {
 start(): void {
         this.target=this.node.getComponent(Character)
         this.target.magic1.push(this)
-                this.target.magic2.push(this)
+             //   this.target.magic2.push(this)
         this.SC=this.target.node.getComponent(SXX)
 }
       levelupB(){ 
@@ -59,24 +59,108 @@ start(): void {
 
 
 
-     
-          Magic1(){
-        GeZiManager.JL+=this.AL
+     Magic1(): void {
+this.target.TNJJ[4]+=this.TNJ
+let huo=0
+  let tu=0
+  let shui=0
+  let feng=0
+  
 
-        GeZiManager.free-=this.BL
+  
+  for (let o of this.target.FU) {
+     if (o==10||o==-10) {
+        huo+=1
+        tu+=1
+        shui+=1
+        feng+=1
+  
+     }
+     if (o==0||o==0.5) {
+        huo+=1
+        
+  
+     }
+     if (o==1||o==-1) {
+       
+        tu+=1
+       
+  
+     }
+     if (o==2||o==-2) {
+        
+        shui+=1
+       
+  
+     }
+     if (o==3||o==-3) {
+        
+        feng+=1
+       
+  
+     }
+  }
 
-            }
+GeZiManager.JL+= tu
+GeZiManager.JL+= huo
+GeZiManager.free-=feng
+let c=shui-1
+if (c>0) {
+  this.target.TNJJ[4]-=c
+  this.TNJ=c
+}
 
+
+
+
+}
 
                  Magic2(){
     
+let huo=0
+let tu=0
+let shui=0
+let feng=0
 
-        GeZiManager.free-=this.BL
+for (let o of this.target.FU) {
+   if (o==10||o==-10) {
+      huo+=1
+      tu+=1
+      shui+=1
+      feng+=1
+
+   }
+   if (o==0||o==0.5) {
+      huo+=1
+      
+
+   }
+   if (o==1||o==-1) {
+     
+      tu+=1
+     
+
+   }
+   if (o==2||o==-2) {
+      
+      shui+=1
+     
+
+   }
+   if (o==3||o==-3) {
+      
+      feng+=1
+     
+
+   }
+}
+        GeZiManager.free-=feng
 console.log(GeZiManager.free)
             }
           
           remove(){
         GeZiManager.shanchu(this.target.magic1,this);
+               GeZiManager.shanchu(this.target.magic2,this);
 //           GeZiManager.shanchu(this.node.getComponent(Character).turn3,this);
                 }
                
@@ -104,6 +188,13 @@ console.log(GeZiManager.free)
         console.log(b)
         return b
                 }
+
+
+
+
+
+
+                
 }
 
 

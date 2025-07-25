@@ -93,5 +93,21 @@ for (let c of [GeZiManager.P1,GeZiManager.P2,GeZiManager.P3,GeZiManager.P4,GeZiM
                  a.changeSlot(a.spine4,"KB-F",this.node.parent.getComponent(Shops).find(4,this.TheNumber+K,"KB-F",c),4)
              
                 }
+
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
     }
     

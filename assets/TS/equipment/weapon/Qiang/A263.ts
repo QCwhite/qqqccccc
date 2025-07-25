@@ -24,7 +24,9 @@ export default class A263 extends A210 {
         SH = 2;//伤害
         TheNumber: string = "A263";//编号，用于识别武器
         level: number=6;
+        DT: boolean=true;
     start(): void {
+     super.start()
        this.target.Fus(0.5)
     }
         attack() {if(this.PPC()){state.ST = 3.5
@@ -63,17 +65,30 @@ export default class A263 extends A210 {
          }
          QD(an:number[]){
          
-                console.log(this.node.getComponent(Character).Pturn)
-                if(this.node.getComponent(Character).attack2!=null){for(let a of this.node.getComponent(Character).magic2){a.Magic2();}}
+
+ if(this.node.getComponent(Character).attack2!=null){for(let a of this.node.getComponent(Character).attack2){a.Attack2(an);}}
+        let an1=an[0]
+                an=[this.findGe(2,1,an1),this.findGe(8,1,an1),this.findGe(4,1,an1),this.findGe(6,1,an1),an1]
                 MessageCenter.MakeSHMessage("AM",an,2,this.node.getComponent(Character).Pturn, "wuli")
-                MessageCenter.MakeSHMessage("AM",[this.node.getComponent(Character).ZB],this.getTNC(4)+this.TNJ,this.node.getComponent(Character).Pturn,"TN-")
-          AudioManager.instance.ZJP("magic",15)
-                if(this.node.getComponent(Character).attack3!=null){for(let a of this.node.getComponent(Character).magic3){a.Magic3(an[0]);}}
-         
-         
-                GeZiManager.PCP.TNC(GeZiManager.PCP.TN);
-                GeZiManager.TNC[4]=4
-           GeZiManager.Bu.push(4);}
+                MessageCenter.MakeSHMessage("AM",[this.node.getComponent(Character).ZB],this.getTNC(3)+this.TNJ,this.node.getComponent(Character).Pturn,"TN-")
+        this.BTS--;
+          this.ZD();
+                AudioManager.instance.ZJP("magic",15)
+       if(this.node.getComponent(Character).attack3!=null){for(let a of this.node.getComponent(Character).attack3){a.Attack3(an);}}
+
+       MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],this.getTNC(3)+this.TNJ,this.node.getComponent(Character).Pturn,"TN-")
+       GeZiManager.PCP.TNC(GeZiManager.PCP.TN);
+       GeZiManager.TNC[3]=4
+  GeZiManager.Bu.push(2);
+
+
+
+
+
+
+
+
+}
          getFar(dis:number,ZB){
                 let x;
                 let y;

@@ -22,6 +22,9 @@ target:Character=null;
     start () {
         // this.node.getChildByName("name").getComponent(cc.Label).string="医生"
         // this.target=this.node.getComponent(Character)
+
+
+        
     }
    
    

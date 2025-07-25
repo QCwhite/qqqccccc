@@ -38,9 +38,7 @@ QD(an:number[]){
 
 
  }
- start() {
-        console.log(this.node)
-  }
+ 
 
 
 

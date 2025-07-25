@@ -29,7 +29,7 @@ export default class D17 extends DXX {
       Attack25(at: any, csh: number): void {
         if (at&&at instanceof Character&&csh!=0) {
         //  console.log(csh)
-          MessageCenter.MakeSHMessage("AM",[at.ZB],1,this.target.Pturn,"HP+") 
+          MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,this.target.Pturn,"HP+") 
           //MessageCenter.MakeSHMessage("AM",[at.ZB],1,this.target.Pturn,"MaxHP-") 
         }
       }

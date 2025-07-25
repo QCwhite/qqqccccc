@@ -74,6 +74,39 @@ for (let j of [GeZiManager.P1,GeZiManager.P2,GeZiManager.P3,GeZiManager.P4,GeZiM
 
 break;
 
+case "FH":
+  
+ 
+                GeZiManager.getc(turn.turn).FH2(message.Content,message.from,3)
+                     
+                       if(turn.turn!=message.from){}else{
+
+        console.log( GeZiManager.PCP.LST)
+        GeZiManager.PCP.Tend();
+
+        for(let i=0;i<=GeZiManager.PCP.turnBan.length-1;i++){
+        if(GeZiManager.PCP.turnBan[i]!=0){GeZiManager.PCP.turnBan[i]-=1;}
+        }
+
+       /*   if( GeZiManager.PCP.LST==-1){GeZiManager.PCP.node.getComponent(Sprite).spriteFrame=GeZiManager.PCP.Atlas.getSpriteFrame("gost")
+        GeZiManager.PCP.node.width=175; GeZiManager.PCP.node.height=200;
+        GeZiManager.PCP.node.opacity=100;
+        }*/
+
+        turn.turnP();//时间运算
+        let a= find("Canvas/TurnAndPlayer").getComponent(TUT)
+        for(let b of a.DZ){if(a.dizhen(b[0],b[1],b[2],b[3])){GeZiManager.shanchu(a.DZ,b)}}
+
+        MessageCenter.MakeMessage("AM",turn.turn,"getC");
+        state.Pchange() ;
+        console.log( GeZiManager.PCP.Pturn)
+        GeZiManager.PCP.Tstart();
+
+        console.log(turn.turn)
+        state.ST=1;
+        }
+
+break;
 
 
 

@@ -20,6 +20,7 @@ export default class A121 extends Dao {
     level: number = 2;
     TheNumber:string = 'A121';
     Aface: number[]=[1,2,3];
+  node: any;
     start(){
       this.node.getComponent(Character).attack25.push(this)
       this.target=this.node.getComponent(Character)

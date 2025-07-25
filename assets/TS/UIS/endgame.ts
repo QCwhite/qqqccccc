@@ -18,14 +18,15 @@ import { WebSocketManager } from '../Message/websocket';
 import MessageCenter from '../Message/MessageCenter';
 import { director } from 'cc';
 import { Label } from 'cc';
+import GeZiManager from '../Manager/GeZiManager';
 
 
 
 @ccclass('Endgame')
 export default class endGame extends ComponentBase {
         static game:number=-1
-        static blue:number=0;
-        static red:number=0;
+        static blue:number=2;
+        static red:number=2;
         static jsl:boolean=false
          qd(){
 
@@ -130,6 +131,124 @@ find("Canvas/DituManager/New Node/endGame").children[1].getComponent(Label).stri
         
         }
         
+
+
+
+
+
+
+
+        static siw(n){
+            let c=[GeZiManager.P1,GeZiManager.P3,GeZiManager.P5]
+            let k=GeZiManager.Bhun
+           // let g=endGame.red
+            if (n%2==0) {
+             c=[GeZiManager.P2,GeZiManager.P4,GeZiManager.P6]  
+             k=GeZiManager.Rhun    
+           //  g=endGame.blue
+            }
+let o=0
+  for (let a of c) {
+    
+    if(a.LST==-1){
+o++
+    }
+  }
+
+
+if (o==3&&k<3) {
+    if (n%2==0) {
+            endGame.blue=4
+             endGame.red=0
+            }else{
+           endGame.blue=0
+             endGame.red=4
+
+
+            }
+
+
+
+  let node=find("Canvas/Main Camera/UIManager/endgame")
+        node.active=true
+        endGame.JS()
+   let node1=find("Canvas/Main Camera/UIManager/SJ")
+        
+        for (let index = 0; index < endGame.blue; index++) {
+            node1.children[2].children[index].active=true
+            
+        }
+        for (let index = 0; index < endGame.red; index++) {
+            node1.children[1].children[index].active=true
+            
+        }
+
+        }
+}
+
+
+static endG(p:number){
+console.log(p)
+  switch (p) {
+            case 0:endGame.blue+=1;
+                endGame.red-=1;
+                break;
+     
+         
+             case 1:    endGame.red+=1;
+            endGame.blue-=1
+                break;
+         
+           
+               
+        }
+        
+
+
+console.log(endGame.blue)
+console.log( endGame.red)
+find("Canvas/DituManager/New Node/endGame").children[0].getComponent(Label).string=endGame.blue.toString()
+find("Canvas/DituManager/New Node/endGame").children[1].getComponent(Label).string=endGame.red.toString()
+
+
+        
+        /*
+        if ((endGame.blue==3||endGame.red==3)&&turn.turn==KHD.PT) {
+            KHD.Gammer.emit("gameEnd",[endGame.blue,endGame.red])
+        }*/
+        
+        if ((endGame.blue==4||endGame.red==4)){
+        
+              
+                let node=find("Canvas/Main Camera/UIManager/endgame")
+        node.active=true
+        endGame.JS()
+        }
+        
+        let node=find("Canvas/Main Camera/UIManager/SJ")
+        
+        for (let index = 0; index < endGame.blue; index++) {
+            node.children[2].children[index].active=true
+            
+        }
+        for (let index = 0; index < endGame.red; index++) {
+            node.children[1].children[index].active=true
+            
+        }
+        
+
+
+
+}
+
+
+
+
+
+
+
+
+
         static JS(){
         console.log(endGame.blue)
         console.log(endGame.red)

@@ -26,6 +26,7 @@ import CXX from '../equipment/shose/CXX';
 import sideUI from '../UIS/sideUI';
 import { SubtitleManager } from '../UIS/baom';
 import Shops from '../UIS/shop/shops';
+import MTX from '../BASE/MTX';
 
 @ccclass('S04')
 export default class S04 extends SXX {
@@ -91,7 +92,7 @@ export default class S04 extends SXX {
     }
     
     Attack25(at: any, csh: number): void {
-       if (this.target.qi>3) {
+       if (this.target.qi%2==0) {
     
       if (at instanceof Character&&at.weapon.Wtype==1) {
             GeZiManager.dm+=1;
@@ -162,7 +163,7 @@ export default class S04 extends SXX {
     
     Behurt2(m:SHMessage,BeHC:any,HC:any){
       
-       if (this.target.qi<3) { 
+       if (this.target.qi%2==1) { 
       
        if(HC instanceof Character&&HC.weapon.Wtype==1){GeZiManager.dm-=1;}
         console.log(HC.weapon.Wtype)
@@ -393,24 +394,31 @@ export default class S04 extends SXX {
           
          
           
-if (this.getFUn()>=3) {
-   this.JX=true
+if (this.getFUn()>=3 &&this.JX==false) {
+     
+        this.JX=true
+                this.node.getComponent(Cspine).currentSpine.animation="EX"
+                    this.node.getComponentInChildren(MTX).playFrameAnimation1("TN")
+        SubtitleManager.show(
+                        {
+                            bgSprite:this.target.color,
+                            image1:this.Toux,
+                            text1: "这个家伙觉醒啦",
+                            image2: this.skiil4,
+                            text2: "",
+                            duration: 5
+                        }
+                       )
+   
+}else{  
+        
+if ( this.JX) {
+        
 
-  SubtitleManager.show(
-                {
-                    bgSprite:this.target.color,
-                    image1:this.Toux,
-                    text1: "这个家伙觉醒啦",
-                    image2: this.skiil3,
-                    text2: "",
-                    duration: 5
-                }
-               )
+        this.JX=false
 
-
-
-}else{   this.JX=false}
-          
+      
+}
         
         }
        
@@ -421,5 +429,5 @@ if (this.getFUn()>=3) {
     
     
     
-    
+      }
     

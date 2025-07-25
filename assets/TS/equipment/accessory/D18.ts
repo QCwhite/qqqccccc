@@ -32,6 +32,7 @@ export default class D18 extends DXX {
     T1(turn1: number): void {
        if (turn.DorN=="nigth") {
         MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,this.target.Pturn,"TN+")
+             MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,this.target.Pturn,"Qi+")
        }
            
     
@@ -39,7 +40,12 @@ export default class D18 extends DXX {
     
     }
     Move3(ZB: number, pturn: number): void {
-        if (turn.DorN=="nigth") { GeZiManager.Liget(this.target.getNIG(ZB))}
+        if (turn.DorN=="nigth") { GeZiManager.Liget(this.target.getNIG(ZB))
+
+
+
+          
+        }
     }
     remove(): void {
       GeZiManager.shanchu(this.target.t1,this)

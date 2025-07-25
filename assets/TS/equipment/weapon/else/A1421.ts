@@ -5,6 +5,8 @@ import Character from "../../../BASE/Character";
 import GeZiManager from "../../../Manager/GeZiManager";
 import MessageCenter from "../../../Message/MessageCenter";
 import weapon from "../weapon";
+import Cspine from '../../../BASE/spineANDgif/Cspine';
+import Shops from '../../../UIS/shop/shops';
 
 @ccclass('A1421')
 export default class A1421 extends weapon {
@@ -13,15 +15,27 @@ export default class A1421 extends weapon {
 
        console.log(this.node.getComponent(Character).Pturn)
        if(this.node.getComponent(Character).attack2!=null){for(let a of this.node.getComponent(Character).attack2){a.Attack2(an);}}
-       MessageCenter.MakeSHMessage("AM", an, this.SH,this.node.getComponent(Character).Pturn, "mofa")
-       MessageCenter.MakeSHMessage("AM", an, 1,this.node.getComponent(Character).Pturn, "Qi-")
-       MessageCenter.MakeSHMessage("AM", [this.target.ZB], 1,this.node.getComponent(Character).Pturn, "Qi+")
+      // MessageCenter.MakeSHMessage("AM", an, this.SH,this.node.getComponent(Character).Pturn, "mofa")
+      // MessageCenter.MakeSHMessage("AM", an, 1,this.node.getComponent(Character).Pturn, "Qi-")
+     //  MessageCenter.MakeSHMessage("AM", [this.target.ZB], 1,this.node.getComponent(Character).Pturn, "Qi+")
+       MessageCenter.MakeSHMessage("AM",an,[this.node.getComponent(Character).faceTo,0.3],this.node.getComponent(Character).Pturn,"move")
        if(this.node.getComponent(Character).attack3!=null){for(let a of this.node.getComponent(Character).attack3){a.Attack3(an);}}
 
        MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],this.getTNC(3),this.node.getComponent(Character).Pturn,"TN-")
        GeZiManager.PCP.TNC(GeZiManager.PCP.TN);
        GeZiManager.TNC[2]=3
       GeZiManager.Bu.push(2);}
+
+
+
+
+      changeEP(){
+               let a=this.node.getComponent(Cspine)
+      console.log(this.target)
+              a.changeSlot(a.spine2,"A1",this.node.parent.getComponent(Shops).find(2,this.TheNumber,"A1",this.target.Pturn),2)
+              a.changeSlot(a.spine4,"A1",this.node.parent.getComponent(Shops).find(4,this.TheNumber,"A1",this.target.Pturn),2)
+              a.changeSlot(a.spine6,"A1",this.node.parent.getComponent(Shops).find(6,this.TheNumber,"A1",this.target.Pturn),2)
+           }
 }
 
 

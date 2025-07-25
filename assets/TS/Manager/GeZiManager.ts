@@ -40,6 +40,11 @@ import node from '../../../@cocos/creator-types/editor/packages/engine/@types/ed
 import { JsonAsset } from 'cc';
 import { UIm } from '../UIS/UIm';
 import CustomButton from '../BASE/CButton';
+import FHT from '../../node/Dixing/FHT';
+import { color } from 'cc';
+import { TGManager } from './TGManager';
+import NWshopM from '../UIS/shop/NWshopM';
+import NWshopUI from '../UIS/shop/NWshopUI';
 
 @ccclass('GeZiManager')
 export default class GeZiManager extends ManagerBase {
@@ -91,8 +96,9 @@ static redP:Character[]=[];
 static addDis:ComponentBase[]=[]
 static Tcharacters:Character[]=[]
 static Tcharacter:realThing=null
+static STTcharacter:realThing=null
 static TF:qizi=null
-
+static FHTs:any[]=[]
 static p6F:ComponentBase[]=[]
 static FTPN:number=0
     static face:number=0;//风向选择
@@ -114,8 +120,8 @@ static waterPool:number[]=[2,3,4,5,6,7,9,17,25,33,41,49,57,58,59,60,61,62,63,64,
 static by:number[]=[0,0,0,0,0,0]
 static LSban:number[]=[0,0,0,0,0,0]
     static kxg: number=0;
-static Bhun:number=0;
-static Rhun:number=0;
+static Bhun:number=1;
+static Rhun:number=1;
 static BQ:number[][]=[]
 static RQ:number[][]=[]
 static YINXR:number[]=[]
@@ -135,7 +141,7 @@ static E10:boolean=false
 static E11:boolean=false
 static E12:boolean=false
 static E13:boolean=false
-
+static XB:realThing[]=[]
 
 
 
@@ -267,7 +273,9 @@ if (GeZiManager.Bhun<0) {
          
      }
 
-
+if (turn.DorN=="nigth") {
+  find("Canvas/Main Camera/UIManager/NWshop").getComponent(NWshopUI).NW()
+}
 
 
 
@@ -526,10 +534,16 @@ if (GeZiManager.Bhun<0) {
     
     
         static shanchuALL(arr:any,target:any){
-            let index=arr.indexOf(target); // 获取要删除元素的索引
+       let index=arr.indexOf(target)
+      
+            while (index !=-1) {
+             index=arr.indexOf(target); // 获取要删除元素的索引
                if (index !== -1) {
                  arr.splice(index, 1); // 删除指定索引的元素
                }
+         }
+         
+          
            
         //   console.log(arr)
          //  console.log(index)
@@ -692,6 +706,7 @@ if (GeZiManager.Bhun<0) {
         if(a.ZB==ZB&&a.ObstaclesName==t){a.BZ(preZB,zi)}
         if((a.FW.includes(preZB)==false)&&a.FW.includes(ZB)&&a.ObstaclesName==t){a.JR(ZB)} 
         }
+
         else{if(a.FW.includes(preZB)&&(a.FW.includes(ZB)==false)){a.LK(ZB)}
         if(a.ZB==ZB){a.BZ(preZB,zi)}
         if((a.FW.includes(preZB)==false)&&a.FW.includes(ZB)){a.JR(ZB)}}
@@ -1253,5 +1268,345 @@ find("Canvas/SpriteSplash/Layout/Button-001").getComponent(CustomButton).enableB
 find("Canvas/SpriteSplash/Layout/Button-004").getComponent(CustomButton).enableButton()
 find("Canvas/SpriteSplash/Layout/Button-003").getComponent(CustomButton).enableButton()
 }
+
+
+
+
+
+static deleteSubArray<T>(arr: T[][], subArray: T[]): T[][] {
+    // 查找匹配的子数组索引
+    const index = arr.findIndex(item => 
+        item.length === subArray.length && 
+        item.every((val, i) => val === subArray[i])
+    );
+    
+    // 如果找到匹配项，则删除
+    if (index !== -1) {
+        arr.splice(index, 1);
     }
     
+    return arr;
+}
+
+
+
+
+static Tomove(ZB:number[],TN:number,Qi:number,HP:number,BND:number[]){
+
+
+
+
+
+
+
+
+
+
+
+for (let g of this.YuanGong) {
+  if (ZB.includes(g.ZB)) {
+  let c=color(0,255,255,195)
+    let l=true
+  if (BND.includes(g.ZB)) {
+    c=color(255,0,0,125)
+     l=false
+  }
+    g.ToBC(1,c,TN,Qi,HP,l,"move")
+  }
+    
+}
+
+let h=find("Canvas/DituManager/New Node/AnimalManager").getComponent(AnimalManager).YuanGong
+for(let c of h){
+
+  if (ZB.includes(c.ZB)) {
+    c.BTM()
+  }  
+}
+
+
+}
+static TomoveTo(ZB:number[],TN:number,Qi:number,HP:number,BND:number[]){
+
+
+
+
+
+
+
+
+
+
+
+for (let g of this.YuanGong) {
+  if (ZB.includes(g.ZB)) {
+  let c=color(0,255,255,195)
+    let l=true
+  if (BND.includes(g.ZB)) {
+    c=color(255,0,0,125)
+     l=false
+  }
+    g.ToBC(1,c,TN,Qi,HP,l,"moveTo")
+  }
+    
+}
+
+let h=find("Canvas/DituManager/New Node/AnimalManager").getComponent(AnimalManager).YuanGong
+for(let c of h){
+
+  if (ZB.includes(c.ZB)) {
+    c.BTM()
+  }  
+}
+
+
+}
+static Toturnn4(ZB:number[],TN:number,Qi:number,HP:number,BND:number[]){
+
+ 
+
+
+
+
+
+
+
+
+
+
+for (let g of this.YuanGong) {
+  if (ZB.includes(g.ZB)) {
+  let c=color(0,255,255,195)
+  let l=true
+  if (GeZiManager.PCP.TN<GeZiManager.PCP.getTN(0)) {
+    c=color(255,0,0,195)
+    l=false
+  }
+  if (GeZiManager.PCP.t>0) {
+       g.ToBC(0,c,TN,Qi,HP,l,"turn4")
+  }
+ 
+  }
+    
+}
+
+let h=find("Canvas/DituManager/New Node/AnimalManager").getComponent(AnimalManager).YuanGong
+for(let c of h){
+
+  if (ZB.includes(c.ZB)&&GeZiManager.PCP.t>0) {
+    c.BTM()
+  }  
+}
+
+
+}
+static Toturnn6(ZB:number[],TN:number,Qi:number,HP:number,BND:number[]){
+
+
+
+
+
+
+
+
+
+
+
+
+for (let g of this.YuanGong) {
+  if (ZB.includes(g.ZB)) {
+  let c=color(0,255,255,195)
+  let l=true
+  if (GeZiManager.PCP.TN<GeZiManager.PCP.getTN(0)) {
+    c=color(255,0,0,195)
+    l=false
+  }
+    if (GeZiManager.PCP.t>0) {
+     g.ToBC(0,c,TN,Qi,HP,l,"turn6")
+  }
+
+  }
+    
+}
+
+
+let h=find("Canvas/DituManager/New Node/AnimalManager").getComponent(AnimalManager).YuanGong
+for(let c of h){
+
+  if (ZB.includes(c.ZB)&&GeZiManager.PCP.t>0) {
+    c.BTM()
+  }  
+}
+
+}
+
+static ToAttack(ZB:number[],TN:number,Qi:number,HP:number,BND:number[]){
+
+
+
+for (let g of this.YuanGong) {
+  if (ZB.includes(g.ZB)) {
+  let c=color(0,255,255,125)
+  let l=true
+
+  if (GeZiManager.PCP.TN<GeZiManager.PCP.getTN(3)||GeZiManager.PCP.qi<Qi) {
+    c=color(255,0,0,125)
+    l=false
+  }
+   
+     g.ToBC(3,c,TN,Qi,HP,l,"attack")
+  
+
+  }
+    
+}
+let h=find("Canvas/DituManager/New Node/AnimalManager").getComponent(AnimalManager).YuanGong
+for(let c of h){
+
+  if (ZB.includes(c.ZB)) {
+    c.BTM()
+  }  
+}
+
+
+}
+
+static ToAttacko(ZB:number[],TN:number,Qi:number,HP:number,BND:number[]){
+
+
+
+for (let g of this.YuanGong) {
+  if (ZB.includes(g.ZB)) {
+  let c=color(0,255,255,125)
+  let l=true
+
+  if (GeZiManager.PCP.TN<GeZiManager.PCP.getTN(3)||GeZiManager.PCP.qi<Qi) {
+    c=color(255,0,0,125)
+    l=false
+  }
+   
+     g.ToBC(99,c,0,0,0,l,"attack")
+  
+
+  }
+    
+}
+
+
+
+
+}
+static hf(){
+
+
+    let h=find("Canvas/DituManager/New Node/AnimalManager").getComponent(AnimalManager).YuanGong
+for(let c of h){
+c.NOTM()
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+static getFHZB1(){
+
+let g1=TGManager.QQ1.concat()
+let g2=TGManager.QQ2.concat()
+let g3=TGManager.QQ3.concat()
+let g4=TGManager.QQ4.concat()
+
+let k1=0
+let k2=0
+let k3=0
+let k4=0
+
+
+for( let c of [GeZiManager.P1,GeZiManager.P2,GeZiManager.P3,GeZiManager.P4,GeZiManager.P5,GeZiManager.P6]){
+
+if (g1.includes(c.ZB)) {
+    if (c.color==GeZiManager.PCP.color) {
+        k1+=1
+    }else{  k1+=4}
+}
+
+if (g2.includes(c.ZB)) {
+    if (c.color==GeZiManager.PCP.color) {
+        k2+=1
+    }else{  k2+=4}
+}
+if (g3.includes(c.ZB)) {
+    if (c.color==GeZiManager.PCP.color) {
+        k3+=1
+    }else{  k3+=4}
+}
+if (g4.includes(c.ZB)) {
+    if (c.color==GeZiManager.PCP.color) {
+        k4+=1
+    }else{  k4+=4}
+}
+}
+   
+let b=k1
+for(let j of [k2,k3,k4]){
+
+    if (j<b) {
+        b=j
+        
+    }
+}
+
+switch (b) {
+    case k1:return TGManager.QQ1
+        
+        break;
+  case k2:return TGManager.QQ2
+        
+        break;
+          case k3:return TGManager.QQ3
+        
+        break;
+          case k4:return TGManager.QQ4
+        
+        break;
+    default:
+        break;
+}
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+static getFHZB(){
+let c=[]
+for (let g of GeZiManager.XB) {
+  if (GeZiManager.PCP.color==g.color) {
+    c.push(g.ZB)
+}
+    
+}
+
+
+
+return c
+
+
+    }
+}

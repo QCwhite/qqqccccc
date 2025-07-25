@@ -27,23 +27,8 @@
   ],
   "_props": [
     {
-      "emissionColor": {
-        "__type__": "cc.Color",
-        "r": 255,
-        "g": 250,
-        "b": 195,
-        "a": 255
-      },
-      "bloomColor": {
-        "__type__": "cc.Color",
-        "r": 255,
-        "g": 239,
-        "b": 121,
-        "a": 255
-      },
-      "emissionPower": 0,
-      "bloomIntensity": 0,
-      "bloomRadius": 0
+      "emissionPower": 0.048,
+      "bloomIntensity": 0
     }
   ]
 }

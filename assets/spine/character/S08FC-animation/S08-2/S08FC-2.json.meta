@@ -1,5 +1,5 @@
 {
-  "ver": "1.2.6",
+  "ver": "1.2.7",
   "importer": "spine-data",
   "imported": true,
   "uuid": "adff3fc3-6ca5-49a3-bb02-25bb7d46d210",
@@ -7,5 +7,7 @@
     ".json"
   ],
   "subMetas": {},
-  "userData": {}
+  "userData": {
+    "atlasUuid": "d3cc9e58-04ba-485d-8ccd-ff4fe4d12be8"
+  }
 }

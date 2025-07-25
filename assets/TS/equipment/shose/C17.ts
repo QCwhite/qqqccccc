@@ -21,11 +21,52 @@ export default class C17 extends CXX {
            J:number=0;
 start () {
        this.target=this.node.getComponent(Character);
-       this.target.walk3.push(this)
-       this.target.t3.push(this)
+      // this.target.walk3.push(this)
+      // this.target.t3.push(this)
+           this.target.attack3.push(this)
        this.target.Fus(-3)
    this.changeEP()
 
+
+
+
+ 
+
+
+
+
+}
+Walk3(ZB: number) {
+       this.target.sh++
+       this.J++
+
+}
+remove(): void {
+       GeZiManager.shanchu(this.node.getComponent(Character).walk3,this)
+       GeZiManager.shanchu(this.node.getComponent(Character).t3,this)
+       this.target.BFUs(-3)
+}
+T3(): void {
+//// let A2 = [GeZiManager.P1,GeZiManager.P2,GeZiManager.P3,GeZiManager.P4,GeZiManager.P5,GeZiManager.P6]
+////for(let a of A2){if (GeZiManager.line(this.target.ZB,8,this.target.faceTo,GeZiManager.BanMove).includes(a.ZB)&&a.color!=this.target.color ){
+
+// // MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,this.target.Pturn,"TNS")
+
+//// }
+
+
+////}
+
+       this.target.sh-=this.J
+       if (this.J!=0) {
+       this.J=0
+       }
+}
+
+
+
+Attack3(an: number[]): void {
+       
 
    MessageCenter.MakeSHMessage("AM",[65],1,this.target.Pturn,"getOneCs");
 
@@ -107,41 +148,11 @@ switch (this.target.faceTo) {
   
 
 }
-
-
-
- 
-
-
-
-
 }
-Walk3(ZB: number) {
-       this.target.sh++
-       this.J++
-
-}
-remove(): void {
-       GeZiManager.shanchu(this.node.getComponent(Character).walk3,this)
-       GeZiManager.shanchu(this.node.getComponent(Character).t3,this)
-       this.target.BFUs(-3)
-}
-T3(): void {
-//// let A2 = [GeZiManager.P1,GeZiManager.P2,GeZiManager.P3,GeZiManager.P4,GeZiManager.P5,GeZiManager.P6]
-////for(let a of A2){if (GeZiManager.line(this.target.ZB,8,this.target.faceTo,GeZiManager.BanMove).includes(a.ZB)&&a.color!=this.target.color ){
-
-// // MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,this.target.Pturn,"TNS")
-
-//// }
 
 
-////}
 
-       this.target.sh-=this.J
-       if (this.J!=0) {
-       this.J=0
-       }
-}
+
 }
 
 

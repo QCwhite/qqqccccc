@@ -27,6 +27,7 @@ export default class Qiang extends weapon {
   BTS: number = 1;//子弹数
 Wtype: number=2;
 tishi:gif1=null
+isFar: boolean=true;
   attack() {
         if (this.BT) {
         if (this.BTS == 0) {
@@ -89,6 +90,7 @@ j =j.filter(item => ( !g.includes(item)))
   }
 start(): void {
 super.start()
+
         let QUI=instantiate(this.node.parent.getComponent(Shops).tishi)
         QUI.setParent(this.node)
         this.tishi=QUI.getComponent(gif1)
@@ -155,6 +157,10 @@ changeEP(){
      GeZiManager.PCP.ST()
      
      }
+
+
+
+
 }//GeZiManager.line这个方法是判断直线上目标的
 
 /**

@@ -16,10 +16,11 @@ import player from "../game/player";
 import JNUM from "../UIS/else/JNUmanager";
 import turn from "../game/time/turn";
 import { SubtitleManager } from '../UIS/baom';
+import MTX from '../BASE/MTX';
 
 @ccclass('S01')
 export default class S01 extends SXX {
-   JX1: string[]=["S01-冲锋","S01-冲锋P","S01-继承","S01-继承P","S01-圣骑","S01-陷阵之志"];
+   JX1: string[]=["S01-1","S01-2","S01-3","S01-4","S01-5","S01-6"];
   
 BL:number[]=[0,0,0,0,0,0,0,0,0,0,0]
     Snumber="S01"
@@ -250,8 +251,11 @@ getJNF(n: number[]): void {
         }
 
 
-if (this.getFUn()>=3) {
+if (this.getFUn()>=3 &&this.JX==false) {
+     
         this.JX=true
+                this.node.getComponent(Cspine).currentSpine.animation="EX"
+                    this.node.getComponentInChildren(MTX).playFrameAnimation1("TN")
         SubtitleManager.show(
                         {
                             bgSprite:this.target.color,
@@ -263,9 +267,14 @@ if (this.getFUn()>=3) {
                         }
                        )
         this.node.getComponent(Cspine).changeXT2("shengqishi")
-}else{   this.JX=false
+}else{  
+        
+if ( this.JX) {
+        this.JX=false
 
-        this.node.getComponent(Cspine).changeXT2("default")
+        this.node.getComponent(Cspine).changeXT2("default")  
+}
+      
 }
 }
  
@@ -288,7 +297,8 @@ Walk3(ZB: number): void {
     
         let A2 = [GeZiManager.P1,GeZiManager.P2,GeZiManager.P3,GeZiManager.P4,GeZiManager.P5,GeZiManager.P6]
         for(let a of A2){if (GeZiManager.line(this.target.ZB,8,this.target.faceTo,GeZiManager.BanMove).includes(a.ZB)&&a.color!=this.target.color ){
-        MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,this.target.Pturn,"TN+")
+      this.target.getComponent(Cspine).currentSpine.animation="rush"
+                MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,this.target.Pturn,"TN+")
         MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,this.target.Pturn,"Qi+")
         this.node.parent.getComponent(JNUM).JNF("S冲锋2",this.target.ZB)
 

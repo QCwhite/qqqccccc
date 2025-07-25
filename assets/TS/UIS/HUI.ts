@@ -16,6 +16,8 @@ import heart from "./heart";
 import character from "../BASE/Character";
 
 import GeZiManager from "../Manager/GeZiManager";
+import gif1 from '../BASE/spineANDgif/gif';
+import { flog } from '../../resources/shader/flog';
 
 @ccclass('HUI')
 export default class HUI extends ComponentBase {
@@ -66,8 +68,7 @@ export default class HUI extends ComponentBase {
         
         }
         
-        
-        
+       
         
         
         
@@ -114,7 +115,7 @@ export default class HUI extends ComponentBase {
         
         
         
-        
+   
         
         
         
@@ -154,7 +155,44 @@ export default class HUI extends ComponentBase {
         
         }
         
+        setMaxHP(){
+   this.MaxHP=this.node.parent.getComponent(character).MaxHP;
+let c= this.MaxHP-this.hearts.length
+      console.log(c)
+if (this.MaxHP>this.hearts.length) {
+
+       for(let i=1;i<=c;i++){
+           let HP=instantiate(this.heart)
+           HP.setParent(this.node)
+         HP.getComponent(heart).DB=this.MaxHP-i;
         
+        }
+}else if (this.MaxHP<this.hearts.length) {
+   
+       for(let i=this.hearts.length-1;i>=this.MaxHP;i--){
+
+        this.hearts[i].node.active=false
+         this.hearts.splice(i)
+        }
+}
+  for(let mannger of this.hearts){
+            mannger.to1();
+            
+        }
+        
+         for(let i=this.MaxHP;i>this.HP;i--){
+        for(let mannger of this.hearts){
+          if(mannger.DB==i){mannger.to0();}
+       
+      
+        }
+        
+        
+        
+        }
+
+
+}
         
         
         setHP(){
@@ -162,6 +200,7 @@ export default class HUI extends ComponentBase {
             this.HP=this.node.parent.getComponent(character).HP;
         
             let n=this.MaxHP-this.HP;
+            
         for(let mannger of this.hearts){
             mannger.to1();
             
@@ -170,14 +209,22 @@ export default class HUI extends ComponentBase {
          for(let i=this.MaxHP;i>this.HP;i--){
         for(let mannger of this.hearts){
           if(mannger.DB==i){mannger.to0();}
-        
+       
+      
         }
         
         
         
         }
-        
-        
+      //   for(let i=this.MaxHP;i>this.HP;i--){
+        for(let mannger of this.hearts){
+          
+
+       mannger.node.getComponent(gif1).falsh()
+    
+    }
+     //   }
+       
         
         }
         

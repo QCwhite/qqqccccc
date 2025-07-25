@@ -82,7 +82,7 @@ export default class D15 extends DXX {
     
     GeZiManager.Tcharacter=null
     MessageCenter.MakeSHMessage("AM", [a], 1,this.node.getComponent(Character).Pturn, "getOneC");
-    if (GeZiManager.Tcharacter!=null&&GeZiManager.Tcharacter.faceTo==this.target.turn8([this.target.faceTo])[0]) {
+    if (GeZiManager.Tcharacter!=null) {
     MessageCenter.MakeSHMessage("AM", [a], 1,this.node.getComponent(Character).Pturn, "HP-");
     }
     

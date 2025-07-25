@@ -24,7 +24,7 @@ export class FDUI extends ComponentBase {
 //      注册鼠标点击事件
     this.node.on(Node.EventType.MOUSE_DOWN, this.onMouseDown, this);
       this.prefab=  this.node.parent.getComponent(AnimalManager).FDUIs
-      //this.spawnPrefab();
+      this.spawnPrefab();
     }
     onMouseDown(event) {
 //      判断是否为右键点击

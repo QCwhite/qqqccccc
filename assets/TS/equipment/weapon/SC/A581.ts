@@ -18,6 +18,9 @@ import S08 from "../../../Scharacter/S08";
 import SXX from "../../../Scharacter/SXX";
 import Qiang from "../Qiang/Qiang";
 import { AudioManager } from '../../../BASE/music';
+import { instantiate } from 'cc';
+import gif1 from '../../../BASE/spineANDgif/gif';
+import Shops from '../../../UIS/shop/shops';
 
 @ccclass('A581')
 export default class A581 extends Qiang {
@@ -111,11 +114,11 @@ AudioManager.instance.ZJP("attack",this.Ytype)
 
         }
         this.BTS--;
-
+  this.ZD()
  
         }
 
-        this.ZD()
+      
 
 
 }
@@ -125,16 +128,49 @@ yy(){
         GeZiManager.PCP.TNC(GeZiManager.PCP.TN);
         GeZiManager.TNC[3]=4
 GeZiManager.Bu.push(3);}
+
+
+
+
 start(): void {
 
-        super.start()
-        this.tishi.node.setScale(0.8,0.8)
+ this.tishi=null
+this.BTS=3
+if (!this.node.getComponent(S08).king) {
+for(let c of [GeZiManager.P1,GeZiManager.P2,GeZiManager.P3,GeZiManager.P4,GeZiManager.P5,GeZiManager.P6]){
+                      if (c.node.getComponent(S08)&&c.node.getComponent(A581)) {
+                          console.log(c.node.getComponent(A581).BTS)
+                        this.BTS=c.node.getComponent(A581).BTS
+                        break;
+                      }
+              }
+}
+
+
+
+  this.target=this.node.getComponent(Character)
+if ( !this.tishi) {
+       let QUI=instantiate(this.node.parent.getComponent(Shops).tishi)
+                QUI.setParent(this.node)
+                this.tishi=QUI.getComponent(gif1)
+       
+       
+                this.tishi.node.setScale(0.8,0.8)   
+}
+      
         
-this.target=this.node.getComponent(Character)
+this.ZD()
+
+
+console.log(this.node.getComponent(S08).king+"ZD:"+this.tishi)
+console.log(this.node.getComponent(S08).king+":"+this.BTS)
+
+
+
 
 }
 ac(k: number): void {
-        if (this.node!=null&&this.node.getComponent(Character).HP>0) {
+        if (this.node!=null&&this.node.getComponent(Character).HP>0&&this.target) {
 
                  let g=[]
               for(let c of [GeZiManager.P1,GeZiManager.P2,GeZiManager.P3,GeZiManager.P4,GeZiManager.P5,GeZiManager.P6]){
@@ -147,25 +183,39 @@ ac(k: number): void {
       j =j.filter(item => ( !g.includes(item)))
         let A2 = GeZiManager.line(this.node.getComponent(Character).ZB, this.ptr,k,j);
 
-        console.log(k)
-        console.log(A2)
+
 
         MessageCenter.MakeSHMessage("AM", A2, this.SH,this.node.getComponent(Character).Pturn, "wuli")
-        console.log(this.node.getComponent(Character).ZB)
-        console.log(this.node.getComponent(SXX).Fsn)
+      
+                this.BTS--;
+
         this.ZD()
         }
 
 }
   remove(): void {
-        if (this.tishi&&this.node.getComponent(S08).king){this.tishi.changeF(-1,1)}
+
+
+        this.BTS=3
+  if (!this.tishi) {
+        this.tishi=this.node.getChildByName("qiangUI") .getComponent(gif1) 
+    }
+           this.tishi.changeF(-1,1)
+                  this.tishi.node.destroy()
+           this.tishi=null
+
+
+
+               
+        
 //   this.destroy();
 //   this.node.removeComponent(this)
       }
 ZD(){
-        if (this.node&&this.node.getComponent(S08).king&&this.tishi) {
-
-        }
+if (!this.tishi) {
+    this.tishi=this.node.getChildByName("qiangUI") .getComponent(gif1) 
+}
+             
         switch (this.BTS) {
         case 1:this.tishi.changeF(5,1)
 
@@ -179,13 +229,12 @@ ZD(){
         case 99:this.tishi.changeF(7,1)
 
         break;
-        default:if ( this.BTS==0) {
+        default:if ( this.BTS<=0) {
         this.node.getComponent(Character).changeE("A580")
-        for(let a of this.node.getComponent(Character).CHF){
-        a.changeE("A580")
-
-        }
-        }
+       
+        }else 
+        
+        console.log(this.BTS)
         break;
         }
 }

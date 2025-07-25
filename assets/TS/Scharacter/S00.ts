@@ -485,7 +485,7 @@ getTO (n: number):string[] {
 getJNF(n1: number[]): void {
       
      
-if (this.getFUn()>=3) {
+if (this.getFUn()>=3&&this.JX==false) {
       this.JX=true  ;
        SubtitleManager.show(
                         {
@@ -497,7 +497,11 @@ if (this.getFUn()>=3) {
                             duration: 5
                         }
                        )
-}else{ this.JX=false}
+}else{ if ( this.JX) {
+        this.JX=false
+
+       
+}}
 find("Canvas/Main Camera/UIManager/BUIManager/BUI").getComponent(BUI).TNST()
     }
   

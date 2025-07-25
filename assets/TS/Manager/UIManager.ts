@@ -51,17 +51,17 @@ export default class UIManager extends ManagerBase{
             CUI.getChildByName("yesno").children[1].active=false; 
           }  else{  CUI.getChildByName("yesno").children[1].active=true; }
             
-            this.GUI.active=true;SUI1.position=v3(0,-5000,0);SUI2.active=false;WF.active=false;
+            this.GUI.active=true;SUI1.position=v3(0,-5000,0);SUI2.position=v3(0,-5000,0);WF.active=false;
             find("Canvas/thingsManager/Day").active=false;
                 break;
             
             
-            case 0:BUIM.getChildByName("BUI").active=false; CUI.getChildByName("yesno").children[0].active=false;CUI.getChildByName("yesno").children[1].active=false;;this.GUI.active=false;SUI1.position=v3(0,-5000,0);SUI2.active=false;WF.active=false;
+            case 0:BUIM.getChildByName("BUI").active=false; CUI.getChildByName("yesno").children[0].active=false;CUI.getChildByName("yesno").children[1].active=false;;this.GUI.active=false;SUI1.position=v3(0,-5000,0);SUI2.position=v3(0,-5000,0);WF.active=false;
             find("Canvas/thingsManager/Day").active=false;
                 break;
           
             
-                    case 1:BUIM.getChildByName("BUI").active=true; CUI.getChildByName("yesno").children[0].active=false;CUI.getChildByName("yesno").children[1].active=false;this.GUI.active=false;SUI1.position=v3(0,-5000,0);SUI2.active=false;WF.active=false;
+                    case 1:BUIM.getChildByName("BUI").active=true; CUI.getChildByName("yesno").children[0].active=false;CUI.getChildByName("yesno").children[1].active=false;this.GUI.active=false;SUI1.position=v3(0,-5000,0);SUI2.position=v3(0,-5000,0);WF.active=false;
                     BUIM.getChildByName("BUI").getComponent(BUI).TNST();
                     find("Canvas/thingsManager/Day").active=false;
                     break;
@@ -73,33 +73,36 @@ export default class UIManager extends ManagerBase{
                     if (state.ST==0) {
             CUI.getChildByName("yesno").children[1].active=false; 
           }  else{  CUI.getChildByName("yesno").children[1].active=true; }
-          this.GUI.active=true;SUI1.position=v3(0,-5000,0);SUI2.active=false;WF.active=false;
+          this.GUI.active=true;SUI1.position=v3(0,-5000,0);SUI2.position=v3(0,-5000,0);WF.active=false;
                     find("Canvas/thingsManager/Day").active=false;
 
 
                       console.log(  CUI.getChildByName("yesno").children[0].active)
                            console.log(  CUI.getChildByName("yesno").children[0].position)
                     break;
-                    case 2.5:BUIM.getChildByName("BUI").active=false; CUI.getChildByName("yesno").children[0].active=true;CUI.getChildByName("yesno").children[1].active=true;this.GUI.active=false;SUI1.position=v3(0,-5000,0);SUI2.active=false;WF.active=true;
+                    case 2.5:BUIM.getChildByName("BUI").active=false; CUI.getChildByName("yesno").children[0].active=true;CUI.getChildByName("yesno").children[1].active=true;this.GUI.active=false;SUI1.position=v3(0,-5000,0);SUI2.position=v3(0,-5000,0);WF.active=true;
                     find("Canvas/thingsManager/Day").active=false;
                     break;
-                    case 3:BUIM.getChildByName("BUI").active=false; CUI.getChildByName("yesno").children[0].active=false;CUI.getChildByName("yesno").children[1].active=false;this.GUI.active=false;SUI1.position=v3(0,78,0);SUI2.active=false;WF.active=false;
+                    case 3:BUIM.getChildByName("BUI").active=false; CUI.getChildByName("yesno").children[0].active=false;CUI.getChildByName("yesno").children[1].active=false;this.GUI.active=false;SUI1.position=v3(0,78,0);SUI2.position=v3(0,-5000,0);WF.active=false;
                     find("Canvas/thingsManager/Day").active=true; 
                     break;
-                    case 3.5: BUIM.getChildByName("BUI").active=false; CUI.getChildByName("yesno").children[0].active=false;CUI.getChildByName("yesno").children[1].active=false;this.GUI.active=false;SUI1.position=v3(0,-5000,0);SUI2.active=true;WF.active=false;
+                    case 3.5: BUIM.getChildByName("BUI").active=false; CUI.getChildByName("yesno").children[0].active=false;CUI.getChildByName("yesno").children[1].active=false;this.GUI.active=false;SUI1.position=v3(0,-5000,0);SUI2.position=v3(0,78,0);WF.active=false;
                     find("Canvas/thingsManager/Day").active=true; 
                     break;
-                    case 4: BUIM.getChildByName("BUI").active=false; CUI.getChildByName("yesno").children[0].active=false;CUI.getChildByName("yesno").children[1].active=false;this.GUI.active=false;SUI1.position=v3(0,-5000,0);WF.active=false;
+                    case 4: BUIM.getChildByName("BUI").active=false; CUI.getChildByName("yesno").children[0].active=false;CUI.getChildByName("yesno").children[1].active=false;this.GUI.active=false;SUI1.position=v3(0,-5000,0);SUI2.position=v3(0,-5000,0);WF.active=false;
                     BUIM.getChildByName("BUI").getComponent(BUI).TNST();MMUI.open();
                     break;
                     
                     
                     
-                    case 5:BUIM.getChildByName("BUI").active=false; CUI.getChildByName("yesno").children[0].active=false;CUI.getChildByName("yesno").children[1].active=false;;this.GUI.active=false;SUI1.position=v3(0,-5000,0);WF.active=true;
+                    case 5:BUIM.getChildByName("BUI").active=false; CUI.getChildByName("yesno").children[0].active=false;CUI.getChildByName("yesno").children[1].active=false;;this.GUI.active=false;SUI1.position=v3(0,-5000,0);SUI2.position=v3(0,-5000,0);WF.active=true;
                     
                     
                     break;
-                    
+                        case 99:BUIM.getChildByName("BUI").active=true; CUI.getChildByName("yesno").children[0].active=false;CUI.getChildByName("yesno").children[1].active=false;this.GUI.active=true;SUI1.position=v3(0,-5000,0);SUI2.position=v3(0,-5000,0);WF.active=false;
+                    BUIM.getChildByName("BUI").getComponent(BUI).TNST();
+                    find("Canvas/thingsManager/Day").active=false;
+                    break;
                     default:BUIM.getChildByName("BUI").active=false;
                     break;
             }

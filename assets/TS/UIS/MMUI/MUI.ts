@@ -34,6 +34,7 @@ import { SubtitleManager } from '../baom';
 import Shops from '../shop/shops';
 import { Sprite } from 'cc';
 import DL from '../../Ditu/des/DL';
+import { log } from 'console';
 // /*
  //1  火球(fireball)【2】{2}：施法者指定以自身为中心的4格范围内的任意一格引导火球，在下一次轮到施法者的回合时，该指定格火球降下，对该格单位造成2点魔法伤害，若命中地雷会直接将其引爆
  //5  闪现(flash)【3】{3}：施法者立即位移至面朝方向的的第二格上，可以越过任意单位（若面朝方向第二格上已有单位则无法使用）
@@ -56,9 +57,9 @@ export default class MUI extends ComponentBase {
         CC: number = 0;
         MCD:number[]=[0,0,0,0,0,3,5,0,0,0,7,0,0,0,0,0,0]
         DMAG:number=0;
-        fashu: number[] = [1,2,3,14];
-        BLfas:number[]=[10,4,6];
-        RLfas:number[]=[9,8,5];
+        fashu: number[] = [1,2,13,4];
+        BLfas:number[]=[12,14,11];
+        RLfas:number[]=[8,9,10];
        son:MAG[]=[];
        @property(Node)  
        di:Node=null
@@ -91,43 +92,43 @@ export default class MUI extends ComponentBase {
     let o=GeZiManager.PCP.color;
     
         if(o=="Blue"){k=this.mArr1Arr2(this.fashu,this.BLfas)}else{k=this.mArr1Arr2(this.fashu,this.RLfas)}
-        if(GeZiManager.PCP.getComponent(S03)&&GeZiManager.PCP.getComponent(S03).BL[5]>0){ k=GeZiManager.PCP.getComponent(S03).changM();}
+        if(GeZiManager.PCP.getComponent(S03)&&GeZiManager.PCP.getComponent(S03).JX    ){ k=GeZiManager.PCP.getComponent(S03).changM();}
     for (let index = 0; index < k.length; index++) {
        let a=""
        let qi=0
        let t=0
         switch (k[index]) {
-            case 1:a="fireball" ;qi=2;//this.MCD[1]=1;
+            case 1:a="fireball" ;qi=2;//this.MCD[1]=1;火
             break;
-            case 2:a="falsh" ;qi=3;//this.MCD[2]=3;
+            case 2:a="falsh" ;qi=3;//this.MCD[2]=3;风
             break;
-            case 3:a="cure" ;qi=3;//this.MCD[3]=5;
+            case 3:a="cure" ;qi=2;//this.MCD[3]=5;水
             break;
             case 4:a="KB" ;qi=3;//this.MCD[10]=4;
             break;
-            case 5:a="earthquake" ;qi=4;//this.MCD[4]=5;
+            case 5:a="earthquake" ;qi=4;//this.MCD[4]=5;土
             break;
-            case 6:a="wind" ;qi=5;//this.MCD[5]=4;
+            case 6:a="wind" ;qi=5;//this.MCD[5]=4;风
             break;
             case 7:a="TP" ;qi=5;//this.MCD[6]=2;
             break;
            
           
-            case 8:a="ice" ;qi=3;//this.MCD[7]=4;
+            case 8:a="ice" ;qi=2;//this.MCD[7]=4;水
             break;
             case 9:a="banana" ;qi=2;//this.MCD[8]=2;
             break;
-            case 10:a="thunder" ;qi=6;//this.MCD[9]=7;
+            case 10:a="thunder" ;qi=6;//this.MCD[9]=7;火
             break;
            
-            case 11:a="tree" ;qi=3;//this.MCD[10]=4;
+            case 11:a="tree" ;qi=2;//this.MCD[10]=4;
             break;
           
-            case 12:a="BZ";qi=3;//this.MCD[10]=4;
+            case 12:a="BZ";qi=3;//this.MCD[10]=4;土
             break;
-            case 13:a="pig" ;qi=4;//this.MCD[10]=4;
+            case 13:a="pig" ;qi=2;//this.MCD[10]=4;
             break;
-            case 14:a="tui" ; qi=Math.floor(GeZiManager.PCP.qi/2)
+            case 14:a="tui" ; qi=3//
       
     
             break;
@@ -162,6 +163,9 @@ const b=this.di.position
 
         console.log("open");
         console.log( this.node.position);
+            
+    for(let a of GeZiManager.PCP.magic1){a.Magic1()}
+    
         this.chushi();
         this.ST();
         AudioManager.instance.ZJP("magic",0);
@@ -201,11 +205,15 @@ const b=this.di.position
     
     
     
-       
+        for (let g of GeZiManager.YuanGong) {
+            g.null()
+        }
     
         let k=GeZiManager.redM;
         let o=GeZiManager.blueM
     if(GeZiManager.PCP.color=="Blue"){o=GeZiManager.redM;k=GeZiManager.blueM}
+
+
     state.ST=4;
         MessageCenter.MakeMessage("UIManager","change",-1);
         for(let manager of GeZiManager.YuanGong){
@@ -226,13 +234,19 @@ if (Br&&manager.getFarH(n+GeZiManager.JL)) {
 
   
  }
+if (o.includes(manager.ZB)) {
+    manager.green()
+}
 
-    if (k.includes(manager.ZB)&&!o.includes(manager.ZB)) {
-        manager.red();
+
+
+
+   // if (k.includes(manager.ZB)&&!o.includes(manager.ZB)) {
+   //     manager.red();
+  //  }
     }
-    }
-    console.log(k)
-    console.log(o)
+  //  console.log(k)
+  //  console.log(o)
     }
     
     
@@ -302,13 +316,19 @@ if (Br&&manager.getFarH(n+GeZiManager.JL)) {
         o=1
     }
     MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],o,null,"Qi-")
-        
+    
     MessageCenter.MakeSHMessage("AM",[n,2+GeZiManager.dm],4,GeZiManager.PCP.Pturn,"FTP");
     for(let a of GeZiManager.PCP.magic3){a.Magic3(n);}
     
 
   
               AudioManager.instance.ZJP("magic",1);
+
+    if(GeZiManager.PCP.node.getComponent(S03)){
+GeZiManager.PCP.node.getComponent(S03).magicYS(0.5)
+}
+
+             
     
     }
     
@@ -329,9 +349,9 @@ if (Br&&manager.getFarH(n+GeZiManager.JL)) {
               
     
                 if(c.ZB==a){if(GeZiManager.BanMove.includes(c.ZB)){c.red(); MessageCenter.MakeMessage("UIManager","change",-1)}else{c.blue();  MessageCenter.MakeMessage("UIManager","change",2)}}else c.null();
-                if (GeZiManager.grass.includes(c.ZB)&&c.ZB==a&&turn.DorN=="nigth") {
-                    c.Kpuper();  MessageCenter.MakeMessage("UIManager","change",2)
-                }
+               // if (GeZiManager.grass.includes(c.ZB)&&c.ZB==a&&turn.DorN=="nigth") {
+               //     c.Kpuper();  MessageCenter.MakeMessage("UIManager","change",2)
+              //  }
                 if (k.includes(c.ZB)&&!o.includes(c.ZB)) {
                     c.red();
                 }
@@ -368,12 +388,14 @@ if (Br&&manager.getFarH(n+GeZiManager.JL)) {
     
         AudioManager.instance.ZJP("magic",2)
                   
-    
+    if(GeZiManager.PCP.node.getComponent(S03)){
+    GeZiManager.PCP.node.getComponent(S03).magicYS(-3)
+    }
     
     }
     KB(){
     
-        this.XZ(3,false,false)
+        this.XZ(4,false,false)
           
  
         GeZiManager.DLLM='KB'
@@ -404,18 +426,21 @@ if (Br&&manager.getFarH(n+GeZiManager.JL)) {
     MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],o,null,"Qi-")
         MessageCenter.MakeSHMessage("AM",[n],1,GeZiManager.PCP.Pturn,"getOne")
 console.log( GeZiManager.Tcharacter)
- GeZiManager.Tcharacter.node.getChildByName("MTX").getComponent(MTX).playFrameAnimation1("KB");
+if ( GeZiManager.Tcharacter) {
+     GeZiManager.Tcharacter.node.getChildByName("MTX").getComponent(MTX).playFrameAnimation1("KB");
     GeZiManager.Tcharacter.KBL(1)
-     GeZiManager.Tcharacter.ZBW(false,1)
+      GeZiManager.Tcharacter.ST()
+    GeZiManager.Tcharacter.ZBW(false,0.5)
+}
+
 console.log( GeZiManager.Tcharacter)
     
 
     for(let a of GeZiManager.PCP.magic3){a.Magic3(GeZiManager.PCP.ZB);}
         AudioManager.instance.ZJP("magic",4)
     }
-    pig(){ 
-       
-    
+    pig1(){ 
+
         state.ST=4;
         GeZiManager.DLLM='earthquake'
         MessageCenter.MakeMessage("UIManager","change",2);
@@ -423,6 +448,33 @@ console.log( GeZiManager.Tcharacter)
         for(let c of GeZiManager.YuanGong){c.blue()}
         
 
+        GeZiManager.DLLM='pig'
+        state.ST=4;
+        this.close();
+    
+    }
+       pig(){ 
+       
+  
+        state.ST=4;
+    
+        MessageCenter.MakeMessage("UIManager","change",2);
+        
+         let c=find("Canvas/DituManager/New Node/AnimalManager").getComponent(AnimalManager).YuanGong
+         let g=[]
+for (let c1 of c) {
+  if (c1.tt=="rock") {
+   g.push(c1.ZB)
+   g.push(this.findGe(GeZiManager.PCP.faceTo,1,c1.ZB))
+  }
+
+}
+        
+   for(let c of GeZiManager.YuanGong){
+   if (g.includes(c.ZB)) {
+    c.blue()
+   }else{c.null()}
+}
         GeZiManager.DLLM='pig'
         state.ST=4;
         this.close();
@@ -448,7 +500,7 @@ let k=0
 
 }
 
-      for (let index = 0; index < o; index++) {
+      for (let index = 0; index < k; index++) {
             MessageCenter.MakeSHMessage("GM",[0], turn.turn+1, turn.turn,"PASS"); 
             console.log(index)
       }
@@ -461,6 +513,34 @@ let k=0
     
     }
     
+
+Drock(){  for(let a of GeZiManager.PCP.magic2){a.Magic2();}
+
+    
+    let o=2+GeZiManager.free
+    if (o<1) {
+        o=1
+    }
+    MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],o,null,"Qi-")
+let c=find("Canvas/DituManager/New Node/AnimalManager").getComponent(AnimalManager).YuanGong
+for (let c1 of c) {
+  if (c1.tt=="rock") {
+    console.log()
+    c1.move(GeZiManager.PCP.faceTo,1)
+     c1.moveto(0.4, c1.ZB);  c1.CMget();
+  }
+    
+}
+        if(GeZiManager.PCP.node.getComponent(S03)){
+    GeZiManager.PCP.node.getComponent(S03).magicYS(-1)
+    }
+    for(let a of GeZiManager.PCP.magic3){a.Magic3(0);}
+
+
+}
+
+
+
     cure(){
       this.XZ(4,false,false)
             GeZiManager.DLLM='cure'
@@ -469,25 +549,38 @@ let k=0
     Dcure(n:number){
         for(let a of GeZiManager.PCP.magic2){a.Magic2();}
        
-     let o=3+GeZiManager.free
+     let o=2+GeZiManager.free
         if (o<1) {
             o=1
         }
         MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],o,null,"Qi-")
-       
+       GeZiManager.Tcharacter=null
        MessageCenter.MakeSHMessage("AM",[n],1,GeZiManager.PCP.Pturn,"getOne")
-       if(GeZiManager.Tcharacter!=null){GeZiManager.Tcharacter.node.getChildByName("MTX").getComponent(MTX).playFrameAnimation1("cure")}
-       setTimeout(() => {
-        MessageCenter.MakeSHMessage("AM",[n],1,GeZiManager.PCP.Pturn,"MaxHP+");
-        MessageCenter.MakeSHMessage("AM",[n],1,GeZiManager.PCP.Pturn,"HP+");
+       if(GeZiManager.Tcharacter!=null){GeZiManager.Tcharacter.node.getChildByName("MTX").getComponent(MTX).playFrameAnimation1("cure")
+GeZiManager.Tcharacter.MZJS()
+GeZiManager.Tcharacter.KBJS()
+GeZiManager.Tcharacter.ICEJS()
+GeZiManager.Tcharacter.DYJS()
+       
+
+       // MessageCenter.MakeSHMessage("AM",[n],1,GeZiManager.PCP.Pturn,"MaxHP+");
+  
+       if (GeZiManager.Tcharacter.HP<GeZiManager.Tcharacter.MaxHP) {       setTimeout(() => {
+         MessageCenter.MakeSHMessage("AM",[n],1,GeZiManager.PCP.Pturn,"HP+");       }, 500); 
+       }else{     
+            MessageCenter.MakeSHMessage("AM",[n],1,GeZiManager.PCP.Pturn,"walkL");
+        }
+      
        
         for(let a of GeZiManager.PCP.magic3){a.Magic3(n);}
-       }, 500); 
-    
+
+      
        AudioManager.instance.ZJP("magic",3)
-    
+     if(GeZiManager.PCP.node.getComponent(S03)){
+    GeZiManager.PCP.node.getComponent(S03).magicYS(-2)
     }
-    
+    }
+}
     
     
     
@@ -501,18 +594,18 @@ let k=0
         state.ST=4;
         GeZiManager.DLLM='earthquake'
         MessageCenter.MakeMessage("UIManager","change",2);
-        for(let c of GeZiManager.YuanGong){
+       // for(let c of GeZiManager.YuanGong){
     
     
-            if([1,8].includes(c.X)||[1,8].includes(c.Y)){c.null()}else {c.blue();}
-               }
-        
+          //  if([1,8].includes(c.X)||[1,8].includes(c.Y)){c.null()}else {c.blue();}
+          //     }
+        this.XZ(4,false,false)
         this.close();
             
             }
     }
     
-    Dearthquake(){ 
+    Dearthquake(n:number){ 
             GeZiManager.DLLM='earthquake'
         for(let a of GeZiManager.PCP.magic2){a.Magic2();}
         let g=find("Canvas/Main Camera").getComponent(Camera)
@@ -523,24 +616,26 @@ let k=0
           if (o<1) {
               o=1
           }
+          
           MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],o,null,"Qi-")
           setTimeout(() => {
-           
-            for(let manager of a) {
             
-            if(manager.DiXing=="grass"){manager.ReceiveMessage(b);manager.ReceiveMessage(c);}
-            
-               }
+              MessageCenter.MakeSHMessage("AM",this.getNIG(n),[1+GeZiManager.dm,"DZ"],turn.turn,"mofaT")
+         
           }, 1500);
-     let k=[GeZiManager.PCP.teammates[0].ZB,GeZiManager.PCP.teammates[1].ZB]
-          let c=new SHMessage("AM",[k],GeZiManager.dm,turn.turn,"Dun")
-          let b=new SHMessage("AM",[65],[1+GeZiManager.dm,"DZ"],turn.turn,"mofaT")
-        
+    // let k=[GeZiManager.PCP.teammates[0].ZB,GeZiManager.PCP.teammates[1].ZB]
+       //   let c=new SHMessage("AM",[k],GeZiManager.dm,turn.turn,"Dun")
+         
+        //  let b=new SHMessage("AM",GeZiManager.PCP.getNIG(n),[1+GeZiManager.dm,"DZ"],turn.turn,"mofaT")
+       // console.log(GeZiManager.PCP.getNIG(n))
           find("Canvas/Main Camera/UIManager/magicUI").getComponent(MUI).DZLM=false    
         
     this.MCD[5]=3
        for(let a of GeZiManager.PCP.magic3){a.Magic3(GeZiManager.PCP.ZB);}
        AudioManager.instance.ZJP("magic",5)
+        if(GeZiManager.PCP.node.getComponent(S03)){
+    GeZiManager.PCP.node.getComponent(S03).magicYS(-1)
+    }
     }
     
     
@@ -559,7 +654,7 @@ let k=0
     Dice(n:number){
            GeZiManager.DLLM='ice'
         for(let a of GeZiManager.PCP.magic2){a.Magic2();}
-       let o=3+GeZiManager.free
+       let o=2+GeZiManager.free
           if (o<1) {
               o=1
           }
@@ -571,6 +666,9 @@ let k=0
     
     
         AudioManager.instance.ZJP("magic",8)
+         if(GeZiManager.PCP.node.getComponent(S03)){
+    GeZiManager.PCP.node.getComponent(S03).magicYS(-2)
+    }
     }
     
     
@@ -669,7 +767,9 @@ let k=0
        for(let a of GeZiManager.PCP.magic3){a.Magic3(GeZiManager.PCP.ZB);}
     }, 600);
    AudioManager.instance.ZJP("magic",6)
-
+ if(GeZiManager.PCP.node.getComponent(S03)){
+    GeZiManager.PCP.node.getComponent(S03).magicYS(-3)
+    }
        }
     
     
@@ -715,12 +815,15 @@ let k=0
     
         MessageCenter.MakeSHMessage("AM",[n],2,GeZiManager.PCP.Pturn,"mofa");
        if (GeZiManager.Tcharacter.qi==0) {
-        GeZiManager.Tcharacter.MZL(1)
+    //    GeZiManager.Tcharacter.MZL(1)
        }
        
         for(let a of GeZiManager.PCP.magic3){a.Magic3(n);}
     
         AudioManager.instance.ZJP("magic",10)
+
+
+    
     }
     
     
@@ -786,7 +889,7 @@ GeZiManager.Tcharacter=null
             
             if (GeZiManager.BanMove.includes(n)) {
                 
- MessageCenter.MakeSHMessage("AM",[n],2,GeZiManager.PCP.Pturn,"TN+")
+ //MessageCenter.MakeSHMessage("AM",[n],2,GeZiManager.PCP.Pturn,"TN+")
 
 
             }else  if (GeZiManager.aos.includes(n)) {
@@ -808,13 +911,13 @@ GeZiManager.Tcharacter=null
     if ( GeZiManager.Tcharacter) {
         console.log(  GeZiManager.Tcharacter)
           GeZiManager.Tcharacter.node.getChildByName("MTX").getComponent(MTX).playFrameAnimation1("Banan");
-         
+           GeZiManager.Tcharacter.BanaL()
     }   for(let a of GeZiManager.PCP.magic3){a.Magic3(n);}
         }
     
     
     
-    BZ(){
+    BZ1(){
     
     
         state.ST=4;
@@ -840,9 +943,43 @@ GeZiManager.Tcharacter=null
    
     
       AudioManager.instance.ZJP("magic",11)
-    
+          if(GeZiManager.PCP.node.getComponent(S03)){
+    GeZiManager.PCP.node.getComponent(S03).magicYS(-1)
+    }
     }
     
+       DBZ2(n:number){
+    
+    
+        for(let a of GeZiManager.PCP.magic2){a.Magic2();}
+          let o=4+GeZiManager.free
+        if (o<1) {
+            o=1
+        }
+        MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],o,null,"Qi-")
+  
+
+for (let index = 1; index < 9; index++) {
+   n=GeZiManager.PCP.findGe(index,1)
+           GeZiManager.Tcharacter=null
+        MessageCenter.MakeSHMessage("AM",[n],1,GeZiManager.PCP.Pturn,"getOne")
+    if (GeZiManager.Tcharacter&&GeZiManager.Tcharacter.M!="沉甸甸") {
+          MessageCenter.MakeSHMessage("AM",[n],1,GeZiManager.PCP.Pturn,"mofa")
+      MessageCenter.MakeSHMessage("AM",[n],[GeZiManager.PCP.turn8([GeZiManager.PCP.faceIs(n)])[0],0.3],GeZiManager.PCP.Pturn,"move")
+}
+    
+}
+
+
+   
+        for(let a of GeZiManager.PCP.magic3){a.Magic3(GeZiManager.PCP.ZB);}
+   
+    
+      AudioManager.instance.ZJP("magic",11)
+          if(GeZiManager.PCP.node.getComponent(S03)){
+    GeZiManager.PCP.node.getComponent(S03).magicYS(-1)
+    }
+    }
     
     
     tree(){
@@ -850,7 +987,7 @@ GeZiManager.Tcharacter=null
         state.ST=4;
          
         GeZiManager.DLLM='tree'
-        this.XZ(3,true,true);  
+        this.XZ(4,true,true);  
         this.close();
     
     }
@@ -858,7 +995,7 @@ GeZiManager.Tcharacter=null
     Dtree(n:number){
     for(let a of GeZiManager.PCP.magic2){a.Magic2();}
 
-        let o=3+GeZiManager.free
+        let o=2+GeZiManager.free
     if (o<1) {
         o=1
     }
@@ -872,10 +1009,6 @@ GeZiManager.Tcharacter=null
     switch (j) {
         case 0:Y=1
      
-        if (GeZiManager.PCP.color=="Blue") {
-           GeZiManager.Bhun+=1
-        }else{GeZiManager.Rhun+=1}
-            GeZiManager.getHUN()
             break;
             case 1:Y=24
             
@@ -901,8 +1034,43 @@ if(o.Pturn<=C){C=o.Pturn}
     
   AudioManager.instance.ZJP("magic",11)
 }
+   
+
+BZ(){     state.ST=4;
+         
+        GeZiManager.DLLM='BZ'
+        this.XZ(3,false,false);  
+        this.close();
     
-    tui(){
+    }
+
+DXi(n:number){
+
+for (let c1 of [2,4,6,8]) {
+  
+   let c=GeZiManager.line(n,1,c1,GeZiManager.BanMove)
+
+     MessageCenter.MakeSHMessage("AM",c,1,GeZiManager.PCP.Pturn,"getOne")
+ 
+if (GeZiManager.Tcharacter&&GeZiManager.Tcharacter.M!="沉甸甸") {
+      MessageCenter.MakeSHMessage("AM",c,[GeZiManager.Tcharacter.turn8([GeZiManager.Tcharacter.faceIs(n)])[0],0.3],GeZiManager.PCP.Pturn,"move")
+} 
+}
+
+
+    MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],3,null,"Qi-")
+
+
+}
+
+
+
+
+
+
+
+
+    tui2(){
     
     
         let a  = GeZiManager.PCP.findGe(GeZiManager.PCP.faceTo,1)
@@ -922,9 +1090,84 @@ if(o.Pturn<=C){C=o.Pturn}
     
     }
     
+        tui(){
+        let k=GeZiManager.redM;
+        let o=GeZiManager.blueM
+    if(GeZiManager.PCP.color=="Blue"){o=GeZiManager.redM;k=GeZiManager.blueM} 
     
+      let g=Math.floor(GeZiManager.PCP.qi/2)
+
+    
+        
+            let a  = GeZiManager.PCP.findGe(GeZiManager.PCP.faceTo,1)
+
+            find("Canvas/DituManager/New Node/AnimalManager/GUIManager").active=true;
+             
+            for(let c of GeZiManager.YuanGong){
+              
+    
+                if(c.ZB==a){c.blue();  MessageCenter.MakeMessage("UIManager","change",2)}else c.null();
+               // if (GeZiManager.grass.includes(c.ZB)&&c.ZB==a&&turn.DorN=="nigth") {
+               //     c.Kpuper();  MessageCenter.MakeMessage("UIManager","change",2)
+              //  }
+               
+    
+    
+    
+            }
+      
+      
+      
+    
+        this.close();
+        GeZiManager.DLLM='tui'
+        state.ST=4;
+    
+    
+    
+    
+    
+    }
     
     Dtui(n:number){
+      //  n = GeZiManager.PCP.findGe(GeZiManager.PCP.faceTo,1)
+        for(let a of GeZiManager.PCP.magic2){a.Magic2();}
+
+        let o=  3+GeZiManager.free
+    if (o<1) {
+        o=1
+    }
+    
+    MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],o,null,"Qi-")
+       // MessageCenter.MakeSHMessage("AM",[n],o/2,GeZiManager.PCP.Pturn,"Qi+")
+    GeZiManager.Tcharacter=null
+       //MessageCenter.MakeSHMessage("AM",[c],1,GeZiManager.PCP.Pturn,"getOne")
+      let c= GeZiManager.line(GeZiManager.PCP.ZB,1,GeZiManager.PCP.faceTo,GeZiManager.BanMove)
+        MessageCenter.MakeSHMessage("AM",c,1,GeZiManager.PCP.Pturn,"getOne")
+    if ( GeZiManager.Tcharacter) {
+          GeZiManager.Tcharacter.node.getChildByName("MTX").getComponent(MTX).playFrameAnimation1("Tui");
+         
+    }
+
+
+
+      
+
+ 
+      MessageCenter.MakeSHMessage("AM",c,1,GeZiManager.PCP.Pturn,"mofa")
+      if (GeZiManager.Tcharacter&&GeZiManager.Tcharacter.M!="沉甸甸"&&GeZiManager.Tcharacter.qi==0) {
+      MessageCenter.MakeSHMessage("AM",c,[GeZiManager.PCP.turn8([GeZiManager.PCP.faceIs(c[0])])[0],0.3],GeZiManager.PCP.Pturn,"move")
+}
+
+          
+        console.log(GeZiManager.PCP.faceIs(n))
+        for(let a of GeZiManager.PCP.magic3){a.Magic3(n);}
+    
+      AudioManager.instance.ZJP("magic",14)
+    }
+    
+    
+     Dtui1(n:number){
       //  n = GeZiManager.PCP.findGe(GeZiManager.PCP.faceTo,1)
         for(let a of GeZiManager.PCP.magic2){a.Magic2();}
 
@@ -932,15 +1175,15 @@ if(o.Pturn<=C){C=o.Pturn}
     if (o<1) {
         o=1
     }
-        GeZiManager.Tcharacter=null
+    
+    MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],o,null,"Qi-")
+        MessageCenter.MakeSHMessage("AM",[n],o/2,GeZiManager.PCP.Pturn,"Qi+")
+    GeZiManager.Tcharacter=null
         MessageCenter.MakeSHMessage("AM",[n],1,GeZiManager.PCP.Pturn,"getOne")
     if ( GeZiManager.Tcharacter) {
           GeZiManager.Tcharacter.node.getChildByName("MTX").getComponent(MTX).playFrameAnimation1("Tui");
          
     }
-    MessageCenter.MakeSHMessage("AM",[GeZiManager.PCP.ZB],o,null,"Qi-")
-        MessageCenter.MakeSHMessage("AM",[n],o/2,GeZiManager.PCP.Pturn,"Qi+")
-
 if (GeZiManager.Tcharacter&&GeZiManager.Tcharacter.M!="沉甸甸") {
       MessageCenter.MakeSHMessage("AM",[n],[GeZiManager.PCP.turn8([GeZiManager.PCP.faceIs(n)])[0],0.3],GeZiManager.PCP.Pturn,"move")
 }
@@ -953,9 +1196,6 @@ if (GeZiManager.Tcharacter&&GeZiManager.Tcharacter.M!="沉甸甸") {
     
       AudioManager.instance.ZJP("magic",14)
     }
-    
-    
-    
     
     
     
@@ -981,7 +1221,7 @@ if (GeZiManager.Tcharacter&&GeZiManager.Tcharacter.M!="沉甸甸") {
             case 'ice':this.Dice(message.Content);n="冰冻";l="FASHU2-10"//if(this.PPC()){this.MCD[5]+=4}
             
             break;
-            case 'earthquake':this.Dearthquake();n="地震";l="FASHU2-7"//if(this.PPC()){this.MCD[6]+=5}
+            case 'earthquake':this.Dearthquake(message.Content);n="地震";l="FASHU2-7"//if(this.PPC()){this.MCD[6]+=5}
             
             break;
             case 'TP':this.DTP(message.Content);n="传送";l="FASHU2-9"//if(this.PPC()){this.MCD[7]+=5}
@@ -996,13 +1236,13 @@ if (GeZiManager.Tcharacter&&GeZiManager.Tcharacter.M!="沉甸甸") {
             case 'KB':this.DKB(message.Content);n="激怒";l="FASHU2-6"//if(this.PPC()){this.MCD[1]+=4}
             
             break;
-            case 'BZ':this.DBZ(message.Content);n="魔法矩阵";l="FASHU2-14"//if(this.PPC()){this.MCD[1]+=4}
+            case 'BZ':this.DXi(message.Content);n="魔法矩阵";l="FASHU2-14"//if(this.PPC()){this.MCD[1]+=4}
             
             break;
             case 'tree':this.Dtree(message.Content);n="通灵召唤";l="FASHU2-13"//if(this.PPC()){this.MCD[1]+=4}
             
             break;
-            case 'pig':this.Dpig();n="光阴似箭";l="FASHU2-15"//if(this.PPC()){this.MCD[1]+=4}
+            case 'pig':this.Drock();n="光阴似箭";l="FASHU2-15"//if(this.PPC()){this.MCD[1]+=4}
             
             break;
             case 'tui':this.Dtui(message.Content);n="推";l="FASHU2-16"//if(this.PPC()){this.MCD[1]+=4}
@@ -1087,6 +1327,23 @@ if (GeZiManager.Tcharacter&&GeZiManager.Tcharacter.M!="沉甸甸") {
               break;
         }
         } 
+
+
+getOX(){
+
+for (let a of this.son) {
+   if (a.OX==true) {
+    return
+   }
+    
+}
+
+
+}
+
+
+
+
     }
     /*
      1  火球(fireball)【2】{2}：施法者指定以自身为中心的4格范围内的任意一格引导火球，在下一次轮到施法者的回合时，该指定格火球降下，对该格单位造成2点魔法伤害，若命中地雷会直接将其引爆

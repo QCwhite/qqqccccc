@@ -25,15 +25,19 @@ start () {
 }
 Walk3(ZB: number): void {
 
-        let o=this.target.getNIGno5(ZB);
-        for(let j of o){ if(!this.target.fly){GeZiManager.DLBZ(j,this.ZB,false)}}
-        for(let j of o){ GeZiManager.getQin(j,this.target.ZB)}
+    
+    
+    
+    
+        //  let o=this.target.getNIGno5(ZB);
+    //    for(let j of o){ if(!this.target.fly){GeZiManager.DLBZ(j,this.ZB,false)}}
+     //   for(let j of o){ GeZiManager.getQin(j,this.target.ZB)}
 
 
-        MessageCenter.MakeSHMessage("AM",this.target.getNIGno5(this.target.ZB),[1,"DZ"],this.target.Pturn,"mofaT")
+   //     MessageCenter.MakeSHMessage("AM",this.target.getNIGno5(this.target.ZB),[1,"DZ"],this.target.Pturn,"mofaT")
 
 
-
+  MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,this.target.Pturn,"TNS")
 
 }
 remove(): void {

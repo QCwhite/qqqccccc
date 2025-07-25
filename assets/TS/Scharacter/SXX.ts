@@ -204,6 +204,43 @@ switch (n) {
 }
 
     }
+
+
+getJNP(i:number){
+
+switch (i) {
+    case 1:return this.skiil1
+        
+        break;
+ case 2:return this.skiil2
+        
+        break;
+
+         case 3:return this.skiil3
+        
+        break;
+
+         case 4:return this.skiil4
+        
+        break;
+
+         case 5:return this.skiil5
+        
+        break;
+
+         case 6:return this.skiil6
+        
+        break;
+
+
+
+    default:
+        break;
+}
+
+
+}
+
 }
 
 

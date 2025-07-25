@@ -25,7 +25,7 @@ k:number=0
        // this.target.qi3.push(this)
         this.target.magic3.push(this)
 
-        if(this.color=="Red"){
+        if(this.target.color=="Red"){
            if (   GeZiManager.Rhun==0) {
                GeZiManager.Rhun+=1
            }
@@ -62,10 +62,10 @@ remove(): void {
 
 let k=GeZiManager.Rhun
     if (this.target.color=="Blue") {
-        let k=GeZiManager.Bhun    
+        k=GeZiManager.Bhun    
     }
 
-    k+=this.target.Ehun
+   // k+=this.target.Ehun
           MessageCenter.MakeSHMessage("AM",[this.target.ZB],k,this.target.Pturn,"TN+")
   }
 }

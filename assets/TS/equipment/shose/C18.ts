@@ -20,15 +20,22 @@ export default class C18 extends CXX {
            Cname:string="火箭靴"
 start () {
       this.target=this.node.getComponent(Character);
-      this.target.TNJJ[0]+=2
+      this.target.TNJJ[0]+=1
       this.target.TNJJ[1]-=2
    this.changeEP()
 }
 remove(): void {
       this.target.TNJJ[1]+=2
-      this.target.TNJJ[0]-=2
+      this.target.TNJJ[0]-=1
 
 }
+
+Walk2(ZB: number): void {
+         
+ let c=this.target.turn8([this.target.faceTo])[0]     
+      MessageCenter.MakeSHMessage("AM",[this.target.findGe(c,1)],[c,0.3],this.node.getComponent(Character).Pturn,"move")   
+}
+
 }
 
 

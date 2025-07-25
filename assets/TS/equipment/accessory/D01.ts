@@ -42,7 +42,7 @@ if (n>0) {
 for(let j of o){
 MessageCenter.MakeSHMessage("AM",[j],1,this.target.Pturn,"getOne")  
 if (GeZiManager.Tcharacter&&GeZiManager.Tcharacter!=this.target&&GeZiManager.Tcharacter.accessory&&GeZiManager.Tcharacter.accessory.TheNumber!="D01"&&GeZiManager.Tcharacter.color==this.target.color&&(GeZiManager.Tcharacter.HP==this.target.HP||GeZiManager.Tcharacter.qi==this.target.qi)&&GeZiManager.Tcharacter.HP!=GeZiManager.Tcharacter.MaxHP) {
-MessageCenter.MakeSHMessage("AM",[j],1,this.target.Pturn,"HP+")  
+MessageCenter.MakeSHMessage("AM",[j],1,-1,"HP+")  
 //console.log(GeZiManager.Tcharacter) 
 }
 
@@ -54,7 +54,7 @@ o= GeZiManager.onX(this.target.x)
 for(let j of o){
 MessageCenter.MakeSHMessage("AM",[j],1,this.target.Pturn,"getOne")  
 if (GeZiManager.Tcharacter&&GeZiManager.Tcharacter!=this.target&&GeZiManager.Tcharacter.accessory.TheNumber!="D01"&&GeZiManager.Tcharacter.color==this.target.color&&(GeZiManager.Tcharacter.HP==this.target.HP||GeZiManager.Tcharacter.qi==this.target.qi)&&GeZiManager.Tcharacter.HP!=GeZiManager.Tcharacter.MaxHP) {
-MessageCenter.MakeSHMessage("AM",[j],1,this.target.Pturn,"HP+") 
+MessageCenter.MakeSHMessage("AM",[j],1,-1,"HP+") 
 //console.log(GeZiManager.Tcharacter)  
 }
 
@@ -104,6 +104,15 @@ remove(){
 GeZiManager.shanchu(this.target.walk2,this)
 // GeZiManager.shanchu(this.target.qi3,this)
 GeZiManager.shanchu(this.target.HPm2,this) 
+
+
+
+
+
+
+
+
+
 }
 
 

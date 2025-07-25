@@ -21,8 +21,8 @@ export default class A164 extends A151 {
     SH: number=2
     level: number = 6
     TheNumber: string ="A164";
- TNJ: number=-2;
-Aface: number[]=[1,2,3];
+ TNJ: number=-3;
+Aface: number[]=[2];
   Attack1(): void {
         let a =this.node.getComponent(Character)
         if (!GeZiManager.BanMove.includes(a.findGe(a.faceTo,1))) {
@@ -44,7 +44,9 @@ this.target.Fus(-2)
            
         }else{ c= GeZiManager.Bhun; }
         
-               MessageCenter.MakeSHMessage("AM",[this.node.getComponent(Character).ZB],c,this.node.getComponent(Character).Pturn,"Qi+")
+              // MessageCenter.MakeSHMessage("AM",[this.node.getComponent(Character).ZB],c,this.node.getComponent(Character).Pturn,"Qi+")
+
+               this.target.attack1.push(this)
     }
 //   /* 
     Behurt2(m:SHMessage,BeHC:any,HC:any) {
@@ -71,12 +73,13 @@ this.target.Fus(-2)
         console.log(this.node.getComponent(Character).Pturn)
         if(this.node.getComponent(Character).attack2!=null){for(let a of this.node.getComponent(Character).attack2){a.Attack2(an);}}
 
-        if (this.target.qi%2==0) {
-        MessageCenter.MakeSHMessage("AM", an, this.SH,this.node.getComponent(Character).Pturn, "mofa")
-        }else{        MessageCenter.MakeSHMessage("AM", an, this.SH,this.node.getComponent(Character).Pturn, "wuli")}
+       // if (this.target.qi%2==0) {
+       // MessageCenter.MakeSHMessage("AM", an, this.SH,this.node.getComponent(Character).Pturn, "mofa")
+      //  }else{     
+         MessageCenter.MakeSHMessage("AM", an, this.SH,this.node.getComponent(Character).Pturn, "wuli")//}
 
 
-        MessageCenter.MakeSHMessage("AM",[this.node.getComponent(Character).ZB],this.getTNC(3)+this.TNJ-1,this.node.getComponent(Character).Pturn,"TN-")
+        MessageCenter.MakeSHMessage("AM",[this.node.getComponent(Character).ZB],this.getTNC(3)+this.TNJ,this.node.getComponent(Character).Pturn,"TN-")
 
         if(this.node.getComponent(Character).attack3!=null){for(let a of this.node.getComponent(Character).attack3){a.Attack3(an);}}
 

@@ -34,8 +34,8 @@ c:number=3
        }
 
 GeZiManager.Tcharacter=null
-    MessageCenter.MakeSHMessage("AM",[GeZiManager.line(this.target.ZB,1,this.target.faceTo,GeZiManager.BanMove)],1,this.target.Pturn,"getOneC");
-  MessageCenter.MakeSHMessage("AM",[GeZiManager.Tcharacter.ZB],1,this.target.Pturn,"Qi-");
+  //  MessageCenter.MakeSHMessage("AM",[GeZiManager.line(this.target.ZB,1,this.target.faceTo,GeZiManager.BanMove)],1,this.target.Pturn,"getOneC");
+ // MessageCenter.MakeSHMessage("AM",[GeZiManager.Tcharacter.ZB],1,this.target.Pturn,"Qi-");
 
            this.changeEP()
     }

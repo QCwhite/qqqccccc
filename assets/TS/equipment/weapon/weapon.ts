@@ -44,6 +44,7 @@ TNJ=0;
 target:Character=null
 DT:boolean=false//是否可以选择攻击位置
 Ytype:number=0
+isFar:boolean=false
 constructor(){
 
 super();
@@ -194,6 +195,105 @@ attack() {
   this.node.getComponent(Character).delay=0
  }
  
+
+
+
+
+getAttackF(){
+let n=[]
+if (this.isFar) {
+  
+
+if (this.BTS==0&&this.BT) {
+GeZiManager.ToAttack([this.node.getComponent(Character).findGe(this.node.getComponent(Character).faceTo,1)],2,0,0,[])
+return
+}
+
+
+
+
+
+
+   let AF = [].concat(this.Aface);
+   let i = 0;
+   switch (this.node.getComponent(Character).faceTo) {
+     case 6: i = 1;
+       break;
+     case 8: i = 2;
+       break;
+     case 4: i = 3;
+       break;
+   }
+
+
+   for (let n = 1; n <= i; n++) {
+     this.turn6(AF);
+   }
+let j=[]
+let g=[]
+let g2=[]
+
+
+   for (let mannger of AF) {
+     j.push(this.node.getComponent(Character).findGe(mannger, 1));
+         j.push(this.node.getComponent(Character).findGe(mannger, 2));
+            j.push(this.node.getComponent(Character).findGe(mannger, 3));
+                j.push(this.node.getComponent(Character).findGe(mannger, 4));
+                     j.push(this.node.getComponent(Character).findGe(mannger, 5));
+                         j.push(this.node.getComponent(Character).findGe(mannger, 6));
+                             j.push(this.node.getComponent(Character).findGe(mannger, 7));
+ n= GeZiManager.line(this.node.getComponent(Character).ZB,8,mannger,j)
+ g= GeZiManager.line(this.node.getComponent(Character).ZB,1,mannger,GeZiManager.BanMove)
+
+for (let i of n) {
+g2.push(i)
+  if (i==g) {
+    break;
+  }
+}
+
+n=g2
+                            }
+
+
+
+}else{
+if(this.node.getComponent(Character).attack1.length!=null){for(let a of this.node.getComponent(Character).attack1){a.Attack1()}}
+   let AF = [].concat(this.Aface);
+   let i = 0;
+   switch (this.node.getComponent(Character).faceTo) {
+     case 6: i = 1;
+       break;
+     case 8: i = 2;
+       break;
+     case 4: i = 3;
+       break;
+   }
+
+
+   for (let n = 1; n <= i; n++) {
+     this.turn6(AF);
+   }
+   for (let mannger of AF) {
+     n.push(this.node.getComponent(Character).findGe(mannger, 1));
+   }
+
+}
+GeZiManager.ToAttacko(n,this.node.getComponent(Character).getTN(3),0,this.SH,[])
+
+
+GeZiManager.ToAttack([this.node.getComponent(Character).findGe(this.node.getComponent(Character).faceTo, 1)],this.node.getComponent(Character).getTN(3),0,this.SH,[])
+
+
+}
+
+
+
+
+
+
+
+
  
 }//攻击，每个武器不同，这个是空手的攻击的攻击方法，角色攻击调用武器的攻击方法
 

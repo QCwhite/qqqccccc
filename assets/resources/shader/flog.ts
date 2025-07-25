@@ -2,6 +2,7 @@ import { _decorator, Component, Material, Vec3, tween, Vec4 } from 'cc';
 import { Sprite, find } from 'cc';
 import AnimalManager from '../../TS/Manager/AnimalManager';
 import gif1 from '../../TS/BASE/spineANDgif/gif';
+import { Alphaflog } from './Alphaflog';
 
 const { ccclass, property, executeInEditMode } = _decorator;
 
@@ -12,13 +13,13 @@ enum FlashMode {
     HEARTBEAT = 2   // 心跳式双闪
 }
 
-@ccclass('DynamicFlickerEffect')
+@ccclass('flog')
 @executeInEditMode
 export class flog extends Component {
     // ---------- 浮动动画参数 ----------
     @property({ tooltip: "浮动高度" })
     floatHeight: number = 35;
-
+  @property(Number)
     floatDuration: number = 3;
 
     // ---------- 闪烁效果参数 ----------
@@ -130,10 +131,22 @@ export class flog extends Component {
             .to(0.5, { position: this._originalPos })
             .call(() => {
                 // 设置材质为默认状态
-                this.setEmissionPower(0);
+                this.setEmissionPower(0.0);
             })
             .start();
             console.log( this.node.name+":"+this._isPaused )
+
+
+
+
+
+if (this.node.getChildByName("BUIL")) {
+    this.node.getChildByName("BUIL").getComponent(Alphaflog).stopFlicker()
+}
+
+
+
+
     }
     
     resume() {
@@ -160,6 +173,11 @@ export class flog extends Component {
             this._timeAccumulator = this._pausedFloatTime;
             this.setEmissionPower(this._pausedEmissionPower);
         }
+
+        if (this.node.getChildByName("BUIL")) {
+    this.node.getChildByName("BUIL").getComponent(Alphaflog).startFlicker()
+}
+
     }
     
     // ---------- 辅助方法 ----------
@@ -181,7 +199,7 @@ export class flog extends Component {
         return 0;
     }
     
-    private setEmissionPower(power: number) {
+    private setEmissionPower(power:any) {
         for (const material of this.materialInstance) {
             if (material && material instanceof Material) {
                 const pass = material.passes[0];

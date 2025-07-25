@@ -21,9 +21,9 @@ export default class D12 extends DXX {
     Cname:string="猎牙"
     start () {
        this.target=this.node.getComponent(Character);
-       this.target.shop2.push(this)
-//      this.target.kill3.push(this)
-
+      // this.target.shop2.push(this)
+    // this.target.kill3.push(this)
+this.target.hurt1.push(this)
 this.target.walk3.push(this)
     this.changeEP()
 }
@@ -49,8 +49,8 @@ Shop2(A: string, s: boolean): void {
 }
 Kill3(n: number): void {
        if (this.target.getc(n).tt=="human") {
-       MessageCenter.MakeSHMessage("AM",[this.target.ZB],1,this.target.Pturn,"TNS")
-       MessageCenter.MakeSHMessage("AM",[this.target.ZB],2,this.target.Pturn,"Qi+")
+     //  MessageCenter.MakeSHMessage("AM",[this.target.ZB],4,this.target.Pturn,"TN")
+      
        }
 }
 remove(): void {
@@ -59,6 +59,11 @@ remove(): void {
        GeZiManager.shanchu(this.target.shop2,this)
        GeZiManager.shanchu(this.target.kill3,this)
        this.target.weapon.CJ-=99
+}
+
+
+Hurt1(Pturn: number, arg1: number): void {
+        MessageCenter.MakeSHMessage("AM",[this.target.ZB],arg1,this.node.getComponent(Character).Pturn,"TN+")
 }
 }
 

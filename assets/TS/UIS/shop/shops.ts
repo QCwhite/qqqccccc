@@ -139,7 +139,7 @@ export default class Shops extends ComponentBase {
       if (th!=null) {
         
       console.log(th)
-if (th[1]=="X") {
+if (th[1]=="X"||!th) {
   return null
 }
 if (th=="Hun") {
@@ -147,13 +147,9 @@ if (th=="Hun") {
 }
 
 
-      if (th=="D10") {
-        return this.A
-      }
+    
       
-      if (th=="D16") {
-        return this.find(10,"D16","",0)
-      }
+    
       if (th[0]=="F") {
       switch (th[2]) {
         case "0":  return this.FU.getSpriteFrame("fire")
@@ -201,14 +197,16 @@ if (th=="Hun") {
         } 
       }else{
 
-      
+     
         //console.log(this.loadEquipmentTexture(th,face))
 // 加载装备 A110 的朝向 2 的图片
 let o=this.loadImageAndApply(this.loadEquipmentTexture(th,face),face,to,who)
 return o
 
 
-
+  if (th=="D16") {
+        return this.find(10,"D16","",0)
+      } 
       
         
       }

@@ -173,15 +173,15 @@ for (let  o of TGManager.TG) {
        TGManager.G2=[]
        TGManager.G3=[]
        TGManager.G4=[]
-          TGManager.G1.push("sWater");
-          TGManager.G2.push("sWater") ;
-          TGManager.G3.push("sWater");
-          TGManager.G4.push("sWater") ;
-          TGManager.G1.push("Hun");
-          TGManager.G2.push("Hun") ;
-          TGManager.G3.push("Hun");
-          TGManager.G4.push("Hun") ;
-             
+         
+   let g1=   TGManager.createStringPairs("sWater","TN","Qi","Hun")
+       
+       
+       TGManager.G1=g1[0].concat()
+       TGManager.G2=g1[1] .concat()  
+       TGManager.G3=g1[2].concat()
+       TGManager.G4=g1[3].concat()
+        console.log(g1)     
       break;
 
 
@@ -326,7 +326,7 @@ results.forEach(({ str, num }) => {
     TGManager.YTG(num,str,0);
 });
 let o=TGManager.randomSelect(TGManager.QQ1.concat(TGManager.QQ2,TGManager.QQ3,TGManager.QQ4),GeZiManager.BanMove.concat(c),TGManager.NOR.length,true)
-    for (let index = 0; index < TGManager.NOR.length; index++) {
+    for (let index = 0; index < 7; index++) {
     
       TGManager.YTG(o[index],TGManager.NOR[index],o[index+1])
       
@@ -357,7 +357,10 @@ console.log([n,TG1])
   MessageCenter.MakeGMessage("AM",[n,TG1],9,-1,"FTP");
 }
 console.log([ZB,TG])
-          MessageCenter.MakeGMessage("AM",[ZB,TG],9,-1,"FTP");}
+        
+
+
+MessageCenter.MakeGMessage("AM",[ZB,TG],9,-1,"FTP");}
         
         }
 
@@ -491,7 +494,7 @@ for (let index = 0; index < TGManager.TG.length; index++) {
          // this.Ybox()
           //this.YYY();
          // TGManager.TGM()
-         TGManager.MAKE()
+    //     TGManager.MAKE()
           console.log(turn.round)
         }
         
@@ -535,6 +538,97 @@ for (let index = 0; index < TGManager.TG.length; index++) {
           return shuffled.slice(0, Math.min(count, shuffled.length));
         }
     
+
+
+
+
+
+
+
+
+
+ static createStringPairs(str1: string, str2: string, str3: string, str4: string): string[][] {
+    // 检查所有字符串是否互不相同
+    const uniqueStrings = new Set([str1, str2, str3, str4]);
+    if (uniqueStrings.size !== 4) {
+        throw new Error("所有输入字符串必须是唯一的");
+    }
+
+    // 创建所有可能的有效组合（每组两个不同字符串）
+    const allPairs: string[][] = [];
+    const strings = [str1, str2, str3, str4];
+    
+    for (let i = 0; i < strings.length; i++) {
+        for (let j = i + 1; j < strings.length; j++) {
+            allPairs.push([strings[i], strings[j]]);
+        }
+    }
+    
+    // 计算每个字符串的出现次数
+    const countMap = new Map<string, number>();
+    strings.forEach(str => countMap.set(str, 0));
+    
+    // 选择4个组合，确保每个字符串恰好出现两次
+    const selectedPairs: string[][] = [];
+    const usedIndices = new Set<number>();
+    
+    // 尝试所有可能的组合选择
+    for (let a = 0; a < allPairs.length; a++) {
+        for (let b = a + 1; b < allPairs.length; b++) {
+            for (let c = b + 1; c < allPairs.length; c++) {
+                for (let d = c + 1; d < allPairs.length; d++) {
+                    // 重置计数器
+                    countMap.forEach((_, key) => countMap.set(key, 0));
+                    const indices = [a, b, c, d];
+                    
+                    // 计算当前选择的组合中每个字符串的出现次数
+                    for (const idx of indices) {
+                        const pair = allPairs[idx];
+                        countMap.set(pair[0], countMap.get(pair[0])! + 1);
+                        countMap.set(pair[1], countMap.get(pair[1])! + 1);
+                    }
+                    
+                    // 检查是否每个字符串恰好出现两次
+                    const isValid = Array.from(countMap.values()).every(count => count === 2);
+                    
+                    if (isValid) {
+                        // 返回第一个有效的组合
+                        return [allPairs[a], allPairs[b], allPairs[c], allPairs[d]];
+                    }
+                }
+            }
+        }
+    }
+    
+    // 如果找不到有效组合（理论上不会发生，因为4个唯一字符串有6种组合）
+    throw new Error("无法创建满足条件的组合");
+}
+
+
+shuffleArray(array) {
+    // 创建数组副本，避免修改原数组
+    const result = [...array];
+    
+    // Fisher-Yates (Knuth) 洗牌算法
+    for (let i = result.length - 1; i > 0; i--) {
+        // 生成随机索引 (0 到 i)
+        const j = Math.floor(Math.random() * (i + 1));
+        
+        // 交换元素位置
+        [result[i], result[j]] = [result[j], result[i]];
+    }
+    
+    return result;
+}
+
+
+
+
+
+
+
+
+
 }
 
 

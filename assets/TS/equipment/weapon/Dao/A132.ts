@@ -112,6 +112,38 @@ AudioManager.instance.ZJP("attack",this.Ytype)
        GeZiManager.Bu.push(3);
 
 }
+
+
+ getAttackF(){
+ let n=[]
+ 
+    let AF = [].concat(this.Aface);
+    let i = 0;
+    switch (this.node.getComponent(Character).faceTo) {
+      case 6: i = 1;
+        break;
+      case 8: i = 2;
+        break;
+      case 4: i = 3;
+        break;
+    }
+ 
+ 
+    for (let n = 1; n <= i; n++) {
+      this.turn6(AF);
+    }
+    for (let mannger of AF) {
+      n.push(this.node.getComponent(Character).findGe(mannger, 1));
+    }
+ 
+ 
+ GeZiManager.ToAttack([n[0]],this.node.getComponent(Character).getTN(3),0,this.SH,[])
+  GeZiManager.ToAttack([n[1]],this.node.getComponent(Character).getTN(3),0,this.SH+1,[])
+  GeZiManager.ToAttack([n[2]],this.node.getComponent(Character).getTN(3),0,this.SH,[])
+ 
+ 
+ 
+ }
 }
 
 

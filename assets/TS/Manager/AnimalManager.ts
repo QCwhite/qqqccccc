@@ -86,7 +86,7 @@ P1SN:number=0;
  P4SN:number=0;
  P5SN:number=0;
  P6SN:number=0;
-juese:string[]=["SXX","S04","S02","S00","S08","S09","S05"];
+juese:string[]=["SXX","S05","S02","S01","S04","S08","S03"];
 @property(Prefab)
  s00:Prefab=null;
  @property(Prefab)
@@ -343,7 +343,7 @@ makeBox(ZB:number,type:number){
    box1.setParent(this.node)
    box1.getComponent(box).ZB=ZB;
   
-  
+   box1.getComponent(realThing).WD=false;
     box1.getComponent(realThing).M="正常";
    // GeZiManager.rock.push(ZB);
 
@@ -1172,10 +1172,13 @@ switch (index) {
 }
 }
 
-for (let g of GeZiManager.sideUI) {
+
+
+setTimeout(()=>{for (let g of GeZiManager.sideUI) {
 g.setJN()
     
-}
+}},200)
+
 
 
 
@@ -1190,7 +1193,9 @@ console.log("abc")
    
         
       //  GeZiManager.blueBan();
-            
+     if (KHD2.PT.includes(1)) {
+        
+         
             setTimeout(() => {
                 MessageCenter.MakeGMessage("TN",TNanager.makePool(),0,0,"pool") 
             }, 600);
@@ -1198,7 +1203,7 @@ console.log("abc")
           find("Canvas/DituManager/New Node/AnimalManager").getComponent(ZManager).Cx()},800)
     
       setTimeout(()=>{MessageCenter.MakeGMessage("AM",[0],1111,1,"FTP");},1200)  
-  }
+  } }  
 
 
 

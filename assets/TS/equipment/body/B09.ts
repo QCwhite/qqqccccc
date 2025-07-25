@@ -23,12 +23,13 @@ export default class B09 extends BXX {
 HD:number=3
     start () {
        this.target=this.node.getComponent(Character);
-       this.target.dead2.push(this)
-       this.target.behurt3.push(this)
+      // this.target.dead2.push(this)
+      // this.target.behurt3.push(this)
 
-       this.target.wk+=99
-       this.target.mk+=99
+      // this.target.wk+=99
+      // this.target.mk+=99
           this.changeEP()
+
     }
   Behurt3(n: number,killp:realThing){
        this.HD--
@@ -66,8 +67,8 @@ FH1(n: number): void {
 }
 remove(){
        this.target.changeE("DXX")
-       GeZiManager.shanchu(this.target.behurt3,this);
-       GeZiManager.shanchu(this.target.dead2,this)
+     //  GeZiManager.shanchu(this.target.behurt3,this);
+    //   GeZiManager.shanchu(this.target.dead2,this)
 }
 }
 

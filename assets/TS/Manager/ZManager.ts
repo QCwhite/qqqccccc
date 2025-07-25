@@ -140,9 +140,9 @@ export default class ZManager extends ManagerBase {
         
         YmakeGrass(){
         
-            let j=this.addZ([0],[1,2,3],this.mArr1Arr2(GeZiManager.BanMove,GeZiManager.trees,GeZiManager.grass,GeZiManager.boxs,GeZiManager.aos))
+          //  let j=this.addZ([0],[1,2,3],this.mArr1Arr2(GeZiManager.BanMove,GeZiManager.trees,GeZiManager.grass,GeZiManager.boxs,GeZiManager.aos))
             
-            MessageCenter.MakeGMessage("AM",[j],11,1,"FTP");
+         //   MessageCenter.MakeGMessage("AM",[j],11,1,"FTP");
             
             }
             Ybox(){
@@ -277,7 +277,7 @@ GeZiManager.BanMove.push(s3)
                     
                     break;
                     case "box":
-                      this.Ybox();
+                     // this.Ybox();
                    //  o=this.addZ([0],[2,3],this.mArr1Arr2(GeZiManager.BanMove,GeZiManager.getAllOZB(),GeZiManager.grass,GeZiManager.waterPool,GeZiManager.boxs))
                    // MessageCenter.MakeGMessage("AM",[o],1,1,"FTP");//this.YPig(2)//
                     
